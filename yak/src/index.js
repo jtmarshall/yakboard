@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from 'react-router-dom';
 import './global.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -14,10 +15,10 @@ const store = createStore(reducer, compose(
 ));
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         <Provider store={store}>
             <App/>
         </Provider>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById('root'));
 registerServiceWorker();
