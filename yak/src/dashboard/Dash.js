@@ -1,8 +1,11 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
+import Export from './components/Export';
+
 
 const Dash = () => (
     <div className="dash">
-        <h1>Dash Page</h1>
+        <Route path="/export" exact component={Export}/>
     </div>
 );
 
