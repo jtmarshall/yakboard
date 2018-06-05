@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 import Chip from '@material-ui/core/Chip';
-import api from './api/api';
+import api from '../api/api';
 
 let suggestions = [];
 
@@ -164,7 +164,7 @@ class FacilityAutoComplete extends React.Component {
                       selectedItem: selectedItem2,
                       highlightedIndex,
                   }) => (
-                    <div className='autoComplete-container'>
+                    <div className='col-lg-8 autoComplete-container'>
                         {renderInput({
                             fullWidth: true,
                             InputProps: getInputProps({
@@ -196,8 +196,10 @@ class FacilityAutoComplete extends React.Component {
                                 )}
                             </Paper>
                         ) : null}
+
                     </div>
                 )}
+
             </Downshift>
         );
     }
