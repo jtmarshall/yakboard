@@ -42,6 +42,20 @@
     padding: 5px 10px;
 }
 
+.autoComplete-paper {
+    position: fixed;
+    z-index: 1;
+    margin-top: 50px;
+}
+.autoComplete-chip {
+    margin: 2px 4px;
+}
+
+.autoComplete-inputRoot {
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
 .datePicker {
     display: inline-flex;
 }

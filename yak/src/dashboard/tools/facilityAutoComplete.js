@@ -97,12 +97,11 @@ class FacilityAutoComplete extends React.Component {
     }
 
     // Check local storage for saved facilities
-    savedFacilities = localStorage.getItem("selectedFacilities") != null ?
-        localStorage.getItem("selectedFacilities") : [];
+    savedFacilities = this.props.selected;
 
     state = {
         inputValue: '',
-        selectedItem: this.savedFacilities.length > 0 ? this.savedFacilities.split(',') : [],
+        selectedItem: this.savedFacilities //this.savedFacilities.length > 0 ? this.savedFacilities.split(',') : [],
     };
 
     handleKeyDown = event => {
@@ -115,7 +114,7 @@ class FacilityAutoComplete extends React.Component {
 
             // Pass updated selected facilities back to parent component
             this.props.onUpdate(selectedItem);
-            localStorage.setItem("selectedFacilities", selectedItem);
+            // localStorage.setItem("selectedFacilities", selectedItem);
         }
     };
 
@@ -137,7 +136,7 @@ class FacilityAutoComplete extends React.Component {
 
         // Pass updated selected facilities back to parent component
         this.props.onUpdate(selectedItem);
-        localStorage.setItem("selectedFacilities", selectedItem);
+        //localStorage.setItem("selectedFacilities", selectedItem);
     };
 
     handleDelete = item => () => {
@@ -148,7 +147,7 @@ class FacilityAutoComplete extends React.Component {
 
         // Pass updated selected facilities back to parent component
         this.props.onUpdate(selectedItem);
-        localStorage.setItem("selectedFacilities", selectedItem);
+        //localStorage.setItem("selectedFacilities", selectedItem);
     };
 
     render() {

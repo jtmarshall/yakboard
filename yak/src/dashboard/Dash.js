@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import moment from 'moment';
+import toolbox from './tools/toolbox';
 import FacilityAutoComplete from './tools/facilityAutoComplete';
 import DatePicker from './tools/datePicker';
 import Sidebar from './sidebar/Sidebar';
@@ -10,19 +11,41 @@ import Export from './components/Export';
 import Settings from "./components/Settings";
 
 
+// Global state for local storage
+let savedState = [];
+
 class Dash extends React.Component {
 
-    // TODO: Implement state for facility and date time-frame here to persist through app changes
-    state = {
-        SelectedFacility: localStorage.getItem("selectedFacilities") != null ?
-            localStorage.getItem("selectedFacilities") : [],
-        DateFrame: {
-            From: localStorage.getItem("fromDate") != null ?
-                localStorage.getItem("fromDate") : moment().subtract(7, 'days').format('YYYY-MM-DD'),
-            To: localStorage.getItem("toDate") != null ?
-                localStorage.getItem("toDate") : moment().format('YYYY-MM-DD')
+    constructor(props) {
+        super(props);
+
+        // Retrieve local store
+        let yakPak = toolbox.retrievePak();
+
+        this.state = {
+            SelectedFacility: yakPak != null ?
+                yakPak.SelectedFacility : [],
+            DateFrame: {
+                From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
+                To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD')
+            }
+        };
+
+        // Set global state so it's not empty
+        savedState = this.state;
+    }
+
+    // Set offload func to save to local store just once on unload
+    componentDidMount() {
+        window.onbeforeunload = function() {
+            toolbox.storePak(savedState);
         }
-    };
+    }
+
+    // Update global state for onbeforeunload func
+    componentDidUpdate() {
+        savedState = this.state;
+    }
 
     // Update SelectedFacility state
     updateSelectedFacility = (val) => {
@@ -44,7 +67,7 @@ class Dash extends React.Component {
     render() {
         return (
             <div className="dash">
-                    <FacilityAutoComplete onUpdate={this.updateSelectedFacility}/>
+                    <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
 
                     <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
                 <Sidebar/>
