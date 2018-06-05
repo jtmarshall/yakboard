@@ -61,6 +61,7 @@
     background: #222;
     padding: 10px;
     width: 150px;
+    height: 100%;
 }
 
 .sidebarComponent a {
