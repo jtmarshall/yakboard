@@ -4,7 +4,6 @@ import Dash from './dashboard/Dash';
 
 
 class App extends Component {
-
     render() {
         return (
             <div className="App">

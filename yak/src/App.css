@@ -14,7 +14,7 @@
 .App-header {
     background-color: #222;
     height: 150px;
-    padding: 20px;
+    padding: 10px;
     color: white;
 }
 
@@ -36,6 +36,22 @@
 }
 
 /* My styles added to supplement bootstrap/boilerplate */
+.autoComplete-container {
+    display: inline-flex;
+    width: 60%;
+    padding: 5px 10px;
+}
+
+.datePicker {
+    display: inline-flex;
+}
+
+.datePicker-textField {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    width: 150px;
+}
+
 .sidebarComponent {
     color: #fafafa;
     position: absolute;
@@ -44,7 +60,7 @@
     top: 0;
     background: #222;
     padding: 10px;
-    width: 180px;
+    width: 150px;
 }
 
 .sidebarComponent a {
