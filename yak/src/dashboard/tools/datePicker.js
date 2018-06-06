@@ -45,6 +45,7 @@ class DatePicker extends React.Component {
         return (
             <form className="col-lg-4 datePicker">
                 <TextField
+                    required={true}
                     id="dateFrom"
                     label="From"
                     type="date"
@@ -56,6 +57,7 @@ class DatePicker extends React.Component {
                     }}
                 />
                 <TextField
+                    required={true}
                     id="dateTo"
                     label="To"
                     type="date"
