@@ -35,6 +35,12 @@ class Dash extends React.Component {
         savedState = this.state;
     }
 
+    // // If not logged in redirect to login
+    // componentWillMount(){
+    //     if(!this.Auth.loggedIn())
+    //         this.props.history.replace('/login');
+    // }
+
     // Set offload func to save to local store just once on unload
     componentDidMount() {
         window.onbeforeunload = function() {
@@ -72,7 +78,7 @@ class Dash extends React.Component {
                     <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
                 <Sidebar/>
 
-                <Route path="/" exact render={() => <Home selected={this.state.SelectedFacility}/>}/>
+                <Route exact path="/" render={() => <Home selected={this.state.SelectedFacility}/>}/>
                 <Route path="/facility" render={() => <Facility selected={this.state.SelectedFacility}/>}/>
                 <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                 <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>
