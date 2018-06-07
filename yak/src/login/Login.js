@@ -27,7 +27,7 @@ class Login extends Component {
                     <form>
                         <input
                             className="form-item"
-                            placeholder="Username"
+                            placeholder="User"
                             name="username"
                             type="text"
                             onChange={this.handleChange}
