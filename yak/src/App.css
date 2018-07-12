@@ -67,6 +67,10 @@
     width: 150px;
 }
 
+.exportComponent {
+    display: inline-block;
+}
+
 .sidebarComponent {
     color: #fafafa;
     position: absolute;
