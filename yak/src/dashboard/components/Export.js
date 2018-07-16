@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import ExportsTable from './exportsTable';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import CardHeader from '../tools/Card/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -25,17 +27,41 @@ const styles = {
       margin: '0 2px',
       transform: 'scale(0.8)',
     },
-    title: {
-      marginBottom: 16,
-      fontSize: 14,
-    },
+
     pos: {
       marginBottom: 12,
     },
     formControl: {
         margin: '5px',
-        minWidth: 200,
+        minWidth: 240,
     },
+    cardCategoryWhite: {
+        "&,& a,& a:hover,& a:focus": {
+          color: "rgba(255,255,255,.62)",
+          margin: "0",
+          fontSize: "14px",
+          marginTop: "0",
+          marginBottom: "0"
+        },
+        "& a,& a:hover,& a:focus": {
+          color: "#FFFFFF"
+        }
+      },
+      cardTitleWhite: {
+        color: "#FFFFFF",
+        marginTop: "0px",
+        minHeight: "auto",
+        fontWeight: "300",
+        fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+        marginBottom: "3px",
+        textDecoration: "none",
+        "& small": {
+          color: "#777",
+          fontSize: "65%",
+          fontWeight: "400",
+          lineHeight: "1"
+        }
+      }
   };
 
   class Export extends Component {
@@ -70,20 +96,25 @@ const styles = {
 
     render() {
         const { classes } = this.props;
+        const currentExports = {};
         const bull = <span className={classes.bullet}>•</span>;
 
         return (
             <div className="exportComponent">
-                <h2>Export Component</h2>
+                <h2>Exports</h2>
 
-                <Card className={classes.card}>
+                <ExportsTable
+                    data={currentExports}
+                />
+
+                <Card>
+                    <CardHeader color="mint">
+                        <h4 className={classes.cardTitleWhite}>Start New Export</h4>
+                        <p className={classes.cardCategoryWhite}>
+                        Here is a subtitle for this table
+                        </p>
+                    </CardHeader>
                     <CardContent>
-                    <Typography variant="headline" component="h2">
-                        Start New Export
-                    </Typography>
-                    <Typography className={classes.title} color="textSecondary">
-                        Export Options
-                    </Typography>
                     
                     <form className={classes.container} noValidate autoComplete="off">
                         <FormControl className={classes.formControl}>
