@@ -8,7 +8,7 @@
 }
 
 .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    /*animation: App-logo-spin infinite 20s linear;*/
     height: 80px;
 }
 
@@ -45,7 +45,7 @@
 
 .autoComplete-paper {
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     margin-top: 50px;
 }
 .autoComplete-chip {
@@ -73,7 +73,7 @@
 
 .sidebarComponent {
     color: #fafafa;
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     top: 0;
@@ -367,3 +367,63 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
     background-color: transparent;
     color: #3949AB;
 }
+
+/* Export Table Styles */
+.fof {
+    margin: 1em;
+    overflow: auto;
+    margin-left: 1%;
+    width: 98%;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .exportsTable {
+    width: 100%;
+    min-width: 700px;
+    display: table !important;
+    position: unset !important;
+  }
+  
+  .exportsTable thead {
+    font-size: .8em;
+  }
+  
+  .exportsTable tr {
+    text-align: left;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+  }
+  
+  .exportsTable th {
+    padding: 8px;
+    width: 30px;
+  }
+  
+  .exportsTable td {
+    padding: 4px 10px;
+    font-size: .9em;
+  
+  }
+
+  /* .CardHeader {
+    padding: 15px;
+    margin-top: -20px;
+    border-radius: 3px;
+  }
+  .cardCategoryWhite a a:hover a:focus {
+      color: rgba(255,255,255,.62);
+      margin: 0;
+      font-size: 14px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    
+  .cardTitleWhite {
+    color: "#FFFFFF";
+    margin-top: "0px";
+    min-height: "auto";
+    font-weight: "300";
+    font-family: "'Roboto', 'Helvetica', 'Arial', sans-serif";
+    margin-bottom: "3px";
+    text-decoration: "none";
+  } */
