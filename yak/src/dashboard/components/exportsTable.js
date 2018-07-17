@@ -2,9 +2,10 @@ import React from 'react';
 import moment from 'moment';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Table from '../tools/table.js';
-import Card from '../tools/Card/Card'
+import Card from '../tools/Card/Card';
 import CardHeader from "../tools/Card/CardHeader";
 import CardBody from '../tools/Card/CardBody';
+import MaterialIcon, {colorPallet} from 'material-icons-react';
 
 
 const styles = {
@@ -48,14 +49,12 @@ function ExportsTable(props) {
                 <CardBody>
                     <Table
                     tableHeaderColor="primary"
-                    tableHead={["Name", "Email", "Options", "Time"]}
+                    tableHead={["Export Name", "", "Facility", "Options", "Email", "Time"]}
                     tableData={[
-                        ["Dakota Rice", "Uraguay", "Turnhout", "$36,738"],
-                        ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                        ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                        ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                        ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                        ["Mason Porter", "Chile", "Gloucester", "$78,615"]
+                        ["Bayside-Direct (5/1-5/31)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Bayside Marin", "Direct,All,Google", "jon.snow@acadiahealthcare.com", moment().format("lll")],
+                        ["All-Email-Other (6/19-6/20)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Email,Lead Gen,Other", "tyrion.lannister@acadiahealthcare.com", moment().format("lll")],
+                        ["All-LinkedIn (6/10-6/17)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Organic,Social,LinkedIn", "little.finger@acadiahealthcare.com", moment().format("lll")],
+                        ["Galax-PaidAd (5/1-7/1)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Galax", "PaidAd,All,GDN", "eddard.stark@acadiahealthcare.com", moment().format("lll")]
                     ]}
                     />
                 </CardBody>

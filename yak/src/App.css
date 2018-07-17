@@ -8,7 +8,7 @@
 }
 
 .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    /*animation: App-logo-spin infinite 20s linear;*/
     height: 80px;
 }
 
@@ -45,7 +45,7 @@
 
 .autoComplete-paper {
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     margin-top: 50px;
 }
 .autoComplete-chip {
@@ -405,7 +405,7 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
   
   }
 
-  .CardHeader {
+  /* .CardHeader {
     padding: 15px;
     margin-top: -20px;
     border-radius: 3px;
@@ -426,4 +426,4 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
     font-family: "'Roboto', 'Helvetica', 'Arial', sans-serif";
     margin-bottom: "3px";
     text-decoration: "none";
-  }
+  } */
