@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardBody from '@material-ui/core/Card';
-import Table from '@material-ui/core/Table';
+import Table from '../tools/table.js';
+import Card from '../tools/Card/Card';
+import CardHeader from "../tools/Card/CardHeader";
+import CardBody from '../tools/Card/CardBody';
+import ReactChart from '../tools/graph/graph';
+import withStyles from "@material-ui/core/styles/withStyles";
+import moment from "moment/moment";
+import MaterialIcon from 'material-icons-react';
 
 const styles = {
     cardCategoryWhite: {
@@ -34,7 +38,7 @@ const styles = {
     }
   };
 
-export default class Facility extends Component {
+class Facility extends Component {
     constructor(props) {
         super(props);
     }
@@ -43,31 +47,39 @@ export default class Facility extends Component {
         const { classes } = this.props;
         return (
             <div className="facilityComponent">
-                <h2>Facility Top-Level Component</h2>
+                <h2>Facility</h2>
+
+                <Card className="card">
+                    <CardHeader color="prime">
+                        <h4 className={classes.cardTitleWhite}>User Traffic</h4>
+                    </CardHeader>
+                    <CardBody style={{width: '800px'}}>
+                        <ReactChart chartData={[11, 14, 13, 8, 10, 12]}/>
+                    </CardBody>
+                </Card>
 
                 <Card>
-                <CardHeader color="primary">
-                    <h4 className={styles.cardTitleWhite}>Simple Table</h4>
-                    <p className={styles.cardCategoryWhite}>
-                    Here is a subtitle for this table
-                    </p>
-                </CardHeader>
-                <CardBody>
-                    <Table
-                    tableHeaderColor="primary"
-                    tableHead={["Name", "Country", "City", "Salary"]}
-                    tableData={[
-                        ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                        ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                        ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                        ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                        ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                        ["Mason Porter", "Chile", "Gloucester", "$78,615"]
-                    ]}
-                    />
-                </CardBody>
+                    <CardHeader color="info">
+                        <h4 className={classes.cardTitleWhite}>User Actions</h4>
+                    </CardHeader>
+                    <CardBody>
+                        <Table
+                            tableHeaderColor="primary"
+                            tableHead={["Export Name", "", "Facility", "Options", "Email", "Time"]}
+                            tableData={[
+                                ["Bayside-Direct (5/1-5/31)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Bayside Marin", "Direct,All,Google", "jon.snow@acadiahealthcare.com", moment().format("lll")],
+                                ["All-Email-Other (6/19-6/20)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Email,Lead Gen,Other", "tyrion.lannister@acadiahealthcare.com", moment().format("lll")],
+                                ["All-LinkedIn (6/10-6/17)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Organic,Social,LinkedIn", "little.finger@acadiahealthcare.com", moment().format("lll")],
+                                ["Galax-PaidAd (5/1-7/1)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Galax", "PaidAd,All,GDN", "eddard.stark@acadiahealthcare.com", moment().format("lll")]
+                            ]}
+                        />
+                    </CardBody>
                 </Card>
+
+
             </div>
         )
     }
 }
+
+export default withStyles(styles)(Facility);

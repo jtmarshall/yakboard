@@ -57,6 +57,13 @@
     flex-wrap: wrap;
 }
 
+.card {
+    max-width: 90%;
+    display: inline-flex;
+    padding: 8px;
+/*maxWidth: "90%", display: "inline-block", padding: "8px"*/
+}
+
 .datePicker {
     display: inline-flex;
 }
@@ -79,7 +86,7 @@
     top: 0;
     background: #222;
     padding: 10px;
-    width: 150px;
+    width: 160px;
     height: 100%;
 }
 
@@ -88,7 +95,7 @@
 }
 
 .sidebarComponent li {
-    padding: 4px;
+    padding: 5px;
     text-decoration: none;
     color: #fafafa;
 }
