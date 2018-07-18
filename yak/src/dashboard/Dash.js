@@ -9,6 +9,11 @@ import Home from './components/Home';
 import Facility from './components/Facility';
 import Export from './components/Export';
 import Settings from "./components/Settings";
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import MaterialIcon from 'material-icons-react';
 
 
 // Global state for local storage
@@ -73,9 +78,21 @@ class Dash extends React.Component {
     render() {
         return (
             <div className="dash">
-                    <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
+                <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
+                <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
 
-                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
+                <ExpansionPanel style={{width: '90%', display: 'inline-block', backgroundColor: '#EEEEEE', boxShadow: 'none'}}>
+                    <ExpansionPanelSummary expandIcon={<MaterialIcon icon='keyboard_arrow_down' color='#00C853' />}>
+                        <Typography className="">Filter Options</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails>
+                        <Typography>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                            sit amet blandit leo lobortis eget.
+                        </Typography>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+                
                 <Sidebar/>
 
                 <Route exact path="/" render={() => <Home selected={this.state.SelectedFacility}/>}/>

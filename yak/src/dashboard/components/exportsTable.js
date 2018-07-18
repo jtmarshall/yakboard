@@ -5,7 +5,7 @@ import Table from '../tools/table.js';
 import Card from '../tools/Card/Card';
 import CardHeader from "../tools/Card/CardHeader";
 import CardBody from '../tools/Card/CardBody';
-import MaterialIcon, {colorPallet} from 'material-icons-react';
+import MaterialIcon from 'material-icons-react';
 
 
 const styles = {
@@ -41,7 +41,7 @@ const styles = {
 function ExportsTable(props) {
     const { classes } = props;
     return (
-        <div className="">
+        <div>
             <Card>
                 <CardHeader color="warning">
                     <h4 className={classes.cardTitleWhite}>Export Status</h4>
@@ -54,7 +54,7 @@ function ExportsTable(props) {
                         ["Bayside-Direct (5/1-5/31)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Bayside Marin", "Direct,All,Google", "jon.snow@acadiahealthcare.com", moment().format("lll")],
                         ["All-Email-Other (6/19-6/20)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Email,Lead Gen,Other", "tyrion.lannister@acadiahealthcare.com", moment().format("lll")],
                         ["All-LinkedIn (6/10-6/17)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Organic,Social,LinkedIn", "little.finger@acadiahealthcare.com", moment().format("lll")],
-                        ["Galax-PaidAd (5/1-7/1)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Galax", "PaidAd,All,GDN", "eddard.stark@acadiahealthcare.com", moment().format("lll")]
+                        ["Galax-PaidAd (5/1-7/1)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Galax", "PaidAd,All,GDN", "eddard.stark@acadiahealthcare.com", moment().format("lll")],
                     ]}
                     />
                 </CardBody>
