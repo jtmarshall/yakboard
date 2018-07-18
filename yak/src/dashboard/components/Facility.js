@@ -60,17 +60,18 @@ class Facility extends Component {
 
                 <Card>
                     <CardHeader color="info">
-                        <h4 className={classes.cardTitleWhite}>User Actions</h4>
+                        <h4 className={classes.cardTitleWhite}>Channel Performance</h4>
                     </CardHeader>
                     <CardBody>
                         <Table
                             tableHeaderColor="primary"
-                            tableHead={["Export Name", "", "Facility", "Options", "Email", "Time"]}
+                            tableHead={["1st Touch", "Last Touch", "Call Touch", "# of Callers", "Calls >2", "% Total"]}
                             tableData={[
-                                ["Bayside-Direct (5/1-5/31)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Bayside Marin", "Direct,All,Google", "jon.snow@acadiahealthcare.com", moment().format("lll")],
-                                ["All-Email-Other (6/19-6/20)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Email,Lead Gen,Other", "tyrion.lannister@acadiahealthcare.com", moment().format("lll")],
-                                ["All-LinkedIn (6/10-6/17)", <MaterialIcon icon='cloud_download' color='#00C853' />, "All Facilities", "Organic,Social,LinkedIn", "little.finger@acadiahealthcare.com", moment().format("lll")],
-                                ["Galax-PaidAd (5/1-7/1)", <MaterialIcon icon='cloud_download' color='#00C853' />, "Galax", "PaidAd,All,GDN", "eddard.stark@acadiahealthcare.com", moment().format("lll")]
+                                ["Bing", "Direct", "Direct", "5", "2", "5%"],
+                                ["Google", "Direct", "Yext", "17", "9", "45%"],
+                                ["Instagram", "Direct", "Organic", "15", "12", "23%"],
+                                ["Paid Ad", "Quora", "Quora", "7", "2", "83%"],
+                                ["Yext", "Yext", "Yext", "11", "4", "34%"],
                             ]}
                         />
                     </CardBody>
