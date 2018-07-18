@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardBody from '@material-ui/core/Card';
-import Table from '@material-ui/core/Table';
+import Table from '../tools/table.js';
+import Card from '../tools/Card/Card';
+import CardHeader from "../tools/Card/CardHeader";
+import CardBody from '../tools/Card/CardBody';
+import ReactChart from '../tools/graph/graph';
+import withStyles from "@material-ui/core/styles/withStyles";
+import moment from "moment/moment";
+import MaterialIcon from 'material-icons-react';
 
 const styles = {
     cardCategoryWhite: {
@@ -34,7 +38,7 @@ const styles = {
     }
   };
 
-export default class Facility extends Component {
+class Facility extends Component {
     constructor(props) {
         super(props);
     }
@@ -43,31 +47,40 @@ export default class Facility extends Component {
         const { classes } = this.props;
         return (
             <div className="facilityComponent">
-                <h2>Facility Top-Level Component</h2>
+                <h2>Facility</h2>
+
+                <Card className="card">
+                    <CardHeader color="prime">
+                        <h4 className={classes.cardTitleWhite}>User Traffic</h4>
+                    </CardHeader>
+                    <CardBody style={{width: '800px'}}>
+                        <ReactChart chartData={[11, 14, 13, 8, 10, 12]}/>
+                    </CardBody>
+                </Card>
 
                 <Card>
-                <CardHeader color="primary">
-                    <h4 className={styles.cardTitleWhite}>Simple Table</h4>
-                    <p className={styles.cardCategoryWhite}>
-                    Here is a subtitle for this table
-                    </p>
-                </CardHeader>
-                <CardBody>
-                    <Table
-                    tableHeaderColor="primary"
-                    tableHead={["Name", "Country", "City", "Salary"]}
-                    tableData={[
-                        ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                        ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                        ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                        ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                        ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                        ["Mason Porter", "Chile", "Gloucester", "$78,615"]
-                    ]}
-                    />
-                </CardBody>
+                    <CardHeader color="info">
+                        <h4 className={classes.cardTitleWhite}>Channel Performance</h4>
+                    </CardHeader>
+                    <CardBody>
+                        <Table
+                            tableHeaderColor="primary"
+                            tableHead={["1st Touch", "Last Touch", "Call Touch", "# of Callers", "Calls >2", "% Total"]}
+                            tableData={[
+                                ["Bing", "Direct", "Direct", "5", "2", "5%"],
+                                ["Google", "Direct", "Yext", "17", "9", "45%"],
+                                ["Instagram", "Direct", "Organic", "15", "12", "23%"],
+                                ["Paid Ad", "Quora", "Quora", "7", "2", "83%"],
+                                ["Yext", "Yext", "Yext", "11", "4", "34%"],
+                            ]}
+                        />
+                    </CardBody>
                 </Card>
+
+
             </div>
         )
     }
 }
+
+export default withStyles(styles)(Facility);

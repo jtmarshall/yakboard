@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ExportsTable from './exportsTable';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Card from '../tools/Card/Card';
 import CardHeader from '../tools/Card/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
@@ -20,10 +20,10 @@ import classnames from 'classnames';
 
 const styles = {
     card: {
-      minWidth: 575,
+        minWidth: 575,
     },
     pos: {
-      marginBottom: 12,
+        marginBottom: 12,
     },
     formControl: {
         margin: '5px',
@@ -31,17 +31,17 @@ const styles = {
     },
     cardCategoryWhite: {
         "&,& a,& a:hover,& a:focus": {
-          color: "rgba(255,255,255,.62)",
-          margin: "0",
-          fontSize: "14px",
-          marginTop: "0",
-          marginBottom: "0"
+            color: "rgba(255,255,255,.62)",
+            margin: "0",
+            fontSize: "14px",
+            marginTop: "0",
+            marginBottom: "0"
         },
         "& a,& a:hover,& a:focus": {
-          color: "#FFFFFF"
+            color: "#FFFFFF"
         }
-      },
-      cardTitleWhite: {
+    },
+    cardTitleWhite: {
         color: "#FFFFFF",
         marginTop: "0px",
         minHeight: "auto",
@@ -50,15 +50,15 @@ const styles = {
         marginBottom: "3px",
         textDecoration: "none",
         "& small": {
-          color: "#777",
-          fontSize: "65%",
-          fontWeight: "400",
-          lineHeight: "1"
+            color: "#777",
+            fontSize: "65%",
+            fontWeight: "400",
+            lineHeight: "1"
         }
-      }
-  };
+    }
+};
 
-  class Export extends Component {
+class Export extends Component {
     constructor(props) {
         super(props);
     }
@@ -66,8 +66,10 @@ const styles = {
     state = {
         exportName: 'Sample Export',
         exportEmail: 'sample@placeholder.com',
+        recurrence: '',
         multiline: 'Controlled',
         facility: '',
+        touch: '',
         channel: '',
         medium: '',
         source: '',
@@ -77,7 +79,7 @@ const styles = {
         priority: '',
         trigger: '',
     };
-    
+
     handleChange = name => event => {
         this.setState({
             [name]: event.target.value,
@@ -85,11 +87,11 @@ const styles = {
     };
 
     handleSelect = event => {
-        this.setState({ [event.target.name]: event.target.value });
-      };
+        this.setState({[event.target.name]: event.target.value});
+    };
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
         const currentExports = {};
 
         return (
@@ -102,131 +104,174 @@ const styles = {
                         <p className={classes.cardCategoryWhite}>Select options for export.</p>
                     </CardHeader>
                     <CardContent>
-                    
-                    <form className={classes.container} noValidate autoComplete="off">
-                        <FormControl className={classes.formControl}>
-                            <TextField
-                            id="exportName"
-                            label="Export Name"
-                            className={classes.textField}
-                            value={this.state.exportName}
-                            onChange={this.handleChange('exportName')}
-                            margin="normal"
-                            />
-                        </FormControl>
-                        <FormControl className={classes.formControl}>
-                            <TextField
-                            id="exportEmail"
-                            label="Your Email"
-                            className={classes.textField}
-                            value={this.state.exportEmail}
-                            onChange={this.handleChange('exportEmail')}
-                            margin="normal"
-                            />
-                        </FormControl>
-                        <br/>
-                        <FormControl className={classes.formControl}>
-                            <InputLabel htmlFor="facility">Facility</InputLabel>
-                            <Select
-                                value={this.state.facility}
-                                onChange={this.handleSelect}
-                                label="Facility"
-                                inputProps={{
-                                    name: 'facility',
-                                    id: 'facility',
-                                }}
-                                autoWidth
-                            >
-                                <MenuItem value="">
-                                <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={'baysideMarin'}>Bayside Marin</MenuItem>
-                                <MenuItem value={'acadiana'}>Acadiana</MenuItem>
-                                <MenuItem value={'paid-advertising'}>Paid Advertising</MenuItem>
-                                <MenuItem value={'referring'}>Referring</MenuItem>
-                                <MenuItem value={'email'}>Email</MenuItem>
-                            </Select>
-                        </FormControl>
 
-                        <FormControl className={classes.formControl}>
-                            <InputLabel htmlFor="channel">Channel</InputLabel>
-                            <Select
-                                value={this.state.channel}
-                                onChange={this.handleSelect}
-                                label="Channel"
-                                inputProps={{
-                                    name: 'channel',
-                                    id: 'channel',
-                                }}
-                            >
-                                <MenuItem value={'all'}><em>All</em></MenuItem>
-                                <MenuItem value={"direct"}>Direct</MenuItem>
-                                <MenuItem value={'email'}>Email</MenuItem>
-                                <MenuItem value={'organic'}>Organic</MenuItem>
-                                <MenuItem value={'paid-advertising'}>Paid Advertising</MenuItem>
-                                <MenuItem value={'referring'}>Referring</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <form className={classes.container} noValidate autoComplete="off">
+                            <FormControl className={classes.formControl}>
+                                <TextField
+                                    id="exportName"
+                                    label="Export Name"
+                                    className={classes.textField}
+                                    value={this.state.exportName}
+                                    onChange={this.handleChange('exportName')}
+                                    margin="normal"
+                                />
+                            </FormControl>
+                            <FormControl className={classes.formControl}>
+                                <TextField
+                                    id="exportEmail"
+                                    label="Your Email"
+                                    className={classes.textField}
+                                    value={this.state.exportEmail}
+                                    onChange={this.handleChange('exportEmail')}
+                                    margin="normal"
+                                />
+                            </FormControl>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="recurrence">Recurrence</InputLabel>
+                                <Select
+                                    value={this.state.recurrence}
+                                    onChange={this.handleSelect}
+                                    label="Recurrence"
+                                    inputProps={{
+                                        name: 'recurrence',
+                                        id: 'recurrence',
+                                    }}
+                                    autoWidth
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'weekly'}>Weekly</MenuItem>
+                                    <MenuItem value={'monthly'}>Monthly</MenuItem>
+                                </Select>
+                            </FormControl>
 
-                        <FormControl className={classes.formControl}>
-                            <InputLabel htmlFor="medium">Medium</InputLabel>
-                            <Select
-                                value={this.state.medium}
-                                onChange={this.handleSelect}
-                                inputProps={{
-                                    name: 'medium',
-                                    id: 'medium',
-                                }}
-                            >
-                                <MenuItem value="">
-                                <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={'all'}>All</MenuItem>
-                                <MenuItem value={'directories'}>Directories</MenuItem>
-                                <MenuItem value={'internal-directories'}>Internal Directories</MenuItem>
-                                <MenuItem value={'lead-gen'}>Lead Gen</MenuItem>
-                                <MenuItem value={'other'}>Other</MenuItem>
-                                <MenuItem value={'placement'}>Placement</MenuItem>
-                                <MenuItem value={'search'}>Search</MenuItem>
-                                <MenuItem value={'search-engines'}>Search Engines</MenuItem>
-                                <MenuItem value={'sign-up'}>Sign Up</MenuItem>
-                                <MenuItem value={'social'}>Social</MenuItem>
-                                <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
-                            </Select>
-                        </FormControl>
+                            <br/>
 
-                        <FormControl className={classes.formControl}>
-                            <InputLabel htmlFor="source">Source</InputLabel>
-                            <Select
-                                value={this.state.source}
-                                onChange={this.handleSelect}
-                                inputProps={{
-                                    name: 'source',
-                                    id: 'source',
-                                }}
-                            >
-                                <MenuItem value="">
-                                <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={'all'}>All</MenuItem>
-                                <MenuItem value={'directories'}>Directories</MenuItem>
-                                <MenuItem value={'internal-directories'}>Internal Directories</MenuItem>
-                                <MenuItem value={'lead-gen'}>Lead Gen</MenuItem>
-                                <MenuItem value={'other'}>Other</MenuItem>
-                                <MenuItem value={'placement'}>Placement</MenuItem>
-                                <MenuItem value={'search'}>Search</MenuItem>
-                                <MenuItem value={'search-engines'}>Search Engines</MenuItem>
-                                <MenuItem value={'sign-up'}>Sign Up</MenuItem>
-                                <MenuItem value={'social'}>Social</MenuItem>
-                                <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
-                            </Select>
-                        </FormControl>
-                        
-                    </form>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="facility">Facility</InputLabel>
+                                <Select
+                                    value={this.state.facility}
+                                    onChange={this.handleSelect}
+                                    label="Facility"
+                                    inputProps={{
+                                        name: 'facility',
+                                        id: 'facility',
+                                    }}
+                                    autoWidth
+                                >
+                                    <MenuItem value={'all'}>
+                                        <em>All</em>
+                                    </MenuItem>
+                                    <MenuItem value={'baysideMarin'}>Bayside Marin</MenuItem>
+                                    <MenuItem value={'acadiana'}>Acadiana</MenuItem>
+                                    <MenuItem value={'galax'}>Galax</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="touch">Touch</InputLabel>
+                                <Select
+                                    value={this.state.touch}
+                                    onChange={this.handleSelect}
+                                    label="Touch"
+                                    inputProps={{
+                                        name: 'touch',
+                                        id: 'touch',
+                                    }}
+                                    autoWidth
+                                >
+                                    <MenuItem value="any">
+                                        <em>Any</em>
+                                    </MenuItem>
+                                    <MenuItem value={'first'}>First</MenuItem>
+                                    <MenuItem value={'last'}>Last</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <br/>
+
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="channel">Channel</InputLabel>
+                                <Select
+                                    value={this.state.channel}
+                                    onChange={this.handleSelect}
+                                    label="Channel"
+                                    inputProps={{
+                                        name: 'channel',
+                                        id: 'channel',
+                                    }}
+                                >
+                                    <MenuItem value={'all'}><em>All</em></MenuItem>
+                                    <MenuItem value={"direct"}>Direct</MenuItem>
+                                    <MenuItem value={'email'}>Email</MenuItem>
+                                    <MenuItem value={'organic'}>Organic</MenuItem>
+                                    <MenuItem value={'paid-advertising'}>Paid Advertising</MenuItem>
+                                    <MenuItem value={'referring'}>Referring</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="medium">Medium</InputLabel>
+                                <Select
+                                    value={this.state.medium}
+                                    onChange={this.handleSelect}
+                                    inputProps={{
+                                        name: 'medium',
+                                        id: 'medium',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'directories'}>Directories</MenuItem>
+                                    <MenuItem value={'internal-directories'}>Internal Directories</MenuItem>
+                                    <MenuItem value={'lead-gen'}>Lead Gen</MenuItem>
+                                    <MenuItem value={'other'}>Other</MenuItem>
+                                    <MenuItem value={'placement'}>Placement</MenuItem>
+                                    <MenuItem value={'search'}>Search</MenuItem>
+                                    <MenuItem value={'search-engines'}>Search Engines</MenuItem>
+                                    <MenuItem value={'sign-up'}>Sign Up</MenuItem>
+                                    <MenuItem value={'social'}>Social</MenuItem>
+                                    <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="source">Source</InputLabel>
+                                <Select
+                                    value={this.state.source}
+                                    onChange={this.handleSelect}
+                                    inputProps={{
+                                        name: 'source',
+                                        id: 'source',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'directories'}>Directories</MenuItem>
+                                    <MenuItem value={'internal-directories'}>Internal Directories</MenuItem>
+                                    <MenuItem value={'lead-gen'}>Lead Gen</MenuItem>
+                                    <MenuItem value={'other'}>Other</MenuItem>
+                                    <MenuItem value={'placement'}>Placement</MenuItem>
+                                    <MenuItem value={'search'}>Search</MenuItem>
+                                    <MenuItem value={'search-engines'}>Search Engines</MenuItem>
+                                    <MenuItem value={'sign-up'}>Sign Up</MenuItem>
+                                    <MenuItem value={'social'}>Social</MenuItem>
+                                    <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                        </form>
                     </CardContent>
 
-                    <CardActions>
-                        <Button size="small" color="primary">Save</Button>
+                    <CardActions style={{display: 'block'}}>
+                        <Button variant="contained" color="primary" style={{backgroundColor: '#00C853', color: '#ffffff'}} className="">
+                            Submit
+                        </Button>
                     </CardActions>
                 </Card>
                 <br/>
@@ -238,6 +283,6 @@ const styles = {
 
 Export.propTypes = {
     classes: PropTypes.object.isRequired,
-  };
-  
-  export default withStyles(styles)(Export);
+};
+
+export default withStyles(styles)(Export);

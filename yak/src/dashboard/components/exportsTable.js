@@ -44,7 +44,7 @@ function ExportsTable(props) {
         <div className="">
             <Card>
                 <CardHeader color="warning">
-                    <h4 className={classes.cardTitleWhite}>Previous Exports</h4>
+                    <h4 className={classes.cardTitleWhite}>Export Status</h4>
                 </CardHeader>
                 <CardBody>
                     <Table
