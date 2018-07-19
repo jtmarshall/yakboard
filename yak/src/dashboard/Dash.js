@@ -14,6 +14,10 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import MaterialIcon from 'material-icons-react';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
 
 
 // Global state for local storage
@@ -33,6 +37,23 @@ class Dash extends React.Component {
             DateFrame: {
                 From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
                 To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD')
+            },
+            Filter: {
+                Network: "",
+                TargetingMethod: "",
+                Format: "",
+                Message: "",
+                AgeRange: "",
+                Ethnicity: "",
+                FamilyRole: "",
+                Gender: "",
+                Income: "",
+                InterestsBehaviors: "",
+                Language: "",
+                Education: "",
+                Occupation: "",
+                Relationship: "",
+                Religion: ""
             }
         };
 
@@ -87,12 +108,36 @@ class Dash extends React.Component {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                            sit amet blandit leo lobortis eget.
+                            <FormControl className="">
+                                <InputLabel htmlFor="source">Source</InputLabel>
+                                <Select
+                                    value={this.state.filterNetwork}
+                                    onChange={this.handleSelect}
+                                    inputProps={{
+                                        name: 'source',
+                                        id: 'source',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'directories'}>Directories</MenuItem>
+                                    <MenuItem value={'internal-directories'}>Internal Directories</MenuItem>
+                                    <MenuItem value={'lead-gen'}>Lead Gen</MenuItem>
+                                    <MenuItem value={'other'}>Other</MenuItem>
+                                    <MenuItem value={'placement'}>Placement</MenuItem>
+                                    <MenuItem value={'search'}>Search</MenuItem>
+                                    <MenuItem value={'search-engines'}>Search Engines</MenuItem>
+                                    <MenuItem value={'sign-up'}>Sign Up</MenuItem>
+                                    <MenuItem value={'social'}>Social</MenuItem>
+                                    <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
+                                </Select>
+                            </FormControl>
                         </Typography>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
-                
+
                 <Sidebar/>
 
                 <Route exact path="/" render={() => <Home selected={this.state.SelectedFacility}/>}/>
