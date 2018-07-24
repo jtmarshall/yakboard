@@ -121,7 +121,7 @@ class Dash extends React.Component {
                     <ExpansionPanelDetails>
                         <Typography>
                             <form className="" noValidate autoComplete="off">
-                                <FormControl style={{minWidth: '140px', paddingRight: '4px'}} className="">
+                                <FormControl style={{minWidth: '120px', paddingRight: '4px'}} className="">
                                     <InputLabel htmlFor="filterNetwork">Network</InputLabel>
                                     <Select
                                         value={this.state.Filter.network}
@@ -142,7 +142,7 @@ class Dash extends React.Component {
                                         <MenuItem value={'a5'}>Ad_Video</MenuItem>
                                     </Select>
                                 </FormControl>
-                                <FormControl style={{minWidth: '140px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                     <InputLabel htmlFor="filterTargeting">Targeting</InputLabel>
                                     <Select
                                         value={this.state.Filter.targetingMethod}
@@ -163,7 +163,7 @@ class Dash extends React.Component {
                                         <MenuItem value={'b5'}>Topic-KWD</MenuItem>
                                     </Select>
                                 </FormControl>
-                                <FormControl style={{minWidth: '140px', paddingLeft: '4px', paddingRight: '4px'}}>
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}>
                                     <InputLabel htmlFor="filterFormat">Format</InputLabel>
                                     <Select
                                         value={this.state.Filter.format}
@@ -199,7 +199,7 @@ class Dash extends React.Component {
                                         <MenuItem value={'c20'}>Text Ad</MenuItem>
                                     </Select>
                                 </FormControl>
-                                <FormControl style={{minWidth: '140px', paddingLeft: '4px', paddingRight: '4px'}}>
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}>
                                     <InputLabel htmlFor="filterMessage">Message</InputLabel>
                                     <Select
                                         value={this.state.Filter.message}
@@ -234,6 +234,128 @@ class Dash extends React.Component {
                                         <MenuItem value={'d19'}>Urgent - General</MenuItem>
                                         <MenuItem value={'d20'}>Urgent - Other</MenuItem>
                                         <MenuItem value={'d21'}>Urgent - Self</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                    <InputLabel htmlFor="filterAgeRange">Age Range</InputLabel>
+                                    <Select
+                                        value={this.state.Filter.ageRange}
+                                        onChange={this.handleSelect('ageRange')}
+                                        inputProps={{
+                                            name: 'ageRange',
+                                            id: 'filterAgeRange',
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'e0'}>All</MenuItem>
+                                        <MenuItem value={'e1'}>18 - 24</MenuItem>
+                                        <MenuItem value={'e2'}>25 - 34</MenuItem>
+                                        <MenuItem value={'e3'}>35 - 44</MenuItem>
+                                        <MenuItem value={'e4'}>45 - 54</MenuItem>
+                                        <MenuItem value={'e5'}>55 - 64</MenuItem>
+                                        <MenuItem value={'e6'}>65+</MenuItem>
+                                        <MenuItem value={'e7'}>Undetermined</MenuItem>
+
+                                    </Select>
+                                </FormControl>
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                    <InputLabel htmlFor="filterEthnicity">Ethnicity</InputLabel>
+                                    <Select
+                                        value={this.state.Filter.ethnicity}
+                                        onChange={this.handleSelect('ethnicity')}
+                                        inputProps={{
+                                            name: 'ethnicity',
+                                            id: 'filterEthnicity',
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'f0'}>All</MenuItem>
+                                        <MenuItem value={'f1'}>African American</MenuItem>
+                                        <MenuItem value={'f2'}>Asian</MenuItem>
+                                        <MenuItem value={'f3'}>Hispanic</MenuItem>
+                                        <MenuItem value={'f4'}>Native American</MenuItem>
+                                        <MenuItem value={'f5'}>Pacific Islander</MenuItem>
+                                        <MenuItem value={'f6'}>Two or more</MenuItem>
+                                        <MenuItem value={'f7'}>White</MenuItem>
+                                        <MenuItem value={'f8'}>Undetermined</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                    <InputLabel htmlFor="filterFamilyRole">Family Role</InputLabel>
+                                    <Select
+                                        value={this.state.Filter.familyRole}
+                                        onChange={this.handleSelect('familyRole')}
+                                        inputProps={{
+                                            name: 'familyRole',
+                                            id: 'filterFamilyRole',
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'g0'}>All</MenuItem>
+                                        <MenuItem value={'g1'}>Brother</MenuItem>
+                                        <MenuItem value={'g2'}>Daughter</MenuItem>
+                                        <MenuItem value={'g3'}>Husband</MenuItem>
+                                        <MenuItem value={'g4'}>Parent - Expecting</MenuItem>
+                                        <MenuItem value={'g5'}>Parent - 0-12 Month</MenuItem>
+                                        <MenuItem value={'g6'}>Parent - Pre-Teen</MenuItem>
+                                        <MenuItem value={'g7'}>Parent - Teen</MenuItem>
+                                        <MenuItem value={'g8'}>Parent - Adult Child</MenuItem>
+                                        <MenuItem value={'g9'}>Sister</MenuItem>
+                                        <MenuItem value={'g10'}>Son</MenuItem>
+                                        <MenuItem value={'g11'}>Wife</MenuItem>
+                                        <MenuItem value={'g12'}>Undetermined</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                    <InputLabel htmlFor="filterGender">Gender</InputLabel>
+                                    <Select
+                                        value={this.state.Filter.gender}
+                                        onChange={this.handleSelect('gender')}
+                                        inputProps={{
+                                            name: 'gender',
+                                            id: 'filterGender',
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'h0'}>All</MenuItem>
+                                        <MenuItem value={'h1'}>Female</MenuItem>
+                                        <MenuItem value={'h2'}>Male</MenuItem>
+                                        <MenuItem value={'h3'}>Undetermined</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                    <InputLabel htmlFor="filterIncome">Income</InputLabel>
+                                    <Select
+                                        value={this.state.Filter.income}
+                                        onChange={this.handleSelect('income')}
+                                        inputProps={{
+                                            name: 'income',
+                                            id: 'filterIncome',
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'i0'}>All</MenuItem>
+                                        <MenuItem value={'i1'}>39k or less</MenuItem>
+                                        <MenuItem value={'i2'}>40k - 49k</MenuItem>
+                                        <MenuItem value={'i3'}>50k - 74k</MenuItem>
+                                        <MenuItem value={'i4'}>75k - 99k</MenuItem>
+                                        <MenuItem value={'i5'}>100k - 124k</MenuItem>
+                                        <MenuItem value={'i6'}>125k - 149k</MenuItem>
+                                        <MenuItem value={'i7'}>150k - 249k</MenuItem>
+                                        <MenuItem value={'i8'}>250k - 349k</MenuItem>
+                                        <MenuItem value={'i9'}>350k - 499k</MenuItem>
+                                        <MenuItem value={'i10'}>500k or more</MenuItem>
+                                        <MenuItem value={'i11'}>Undetermined</MenuItem>
                                     </Select>
                                 </FormControl>
                             </form>
