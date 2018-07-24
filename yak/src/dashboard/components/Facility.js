@@ -53,7 +53,7 @@ class Facility extends Component {
                     <CardHeader color="prime">
                         <h4 className={classes.cardTitleWhite}>User Traffic</h4>
                     </CardHeader>
-                    <CardBody style={{width: '800px'}}>
+                    <CardBody style={{height: '800px'}}>
                         <ReactChart chartData={[11, 14, 13, 8, 10, 12]}/>
                     </CardBody>
                 </Card>
