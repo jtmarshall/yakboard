@@ -51,9 +51,9 @@ class Facility extends Component {
 
                 <Card className="card">
                     <CardHeader color="prime">
-                        <h4 className={classes.cardTitleWhite}>User Traffic</h4>
+                        <h4 className={classes.cardTitleWhite}>Conversions</h4>
                     </CardHeader>
-                    <CardBody style={{height: '800px'}}>
+                    <CardBody>
                         <ReactChart chartData={[11, 14, 13, 8, 10, 12]}/>
                     </CardBody>
                 </Card>

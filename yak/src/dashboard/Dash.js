@@ -103,8 +103,8 @@ class Dash extends React.Component {
         return (
             <div className="dash">
                 <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
-                <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter}/>
                 <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
+                <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter}/>
 
                 <Sidebar/>
 
