@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0483b1ec-063a-4224-a77d-59ffa7e3966e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dashboard/tools/skuFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/tools/skuFilter.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,12 +25,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="77" />
+          <entry key="js" value="235" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="77" />
+          <entry key="JavaScript" value="235" />
         </counts>
       </usages-collector>
     </session>
@@ -107,8 +106,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dashboard/tools/skuFilter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="424" column="28" selection-start-line="424" selection-start-column="28" selection-end-line="424" selection-end-column="28" />
+            <state relative-caret-position="763">
+              <caret line="446" column="57" selection-start-line="446" selection-start-column="57" selection-end-line="446" selection-end-column="57" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -367,12 +366,12 @@
       <workItem from="1533048845171" duration="5000" />
       <workItem from="1533048868902" duration="9000" />
       <workItem from="1533048915064" duration="226000" />
-      <workItem from="1533308799089" duration="657000" />
+      <workItem from="1533308799089" duration="1182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72069000" />
+    <option name="totallyTimeSpent" value="72594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-240" y="-1058" width="1610" height="1058" extended-state="0" />
@@ -661,8 +660,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dashboard/tools/skuFilter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="424" column="28" selection-start-line="424" selection-start-column="28" selection-end-line="424" selection-end-column="28" />
+        <state relative-caret-position="763">
+          <caret line="446" column="57" selection-start-line="446" selection-start-column="57" selection-end-line="446" selection-end-column="57" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

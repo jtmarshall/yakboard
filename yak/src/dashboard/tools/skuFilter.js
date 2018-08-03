@@ -414,15 +414,39 @@ class SKUFilter extends React.Component {
                                         <em>None</em>
                                     </MenuItem>
                                     <MenuItem value={'n6'}>All</MenuItem>
-                                    <MenuItem value={'n1'}>Admin</MenuItem>
-                                    <MenuItem value={'n2'}>Arts</MenuItem>
-                                    <MenuItem value={'n3'}>Business/Finance</MenuItem>
-                                    <MenuItem value={'n4'}>Executive</MenuItem>
-                                    <MenuItem value={'n5'}>Government</MenuItem>
-                                    <MenuItem value={'n6'}>Healthcare</MenuItem>
+                                    <MenuItem value={'n1'}>Divorced</MenuItem>
+                                    <MenuItem value={'n2'}>Married</MenuItem>
+                                    <MenuItem value={'n3'}>Separated</MenuItem>
+                                    <MenuItem value={'n4'}>Single</MenuItem>
+                                    <MenuItem value={'n5'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                <InputLabel htmlFor="filterReligion">Religion</InputLabel>
+                                <Select
+                                    value={this.state.Filter.religion}
+                                    onChange={this.handleSelect('religion')}
+                                    inputProps={{
+                                        name: 'religion',
+                                        id: 'filterReligion',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'o11'}>All</MenuItem>
+                                    <MenuItem value={'o1'}>Agnosticism</MenuItem>
+                                    <MenuItem value={'o2'}>Atheism</MenuItem>
+                                    <MenuItem value={'o3'}>Buddhism</MenuItem>
+                                    <MenuItem value={'o4'}>Christianity</MenuItem>
+                                    <MenuItem value={'o5'}>Hindu</MenuItem>
+                                    <MenuItem value={'o6'}>Islam</MenuItem>
+                                    <MenuItem value={'o7'}>Judaism</MenuItem>
+                                    <MenuItem value={'o8'}>Mormonism</MenuItem>
+                                    <MenuItem value={'o9'}>Sikhism</MenuItem>
+                                    <MenuItem value={'o10'}>Undetermined</MenuItem>
+                                </Select>
+                            </FormControl>
                         </form>
                     </Typography>
                 </ExpansionPanelDetails>
