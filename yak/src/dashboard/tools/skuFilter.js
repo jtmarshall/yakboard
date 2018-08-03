@@ -89,6 +89,21 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'b3'}>MP-KWD</MenuItem>
                                     <MenuItem value={'b4'}>Topic</MenuItem>
                                     <MenuItem value={'b5'}>Topic-KWD</MenuItem>
+                                    <MenuItem value={'b6'}>Connection</MenuItem>
+                                    <MenuItem value={'b7'}>Behavior</MenuItem>
+                                    <MenuItem value={'b8'}>Demographic</MenuItem>
+                                    <MenuItem value={'b9'}>Interest</MenuItem>
+                                    <MenuItem value={'b10'}>Lookalike</MenuItem>
+                                    <MenuItem value={'b11'}>Remarketing</MenuItem>
+                                    <MenuItem value={'b12'}>Newsletter - About</MenuItem>
+                                    <MenuItem value={'b13'}>Newsletter - Programs</MenuItem>
+                                    <MenuItem value={'b14'}>Newsletter - Addiction</MenuItem>
+                                    <MenuItem value={'b15'}>Newsletter - PTSD</MenuItem>
+                                    <MenuItem value={'b16'}>Newsletter - MH</MenuItem>
+                                    <MenuItem value={'b17'}>Run of Site</MenuItem>
+                                    <MenuItem value={'b18'}>Geographic</MenuItem>
+                                    <MenuItem value={'b19'}>Conversion</MenuItem>
+                                    <MenuItem value={'b20'}>Newsletter - Mood</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}>
@@ -201,7 +216,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'f0'}>All</MenuItem>
+                                    <MenuItem value={'f9'}>All</MenuItem>
                                     <MenuItem value={'f1'}>African American</MenuItem>
                                     <MenuItem value={'f2'}>Asian</MenuItem>
                                     <MenuItem value={'f3'}>Hispanic</MenuItem>
@@ -421,7 +436,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'n5'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px'}} className="">
                                 <InputLabel htmlFor="filterReligion">Religion</InputLabel>
                                 <Select
                                     value={this.state.Filter.religion}
