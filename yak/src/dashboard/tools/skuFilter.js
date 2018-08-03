@@ -381,7 +381,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'m0'}>All</MenuItem>
+                                    <MenuItem value={'m17'}>All</MenuItem>
                                     <MenuItem value={'m1'}>Admin</MenuItem>
                                     <MenuItem value={'m2'}>Arts</MenuItem>
                                     <MenuItem value={'m3'}>Business/Finance</MenuItem>
@@ -400,6 +400,29 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'m16'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                                <InputLabel htmlFor="filterRelationship">Relationship</InputLabel>
+                                <Select
+                                    value={this.state.Filter.relationship}
+                                    onChange={this.handleSelect('relationship')}
+                                    inputProps={{
+                                        name: 'relationship',
+                                        id: 'filterRelationship',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'n6'}>All</MenuItem>
+                                    <MenuItem value={'n1'}>Admin</MenuItem>
+                                    <MenuItem value={'n2'}>Arts</MenuItem>
+                                    <MenuItem value={'n3'}>Business/Finance</MenuItem>
+                                    <MenuItem value={'n4'}>Executive</MenuItem>
+                                    <MenuItem value={'n5'}>Government</MenuItem>
+                                    <MenuItem value={'n6'}>Healthcare</MenuItem>
+                                </Select>
+                            </FormControl>
+                            
                         </form>
                     </Typography>
                 </ExpansionPanelDetails>
