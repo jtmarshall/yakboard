@@ -31,7 +31,28 @@ function renderInput(inputProps) {
 function retrieveList() {
     // Get weekly status
     api.facility.getFacilityList().then(resp => {
-        suggestions = [];
+        suggestions = [
+            {
+                label: "All CTC",
+                url: "ctc"
+            },
+            {
+                label: "All Inpatient",
+                url: "inpatient"
+            },
+            {
+                label: "All Residential Dual",
+                url: "residentialDual"
+            },
+            {
+                label: "All Residential SA",
+                url: "residentialSA"
+            },
+            {
+                label: "All Specialty",
+                url: "specialty"
+            }
+        ];
         for (let key in resp) {
             suggestions.push(
                 {
@@ -40,6 +61,7 @@ function retrieveList() {
                 }
             )
         }
+        suggestions.push();
     });
 }
 
