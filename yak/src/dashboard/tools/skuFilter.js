@@ -192,15 +192,16 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'e0'}>All</MenuItem>
                                     <MenuItem value={'e1'}>18 - 24</MenuItem>
                                     <MenuItem value={'e2'}>25 - 34</MenuItem>
                                     <MenuItem value={'e3'}>35 - 44</MenuItem>
-                                    <MenuItem value={'e4'}>45 - 54</MenuItem>
-                                    <MenuItem value={'e5'}>55 - 64</MenuItem>
-                                    <MenuItem value={'e6'}>65+</MenuItem>
-                                    <MenuItem value={'e7'}>Undetermined</MenuItem>
-
+                                    <MenuItem value={'e4'}>35 - 49</MenuItem>
+                                    <MenuItem value={'e5'}>45 - 54</MenuItem>
+                                    <MenuItem value={'e6'}>50 - 64</MenuItem>
+                                    <MenuItem value={'e7'}>55 - 64</MenuItem>
+                                    <MenuItem value={'e8'}>65+</MenuItem>
+                                    <MenuItem value={'e9'}>All</MenuItem>
+                                    <MenuItem value={'e10'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
@@ -240,7 +241,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'g0'}>All</MenuItem>
+                                    <MenuItem value={'g13'}>All</MenuItem>
                                     <MenuItem value={'g1'}>Brother</MenuItem>
                                     <MenuItem value={'g2'}>Daughter</MenuItem>
                                     <MenuItem value={'g3'}>Husband</MenuItem>
@@ -268,7 +269,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'h0'}>All</MenuItem>
+                                    <MenuItem value={'h4'}>All</MenuItem>
                                     <MenuItem value={'h1'}>Female</MenuItem>
                                     <MenuItem value={'h2'}>Male</MenuItem>
                                     <MenuItem value={'h3'}>Undetermined</MenuItem>
@@ -287,7 +288,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'i0'}>All</MenuItem>
+                                    <MenuItem value={'i12'}>All</MenuItem>
                                     <MenuItem value={'i1'}>39k or less</MenuItem>
                                     <MenuItem value={'i2'}>40k - 49k</MenuItem>
                                     <MenuItem value={'i3'}>50k - 74k</MenuItem>
@@ -314,7 +315,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'j0'}>All</MenuItem>
+                                    <MenuItem value={'j21'}>All</MenuItem>
                                     <MenuItem value={'j1'}>Away from Family</MenuItem>
                                     <MenuItem value={'j2'}>Away from Home</MenuItem>
                                     <MenuItem value={'j3'}>Business and Industry</MenuItem>
@@ -350,7 +351,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'k0'}>All</MenuItem>
+                                    <MenuItem value={'k5'}>All</MenuItem>
                                     <MenuItem value={'k1'}>English</MenuItem>
                                     <MenuItem value={'k2'}>Spanish</MenuItem>
                                     <MenuItem value={'k3'}>Bilingual</MenuItem>
@@ -370,7 +371,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'l0'}>All</MenuItem>
+                                    <MenuItem value={'l11'}>All</MenuItem>
                                     <MenuItem value={'l1'}>Some High School</MenuItem>
                                     <MenuItem value={'l2'}>High School Grad</MenuItem>
                                     <MenuItem value={'l3'}>Associate Degree</MenuItem>
