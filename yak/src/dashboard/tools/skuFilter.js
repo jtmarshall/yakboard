@@ -86,9 +86,9 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'b0'}>All</MenuItem>
                                     <MenuItem value={'b1'}>KWD</MenuItem>
                                     <MenuItem value={'b2'}>MP</MenuItem>
-                                    <MenuItem value={'b3'}>MP-KWD</MenuItem>
+                                    <MenuItem value={'b3'}>MP - KWD</MenuItem>
                                     <MenuItem value={'b4'}>Topic</MenuItem>
-                                    <MenuItem value={'b5'}>Topic-KWD</MenuItem>
+                                    <MenuItem value={'b5'}>Topic - KWD</MenuItem>
                                     <MenuItem value={'b6'}>Connection</MenuItem>
                                     <MenuItem value={'b7'}>Behavior</MenuItem>
                                     <MenuItem value={'b8'}>Demographic</MenuItem>
