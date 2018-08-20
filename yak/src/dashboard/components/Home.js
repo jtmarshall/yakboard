@@ -9,7 +9,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="homeComponent">
-                <h2>Home Component</h2>
+                <h3>Home Component</h3>
                 <p> Selected: {this.props.selected}</p>
             </div>
         )

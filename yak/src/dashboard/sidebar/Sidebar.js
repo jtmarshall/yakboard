@@ -19,7 +19,7 @@ const Sidebar = () => (
             </Link>
             <Link to="/facility">
                 <li style={{paddingLeft: 25}}>
-                    <MaterialIcon icon='view_compact' color='#EEEEEE' />  Facility
+                    <MaterialIcon icon='view_compact' color='#EEEEEE' />  Conversion
                 </li>
             </Link>
             <Link to="/export">

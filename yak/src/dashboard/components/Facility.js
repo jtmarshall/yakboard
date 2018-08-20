@@ -47,11 +47,11 @@ class Facility extends Component {
         const { classes } = this.props;
         return (
             <div className="facilityComponent">
-                <h2>Facility</h2>
+                <h3>Conversion</h3>
 
                 <Card className="card">
                     <CardHeader color="prime">
-                        <h4 className={classes.cardTitleWhite}>Conversions</h4>
+                        <h4 className={classes.cardTitleWhite}>Call Conversions</h4>
                     </CardHeader>
                     <CardBody>
                         <ReactChart chartData={[11, 14, 13, 8, 10, 12]}/>
