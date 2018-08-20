@@ -12,10 +12,6 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-//import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import classnames from 'classnames';
 
 
 const styles = {
@@ -96,7 +92,7 @@ class Export extends Component {
 
         return (
             <div className="exportComponent">
-                <h2>Export</h2>
+                <h3>Export</h3>
 
                 <Card>
                     <CardHeader color="mint">

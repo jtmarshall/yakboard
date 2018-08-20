@@ -17,9 +17,9 @@ const Sidebar = () => (
                     <MaterialIcon icon='home' color='#EEEEEE' />  Home
                 </li>
             </Link>
-            <Link to="/facility">
+            <Link to="/conversion">
                 <li style={{paddingLeft: 25}}>
-                    <MaterialIcon icon='view_compact' color='#EEEEEE' />  Facility
+                    <MaterialIcon icon='view_compact' color='#EEEEEE' />  Conversion
                 </li>
             </Link>
             <Link to="/export">

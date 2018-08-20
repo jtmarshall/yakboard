@@ -5,7 +5,7 @@ export default class Settings extends Component {
     render() {
         return (
             <div className="settingsComponent">
-                <h2>Settings Component</h2>
+                <h3>Settings Component</h3>
             </div>
         )
     }
