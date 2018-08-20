@@ -38,7 +38,7 @@ const styles = {
     }
   };
 
-class Facility extends Component {
+class Conversion extends Component {
     constructor(props) {
         super(props);
     }
@@ -83,4 +83,4 @@ class Facility extends Component {
     }
 }
 
-export default withStyles(styles)(Facility);
+export default withStyles(styles)(Conversion);

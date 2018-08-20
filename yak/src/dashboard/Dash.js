@@ -7,7 +7,7 @@ import SKUFilter from './tools/skuFilter';
 import DatePicker from './tools/datePicker';
 import Sidebar from './sidebar/Sidebar';
 import Home from './components/Home';
-import Facility from './components/Facility';
+import Conversion from './components/Conversion';
 import Export from './components/Export';
 import Settings from "./components/Settings";
 
@@ -109,7 +109,7 @@ class Dash extends React.Component {
                 <Sidebar/>
 
                 <Route exact path="/" render={() => <Home selected={this.state.SelectedFacility}/>}/>
-                <Route path="/facility" render={() => <Facility selected={this.state.SelectedFacility}/>}/>
+                <Route path="/conversion" render={() => <Conversion selected={this.state.SelectedFacility}/>}/>
                 <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                 <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>
             </div>
