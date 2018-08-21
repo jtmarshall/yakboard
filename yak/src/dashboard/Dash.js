@@ -6,10 +6,11 @@ import FacilityAutoComplete from './tools/facilityAutoComplete';
 import SKUFilter from './tools/skuFilter';
 import DatePicker from './tools/datePicker';
 import Sidebar from './sidebar/Sidebar';
-import Home from './components/Home';
+import Storyboard from './components/Storyboard';
 import Conversion from './components/Conversion';
 import Export from './components/Export';
 import Settings from "./components/Settings";
+import MaterialIcon from "material-icons-react";
 
 
 // Global state for local storage
@@ -102,13 +103,14 @@ class Dash extends React.Component {
     render() {
         return (
             <div className="dash">
+                {/*<MaterialIcon icon='filter_list' size={32} color='#ff9800' />*/}
                 <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
                 <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
                 <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter}/>
 
                 <Sidebar/>
 
-                <Route exact path="/" render={() => <Home selected={this.state.SelectedFacility}/>}/>
+                <Route path="/story" render={() => <Storyboard selected={this.state.SelectedFacility}/>}/>
                 <Route path="/conversion" render={() => <Conversion selected={this.state.SelectedFacility}/>}/>
                 <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                 <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>

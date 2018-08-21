@@ -12,9 +12,9 @@ const Sidebar = () => (
         <hr/>
 
         <ul style={{listStyleType: "none", paddingLeft: 0, textAlign: 'left',  color: "#fff"}}>
-            <Link to="/">
+            <Link to="/story">
                 <li style={{paddingLeft: 25}}>
-                    <MaterialIcon icon='home' color='#EEEEEE' />  Home
+                    <MaterialIcon icon='map' color='#EEEEEE' />  Storyboard
                 </li>
             </Link>
             <Link to="/conversion">

@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 
 
-export default class Home extends Component {
+export default class Storyboard extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div className="homeComponent">
-                <h3>Home Component</h3>
+            <div className="storyComponent">
+                <h3>Storyboard</h3>
                 <p> Selected: {this.props.selected}</p>
             </div>
         )
