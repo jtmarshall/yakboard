@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0483b1ec-063a-4224-a77d-59ffa7e3966e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dashboard/Dash.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/Dash.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dashboard/components/Conversion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Conversion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Storyboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dashboard/tools/graph/graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/tools/graph/graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dashboard/tools/skuFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/tools/skuFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,19 +32,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="css" value="2" />
           <entry key="html" value="17" />
-          <entry key="js" value="1406" />
+          <entry key="js" value="2675" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="CSS" value="2" />
           <entry key="HTML" value="17" />
-          <entry key="JavaScript" value="1406" />
+          <entry key="JavaScript" value="2675" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="3" />
+          <entry key="css" value="6" />
           <entry key="js" value="10" />
           <entry key="png" value="1" />
           <entry key="svg" value="3" />
@@ -52,7 +54,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
+          <entry key="CSS" value="6" />
           <entry key="Image" value="1" />
           <entry key="JavaScript" value="10" />
           <entry key="SVG" value="3" />
@@ -89,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/tools/skuFilter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="386">
+              <caret line="54" column="44" lean-forward="true" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -116,11 +118,23 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dashboard/Dash.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-648">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="84" column="41" lean-forward="true" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+            <state relative-caret-position="453">
+              <caret line="114" column="92" selection-start-line="114" selection-start-column="92" selection-end-line="114" selection-end-column="92" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -129,22 +143,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dashboard/Dash.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/tools/graph/graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="205">
+              <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -179,6 +181,8 @@
       <find>tabledat</find>
       <find>table</find>
       <find>localstora</find>
+      <find>180</find>
+      <find>dash</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/reducer/index.js" />
         <option value="$PROJECT_DIR$/src/dashboard/api/api.js" />
         <option value="$PROJECT_DIR$/src/dashboard/facilityAutoComplete.js" />
-        <option value="$PROJECT_DIR$/src/global.css" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/toolbox.js" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/datePicker.js" />
         <option value="$PROJECT_DIR$/src/login/AuthService.js" />
@@ -202,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/login/Login.js" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/Card/Card.js" />
         <option value="$PROJECT_DIR$/src/assets/css/material-dashboard.css" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$PROJECT_DIR$/src/dashboard/components/exportsTable.js" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/facilityAutoComplete.js" />
@@ -213,9 +215,11 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Storyboard.js" />
-        <option value="$PROJECT_DIR$/src/dashboard/Dash.js" />
-        <option value="$PROJECT_DIR$/src/dashboard/tools/skuFilter.js" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/graph/graph.js" />
+        <option value="$PROJECT_DIR$/src/dashboard/tools/skuFilter.js" />
+        <option value="$PROJECT_DIR$/src/dashboard/Dash.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/src/global.css" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Conversion.js" />
       </list>
     </option>
@@ -376,12 +380,12 @@
       <workItem from="1534453500630" duration="442000" />
       <workItem from="1534515488461" duration="2990000" />
       <workItem from="1534790484336" duration="629000" />
-      <workItem from="1534791137771" duration="4558000" />
+      <workItem from="1534791137771" duration="12056000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88454000" />
+    <option name="totallyTimeSpent" value="95952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="138" y="-1058" width="1542" height="1058" extended-state="0" />
@@ -618,20 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3296">
-          <caret line="160" column="30" lean-forward="true" selection-start-line="160" selection-start-column="30" selection-end-line="160" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/global.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/css/material-dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
@@ -639,10 +629,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/tools/graph/graph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dashboard/tools/skuFilter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="386">
+          <caret line="54" column="44" lean-forward="true" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -651,28 +651,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dashboard/Dash.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        <state relative-caret-position="-648">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/tools/graph/graph.js">
+    <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="84" column="41" lean-forward="true" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+        <state relative-caret-position="453">
+          <caret line="114" column="92" selection-start-line="114" selection-start-column="92" selection-end-line="114" selection-end-column="92" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

@@ -32,21 +32,25 @@ class Dash extends React.Component {
                 To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD')
             },
             Filter: {
-                network: "",
-                targetingMethod: "",
-                format: "",
-                message: "",
-                ageRange: "",
-                ethnicity: "",
-                familyRole: "",
-                gender: "",
-                income: "",
-                interestsBehaviors: "",
-                language: "",
-                education: "",
-                occupation: "",
-                relationship: "",
-                religion: ""
+                source: [],
+                campaign: [],
+                tier: [],
+                medium: [],
+                network: [],
+                targetingMethod: [],
+                format: [],
+                message: [],
+                ageRange: [],
+                ethnicity: [],
+                familyRole: [],
+                gender: [],
+                income: [],
+                interestsBehaviors: [],
+                language: [],
+                education: [],
+                occupation: [],
+                relationship: [],
+                religion: []
             }
         };
 
