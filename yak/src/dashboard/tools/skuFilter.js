@@ -50,6 +50,87 @@ class SKUFilter extends React.Component {
                     <Typography>
                         <form className="" noValidate autoComplete="off">
                             <FormControl style={{minWidth: '120px', paddingRight: '4px'}} className="">
+                                <InputLabel htmlFor="filterSource">Source</InputLabel>
+                                <Select
+                                    multiple
+                                    value={this.state.Filter.source}
+                                    onChange={this.handleSelect('source')}
+                                    inputProps={{
+                                        name: 'source',
+                                        id: 'filterSource',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'google'}>Google</MenuItem>
+                                    <MenuItem value={'bing'}>Bing</MenuItem>
+                                    <MenuItem value={'facebook'}>Facebook</MenuItem>
+                                    <MenuItem value={'yahoo'}>Yahoo</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
+                                <InputLabel htmlFor="filterCampaign">Campaign</InputLabel>
+                                <Select
+                                    value={this.state.Filter.campaign}
+                                    onChange={this.handleSelect('campaign')}
+                                    inputProps={{
+                                        name: 'campaign',
+                                        id: 'filterCampaign',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'alcohol'}>Alcohol</MenuItem>
+                                    <MenuItem value={'amphetamine'}>Amphetamine</MenuItem>
+                                    <MenuItem value={'cocaine'}>Cocaine</MenuItem>
+                                    <MenuItem value={'opiate'}>Opiates</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
+                                <InputLabel htmlFor="filterTier">Tier</InputLabel>
+                                <Select
+                                    value={this.state.Filter.tier}
+                                    onChange={this.handleSelect('tier')}
+                                    inputProps={{
+                                        name: 'tier',
+                                        id: 'filterTier',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'t1'}>T1</MenuItem>
+                                    <MenuItem value={'t2'}>T2</MenuItem>
+                                    <MenuItem value={'t3'}>T3</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
+                                <InputLabel htmlFor="filterMedium">Medium</InputLabel>
+                                <Select
+                                    value={this.state.Filter.medium}
+                                    onChange={this.handleSelect('medium')}
+                                    inputProps={{
+                                        name: 'medium',
+                                        id: 'filterMedium',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'a0'}>All</MenuItem>
+                                    <MenuItem value={'a1'}>Search</MenuItem>
+                                    <MenuItem value={'a2'}>Display</MenuItem>
+                                    <MenuItem value={'a3'}>Social</MenuItem>
+                                    <MenuItem value={'a4'}>Email</MenuItem>
+                                    <MenuItem value={'a5'}>Ad_Video</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
                                 <InputLabel htmlFor="filterNetwork">Network</InputLabel>
                                 <Select
                                     value={this.state.Filter.network}

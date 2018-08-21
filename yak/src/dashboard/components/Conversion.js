@@ -39,6 +39,10 @@ const styles = {
             fontWeight: "400",
             lineHeight: "1"
         }
+    },
+    cardConversionGraph: {
+        width: '90%',
+        margin: '0 6px',
     }
 };
 
@@ -92,14 +96,23 @@ class Conversion extends Component {
                         </CardHeader>
                         <CardBody>
                             <Table
-                                tableHeaderColor="primary"
-                                tableHead={["1st Touch", "Last Touch", "Call Touch", "# of Callers", "Calls >2", "% Total"]}
+                                tableHeaderColor="#00acc1"
+                                tableHead={[
+                                    "Network",
+                                    "Total 5min",
+                                    "Total Call",
+                                    "Total 5min + Call",
+                                    "Last Touch 5min",
+                                    "Last Touch Call",
+                                    "Last Touch 5min + Call",
+                                    "1st Touch 5min",
+                                    "1st Touch Call",
+                                    "1st Touch 5min + Call"
+                                ]}
                                 tableData={[
-                                    ["Bing", "Direct", "Direct", "5", "2", "5%"],
-                                    ["Google", "Direct", "Yext", "17", "9", "45%"],
-                                    ["Instagram", "Direct", "Organic", "15", "12", "23%"],
-                                    ["Paid Ad", "Quora", "Quora", "7", "2", "83%"],
-                                    ["Yext", "Yext", "Yext", "11", "4", "34%"],
+                                    ["Search", "1001", "16", "7", "2", "5", "2", "5", "2", "5"],
+                                    ["Display", "777", "11", "17", "9", "4", "1", "9", "7", "3"],
+                                    ["Social", "263", "8", "15", "1", "3", "2", "5", "2", "0"],
                                 ]}
                             />
                         </CardBody>
@@ -107,25 +120,21 @@ class Conversion extends Component {
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
-                    <Card className="card">
+                    <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
-                            <h4 className={classes.cardTitleWhite}>Call Conversions</h4>
+                            <h4 className={classes.cardTitleWhite}>Conversions by Type</h4>
                         </CardHeader>
                         <CardBody>
-                            <ReactChart chartData={[11, 14, 13, 8, 10, 12]} dataLabel={'Calls'} xName={'X axis'}
-                                        yName={'Y axis'}/>
+                            <ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[14, 13, 8, 10, 12, 16]}
+                                        chartOptions={{
+                                                dataLabel: 'Calls',
+                                                xName: 'X axis',
+                                                yName: ''
+                                            }}/>
                         </CardBody>
                     </Card>
 
-                    <Card className="card">
-                        <CardHeader color="primary">
-                            <h4 className={classes.cardTitleWhite}>5+ min Conversions</h4>
-                        </CardHeader>
-                        <CardBody>
-                            <ReactChart chartData={[11, 14, 13, 8, 10, 12]} dataLabel={'5min+'} xName={'X axis'}
-                                        yName={'Y axis'}/>
-                        </CardBody>
-                    </Card>
+
                 </TabContainer>}
 
             </div>
