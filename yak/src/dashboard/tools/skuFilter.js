@@ -60,9 +60,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterSource',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'all'}>All</MenuItem>
                                     <MenuItem value={'google'}>Google</MenuItem>
                                     <MenuItem value={'bing'}>Bing</MenuItem>
@@ -73,6 +70,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
                                 <InputLabel htmlFor="filterCampaign">Campaign</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.campaign}
                                     onChange={this.handleSelect('campaign')}
                                     inputProps={{
@@ -80,9 +78,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterCampaign',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'all'}>All</MenuItem>
                                     <MenuItem value={'alcohol'}>Alcohol</MenuItem>
                                     <MenuItem value={'amphetamine'}>Amphetamine</MenuItem>
@@ -93,6 +88,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
                                 <InputLabel htmlFor="filterTier">Tier</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.tier}
                                     onChange={this.handleSelect('tier')}
                                     inputProps={{
@@ -100,9 +96,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterTier',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'all'}>All</MenuItem>
                                     <MenuItem value={'t1'}>T1</MenuItem>
                                     <MenuItem value={'t2'}>T2</MenuItem>
@@ -112,6 +105,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
                                 <InputLabel htmlFor="filterMedium">Medium</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.medium}
                                     onChange={this.handleSelect('medium')}
                                     inputProps={{
@@ -119,20 +113,18 @@ class SKUFilter extends React.Component {
                                         id: 'filterMedium',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={'a0'}>All</MenuItem>
-                                    <MenuItem value={'a1'}>Search</MenuItem>
-                                    <MenuItem value={'a2'}>Display</MenuItem>
-                                    <MenuItem value={'a3'}>Social</MenuItem>
-                                    <MenuItem value={'a4'}>Email</MenuItem>
-                                    <MenuItem value={'a5'}>Ad_Video</MenuItem>
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'1'}>Search</MenuItem>
+                                    <MenuItem value={'2'}>Display</MenuItem>
+                                    <MenuItem value={'3'}>Social</MenuItem>
+                                    <MenuItem value={'4'}>Email</MenuItem>
+                                    <MenuItem value={'5'}>Ad_Video</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
                                 <InputLabel htmlFor="filterNetwork">Network</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.network}
                                     onChange={this.handleSelect('network')}
                                     inputProps={{
@@ -140,9 +132,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterNetwork',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'a0'}>All</MenuItem>
                                     <MenuItem value={'a1'}>Search</MenuItem>
                                     <MenuItem value={'a2'}>Display</MenuItem>
@@ -154,6 +143,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterTargeting">Targeting</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.targetingMethod}
                                     onChange={this.handleSelect('targetingMethod')}
                                     inputProps={{
@@ -161,9 +151,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterTargeting',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'b0'}>All</MenuItem>
                                     <MenuItem value={'b1'}>KWD</MenuItem>
                                     <MenuItem value={'b2'}>MP</MenuItem>
@@ -190,6 +177,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}>
                                 <InputLabel htmlFor="filterFormat">Format</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.format}
                                     onChange={this.handleSelect('format')}
                                     inputProps={{
@@ -197,9 +185,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterFormat',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'c0'}>All</MenuItem>
                                     <MenuItem value={'c1'}>CanvasAd</MenuItem>
                                     <MenuItem value={'c2'}>ETA</MenuItem>
@@ -226,6 +211,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}>
                                 <InputLabel htmlFor="filterMessage">Message</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.message}
                                     onChange={this.handleSelect('message')}
                                     inputProps={{
@@ -233,9 +219,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterMessage',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'d0'}>All</MenuItem>
                                     <MenuItem value={'d1'}>About - General</MenuItem>
                                     <MenuItem value={'d2'}>About - Other</MenuItem>
@@ -263,6 +246,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterAgeRange">Age Range</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.ageRange}
                                     onChange={this.handleSelect('ageRange')}
                                     inputProps={{
@@ -270,9 +254,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterAgeRange',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'e1'}>18 - 24</MenuItem>
                                     <MenuItem value={'e2'}>25 - 34</MenuItem>
                                     <MenuItem value={'e3'}>35 - 44</MenuItem>
@@ -288,6 +269,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterEthnicity">Ethnicity</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.ethnicity}
                                     onChange={this.handleSelect('ethnicity')}
                                     inputProps={{
@@ -295,9 +277,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterEthnicity',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'f9'}>All</MenuItem>
                                     <MenuItem value={'f1'}>African American</MenuItem>
                                     <MenuItem value={'f2'}>Asian</MenuItem>
@@ -312,6 +291,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterFamilyRole">Family Role</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.familyRole}
                                     onChange={this.handleSelect('familyRole')}
                                     inputProps={{
@@ -319,9 +299,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterFamilyRole',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'g13'}>All</MenuItem>
                                     <MenuItem value={'g1'}>Brother</MenuItem>
                                     <MenuItem value={'g2'}>Daughter</MenuItem>
@@ -340,6 +317,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterGender">Gender</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.gender}
                                     onChange={this.handleSelect('gender')}
                                     inputProps={{
@@ -347,9 +325,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterGender',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'h4'}>All</MenuItem>
                                     <MenuItem value={'h1'}>Female</MenuItem>
                                     <MenuItem value={'h2'}>Male</MenuItem>
@@ -359,6 +334,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterIncome">Income</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.income}
                                     onChange={this.handleSelect('income')}
                                     inputProps={{
@@ -366,9 +342,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterIncome',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'i12'}>All</MenuItem>
                                     <MenuItem value={'i1'}>39k or less</MenuItem>
                                     <MenuItem value={'i2'}>40k - 49k</MenuItem>
@@ -386,6 +359,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '150px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterInterestsBehaviors">Interest/Behavior</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.interestsBehaviors}
                                     onChange={this.handleSelect('interestsBehaviors')}
                                     inputProps={{
@@ -393,9 +367,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterInterestsBehaviors',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'j21'}>All</MenuItem>
                                     <MenuItem value={'j1'}>Away from Family</MenuItem>
                                     <MenuItem value={'j2'}>Away from Home</MenuItem>
@@ -422,6 +393,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterLanguage">Language</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.language}
                                     onChange={this.handleSelect('language')}
                                     inputProps={{
@@ -429,9 +401,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterLanguage',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'k5'}>All</MenuItem>
                                     <MenuItem value={'k1'}>English</MenuItem>
                                     <MenuItem value={'k2'}>Spanish</MenuItem>
@@ -442,6 +411,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterEducation">Education</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.education}
                                     onChange={this.handleSelect('education')}
                                     inputProps={{
@@ -449,9 +419,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterEducation',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'l11'}>All</MenuItem>
                                     <MenuItem value={'l1'}>Some High School</MenuItem>
                                     <MenuItem value={'l2'}>High School Grad</MenuItem>
@@ -468,6 +435,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterOccupation">Occupation</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.occupation}
                                     onChange={this.handleSelect('occupation')}
                                     inputProps={{
@@ -475,9 +443,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterOccupation',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'m17'}>All</MenuItem>
                                     <MenuItem value={'m1'}>Admin</MenuItem>
                                     <MenuItem value={'m2'}>Arts</MenuItem>
@@ -500,6 +465,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
                                 <InputLabel htmlFor="filterRelationship">Relationship</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.relationship}
                                     onChange={this.handleSelect('relationship')}
                                     inputProps={{
@@ -507,9 +473,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterRelationship',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'n6'}>All</MenuItem>
                                     <MenuItem value={'n1'}>Divorced</MenuItem>
                                     <MenuItem value={'n2'}>Married</MenuItem>
@@ -521,6 +484,7 @@ class SKUFilter extends React.Component {
                             <FormControl style={{minWidth: '120px', paddingLeft: '4px'}} className="">
                                 <InputLabel htmlFor="filterReligion">Religion</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.Filter.religion}
                                     onChange={this.handleSelect('religion')}
                                     inputProps={{
@@ -528,9 +492,6 @@ class SKUFilter extends React.Component {
                                         id: 'filterReligion',
                                     }}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={'o11'}>All</MenuItem>
                                     <MenuItem value={'o1'}>Agnosticism</MenuItem>
                                     <MenuItem value={'o2'}>Atheism</MenuItem>

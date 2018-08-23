@@ -125,10 +125,10 @@ class Conversion extends Component {
                             <h4 className={classes.cardTitleWhite}>Conversions by Type</h4>
                         </CardHeader>
                         <CardBody>
-                            <ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[14, 13, 8, 10, 12, 16]}
+                            <ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[141, 113, 81, 101, 112, 116]}
                                         chartOptions={{
                                                 dataLabel: 'Calls',
-                                                xName: 'X axis',
+                                                xName: 'Conversions per Day',
                                                 yName: ''
                                             }}/>
                         </CardBody>
