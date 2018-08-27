@@ -43,7 +43,10 @@ const styles = {
     cardConversionGraph: {
         width: '90%',
         margin: '0 6px',
-    }
+    },
+    cardConversionTable: {
+        overflowX: 'auto',
+    },
 };
 
 function TabContainer(props) {
@@ -75,7 +78,7 @@ class Conversion extends Component {
         const {classes} = this.props;
         const { tabValue } = this.state;
         return (
-            <div className="facilityComponent">
+            <div className="conversionComponent">
                 <h3>Conversion</h3>
 
                 <Tabs
@@ -92,9 +95,9 @@ class Conversion extends Component {
                 {tabValue === 0 && <TabContainer>
                     <Card>
                         <CardHeader color="info">
-                            <h4 className={classes.cardTitleWhite}>Channel Performance</h4>
+                            <h4 className="cardTitleWhite">Channel Performance</h4>
                         </CardHeader>
-                        <CardBody>
+                        <CardBody className={classes.cardConversionTable}>
                             <Table
                                 tableHeaderColor="info"
                                 tableHead={[

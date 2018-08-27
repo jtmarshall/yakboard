@@ -1,8 +1,8 @@
 import React from 'react';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
+// import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+// import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+// import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+// import Typography from '@material-ui/core/Typography';
 import MaterialIcon from 'material-icons-react';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -54,7 +54,7 @@ class SKUFilter extends React.Component {
     render() {
         return (
             <div className="filterComponent">
-                <Button onClick={this.toggleDrawer('right', true)}>
+                <Button onClick={this.toggleDrawer('right', true)} style={{top: '5px'}}>
                     <MaterialIcon icon='filter_list' size={24} color='#ff9800' />
                 </Button>
 

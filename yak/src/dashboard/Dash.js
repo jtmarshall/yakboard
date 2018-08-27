@@ -10,7 +10,6 @@ import Storyboard from './components/Storyboard/Storyboard';
 import Conversion from './components/Conversion/Conversion';
 import Export from './components/Export/Export';
 import Settings from "./components/Settings/Settings";
-import MaterialIcon from "material-icons-react";
 
 
 // Global state for local storage
