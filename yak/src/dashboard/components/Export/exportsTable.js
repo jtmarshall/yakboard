@@ -1,10 +1,10 @@
 import React from 'react';
 import moment from 'moment';
 import withStyles from "@material-ui/core/styles/withStyles";
-import Table from '../tools/table.js';
-import Card from '../tools/Card/Card';
-import CardHeader from "../tools/Card/CardHeader";
-import CardBody from '../tools/Card/CardBody';
+import Table from '../../tools/table.js';
+import Card from '../../tools/Card/Card';
+import CardHeader from "../../tools/Card/CardHeader";
+import CardBody from '../../tools/Card/CardBody';
 import MaterialIcon from 'material-icons-react';
 
 

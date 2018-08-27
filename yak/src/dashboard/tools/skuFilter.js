@@ -8,6 +8,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+
 
 class SKUFilter extends React.Component {
 
@@ -16,9 +19,17 @@ class SKUFilter extends React.Component {
     }
 
     current = this.props.selected;
+    rightDrawer = this.props.rightDrawer;
 
     state = {
-        Filter: this.current
+        Filter: this.current,
+        right: this.rightDrawer
+    };
+
+    toggleDrawer = (side, open) => () => {
+        this.setState({
+            [side]: open,
+        });
     };
 
     // update sku filter state
@@ -41,15 +52,22 @@ class SKUFilter extends React.Component {
     };
 
     render() {
-        return(
-            <ExpansionPanel style={{width: '90%', display: 'inline-block', backgroundColor: '#EEEEEE', boxShadow: 'none', margin: '0'}}>
-                <ExpansionPanelSummary expandIcon={<MaterialIcon icon='keyboard_arrow_down' color='#00bcd4' />}>
-                    <Typography className="">Filter</Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                    <Typography>
+        return (
+            <div>
+                <Button onClick={this.toggleDrawer('right', true)}>
+                    <MaterialIcon icon='filter_list' size={24} color='#ff9800' /> Filter
+                </Button>
+
+                <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+                    <div
+                        style={{width: 400, padding: 20}}
+                        tabIndex={0}
+                        role="button"
+
+                        onKeyDown={this.toggleDrawer('right', false)}
+                    >
                         <form className="" noValidate autoComplete="off">
-                            <FormControl style={{minWidth: '120px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '180px', padding: '4px'}} className="">
                                 <InputLabel htmlFor="filterSource">Source</InputLabel>
                                 <Select
                                     multiple
@@ -67,7 +85,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'yahoo'}>Yahoo</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
+                            <FormControl style={{minWidth: '180px', padding: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterCampaign">Campaign</InputLabel>
                                 <Select
                                     multiple
@@ -85,7 +104,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'opiate'}>Opiates</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterTier">Tier</InputLabel>
                                 <Select
                                     multiple
@@ -102,7 +122,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'t3'}>T3</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterMedium">Medium</InputLabel>
                                 <Select
                                     multiple
@@ -121,7 +142,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'5'}>Ad_Video</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingRight: '4px', paddingLeft: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterNetwork">Network</InputLabel>
                                 <Select
                                     multiple
@@ -140,7 +162,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'a5'}>Ad_Video</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterTargeting">Targeting</InputLabel>
                                 <Select
                                     multiple
@@ -243,7 +266,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'d21'}>Urgent - Self</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterAgeRange">Age Range</InputLabel>
                                 <Select
                                     multiple
@@ -266,7 +290,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'e10'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterEthnicity">Ethnicity</InputLabel>
                                 <Select
                                     multiple
@@ -288,7 +313,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'f8'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterFamilyRole">Family Role</InputLabel>
                                 <Select
                                     multiple
@@ -314,7 +340,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'g12'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterGender">Gender</InputLabel>
                                 <Select
                                     multiple
@@ -331,7 +358,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'h3'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterIncome">Income</InputLabel>
                                 <Select
                                     multiple
@@ -356,7 +384,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'i11'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '150px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '150px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterInterestsBehaviors">Interest/Behavior</InputLabel>
                                 <Select
                                     multiple
@@ -390,7 +419,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'j20'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterLanguage">Language</InputLabel>
                                 <Select
                                     multiple
@@ -408,7 +438,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'k4'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterEducation">Education</InputLabel>
                                 <Select
                                     multiple
@@ -432,7 +463,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'l10'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterOccupation">Occupation</InputLabel>
                                 <Select
                                     multiple
@@ -462,7 +494,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'m16'}>Undetermined</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}} className="">
+                            <FormControl style={{minWidth: '120px', paddingLeft: '4px', paddingRight: '4px'}}
+                                         className="">
                                 <InputLabel htmlFor="filterRelationship">Relationship</InputLabel>
                                 <Select
                                     multiple
@@ -506,11 +539,37 @@ class SKUFilter extends React.Component {
                                 </Select>
                             </FormControl>
                         </form>
-                    </Typography>
-                </ExpansionPanelDetails>
-            </ExpansionPanel>
+                    </div>
+                </Drawer>
+            </div>
+
+            //     </ExpansionPanelDetails>
+            // </ExpansionPanel>
         );
     }
 }
 
 export default SKUFilter;
+
+{/*<ExpansionPanel style={{*/
+}
+{/*width: '90%',*/
+}
+{/*display: 'inline-block',*/
+}
+{/*backgroundColor: '#EEEEEE',*/
+}
+{/*boxShadow: 'none',*/
+}
+{/*margin: '0'*/
+}
+{/*}}>*/
+}
+{/*<ExpansionPanelSummary expandIcon={<MaterialIcon icon='keyboard_arrow_down' color='#00bcd4'/>}>*/
+}
+{/*<Typography className="">Filter</Typography>*/
+}
+{/*</ExpansionPanelSummary>*/
+}
+{/*<ExpansionPanelDetails>*/
+}

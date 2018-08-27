@@ -6,10 +6,10 @@ import FacilityAutoComplete from './tools/facilityAutoComplete';
 import SKUFilter from './tools/skuFilter';
 import DatePicker from './tools/datePicker';
 import Sidebar from './sidebar/Sidebar';
-import Storyboard from './components/Storyboard';
-import Conversion from './components/Conversion';
-import Export from './components/Export';
-import Settings from "./components/Settings";
+import Storyboard from './components/Storyboard/Storyboard';
+import Conversion from './components/Conversion/Conversion';
+import Export from './components/Export/Export';
+import Settings from "./components/Settings/Settings";
 import MaterialIcon from "material-icons-react";
 
 
@@ -51,7 +51,7 @@ class Dash extends React.Component {
                 occupation: [],
                 relationship: [],
                 religion: []
-            }
+            },
         };
 
         // Set global state so it's not empty
@@ -103,14 +103,12 @@ class Dash extends React.Component {
     };
 
 
-
     render() {
         return (
             <div className="dash">
-                {/*<MaterialIcon icon='filter_list' size={32} color='#ff9800' />*/}
                 <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
                 <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
-                <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter}/>
+                <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter} rightDrawer={this.state.rightDrawer}/>
 
                 <Sidebar/>
 

@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import Table from '../tools/table.js';
-import Card from '../tools/Card/Card';
-import CardHeader from "../tools/Card/CardHeader";
-import CardBody from '../tools/Card/CardBody';
-import ReactChart from '../tools/graph/graph';
+import Table from '../../tools/table.js';
+import Card from '../../tools/Card/Card';
+import CardHeader from "../../tools/Card/CardHeader";
+import CardBody from '../../tools/Card/CardBody';
+import ReactChart from './graph';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import moment from "moment/moment";
-import MaterialIcon from 'material-icons-react';
+//import moment from "moment/moment";
+//import MaterialIcon from 'material-icons-react';
 
 const styles = {
     cardCategoryWhite: {
@@ -96,7 +96,7 @@ class Conversion extends Component {
                         </CardHeader>
                         <CardBody>
                             <Table
-                                tableHeaderColor="#00acc1"
+                                tableHeaderColor="info"
                                 tableHead={[
                                     "Network",
                                     "Total 5min",

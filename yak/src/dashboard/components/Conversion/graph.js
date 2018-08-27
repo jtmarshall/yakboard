@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Line, Bar} from 'react-chartjs-2';
-import toolbox from "../toolbox";
+import toolbox from "../../tools/toolbox";
 
 export class ReactChart extends Component {
     constructor(props) {
