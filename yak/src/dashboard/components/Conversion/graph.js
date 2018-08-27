@@ -5,7 +5,7 @@ import toolbox from "../../tools/toolbox";
 export class ReactChart extends Component {
     constructor(props) {
         super(props);
-        let today = new Date();
+        //let today = new Date();
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
@@ -97,7 +97,7 @@ export class ReactChart extends Component {
     render() {
         return (
             <div className="reactChart">
-                <Bar
+                <Line
                     data={this.state.chartData}
                     options={this.state.chartOptions}
                 />

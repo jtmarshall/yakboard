@@ -70,6 +70,20 @@
 /*maxWidth: "90%", display: "inline-block", padding: "8px"*/
 }
 
+.cardTitleWhite {
+    color: #FFFFFF;
+    margin-top: 0px;
+    min-height: auto;
+    font-weight: 300;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    margin-bottom: 3px;
+    text-decoration: none;
+}
+
+.cardTable {
+    overflow-x: auto;
+}
+
 .datePicker {
     display: inline-flex;
 }
