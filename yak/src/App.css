@@ -37,6 +37,12 @@
 }
 
 /* My styles added to supplement bootstrap/boilerplate */
+.filterComponent {
+    display: inline-flex;
+    padding-left: 5px;
+    top: 5px;
+}
+
 .autoComplete-container {
     display: inline-flex;
     width: 60%;
@@ -410,6 +416,15 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
     padding: 4px 10px;
     font-size: .9em;
   
+  }
+
+  .skuFilter > * {
+      min-width: 180px !important;
+      padding: 4px !important;
+  }
+
+  .skuFilterSelect {
+      color: rgb(255, 152, 0) !important;
   }
 
   /* .CardHeader {

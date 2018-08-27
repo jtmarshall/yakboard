@@ -11,7 +11,7 @@ class App extends Component {
         let path = window.location.hash;
         console.log(path);
 
-        if (path === '#/login') {
+        if (path === '#/') {
             return (
                 <div className="App">
                     <Route exact path="/login" component={Login} />
