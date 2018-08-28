@@ -63,8 +63,9 @@ class Export extends Component {
         exportName: 'Sample Export',
         exportEmail: 'sample@placeholder.com',
         recurrence: '',
+        columns: [],
         multiline: 'Controlled',
-        facility: '',
+        facility: [],
         touch: '',
         channel: '',
         medium: '',
@@ -144,9 +145,42 @@ class Export extends Component {
 
                             <br/>
 
+                            <FormControl className={classes.formControl} style={{width: '80%'}}>
+                                <InputLabel htmlFor="columns">Columns</InputLabel>
+                                <Select
+                                    multiple
+                                    value={this.state.columns}
+                                    onChange={this.handleSelect}
+                                    label="Columns"
+                                    inputProps={{
+                                        name: 'columns',
+                                        id: 'columns',
+                                    }}
+                                    autoWidth
+                                >
+                                    <MenuItem value={'ip'}>IP</MenuItem>
+                                    <MenuItem value={'session'}>Session</MenuItem>
+                                    <MenuItem value={'passport'}>Passport</MenuItem>
+                                    <MenuItem value={'phone'}>Phone</MenuItem>
+                                    <MenuItem value={'datetime'}>Datetime</MenuItem>
+                                    <MenuItem value={'geo'}>Geo</MenuItem>
+                                    <MenuItem value={'sku'}>SKU</MenuItem>
+                                    <MenuItem value={'url'}>URL</MenuItem>
+                                    <MenuItem value={'touch'}>Touch</MenuItem>
+                                    <MenuItem value={'referrer'}>Referrer</MenuItem>
+                                    <MenuItem value={'source'}>Source</MenuItem>
+                                    <MenuItem value={'medium'}>Medium</MenuItem>
+                                    <MenuItem value={'facility'}>Facility</MenuItem>
+                                    <MenuItem value={'facilityType'}>Facility Type</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <br/>
+
                             <FormControl className={classes.formControl}>
                                 <InputLabel htmlFor="facility">Facility</InputLabel>
                                 <Select
+                                    multiple
                                     value={this.state.facility}
                                     onChange={this.handleSelect}
                                     label="Facility"
