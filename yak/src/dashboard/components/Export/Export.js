@@ -145,7 +145,7 @@ class Export extends Component {
 
                             <br/>
 
-                            <FormControl className={classes.formControl} style={{minWidth: '400px', width: '80%'}}>
+                            <FormControl className={classes.formControl} style={{width: '80%'}}>
                                 <InputLabel htmlFor="columns">Columns</InputLabel>
                                 <Select
                                     multiple
