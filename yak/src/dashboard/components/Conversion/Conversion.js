@@ -4,6 +4,7 @@ import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import ReactChart from './graph';
+import NivoBarGraph from './nivoBarGraph';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -123,17 +124,19 @@ class Conversion extends Component {
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
+                    <NivoBarGraph color={"mint"} title={"Conversions by Type"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
                             <h4 className={classes.cardTitleWhite}>Conversions by Type</h4>
                         </CardHeader>
                         <CardBody>
-                            <ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[141, 113, 81, 101, 112, 116]}
-                                        chartOptions={{
-                                                dataLabel: 'Calls',
-                                                xName: 'Conversions per Day',
-                                                yName: ''
-                                            }}/>
+
+                            {/*<ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[141, 113, 81, 101, 112, 116]}*/}
+                                        {/*chartOptions={{*/}
+                                                {/*dataLabel: 'Calls',*/}
+                                                {/*xName: 'Conversions per Day',*/}
+                                                {/*yName: ''*/}
+                                            {/*}}/>*/}
                         </CardBody>
                     </Card>
 
