@@ -12,6 +12,8 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 
 const styles = {
@@ -177,130 +179,143 @@ class Export extends Component {
 
                             <br/>
 
-                            <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="facility">Facility</InputLabel>
-                                <Select
-                                    multiple
-                                    value={this.state.facility}
-                                    onChange={this.handleSelect}
-                                    label="Facility"
-                                    inputProps={{
-                                        name: 'facility',
-                                        id: 'facility',
-                                    }}
-                                    autoWidth
-                                >
-                                    <MenuItem value={'all'}>
-                                        <em>All</em>
-                                    </MenuItem>
-                                    <MenuItem value={'baysideMarin'}>Bayside Marin</MenuItem>
-                                    <MenuItem value={'acadiana'}>Acadiana</MenuItem>
-                                    <MenuItem value={'galax'}>Galax</MenuItem>
-                                </Select>
-                            </FormControl>
+                            {/*<FormControl className={classes.formControl}>*/}
+                                {/*<InputLabel htmlFor="facility">Facility</InputLabel>*/}
+                                {/*<Select*/}
+                                    {/*multiple*/}
+                                    {/*value={this.state.facility}*/}
+                                    {/*onChange={this.handleSelect}*/}
+                                    {/*label="Facility"*/}
+                                    {/*inputProps={{*/}
+                                        {/*name: 'facility',*/}
+                                        {/*id: 'facility',*/}
+                                    {/*}}*/}
+                                    {/*autoWidth*/}
+                                {/*>*/}
+                                    {/*<MenuItem value={'all'}>*/}
+                                        {/*<em>All</em>*/}
+                                    {/*</MenuItem>*/}
+                                    {/*<MenuItem value={'baysideMarin'}>Bayside Marin</MenuItem>*/}
+                                    {/*<MenuItem value={'acadiana'}>Acadiana</MenuItem>*/}
+                                    {/*<MenuItem value={'galax'}>Galax</MenuItem>*/}
+                                {/*</Select>*/}
+                            {/*</FormControl>*/}
 
-                            <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="touch">Touch</InputLabel>
-                                <Select
-                                    value={this.state.touch}
-                                    onChange={this.handleSelect}
-                                    label="Touch"
-                                    inputProps={{
-                                        name: 'touch',
-                                        id: 'touch',
-                                    }}
-                                    autoWidth
-                                >
-                                    <MenuItem value="any">
-                                        <em>Any</em>
-                                    </MenuItem>
-                                    <MenuItem value={'first'}>First</MenuItem>
-                                    <MenuItem value={'last'}>Last</MenuItem>
-                                </Select>
-                            </FormControl>
+                            {/*<FormControl className={classes.formControl}>*/}
+                                {/*<InputLabel htmlFor="touch">Touch</InputLabel>*/}
+                                {/*<Select*/}
+                                    {/*value={this.state.touch}*/}
+                                    {/*onChange={this.handleSelect}*/}
+                                    {/*label="Touch"*/}
+                                    {/*inputProps={{*/}
+                                        {/*name: 'touch',*/}
+                                        {/*id: 'touch',*/}
+                                    {/*}}*/}
+                                    {/*autoWidth*/}
+                                {/*>*/}
+                                    {/*<MenuItem value="any">*/}
+                                        {/*<em>Any</em>*/}
+                                    {/*</MenuItem>*/}
+                                    {/*<MenuItem value={'first'}>First</MenuItem>*/}
+                                    {/*<MenuItem value={'last'}>Last</MenuItem>*/}
+                                {/*</Select>*/}
+                            {/*</FormControl>*/}
 
-                            <br/>
+                            {/*<br/>*/}
 
-                            <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="channel">Channel</InputLabel>
-                                <Select
-                                    value={this.state.channel}
-                                    onChange={this.handleSelect}
-                                    label="Channel"
-                                    inputProps={{
-                                        name: 'channel',
-                                        id: 'channel',
-                                    }}
-                                >
-                                    <MenuItem value={'all'}><em>All</em></MenuItem>
-                                    <MenuItem value={"direct"}>Direct</MenuItem>
-                                    <MenuItem value={'email'}>Email</MenuItem>
-                                    <MenuItem value={'organic'}>Organic</MenuItem>
-                                    <MenuItem value={'paid-advertising'}>Paid Advertising</MenuItem>
-                                    <MenuItem value={'referring'}>Referring</MenuItem>
-                                </Select>
-                            </FormControl>
+                            {/*<FormControl className={classes.formControl}>*/}
+                                {/*<InputLabel htmlFor="channel">Channel</InputLabel>*/}
+                                {/*<Select*/}
+                                    {/*value={this.state.channel}*/}
+                                    {/*onChange={this.handleSelect}*/}
+                                    {/*label="Channel"*/}
+                                    {/*inputProps={{*/}
+                                        {/*name: 'channel',*/}
+                                        {/*id: 'channel',*/}
+                                    {/*}}*/}
+                                {/*>*/}
+                                    {/*<MenuItem value={'all'}><em>All</em></MenuItem>*/}
+                                    {/*<MenuItem value={"direct"}>Direct</MenuItem>*/}
+                                    {/*<MenuItem value={'email'}>Email</MenuItem>*/}
+                                    {/*<MenuItem value={'organic'}>Organic</MenuItem>*/}
+                                    {/*<MenuItem value={'paid-advertising'}>Paid Advertising</MenuItem>*/}
+                                    {/*<MenuItem value={'referring'}>Referring</MenuItem>*/}
+                                {/*</Select>*/}
+                            {/*</FormControl>*/}
 
-                            <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="medium">Medium</InputLabel>
-                                <Select
-                                    value={this.state.medium}
-                                    onChange={this.handleSelect}
-                                    inputProps={{
-                                        name: 'medium',
-                                        id: 'medium',
-                                    }}
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={'all'}>All</MenuItem>
-                                    <MenuItem value={'directories'}>Directories</MenuItem>
-                                    <MenuItem value={'internal-directories'}>Internal Directories</MenuItem>
-                                    <MenuItem value={'lead-gen'}>Lead Gen</MenuItem>
-                                    <MenuItem value={'other'}>Other</MenuItem>
-                                    <MenuItem value={'placement'}>Placement</MenuItem>
-                                    <MenuItem value={'search'}>Search</MenuItem>
-                                    <MenuItem value={'search-engines'}>Search Engines</MenuItem>
-                                    <MenuItem value={'sign-up'}>Sign Up</MenuItem>
-                                    <MenuItem value={'social'}>Social</MenuItem>
-                                    <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
-                                </Select>
-                            </FormControl>
+                            {/*<FormControl className={classes.formControl}>*/}
+                                {/*<InputLabel htmlFor="medium">Medium</InputLabel>*/}
+                                {/*<Select*/}
+                                    {/*value={this.state.medium}*/}
+                                    {/*onChange={this.handleSelect}*/}
+                                    {/*inputProps={{*/}
+                                        {/*name: 'medium',*/}
+                                        {/*id: 'medium',*/}
+                                    {/*}}*/}
+                                {/*>*/}
+                                    {/*<MenuItem value="">*/}
+                                        {/*<em>None</em>*/}
+                                    {/*</MenuItem>*/}
+                                    {/*<MenuItem value={'all'}>All</MenuItem>*/}
+                                    {/*<MenuItem value={'directories'}>Directories</MenuItem>*/}
+                                    {/*<MenuItem value={'internal-directories'}>Internal Directories</MenuItem>*/}
+                                    {/*<MenuItem value={'lead-gen'}>Lead Gen</MenuItem>*/}
+                                    {/*<MenuItem value={'other'}>Other</MenuItem>*/}
+                                    {/*<MenuItem value={'placement'}>Placement</MenuItem>*/}
+                                    {/*<MenuItem value={'search'}>Search</MenuItem>*/}
+                                    {/*<MenuItem value={'search-engines'}>Search Engines</MenuItem>*/}
+                                    {/*<MenuItem value={'sign-up'}>Sign Up</MenuItem>*/}
+                                    {/*<MenuItem value={'social'}>Social</MenuItem>*/}
+                                    {/*<MenuItem value={'sponsorship'}>Sponsorship</MenuItem>*/}
+                                {/*</Select>*/}
+                            {/*</FormControl>*/}
 
-                            <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="source">Source</InputLabel>
-                                <Select
-                                    value={this.state.source}
-                                    onChange={this.handleSelect}
-                                    inputProps={{
-                                        name: 'source',
-                                        id: 'source',
-                                    }}
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={'all'}>All</MenuItem>
-                                    <MenuItem value={'directories'}>Directories</MenuItem>
-                                    <MenuItem value={'internal-directories'}>Internal Directories</MenuItem>
-                                    <MenuItem value={'lead-gen'}>Lead Gen</MenuItem>
-                                    <MenuItem value={'other'}>Other</MenuItem>
-                                    <MenuItem value={'placement'}>Placement</MenuItem>
-                                    <MenuItem value={'search'}>Search</MenuItem>
-                                    <MenuItem value={'search-engines'}>Search Engines</MenuItem>
-                                    <MenuItem value={'sign-up'}>Sign Up</MenuItem>
-                                    <MenuItem value={'social'}>Social</MenuItem>
-                                    <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
-                                </Select>
-                            </FormControl>
+                            {/*<FormControl className={classes.formControl}>*/}
+                                {/*<InputLabel htmlFor="source">Source</InputLabel>*/}
+                                {/*<Select*/}
+                                    {/*value={this.state.source}*/}
+                                    {/*onChange={this.handleSelect}*/}
+                                    {/*inputProps={{*/}
+                                        {/*name: 'source',*/}
+                                        {/*id: 'source',*/}
+                                    {/*}}*/}
+                                {/*>*/}
+                                    {/*<MenuItem value="">*/}
+                                        {/*<em>None</em>*/}
+                                    {/*</MenuItem>*/}
+                                    {/*<MenuItem value={'all'}>All</MenuItem>*/}
+                                    {/*<MenuItem value={'directories'}>Directories</MenuItem>*/}
+                                    {/*<MenuItem value={'internal-directories'}>Internal Directories</MenuItem>*/}
+                                    {/*<MenuItem value={'lead-gen'}>Lead Gen</MenuItem>*/}
+                                    {/*<MenuItem value={'other'}>Other</MenuItem>*/}
+                                    {/*<MenuItem value={'placement'}>Placement</MenuItem>*/}
+                                    {/*<MenuItem value={'search'}>Search</MenuItem>*/}
+                                    {/*<MenuItem value={'search-engines'}>Search Engines</MenuItem>*/}
+                                    {/*<MenuItem value={'sign-up'}>Sign Up</MenuItem>*/}
+                                    {/*<MenuItem value={'social'}>Social</MenuItem>*/}
+                                    {/*<MenuItem value={'sponsorship'}>Sponsorship</MenuItem>*/}
+                                {/*</Select>*/}
+                            {/*</FormControl>*/}
 
                         </form>
+
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={this.state.checkedB}
+                                    onChange={this.handleChange('checkedB')}
+                                    value="checkedB"
+                                    color="secondary"
+                                />
+                            }
+                            label="Use current filters"
+                        />
+
                     </CardContent>
 
                     <CardActions style={{display: 'block'}}>
                         <Button variant="contained" color="primary" style={{backgroundColor: '#00C853', color: '#ffffff'}} className="">
-                            Submit
+                            Start
                         </Button>
                     </CardActions>
                 </Card>
