@@ -98,6 +98,11 @@
     display: block;
 }
 
+.nivoGraph {
+    height: 400px;
+    min-height: 200px;
+}
+
 .sidebarComponent {
     color: #fafafa;
     position: fixed;
