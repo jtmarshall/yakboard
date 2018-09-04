@@ -124,12 +124,13 @@ class Conversion extends Component {
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
+                    <NivoBarGraph color={"mint"} title={"Conversions by Type"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
                             <h4 className={classes.cardTitleWhite}>Conversions by Type</h4>
                         </CardHeader>
                         <CardBody>
-                            <NivoBarGraph chartCallData={[11, 14, 13, 8, 10, 12]} />
+
                             {/*<ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[141, 113, 81, 101, 112, 116]}*/}
                                         {/*chartOptions={{*/}
                                                 {/*dataLabel: 'Calls',*/}
