@@ -100,7 +100,7 @@
 }
 
 .nivoCard {
-    width: 90%;
+    width: 95%;
     margin: 0 6px;
 }
 
@@ -117,6 +117,7 @@
 .nivoGraph {
     height: 400px;
     min-height: 200px;
+    width: 100%;
 }
 
 .sidebarComponent {
