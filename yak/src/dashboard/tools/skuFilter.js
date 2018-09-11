@@ -68,6 +68,54 @@ class SKUFilter extends React.Component {
                     >
                         <form className="skuFilter" noValidate autoComplete="off">
                             <FormControl  className="">
+                                <InputLabel htmlFor="filterChannel">Channel</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    multiple
+                                    value={this.state.Filter.channel}
+                                    onChange={this.handleSelect('channel')}
+                                    inputProps={{
+                                        name: 'channel',
+                                        id: 'filterChannel',
+                                    }}
+                                >
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'direct'}>Direct</MenuItem>
+                                    <MenuItem value={'email'}>Email</MenuItem>
+                                    <MenuItem value={'email_leadGen'}>Email - Lead Gen</MenuItem>
+                                    <MenuItem value={'email_other'}>Email - Other</MenuItem>
+                                    <MenuItem value={'email_signUp'}>Email - Sign Up</MenuItem>
+                                    <MenuItem value={'organic'}>Organic</MenuItem>
+                                    <MenuItem value={'organic_other'}>Organic - Other</MenuItem>
+                                    <MenuItem value={'organic_bing'}>Organic - Bing</MenuItem>
+                                    <MenuItem value={'organic_google'}>Organic - Google</MenuItem>
+                                    <MenuItem value={'organic_yahoo'}>Organic - Yahoo</MenuItem>
+                                    <MenuItem value={'organic_other_search'}>Organic - Search - Other</MenuItem>
+                                    <MenuItem value={'organic_facebook'}>Organic - Facebook</MenuItem>
+                                    <MenuItem value={'organic_instagram'}>Organic - Instagram</MenuItem>
+                                    <MenuItem value={'organic_linkedin'}>Organic - LinkedIn</MenuItem>
+                                    <MenuItem value={'organic_pinterest'}>Organic - Pinterest</MenuItem>
+                                    <MenuItem value={'organic_youtube'}>Organic - YouTube</MenuItem>
+                                    <MenuItem value={'organic_other_social'}>Organic - Social - Other</MenuItem>
+                                    <MenuItem value={'paidAdvertising'}>Paid Advertising</MenuItem>
+                                    <MenuItem value={'referring'}>Referring</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Choose Help</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Choose Help - Alcohol</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Other</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Psych Today</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Psych Today - Alcohol</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Yellow Pages</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Yellow Pages - Alcohol</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Yelp</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Yelp - Alcohol</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Internal</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Internal - Acadia</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Internal - ARC</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Internal - Something Fishy</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Other</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl  className="">
                                 <InputLabel htmlFor="filterSource">Source</InputLabel>
                                 <Select
                                     className="skuFilterSelect"
@@ -143,6 +191,9 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'5'}>Ad_Video</MenuItem>
                                 </Select>
                             </FormControl>
+
+                            <h5 style={{marginBottom: 0, color: '#ff9800'}}>SKU</h5>
+
                             <FormControl className="">
                                 <InputLabel htmlFor="filterNetwork">Network</InputLabel>
                                 <Select

@@ -3,7 +3,8 @@ import Table from '../../tools/table.js';
 import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
-import NivoBarGraph from './nivoBarGraph';
+import NivoBar from './nivoBar';
+import NivoLine from './nivoLine';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -123,7 +124,8 @@ class Conversion extends Component {
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
-                    <NivoBarGraph color={"mint"} title={"Conversions by Type"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoBar color={"mint"} title={"Conversions Bar Graph"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoLine color={"prime"} title={"Conversions by Line"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
                             <h4 className={classes.cardTitleWhite}>Conversions by Type</h4>
