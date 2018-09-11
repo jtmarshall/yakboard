@@ -5,7 +5,7 @@ import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
 
-export default class NivoBarGraph extends Component {
+export default class NivoBar extends Component {
     constructor(props) {
         super(props);
         //let today = new Date();
