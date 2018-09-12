@@ -116,6 +116,24 @@ class SKUFilter extends React.Component {
                                 </Select>
                             </FormControl>
                             <FormControl  className="">
+                                <InputLabel htmlFor="filterSource">Conversion</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    multiple
+                                    value={this.state.Filter.conversion}
+                                    onChange={this.handleSelect('conversion')}
+                                    inputProps={{
+                                        name: 'conversion',
+                                        id: 'filterConversion',
+                                    }}
+                                >
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'phone'}>Phone Call</MenuItem>
+                                    <MenuItem value={'webForm'}>Web Form</MenuItem>
+                                    <MenuItem value={'tos5'}>5+ TOS</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl  className="">
                                 <InputLabel htmlFor="filterSource">Source</InputLabel>
                                 <Select
                                     className="skuFilterSelect"
