@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
+import TextField from '@material-ui/core/TextField';
 import AuthService from './AuthService';
+import FormControl from "@material-ui/core/FormControl/FormControl";
+import Button from "@material-ui/core/Button/Button";
+import CardHeader from "../dashboard/tools/Card/CardHeader";
+import CardContent from "@material-ui/core/CardContent/CardContent";
+import Card from "../dashboard/tools/Card/Card";
+import CardActions from "@material-ui/core/CardActions/CardActions";
 import './Login.css';
+import logo from "../assets/logo/yak-logo-fullbody.svg";
 
 
 class Login extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -14,40 +22,53 @@ class Login extends Component {
     }
 
     // Redirect login page if
-    componentWillMount(){
-        if(this.Auth.loggedIn())
+    componentWillMount() {
+        if (this.Auth.loggedIn())
             this.props.history.replace('/');
     }
 
     render() {
         return (
-            <div className="center">
-                <div className="card">
-                    <h1>Login</h1>
-                    <form>
-                        <input
-                            className="form-item"
-                            placeholder="User"
-                            name="username"
-                            type="text"
-                            onChange={this.handleChange}
-                        />
-                        <br/>
-                        <input
-                            className="form-item"
-                            placeholder="Password"
-                            name="password"
-                            type="password"
-                            onChange={this.handleChange}
-                        />
-                        <br/>
-                        <input
-                            className="form-submit"
-                            value="SUBMIT"
-                            type="submit"
-                        />
-                    </form>
-                </div>
+            <div className="loginBlock">
+                <img src={logo} style={{height: "280px"}} alt="logo"/>
+                <br/>
+                <Card style={{width: '50%', minWidth: '400px'}}>
+                    <CardHeader color="prime">
+                        <h4 className={'cardTitleWhite'}>Please Login</h4>
+                    </CardHeader>
+                    <CardContent>
+                        <FormControl className="">
+                            <form>
+                                <TextField
+                                    required
+                                    id="username-input"
+                                    label="Username"
+                                    className={'textField'}
+                                    margin="normal"
+                                    onChange={this.handleChange}
+                                />
+                                <br/>
+                                <TextField
+                                    required
+                                    id="password-input"
+                                    label="Password"
+                                    className={'textField'}
+                                    type="password"
+                                    autoComplete="current-password"
+                                    margin="normal"
+                                    onChange={this.handleChange}
+                                />
+                                <CardActions style={{display: 'block'}}>
+                                    <Button variant="contained"
+                                            onClick={this.props.onSubmit}
+                                            style={{backgroundColor: '#00C853', color: '#ffffff'}}>
+                                        Login
+                                    </Button>
+                                </CardActions>
+                            </form>
+                        </FormControl>
+                    </CardContent>
+                </Card>
             </div>
         );
     }
@@ -60,14 +81,14 @@ class Login extends Component {
         )
     }
 
-    handleFormSubmit(e){
+    handleFormSubmit(e) {
         e.preventDefault();
 
-        this.Auth.login(this.state.username,this.state.password)
-            .then(res =>{
+        this.Auth.login(this.state.username, this.state.password)
+            .then(res => {
                 this.props.history.replace('/');
             })
-            .catch(err =>{
+            .catch(err => {
                 alert(err);
             })
     }
