@@ -34,7 +34,7 @@ class Login extends Component {
                 <br/>
                 <Card style={{width: '50%', minWidth: '400px'}}>
                     <CardHeader color="prime">
-                        <h4 className={'cardTitleWhite'}>Please Login</h4>
+                        <h4 className={'cardTitleWhite'}>YAK</h4>
                     </CardHeader>
                     <CardContent>
                         <FormControl className="">
@@ -59,9 +59,9 @@ class Login extends Component {
                                     onChange={this.handleChange}
                                 />
                                 <CardActions style={{display: 'block'}}>
-                                    <Button variant="contained"
+                                    <Button variant="contained" size="large"
                                             onClick={this.props.onSubmit}
-                                            style={{backgroundColor: '#00C853', color: '#ffffff'}}>
+                                            >
                                         Login
                                     </Button>
                                 </CardActions>
