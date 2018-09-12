@@ -1,47 +1,10 @@
-
-.center{
-    /*background-color: #1abc9c;*/
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    width: 450px;
+.textField {
+    width: 340px;
 }
 
-.card{
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 1rem;
-}
-
-.card > form{
-    display: flex;
-    flex-direction: column;
-    text-align: -webkit-center;
-}
-
-.card h1{
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.form-item{
-    padding: 5px;
-    margin-bottom: 1rem;
-    height: 30px;
-    width: 20rem;
-}
-
-.form-submit{
-    height: 35px;
-    color: #fff;
-    background-color: #00bcd4;
-    border: none;
-    border-radius: 8px;
-    letter-spacing: 0.2rem;
-    transition: 0.3s opacity ease;
-    cursor: pointer;
-}
-.form-submit:hover{
-    opacity: 0.6;
+.loginBlock {
+    display: block;
+    margin-left: -180px !important;
+    background-color: #222;
+    height: 100vh;
 }

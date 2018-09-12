@@ -5,16 +5,30 @@ import {Route} from 'react-router-dom';
 import Login from './login/Login.js';
 
 
+function onAuthRequired({history}) {
+    history.push('/login');
+}
+
 class App extends Component {
+
+    state = {
+        loggedIn: false
+    };
+
+    verifyLogin = () => {
+        this.setState({
+            loggedIn: true
+        })
+    };
 
     render() {
         let path = window.location.hash;
         console.log(path);
 
-        if (path === '#/') {
+        if (!this.state.loggedIn) {
             return (
                 <div className="App">
-                    <Route exact path="/login" component={Login} />
+                    <Login onSubmit={this.verifyLogin}/>
                 </div>
             );
         } else {
