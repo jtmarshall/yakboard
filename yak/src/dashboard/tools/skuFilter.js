@@ -263,7 +263,7 @@ class SKUFilter extends React.Component {
                                 >
                                     <MenuItem value={'c0'}>All</MenuItem>
                                     <MenuItem value={'c1'}>CanvasAd</MenuItem>
-                                    <MenuItem value={'c2'}>ETA</MenuItem>
+                                    <MenuItem value={'c2'}>2 Headline</MenuItem>
                                     <MenuItem value={'c3'}>GIF</MenuItem>
                                     <MenuItem value={'c4'}>GmailAd</MenuItem>
                                     <MenuItem value={'c5'}>HTML</MenuItem>
@@ -282,6 +282,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'c18'}>Banner</MenuItem>
                                     <MenuItem value={'c19'}>Profile</MenuItem>
                                     <MenuItem value={'c20'}>Text Ad</MenuItem>
+                                    <MenuItem value={'c20'}>3 Headline</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl>
