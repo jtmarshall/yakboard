@@ -123,10 +123,11 @@ export default class Storyboard extends Component {
                         <CardHeader color="rose">
                             <h4 className="cardTitleWhite">Lookup Trail</h4>
                         </CardHeader>
-                        <CardBody className="">
+                        <CardBody className="" style={{overflowX: 'auto'}}>
                             <Table
                                 tableHeaderColor="rose"
                                 tableHead={[
+                                    "Passport",
                                     "IP",
                                     "Domain",
                                     "Page",
@@ -136,10 +137,10 @@ export default class Storyboard extends Component {
                                     "Datetime",
                                 ]}
                                 tableData={[
-                                    ["1.144.111.175", "Timberline Knolls", "/eating-disorder/orthorexia/signs-effects/", "", "Greystanes, New South Wales", "true", "2018-08-27 02:28:29"],
-                                    ["1.144.111.175", "Timberline Knolls", "/eating-disorder/orthorexia/signs-effects/", "", "Greystanes, New South Wales", "true", "2018-08-27 02:03:01"],
-                                    ["1.144.111.175", "Timberline Knolls", "/eating-disorder/body-dysmorphia/", "www.timberlineknolls.com", "Greystanes, New South Wales", "true", "2018-08-27 00:02:44"],
-                                    ["1.144.111.175", "Timberline Knolls", "/eating-disorder/orthorexia/signs-effects/", "", "Greystanes, New South Wales", "true", "2018-08-26 23:59:00"],
+                                    ["1", "1.144.111.175", "Timberline Knolls", "/eating-disorder/orthorexia/signs-effects/", "", "Greystanes, New South Wales", "true", "2018-08-27 02:28:29"],
+                                    ["2", "1.144.111.175", "Timberline Knolls", "/eating-disorder/orthorexia/signs-effects/", "", "Greystanes, New South Wales", "true", "2018-08-27 02:03:01"],
+                                    ["3", "1.144.111.175", "Timberline Knolls", "/eating-disorder/body-dysmorphia/", "www.timberlineknolls.com", "Greystanes, New South Wales", "true", "2018-08-27 00:02:44"],
+                                    ["4", "1.144.111.175", "Timberline Knolls", "/eating-disorder/orthorexia/signs-effects/", "", "Greystanes, New South Wales", "true", "2018-08-26 23:59:00"],
                                 ]}
                             />
                         </CardBody>
