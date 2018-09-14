@@ -31,8 +31,9 @@ class Dash extends React.Component {
                 To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD')
             },
             Filter: {
-                channel: [],
                 conversion: [],
+                touch: [],
+                channel: [],
                 source: [],
                 campaign: [],
                 tier: [],

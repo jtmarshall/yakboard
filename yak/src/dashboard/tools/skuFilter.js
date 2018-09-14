@@ -55,7 +55,7 @@ class SKUFilter extends React.Component {
         return (
             <div className="filterComponent">
                 <Button onClick={this.toggleDrawer('right', true)} style={{top: '5px'}}>
-                    <MaterialIcon icon='filter_list' size={24} color='#ff9800' />
+                    <MaterialIcon icon='filter_list' size={24} color='#ff9800'/>
                 </Button>
 
                 <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
@@ -67,7 +67,43 @@ class SKUFilter extends React.Component {
                         onKeyDown={this.toggleDrawer('right', false)}
                     >
                         <form className="skuFilter" noValidate autoComplete="off">
-                            <FormControl  className="">
+                            <FormControl className="">
+                                <InputLabel htmlFor="filterConversion">Conversion</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    multiple
+                                    value={this.state.Filter.conversion}
+                                    onChange={this.handleSelect('conversion')}
+                                    inputProps={{
+                                        name: 'conversion',
+                                        id: 'filterConversion',
+                                    }}
+                                >
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'phone'}>Phone Call</MenuItem>
+                                    <MenuItem value={'webForm'}>Web Form</MenuItem>
+                                    <MenuItem value={'tos5'}>5+ TOS</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl className="">
+                                <InputLabel htmlFor="filterTouch">Touch</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    multiple
+                                    value={this.state.Filter.conversion}
+                                    onChange={this.handleSelect('touch')}
+                                    inputProps={{
+                                        name: 'touch',
+                                        id: 'filterTouch',
+                                    }}
+                                >
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'first'}>First</MenuItem>
+                                    <MenuItem value={'last'}>Last</MenuItem>
+                                    <MenuItem value={'contributing'}>Contributing</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl className="">
                                 <InputLabel htmlFor="filterChannel">Channel</InputLabel>
                                 <Select
                                     className="skuFilterSelect"
@@ -100,12 +136,15 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'paidAdvertising'}>Paid Advertising</MenuItem>
                                     <MenuItem value={'referring'}>Referring</MenuItem>
                                     <MenuItem value={'referring'}>Referring - Directories - Choose Help</MenuItem>
-                                    <MenuItem value={'referring'}>Referring - Directories - Choose Help - Alcohol</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Choose Help -
+                                        Alcohol</MenuItem>
                                     <MenuItem value={'referring'}>Referring - Directories - Other</MenuItem>
                                     <MenuItem value={'referring'}>Referring - Directories - Psych Today</MenuItem>
-                                    <MenuItem value={'referring'}>Referring - Directories - Psych Today - Alcohol</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Psych Today -
+                                        Alcohol</MenuItem>
                                     <MenuItem value={'referring'}>Referring - Directories - Yellow Pages</MenuItem>
-                                    <MenuItem value={'referring'}>Referring - Directories - Yellow Pages - Alcohol</MenuItem>
+                                    <MenuItem value={'referring'}>Referring - Directories - Yellow Pages -
+                                        Alcohol</MenuItem>
                                     <MenuItem value={'referring'}>Referring - Directories - Yelp</MenuItem>
                                     <MenuItem value={'referring'}>Referring - Directories - Yelp - Alcohol</MenuItem>
                                     <MenuItem value={'referring'}>Referring - Internal</MenuItem>
@@ -115,25 +154,8 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'referring'}>Referring - Other</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl  className="">
-                                <InputLabel htmlFor="filterSource">Conversion</InputLabel>
-                                <Select
-                                    className="skuFilterSelect"
-                                    multiple
-                                    value={this.state.Filter.conversion}
-                                    onChange={this.handleSelect('conversion')}
-                                    inputProps={{
-                                        name: 'conversion',
-                                        id: 'filterConversion',
-                                    }}
-                                >
-                                    <MenuItem value={'all'}>All</MenuItem>
-                                    <MenuItem value={'phone'}>Phone Call</MenuItem>
-                                    <MenuItem value={'webForm'}>Web Form</MenuItem>
-                                    <MenuItem value={'tos5'}>5+ TOS</MenuItem>
-                                </Select>
-                            </FormControl>
-                            <FormControl  className="">
+
+                            <FormControl className="">
                                 <InputLabel htmlFor="filterSource">Source</InputLabel>
                                 <Select
                                     className="skuFilterSelect"
