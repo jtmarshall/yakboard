@@ -10,6 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 class SKUFilter extends React.Component {
@@ -54,16 +55,17 @@ class SKUFilter extends React.Component {
     render() {
         return (
             <div className="filterComponent">
-                <Button onClick={this.toggleDrawer('right', true)} style={{top: '5px'}}>
-                    <MaterialIcon icon='filter_list' size={24} color='#ff9800'/>
-                </Button>
+                <Tooltip title="Show Filters" placement="bottom">
+                    <Button onClick={this.toggleDrawer('right', true)} style={{top: '5px'}}>
+                        <MaterialIcon icon='filter_list' size={24} color='#ff9800'/>
+                    </Button>
+                </Tooltip>
 
                 <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
                     <div
                         style={{width: 400, padding: 20}}
                         tabIndex={0}
                         role="button"
-
                         onKeyDown={this.toggleDrawer('right', false)}
                     >
                         <form className="skuFilter" noValidate autoComplete="off">
@@ -168,10 +170,29 @@ class SKUFilter extends React.Component {
                                     }}
                                 >
                                     <MenuItem value={'all'}>All</MenuItem>
-                                    <MenuItem value={'google'}>Google</MenuItem>
+                                    <MenuItem value={'acadia'}>Acadia</MenuItem>
+                                    <MenuItem value={'arc'}>ARC</MenuItem>
                                     <MenuItem value={'bing'}>Bing</MenuItem>
+                                    <MenuItem value={'chooseHelp'}>Choose Help</MenuItem>
+                                    <MenuItem value={'exactTarget'}>Exact Target</MenuItem>
                                     <MenuItem value={'facebook'}>Facebook</MenuItem>
+                                    <MenuItem value={'gdn'}>GDN</MenuItem>
+                                    <MenuItem value={'google'}>Google</MenuItem>
+                                    <MenuItem value={'guidedocs'}>Guidedocs</MenuItem>
+                                    <MenuItem value={'healthyPlace'}>Healthy Place</MenuItem>
+                                    <MenuItem value={'instagram'}>Instagram</MenuItem>
+                                    <MenuItem value={'linkedIn'}>LinkedIn</MenuItem>
+                                    <MenuItem value={'mediaMath'}>Media Math</MenuItem>
+                                    <MenuItem value={'other'}>Other</MenuItem>
+                                    <MenuItem value={'pinterest'}>Pinterest</MenuItem>
+                                    <MenuItem value={'psychToday'}>Psych Today</MenuItem>
+                                    <MenuItem value={'quora'}>Quora</MenuItem>
+                                    <MenuItem value={'somethingFishy'}>Something Fishy</MenuItem>
+                                    <MenuItem value={'tremor'}>Tremor</MenuItem>
                                     <MenuItem value={'yahoo'}>Yahoo</MenuItem>
+                                    <MenuItem value={'yellowPages'}>Yellow Pages</MenuItem>
+                                    <MenuItem value={'yelp'}>Yelp</MenuItem>
+                                    <MenuItem value={'youtube'}>YouTube</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -224,11 +245,16 @@ class SKUFilter extends React.Component {
                                     }}
                                 >
                                     <MenuItem value={'all'}>All</MenuItem>
-                                    <MenuItem value={'1'}>Search</MenuItem>
-                                    <MenuItem value={'2'}>Display</MenuItem>
-                                    <MenuItem value={'3'}>Social</MenuItem>
-                                    <MenuItem value={'4'}>Email</MenuItem>
-                                    <MenuItem value={'5'}>Ad_Video</MenuItem>
+                                    <MenuItem value={'directories'}>Directories</MenuItem>
+                                    <MenuItem value={'internalDirectories'}>Internal Directories</MenuItem>
+                                    <MenuItem value={'leadGen'}>Lead Gen</MenuItem>
+                                    <MenuItem value={'other'}>Other</MenuItem>
+                                    <MenuItem value={'placement'}>Placement</MenuItem>
+                                    <MenuItem value={'search'}>Search</MenuItem>
+                                    <MenuItem value={'searchEngine'}>Search Engine</MenuItem>
+                                    <MenuItem value={'signUp'}>Sign Up</MenuItem>
+                                    <MenuItem value={'social'}>Social</MenuItem>
+                                    <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
                                 </Select>
                             </FormControl>
 
