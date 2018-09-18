@@ -22,6 +22,11 @@ const Sidebar = () => (
                     <MaterialIcon icon='view_compact' color='#EEEEEE' />  Conversion
                 </li>
             </Link>
+            <Link to="/builder">
+                <li style={{paddingLeft: 25}}>
+                    <MaterialIcon icon='build' color='#EEEEEE' />  Builder
+                </li>
+            </Link>
             <Link to="/export">
                 <li style={{paddingLeft: 25}}>
                     <MaterialIcon icon='cloud_download' color='#EEEEEE' />  Export
