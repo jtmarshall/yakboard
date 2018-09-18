@@ -154,6 +154,9 @@ class DatePicker extends React.Component {
                                     shrink: true,
                                 }}
                             />
+                            <Button variant="contained" color="primary" style={{backgroundColor: '#00C853', color: '#ffffff'}} className="">
+                                Apply
+                            </Button>
                         </div>
                     </div>
                 </Drawer>

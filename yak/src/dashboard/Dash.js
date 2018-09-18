@@ -60,6 +60,11 @@ class Dash extends React.Component {
         savedState = this.state;
     }
 
+    // Check if user was authenticated, return true if so
+    isAuthenticated() {
+        return true;
+    }
+
     // // If not logged in redirect to login
     // componentWillMount(){
     //     if(!this.Auth.loggedIn())
@@ -106,21 +111,30 @@ class Dash extends React.Component {
 
 
     render() {
-        return (
-            <div className="dash">
-                <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter} rightDrawer={this.state.rightDrawer}/>
-                <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
-                <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
+        // Load dashboard if user is legit
+        if (this.isAuthenticated()) {
+            return (
+                <div className="dash">
+                    <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter} rightDrawer={this.state.rightDrawer}/>
+                    <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
+                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
 
+                    <Sidebar/>
 
-                <Sidebar/>
+                    <Route path="/story" render={() => <Storyboard selected={this.state.SelectedFacility}/>}/>
+                    <Route path="/conversion" render={() => <Conversion selected={this.state.SelectedFacility}/>}/>
+                    <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
+                    <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>
+                </div>
+            );
+        } else {
+            return(
+                <div>
+                    <h2>User Not Identified!</h2>
+                </div>
+            );
+        }
 
-                <Route path="/story" render={() => <Storyboard selected={this.state.SelectedFacility}/>}/>
-                <Route path="/conversion" render={() => <Conversion selected={this.state.SelectedFacility}/>}/>
-                <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
-                <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>
-            </div>
-        );
     }
 }
 
