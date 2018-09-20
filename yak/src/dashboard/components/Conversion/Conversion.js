@@ -97,7 +97,9 @@ class Conversion extends Component {
                 </Tabs>
 
                 {tabValue === 0 && <TabContainer>
-                    <NivoPie color={"primary"} title={"Bucket Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoPie color={"prime"} title={"First Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoPie color={"info"} title={"Last Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoPie color={"primary"} title={"Contributing Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>

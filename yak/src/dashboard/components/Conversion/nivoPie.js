@@ -27,32 +27,32 @@ export default class NivoPie extends Component {
         this.state = {
             chartData: [
                 {
-                    "id": "organic",
-                    "label": "Organic",
-                    "value": 180,
+                    "id": "Direct",
+                    "label": "Direct",
+                    "value": 425,
                     "color": "hsl(41, 70%, 50%)"
                 },
                 {
-                    "id": "googlePPC",
-                    "label": "Google PPC",
-                    "value": 425,
+                    "id": "Email",
+                    "label": "Email",
+                    "value": 180,
                     "color": "hsl(215, 70%, 50%)"
                 },
                 {
-                    "id": "facebook",
-                    "label": "Facebook",
+                    "id": "Organic",
+                    "label": "Organic",
                     "value": 539,
                     "color": "hsl(177, 70%, 50%)"
                 },
                 {
-                    "id": "sass",
-                    "label": "sass",
+                    "id": "Paid Advertising",
+                    "label": "Paid Advertising",
                     "value": 292,
                     "color": "hsl(110, 70%, 50%)"
                 },
                 {
-                    "id": "haskell",
-                    "label": "haskell",
+                    "id": "Referring",
+                    "label": "Referring",
                     "value": 317,
                     "color": "hsl(135, 70%, 50%)"
                 }
@@ -66,7 +66,7 @@ export default class NivoPie extends Component {
         let title = this.props.title;
 
         return (
-            <Card className="nivoCard">
+            <Card className="nivoCard" style={{width: '45%'}}>
                 <CardHeader color={propsColor}>
                     <h4 className="nivoCardTitle">{title}</h4>
                 </CardHeader>
