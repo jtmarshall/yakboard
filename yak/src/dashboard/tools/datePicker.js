@@ -5,6 +5,10 @@ import MaterialIcon from "material-icons-react";
 import Button from "@material-ui/core/Button/Button";
 import Tooltip from '@material-ui/core/Tooltip';
 import Drawer from '@material-ui/core/Drawer';
+import InputLabel from "@material-ui/core/InputLabel/InputLabel";
+import Select from "@material-ui/core/Select/Select";
+import MenuItem from "@material-ui/core/MenuItem/MenuItem";
+import FormControl from "@material-ui/core/FormControl/FormControl";
 
 
 class DatePicker extends React.Component {
@@ -14,7 +18,8 @@ class DatePicker extends React.Component {
     }
 
     state = {
-        top: false
+        top: false,
+        dateDenomination: 'custom',
     };
 
     // Updates the selected facility list
@@ -90,6 +95,13 @@ class DatePicker extends React.Component {
         });
     };
 
+    // update date denomination
+    handleDateDenominationSelect = name => event => {
+        this.setState({
+            dateDenomination: event.target.value
+        });
+    };
+
     render() {
         return (
             <form className="col-lg-4 datePicker">
@@ -130,6 +142,26 @@ class DatePicker extends React.Component {
                         role="button"
                     >
                         <div className="col-lg-12">
+                            <FormControl style={{paddingRight: '20px'}}>
+                                <InputLabel htmlFor="filterDateDenomination">Date Range</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    value={this.state.dateDenomination}
+                                    onChange={this.handleDateDenominationSelect('dateDenomination')}
+                                    inputProps={{
+                                        name: 'dateDenomination',
+                                        id: 'filterDateDenomination',
+                                    }}
+                                >
+                                    <MenuItem value={'custom'}>Custom</MenuItem>
+                                    <MenuItem value={'today'}>Today</MenuItem>
+                                    <MenuItem value={'yesterday'}>Yesterday</MenuItem>
+                                    <MenuItem value={'lastWeek'}>Last Week</MenuItem>
+                                    <MenuItem value={'lastMonth'}>Last Month</MenuItem>
+                                    <MenuItem value={'last7'}>Last 7 Days</MenuItem>
+                                    <MenuItem value={'last30'}>Last 30 Days</MenuItem>
+                                </Select>
+                            </FormControl>
                             <TextField
                                 required={true}
                                 id="dateCompareFrom"

@@ -10,6 +10,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import ConversionSummary from './summary';
+import NivoPie from "./nivoPie";
 //import moment from "moment/moment";
 //import MaterialIcon from 'material-icons-react';
 
@@ -89,11 +91,18 @@ class Conversion extends Component {
                     onChange={this.handleTabChange}
                     style={{display: 'inline-block'}}
                 >
+                    <Tab label="Summary"/>
                     <Tab label="Tables"/>
                     <Tab label="Graphs"/>
                 </Tabs>
 
                 {tabValue === 0 && <TabContainer>
+                    <NivoPie color={"prime"} title={"First Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoPie color={"info"} title={"Last Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoPie color={"primary"} title={"Contributing Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                </TabContainer>}
+
+                {tabValue === 1 && <TabContainer>
                     <Card>
                         <CardHeader color="info">
                             <h4 className="cardTitleWhite">Channel Performance</h4>
@@ -123,7 +132,7 @@ class Conversion extends Component {
                     </Card>
                 </TabContainer>}
 
-                {tabValue === 1 && <TabContainer>
+                {tabValue === 2 && <TabContainer>
                     <NivoBar color={"mint"} title={"Conversions Bar Graph"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <NivoLine color={"prime"} title={"Conversions by Line"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <Card className={classes.cardConversionGraph}>

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import Dash from './dashboard/Dash';
-import {Route} from 'react-router-dom';
 import Login from './login/Login.js';
 
 

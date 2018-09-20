@@ -257,6 +257,22 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'sponsorship'}>Sponsorship</MenuItem>
                                 </Select>
                             </FormControl>
+                            <FormControl className="">
+                                <InputLabel htmlFor="filterDisorder">Disorder</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    multiple
+                                    value={this.state.Filter.disorder}
+                                    onChange={this.handleSelect('disorder')}
+                                    inputProps={{
+                                        name: 'disorder',
+                                        id: 'filterDisorder',
+                                    }}
+                                >
+                                    <MenuItem value={'all'}>All</MenuItem>
+                                    <MenuItem value={'alcohol'}>Alcohol</MenuItem>
+                                </Select>
+                            </FormControl>
 
                             <h5 style={{marginBottom: 0, color: '#ff9800'}}>SKU</h5>
 
