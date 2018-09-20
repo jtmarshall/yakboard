@@ -38,6 +38,7 @@ class Dash extends React.Component {
                 campaign: [],
                 tier: [],
                 medium: [],
+                disorder: [],
                 network: [],
                 targetingMethod: [],
                 format: [],
