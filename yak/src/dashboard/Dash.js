@@ -28,7 +28,9 @@ class Dash extends React.Component {
                 yakPak.SelectedFacility : [],
             DateFrame: {
                 From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
-                To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD')
+                To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD'),
+                CompareFrom: yakPak != null ? yakPak.DateFrame.CompareFrom : '',
+                CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
             },
             Filter: {
                 conversion: [],
@@ -108,6 +110,8 @@ class Dash extends React.Component {
         console.log(val);
         localStorage.setItem("fromDate", val.From);
         localStorage.setItem("toDate", val.To);
+        localStorage.setItem("compareFromDate", val.CompareFrom);
+        localStorage.setItem("compareToDate", val.CompareTo);
     };
 
 
