@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0483b1ec-063a-4224-a77d-59ffa7e3966e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Conversion/Conversion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Conversion/Conversion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoPie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoPie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoLine.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,44 +19,44 @@
     <session id="176454883">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="7" />
-          <entry key="project.open.time.7" value="3" />
+          <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="488" />
           <entry key="html" value="17" />
-          <entry key="js" value="8356" />
+          <entry key="js" value="9352" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="488" />
           <entry key="HTML" value="17" />
-          <entry key="JavaScript" value="8356" />
+          <entry key="JavaScript" value="9352" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="17" />
-          <entry key="js" value="37" />
+          <entry key="css" value="18" />
+          <entry key="js" value="39" />
           <entry key="png" value="1" />
           <entry key="svg" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="17" />
+          <entry key="CSS" value="18" />
           <entry key="Image" value="1" />
-          <entry key="JavaScript" value="37" />
+          <entry key="JavaScript" value="39" />
           <entry key="SVG" value="3" />
         </counts>
       </usages-collector>
@@ -67,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/Dash.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="435">
               <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -79,10 +79,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/tools/datePicker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="144" column="65" selection-start-line="144" selection-start-column="65" selection-end-line="144" selection-end-column="65" />
+            <state relative-caret-position="-569">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="36" column="22" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="22" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,7 +100,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/Conversion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="734">
+            <state relative-caret-position="1595">
               <caret line="126" column="97" lean-forward="true" selection-start-line="126" selection-start-column="97" selection-end-line="126" selection-end-column="97" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -103,17 +112,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="86" column="35" lean-forward="true" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
+            <state relative-caret-position="1123">
+              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoLine.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoPie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="68" column="58" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
+            <state relative-caret-position="-521">
+              <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="49" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -133,32 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dashboard/components/Storyboard/Storyboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="15">
               <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dashboard/tools/skuFilter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="294" column="75" lean-forward="true" selection-start-line="294" selection-start-column="75" selection-end-line="294" selection-end-column="75" />
-              <folding>
-                <element signature="e#311#359#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -195,6 +192,7 @@
       <find>facilit</find>
       <find>story</find>
       <find>disorder</find>
+      <find>group</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -230,7 +228,6 @@
         <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoGraph.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBarGraph.js" />
-        <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoLine.js" />
         <option value="$PROJECT_DIR$/src/login/AuthService.js" />
         <option value="$PROJECT_DIR$/src/login/Login.css" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Storyboard/Storyboard.js" />
@@ -238,12 +235,13 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/login/Login.js" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/datePicker.js" />
-        <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBar.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/summary.js" />
         <option value="$PROJECT_DIR$/src/dashboard/Dash.js" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/skuFilter.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/Conversion.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoPie.js" />
+        <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBar.js" />
+        <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/nivoLine.js" />
       </list>
     </option>
   </component>
@@ -264,9 +262,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="73" />
+    <option name="x" value="141" />
     <option name="y" value="-1058" />
-    <option name="width" value="1520" />
+    <option name="width" value="1406" />
     <option name="height" value="1058" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -425,18 +423,19 @@
       <workItem from="1536333927607" duration="786000" />
       <workItem from="1536698865782" duration="12398000" />
       <workItem from="1537192613837" duration="5850000" />
-      <workItem from="1537386550648" duration="4568000" />
+      <workItem from="1537386550648" duration="6746000" />
+      <workItem from="1537797370274" duration="5688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137733000" />
+    <option name="totallyTimeSpent" value="145599000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="73" y="-1058" width="1520" height="1058" extended-state="0" />
+    <frame x="141" y="-1058" width="1406" height="1058" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.2108072" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.22815885" />
       <window_info id="Structure" order="1" sideWeight="0.5010352" side_tool="true" weight="0.21165438" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -602,13 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoLine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="252" column="17" selection-start-line="252" selection-start-column="17" selection-end-line="252" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/login/Login.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -616,13 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -654,9 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -674,6 +656,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/Dash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -682,51 +671,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/tools/datePicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="144" column="65" selection-start-line="144" selection-start-column="65" selection-end-line="144" selection-end-column="65" />
+        <state relative-caret-position="495">
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="22" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="86" column="35" lean-forward="true" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Storyboard/Storyboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/Dash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/tools/skuFilter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="294" column="75" lean-forward="true" selection-start-line="294" selection-start-column="75" selection-end-line="294" selection-end-column="75" />
-          <folding>
-            <element signature="e#311#359#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -738,9 +686,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6735">
+          <caret line="449" selection-start-line="449" selection-end-line="449" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/tools/skuFilter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-331">
+          <caret line="67" column="37" lean-forward="true" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+          <folding>
+            <element signature="e#311#359#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Storyboard/Storyboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoPie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-521">
+          <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1123">
+          <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/Conversion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
+        <state relative-caret-position="1595">
           <caret line="126" column="97" lean-forward="true" selection-start-line="126" selection-start-column="97" selection-end-line="126" selection-end-column="97" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -748,10 +737,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoPie.js">
+    <entry file="file://$PROJECT_DIR$/src/dashboard/tools/datePicker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="68" column="58" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
+        <state relative-caret-position="-569">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoLine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
