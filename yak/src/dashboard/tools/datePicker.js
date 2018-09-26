@@ -199,7 +199,7 @@ class DatePicker extends React.Component {
                                     shrink: true,
                                 }}
                             />
-                            <Button variant="contained" color="primary" style={{backgroundColor: '#00C853', color: '#ffffff', marginRight: '10px'}}>
+                            <Button variant="contained" color="primary" onClick={this.props.refreshView} style={{backgroundColor: '#00C853', color: '#ffffff', marginRight: '10px'}}>
                                 Apply
                             </Button>
                             <Button variant="contained" className="" onClick={this.clearDates}>

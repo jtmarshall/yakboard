@@ -14,7 +14,7 @@ export default class NivoLine extends Component {
             chartData: [
                 {
                     "id": "Call",
-                    "color": "hsl(333, 70%, 50%)",
+                    "color": "hsl(337, 70%, 50%)", //"hsl(333, 70%, 50%)",
                     "data": [
                         {
                             "x": "9/1",
@@ -34,8 +34,6 @@ export default class NivoLine extends Component {
                 }
             ]
         };
-
-        this.calculateDateRange();
     }
 
     // Grab the current stored date frame and label chart data
@@ -43,41 +41,100 @@ export default class NivoLine extends Component {
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
         let toDate = new Date(yakPak.DateFrame.To);
-        let startDay = moment(localStorage.getItem('fromDate'));
-        let endDay = moment(localStorage.getItem('toDate'));
+        let startDay = moment(yakPak.DateFrame.From);
+        let endDay = moment(yakPak.DateFrame.To);
         let numbDays = endDay.diff(startDay, 'days');
 
-        let tempLabels = [];
+        let primaryLabels = [];
 
         // Generate date labels starting with 'toDate' and iterating back through length of data
         for (let i = -1; i < numbDays; i++) {
             // parse date for how many days prior
             let temp = new Date();
             temp.setDate(toDate.getDate() - i);
-            tempLabels.unshift((toDate.getUTCMonth() + 1) + "/" + temp.getDate());
+            primaryLabels.unshift((toDate.getUTCMonth() + 1) + "/" + temp.getDate());
         }
 
-        console.log(tempLabels);
-        this.populateData(tempLabels);
+        console.log(primaryLabels);
+
+
+        // Check if we have comparison dates
+        if (yakPak.DateFrame.CompareFrom != '' && yakPak.DateFrame.CompareTo != '') {
+            let compareToDate = new Date(yakPak.DateFrame.CompareTo);
+            let compareStartDay = moment(yakPak.DateFrame.CompareFrom);
+            let compareEndDay = moment(yakPak.DateFrame.CompareTo);
+            let compareNumbDays = compareEndDay.diff(compareStartDay, 'days');
+
+            let tempLabels = [];
+
+            for (let i = -1; i < compareNumbDays; i++) {
+                // parse date for how many days prior
+                let temp = new Date();
+                temp.setDate(compareToDate.getDate() - i);
+                tempLabels.unshift((compareToDate.getUTCMonth() + 1) + "/" + temp.getDate());
+            }
+
+            // Populate data with comparison dates
+            this.populateData(primaryLabels, tempLabels);
+        } else {
+            this.populateData(primaryLabels);
+        }
     };
 
     // Pass in calculated date labels, assign them to
-    populateData = (dateLabels) => {
+    populateData = (dateLabels, compareLabels = null) => {
         let tempObj = this.state.chartData;
 
         for (let i = 0; i < dateLabels.length; i++) {
             tempObj[0]["data"][i] = {
                 "x": dateLabels[i],
-                "y": Math.floor(Math.random() * Math.floor(150))
+                "y": Math.floor(Math.random() * Math.floor(150)),
+                "label": dateLabels[i] + '${d.y}`'
             };
 
             tempObj[1]["data"][i] = {
                 "x": dateLabels[i],
-                "y": Math.floor(Math.random() * Math.floor(300))
+                "y": Math.floor(Math.random() * Math.floor(300)),
+                "label": dateLabels[i] + '${d.y}`'
             };
         }
 
         console.log(tempObj);
+
+        if (compareLabels != null) {
+            tempObj[2] = {
+                "id": "Compare Call",
+                "data": [
+                    {
+                        "x": "",
+                        "y": 0
+                    }
+                ]
+            };
+            tempObj[3] = {
+                "id": "Compare 5+ TOS",
+                "data": [
+                    {
+                        "x": "",
+                        "y": 0
+                    }
+                ]
+            };
+
+            for (let i = 0; i < dateLabels.length; i++) {
+                tempObj[2]["data"][i] = {
+                    "x": dateLabels[i],
+                    "y": compareLabels[i] == null ? 0 : Math.floor(Math.random() * Math.floor(150)),
+                    "label": compareLabels[i] == null ? "Out of Range" : compareLabels[i]
+                };
+
+                tempObj[3]["data"][i] = {
+                    "x": dateLabels[i],
+                    "y": compareLabels[i] == null ? 0 : Math.floor(Math.random() * Math.floor(300)),
+                    "label": compareLabels[i] == null ? "Out of Range" : compareLabels[i]
+                };
+            }
+        }
 
         // Set state with fresh data
         this.state = {
@@ -86,6 +143,7 @@ export default class NivoLine extends Component {
     };
 
     render() {
+        this.calculateDateRange();
         let nivoData = this.state.chartData;
         let propsColor = this.props.color;
         let title = this.props.title;
@@ -98,6 +156,7 @@ export default class NivoLine extends Component {
                 <CardBody>
                     <div className="nivoGraph">
                         <ResponsiveLine
+                            stacked={false}
                             data={nivoData}
                             margin={{
                                 "top": 50,
@@ -127,11 +186,10 @@ export default class NivoLine extends Component {
                                 "tickSize": 5,
                                 "tickPadding": 5,
                                 "tickRotation": 0,
-                                "legend": "count",
                                 "legendOffset": -40,
                                 "legendPosition": "center"
                             }}
-                            colors={['#4EAF4A', '#FF7F02', '#377EB8']}
+                            colors={['#4EAF4A', '#FF7F02', '#377EB8', '#5E35B1']}
                             dotSize={10}
                             dotColor="inherit:darker(0.3)"
                             dotBorderWidth={2}
@@ -139,6 +197,7 @@ export default class NivoLine extends Component {
                             enableDotLabel={true}
                             dotLabel="y"
                             dotLabelYOffset={-12}
+                            enableArea={false}
                             animate={true}
                             motionStiffness={90}
                             motionDamping={15}
