@@ -11,7 +11,7 @@ function onAuthRequired({history}) {
 class App extends Component {
 
     state = {
-        loggedIn: false
+        loggedIn: true
     };
 
     verifyLogin = () => {

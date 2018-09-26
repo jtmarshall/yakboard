@@ -133,8 +133,8 @@ class Conversion extends Component {
                 </TabContainer>}
 
                 {tabValue === 2 && <TabContainer>
-                    <NivoBar color={"mint"} title={"Conversions Bar Graph"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <NivoLine color={"prime"} title={"Conversions by Line"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoBar color={"mint"} title={"Conversions Bar Graph"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
                             <h4 className={classes.cardTitleWhite}>Conversions by Type</h4>

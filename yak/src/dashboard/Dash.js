@@ -114,6 +114,11 @@ class Dash extends React.Component {
         localStorage.setItem("compareToDate", val.CompareTo);
     };
 
+    // Reload view
+    refreshView = () => {
+        window.location.reload();
+    };
+
 
     render() {
         // Load dashboard if user is legit
@@ -122,7 +127,7 @@ class Dash extends React.Component {
                 <div className="dash">
                     <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter} rightDrawer={this.state.rightDrawer}/>
                     <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
-                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}/>
+                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate} refreshView={this.refreshView}/>
 
                     <Sidebar/>
 

@@ -34,6 +34,7 @@ export default class Storyboard extends Component {
     state = {
         tabValue: 0,
         searchMetric: 'ip',
+        storyPivot: 'session',
     };
 
     handleTabChange = (event, tabValue) => {
@@ -41,10 +42,8 @@ export default class Storyboard extends Component {
     };
 
     // update search metric selection
-    handleSelect = name => event => {
-        this.setState({
-            searchMetric: event.target.value
-        });
+    handleSelect = event => {
+        this.setState({ [event.target.name]: event.target.value });
     };
 
     render() {
@@ -65,6 +64,23 @@ export default class Storyboard extends Component {
                 </Tabs>
 
                 {tabValue === 0 && <TabContainer>
+                    <form className="" noValidate autoComplete="off">
+                        <FormControl style={{width: '120px', paddingRight: '8px'}} className="">
+                            <InputLabel htmlFor="filterStoryPivot">Pivot</InputLabel>
+                            <Select
+                                className="skuFilterSelect"
+                                value={this.state.storyPivot}
+                                onChange={this.handleSelect}
+                                inputProps={{
+                                    name: 'storyPivot',
+                                    id: 'filterStoryPivot',
+                                }}
+                            >
+                                <MenuItem value={'session'}>Session</MenuItem>
+                                <MenuItem value={'passport'}>Passport</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </form>
                     <Card>
                         <CardHeader color="prime">
                             <h4 className="cardTitleWhite">Sessions</h4>
@@ -99,7 +115,7 @@ export default class Storyboard extends Component {
                             <Select
                                 className="skuFilterSelect"
                                 value={this.state.searchMetric}
-                                onChange={this.handleSelect('searchMetric')}
+                                onChange={this.handleSelect}
                                 inputProps={{
                                     name: 'searchMetric',
                                     id: 'filterSearchMetric',

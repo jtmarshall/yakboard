@@ -102,6 +102,19 @@ class DatePicker extends React.Component {
         });
     };
 
+    // Remove comparison date range
+    clearDates = () => {
+        let dateFrame = {
+            From: this.props.dateFrame.From,
+            To: this.props.dateFrame.To,
+            CompareFrom: '',
+            CompareTo: ''
+        };
+
+        // Push update to Dash state
+        this.props.onUpdate(dateFrame);
+    };
+
     render() {
         return (
             <form className="col-lg-4 datePicker">
@@ -186,10 +199,10 @@ class DatePicker extends React.Component {
                                     shrink: true,
                                 }}
                             />
-                            <Button variant="contained" color="primary" style={{backgroundColor: '#00C853', color: '#ffffff', marginRight: '10px'}}>
+                            <Button variant="contained" color="primary" onClick={this.props.refreshView} style={{backgroundColor: '#00C853', color: '#ffffff', marginRight: '10px'}}>
                                 Apply
                             </Button>
-                            <Button variant="contained" className="">
+                            <Button variant="contained" className="" onClick={this.clearDates}>
                                 Clear
                             </Button>
                         </div>
