@@ -92,7 +92,7 @@ class SKUFilter extends React.Component {
                                 <Select
                                     className="skuFilterSelect"
                                     multiple
-                                    value={this.state.Filter.conversion}
+                                    value={this.state.Filter.touch}
                                     onChange={this.handleSelect('touch')}
                                     inputProps={{
                                         name: 'touch',
@@ -678,6 +678,9 @@ class SKUFilter extends React.Component {
                             </FormControl>
                         </form>
                     </div>
+                    <Button variant="contained" className="" onClick={this.clearDates} style={{backgroundColor: '#ff9800', color: '#ffffff', margin: 'auto'}}>
+                        Apply
+                    </Button>
                 </Drawer>
             </div>
 

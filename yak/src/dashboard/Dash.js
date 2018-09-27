@@ -22,42 +22,56 @@ class Dash extends React.Component {
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
+        console.log(yakPak);
 
-        this.state = {
-            SelectedFacility: yakPak != null ?
-                yakPak.SelectedFacility : [],
-            DateFrame: {
-                From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
-                To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD'),
-                CompareFrom: yakPak != null ? yakPak.DateFrame.CompareFrom : '',
-                CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
-            },
-            Filter: {
-                conversion: [],
-                touch: [],
-                channel: [],
-                source: [],
-                campaign: [],
-                tier: [],
-                medium: [],
-                disorder: [],
-                network: [],
-                targetingMethod: [],
-                format: [],
-                message: [],
-                ageRange: [],
-                ethnicity: [],
-                familyRole: [],
-                gender: [],
-                income: [],
-                interestsBehaviors: [],
-                language: [],
-                education: [],
-                occupation: [],
-                relationship: [],
-                religion: []
-            },
-        };
+        // If local store not found, initialize base state
+        if (yakPak == null) {
+            this.state = {
+                SelectedFacility: yakPak != null ?
+                    yakPak.SelectedFacility : [],
+                DateFrame: {
+                    From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
+                    To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD'),
+                    CompareFrom: yakPak != null ? yakPak.DateFrame.CompareFrom : '',
+                    CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
+                },
+                Filter: {
+                    conversion: [],
+                    touch: [],
+                    channel: [],
+                    source: [],
+                    campaign: [],
+                    tier: [],
+                    medium: [],
+                    disorder: [],
+                    network: [],
+                    targetingMethod: [],
+                    format: [],
+                    message: [],
+                    ageRange: [],
+                    ethnicity: [],
+                    familyRole: [],
+                    gender: [],
+                    income: [],
+                    interestsBehaviors: [],
+                    language: [],
+                    education: [],
+                    occupation: [],
+                    relationship: [],
+                    religion: []
+                },
+                Conversion: {
+                    tabValue: 0
+                },
+                Storyboard: {
+                    tabValue: 0,
+                    searchMetric: 'ip',
+                    storyPivot: 'session'
+                }
+            };
+        } else {
+            this.state = toolbox.retrievePak();
+        }
 
         // Set global state so it's not empty
         savedState = this.state;
@@ -76,7 +90,7 @@ class Dash extends React.Component {
 
     // Set offload func to save to local store just once on unload
     componentDidMount() {
-        window.onbeforeunload = function() {
+        window.onbeforeunload = function () {
             toolbox.storePak(savedState);
         }
     }
@@ -114,6 +128,24 @@ class Dash extends React.Component {
         localStorage.setItem("compareToDate", val.CompareTo);
     };
 
+    // For child elements to update dash state
+    updateDashConversion = (name, val) => {
+        this.setState({
+            Conversion: {
+                [name]: val
+            }
+        })
+    };
+
+    // For child elements to update dash state
+    updateDashStoryboard = (val) => {
+        this.setState({
+            Storyboard: val
+        });
+
+        console.log(this.state);
+    };
+
     // Reload view
     refreshView = () => {
         window.location.reload();
@@ -125,20 +157,23 @@ class Dash extends React.Component {
         if (this.isAuthenticated()) {
             return (
                 <div className="dash">
-                    <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter} rightDrawer={this.state.rightDrawer}/>
-                    <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
-                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate} refreshView={this.refreshView}/>
+                    <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter}
+                               rightDrawer={this.state.rightDrawer}/>
+                    <FacilityAutoComplete selected={this.state.SelectedFacility}
+                                          onUpdate={this.updateSelectedFacility}/>
+                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
+                                refreshView={this.refreshView}/>
 
                     <Sidebar/>
 
-                    <Route path="/story" render={() => <Storyboard selected={this.state.SelectedFacility}/>}/>
-                    <Route path="/conversion" render={() => <Conversion selected={this.state.SelectedFacility}/>}/>
+                    <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
+                    <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>
                 </div>
             );
         } else {
-            return(
+            return (
                 <div>
                     <h2>User Not Identified!</h2>
                 </div>

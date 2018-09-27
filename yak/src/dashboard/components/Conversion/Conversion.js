@@ -67,14 +67,18 @@ TabContainer.propTypes = {
 class Conversion extends Component {
     constructor(props) {
         super(props);
+
+        console.log(props.parentState);
     }
 
     state = {
-        tabValue: 0,
+        tabValue: this.props.parentState.Conversion.tabValue,
     };
 
     handleTabChange = (event, tabValue) => {
         this.setState({tabValue});
+
+        this.props.updateDash('tabValue', tabValue);
     };
 
     render() {
