@@ -10,6 +10,7 @@ import Storyboard from './components/Storyboard/Storyboard';
 import Conversion from './components/Conversion/Conversion';
 import Export from './components/Export/Export';
 import Settings from "./components/Settings/Settings";
+import Builder from './components/Builder/Builder';
 
 
 // Global state for local storage
@@ -168,8 +169,9 @@ class Dash extends React.Component {
 
                     <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
                     <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
+                    <Route path="/builder" render={() => <Builder parentState={this.state}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
-                    <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>
+                    <Route path="/settings" render={() => <Settings/>}/>
                 </div>
             );
         } else {

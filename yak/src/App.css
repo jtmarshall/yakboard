@@ -95,6 +95,11 @@
     width: 150px;
 }
 
+.expansionPanel {
+    width: 90%;
+    margin: auto;
+}
+
 .exportComponent {
     display: block;
 }

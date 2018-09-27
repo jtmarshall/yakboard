@@ -678,7 +678,11 @@ class SKUFilter extends React.Component {
                             </FormControl>
                         </form>
                     </div>
-                    <Button variant="contained" className="" onClick={this.clearDates} style={{backgroundColor: '#ff9800', color: '#ffffff', margin: 'auto'}}>
+                    <Button variant="contained" style={{backgroundColor: '#ff9800', color: '#ffffff', margin: 'auto'}}
+                            onClick={() => {
+                                this.toggleDrawer('right', false);
+                                window.location.reload();
+                            }}>
                         Apply
                     </Button>
                 </Drawer>
