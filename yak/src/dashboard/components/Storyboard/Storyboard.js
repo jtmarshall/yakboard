@@ -32,13 +32,20 @@ export default class Storyboard extends Component {
     }
 
     state = {
-        tabValue: 0,
-        searchMetric: 'ip',
-        storyPivot: 'session',
+        tabValue: this.props.parentState.Storyboard.tabValue,
+        searchMetric: this.props.parentState.Storyboard.searchMetric,
+        storyPivot: this.props.parentState.Storyboard.storyPivot,
     };
 
     handleTabChange = (event, tabValue) => {
         this.setState({tabValue});
+
+        // update dash State
+        this.props.updateDash({
+            tabValue: tabValue,
+            searchMetric: this.state.searchMetric,
+            storyPivot: this.state.storyPivot
+        });
     };
 
     // update search metric selection

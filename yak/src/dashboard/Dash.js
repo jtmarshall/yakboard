@@ -60,6 +60,14 @@ class Dash extends React.Component {
                     relationship: [],
                     religion: []
                 },
+                Conversion: {
+                    tabValue: 0
+                },
+                Storyboard: {
+                    tabValue: 0,
+                    searchMetric: 'ip',
+                    storyPivot: 'session'
+                }
             };
         } else {
             this.state = toolbox.retrievePak();
@@ -120,6 +128,24 @@ class Dash extends React.Component {
         localStorage.setItem("compareToDate", val.CompareTo);
     };
 
+    // For child elements to update dash state
+    updateDashConversion = (name, val) => {
+        this.setState({
+            Conversion: {
+                [name]: val
+            }
+        })
+    };
+
+    // For child elements to update dash state
+    updateDashStoryboard = (val) => {
+        this.setState({
+            Storyboard: val
+        });
+
+        console.log(this.state);
+    };
+
     // Reload view
     refreshView = () => {
         window.location.reload();
@@ -140,8 +166,8 @@ class Dash extends React.Component {
 
                     <Sidebar/>
 
-                    <Route path="/story" render={() => <Storyboard selected={this.state.SelectedFacility}/>}/>
-                    <Route path="/conversion" render={() => <Conversion selected={this.state.SelectedFacility}/>}/>
+                    <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
+                    <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings selected={this.state.SelectedFacility}/>}/>
                 </div>
