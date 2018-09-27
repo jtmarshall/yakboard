@@ -68,6 +68,9 @@ class Dash extends React.Component {
                     tabValue: 0,
                     searchMetric: 'ip',
                     storyPivot: 'session'
+                },
+                Builder: {
+                    Columns: [],
                 }
             };
         } else {
@@ -143,8 +146,13 @@ class Dash extends React.Component {
         this.setState({
             Storyboard: val
         });
+    };
 
-        console.log(this.state);
+    // For child elements to update dash state
+    updateDashBuilder = (val) => {
+        this.setState({
+            Builder: val
+        });
     };
 
     // Reload view
@@ -169,7 +177,7 @@ class Dash extends React.Component {
 
                     <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
                     <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
-                    <Route path="/builder" render={() => <Builder parentState={this.state}/>}/>
+                    <Route path="/builder" render={() => <Builder parentState={this.state} updateDash={this.updateDashBuilder}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
                 </div>

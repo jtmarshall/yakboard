@@ -24,7 +24,7 @@ export default class Builder extends Component {
         console.log(props.parentState);
 
         this.state = {
-            Columns: ['Facility', 'Conversions', 'TOS'],
+            Columns: this.props.parentState.Builder.Columns != null ? this.props.parentState.Builder.Columns : [],
             Rows: [
                 {
                     id: 1,
@@ -37,18 +37,23 @@ export default class Builder extends Component {
                 {
                     id: 3,
                     name: 'Row Data'
+                },
+                {
+                    id: 4,
+                    name: 'Row Data'
                 }
             ],
         }
     }
 
     handleColumnSelect = name => event => {
-        // console.log(event.target.name, event.target.value);
-        // dummy object so we don't clear other filter values
-        let dummyObj = this.state.Columns;
-        dummyObj[name] = event.target.value;
 
         this.setState({
+            Columns: event.target.value
+        });
+
+        // send update to main state
+        this.props.updateDash({
             Columns: event.target.value
         });
     };
@@ -59,7 +64,7 @@ export default class Builder extends Component {
 
         return (
             <div className="builderComponent">
-                <h3>Builder Component</h3>
+                <h3>Builder</h3>
                 <ExpansionPanel style={{width: '90%', margin: 'auto', borderRadius: '4px'}}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
                         <Typography>Control Panel</Typography>
@@ -78,9 +83,14 @@ export default class Builder extends Component {
                                 }}
                             >
                                 <MenuItem value={'Facility'}>Facility</MenuItem>
-                                <MenuItem value={'Facility_type'}>Facility Type</MenuItem>
+                                <MenuItem value={'Facility_Type'}>Facility Type</MenuItem>
+                                <MenuItem value={'Domain'}>Domain</MenuItem>
+                                <MenuItem value={'IP'}>IP</MenuItem>
+                                <MenuItem value={'Session'}>Session</MenuItem>
+                                <MenuItem value={'Passport'}>Passport</MenuItem>
+                                <MenuItem value={'Phone_Number'}>Phone Number</MenuItem>
                                 <MenuItem value={'Conversions'}>Conversions</MenuItem>
-                                <MenuItem value={'Conversion_type'}>Conversion Type</MenuItem>
+                                <MenuItem value={'Conversion_Type'}>Conversion Type</MenuItem>
                                 <MenuItem value={'TOS'}>TOS</MenuItem>
                                 <MenuItem value={'Pageviews'}>Pageviews</MenuItem>
                             </Select>
@@ -101,7 +111,7 @@ export default class Builder extends Component {
                             <TableRow>
                                 {columns.map(col => {
                                     return (
-                                        <TableCell>{col}</TableCell>
+                                        <TableCell key={col}>{col}</TableCell>
                                     );
                                 })}
                             </TableRow>
@@ -112,7 +122,7 @@ export default class Builder extends Component {
                                     <TableRow key={row.id}>
                                         {columns.map(col => {
                                             return (
-                                                <TableCell>{row.id} data for {col}</TableCell>
+                                                <TableCell key={col}>{row.id} data for {col}</TableCell>
                                             );
                                         })}
                                     </TableRow>
