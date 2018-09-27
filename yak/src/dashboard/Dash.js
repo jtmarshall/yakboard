@@ -22,42 +22,48 @@ class Dash extends React.Component {
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
+        console.log(yakPak);
 
-        this.state = {
-            SelectedFacility: yakPak != null ?
-                yakPak.SelectedFacility : [],
-            DateFrame: {
-                From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
-                To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD'),
-                CompareFrom: yakPak != null ? yakPak.DateFrame.CompareFrom : '',
-                CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
-            },
-            Filter: {
-                conversion: [],
-                touch: [],
-                channel: [],
-                source: [],
-                campaign: [],
-                tier: [],
-                medium: [],
-                disorder: [],
-                network: [],
-                targetingMethod: [],
-                format: [],
-                message: [],
-                ageRange: [],
-                ethnicity: [],
-                familyRole: [],
-                gender: [],
-                income: [],
-                interestsBehaviors: [],
-                language: [],
-                education: [],
-                occupation: [],
-                relationship: [],
-                religion: []
-            },
-        };
+        // If local store not found, initialize base state
+        if (yakPak == null) {
+            this.state = {
+                SelectedFacility: yakPak != null ?
+                    yakPak.SelectedFacility : [],
+                DateFrame: {
+                    From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
+                    To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD'),
+                    CompareFrom: yakPak != null ? yakPak.DateFrame.CompareFrom : '',
+                    CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
+                },
+                Filter: {
+                    conversion: [],
+                    touch: [],
+                    channel: [],
+                    source: [],
+                    campaign: [],
+                    tier: [],
+                    medium: [],
+                    disorder: [],
+                    network: [],
+                    targetingMethod: [],
+                    format: [],
+                    message: [],
+                    ageRange: [],
+                    ethnicity: [],
+                    familyRole: [],
+                    gender: [],
+                    income: [],
+                    interestsBehaviors: [],
+                    language: [],
+                    education: [],
+                    occupation: [],
+                    relationship: [],
+                    religion: []
+                },
+            };
+        } else {
+            this.state = toolbox.retrievePak();
+        }
 
         // Set global state so it's not empty
         savedState = this.state;
@@ -76,7 +82,7 @@ class Dash extends React.Component {
 
     // Set offload func to save to local store just once on unload
     componentDidMount() {
-        window.onbeforeunload = function() {
+        window.onbeforeunload = function () {
             toolbox.storePak(savedState);
         }
     }
@@ -125,9 +131,12 @@ class Dash extends React.Component {
         if (this.isAuthenticated()) {
             return (
                 <div className="dash">
-                    <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter} rightDrawer={this.state.rightDrawer}/>
-                    <FacilityAutoComplete selected={this.state.SelectedFacility} onUpdate={this.updateSelectedFacility}/>
-                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate} refreshView={this.refreshView}/>
+                    <SKUFilter selected={this.state.Filter} onUpdate={this.updateSKUFilter}
+                               rightDrawer={this.state.rightDrawer}/>
+                    <FacilityAutoComplete selected={this.state.SelectedFacility}
+                                          onUpdate={this.updateSelectedFacility}/>
+                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
+                                refreshView={this.refreshView}/>
 
                     <Sidebar/>
 
@@ -138,7 +147,7 @@ class Dash extends React.Component {
                 </div>
             );
         } else {
-            return(
+            return (
                 <div>
                     <h2>User Not Identified!</h2>
                 </div>
