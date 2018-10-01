@@ -14,6 +14,8 @@ import ConversionSummary from './summary';
 import NivoPie from "./nivoPie";
 //import moment from "moment/moment";
 //import MaterialIcon from 'material-icons-react';
+import ReactChart from './graph';
+
 
 const styles = {
     cardCategoryWhite: {
@@ -84,6 +86,7 @@ class Conversion extends Component {
     render() {
         const {classes} = this.props;
         const { tabValue } = this.state;
+
         return (
             <div className="conversionComponent">
                 <h3>Conversion</h3>
@@ -145,12 +148,12 @@ class Conversion extends Component {
                         </CardHeader>
                         <CardBody>
 
-                            {/*<ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[141, 113, 81, 101, 112, 116]}*/}
-                                        {/*chartOptions={{*/}
-                                                {/*dataLabel: 'Calls',*/}
-                                                {/*xName: 'Conversions per Day',*/}
-                                                {/*yName: ''*/}
-                                            {/*}}/>*/}
+                            <ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[141, 113, 81, 101, 112, 116]}
+                                        chartOptions={{
+                                                dataLabel: 'Calls',
+                                                xName: 'Conversions per Day',
+                                                yName: ''
+                                            }}/>
                         </CardBody>
                     </Card>
 

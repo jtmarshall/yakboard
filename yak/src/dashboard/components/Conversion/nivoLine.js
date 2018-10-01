@@ -5,6 +5,10 @@ import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
 import moment from 'moment';
+import ReactChartkick, {LineChart} from 'react-chartkick';
+import Chart from 'chart.js';
+
+ReactChartkick.addAdapter(Chart);
 
 export default class NivoLine extends Component {
     constructor(props) {
@@ -31,6 +35,20 @@ export default class NivoLine extends Component {
                             "y": 153
                         }
                     ]
+                }
+            ],
+            lineData: [
+                {
+                    "name": "Call",
+                    "label": "test",
+                    "data": {
+                        "9/19": 100,
+
+                    }
+                },
+                {
+                    "name": "5+ TOS",
+                    "data": {}
                 }
             ]
         };
@@ -84,6 +102,7 @@ export default class NivoLine extends Component {
     // Pass in calculated date labels, assign them to
     populateData = (dateLabels, compareLabels = null) => {
         let tempObj = this.state.chartData;
+        let lineObj = this.state.lineData;
 
         for (let i = 0; i < dateLabels.length; i++) {
             tempObj[0]["data"][i] = {
@@ -97,8 +116,13 @@ export default class NivoLine extends Component {
                 "y": Math.floor(Math.random() * Math.floor(300)),
                 "label": dateLabels[i] + '${d.y}`'
             };
+
+            // Get data for each day
+            lineObj[0]["data"][dateLabels[i]] = Math.floor(Math.random() * Math.floor(150));
+            lineObj[1]["data"][dateLabels[i]] = Math.floor(Math.random() * Math.floor(300));
         }
 
+        console.log(lineObj);
         console.log(tempObj);
 
         if (compareLabels != null) {
@@ -121,6 +145,15 @@ export default class NivoLine extends Component {
                 ]
             };
 
+            lineObj[2] = {
+                "name": "Compare Call",
+                "data": {}
+            };
+            lineObj[3] = {
+                "name": "Compare 5+ TOS",
+                "data": {}
+            };
+
             for (let i = 0; i < dateLabels.length; i++) {
                 tempObj[2]["data"][i] = {
                     "x": dateLabels[i],
@@ -133,12 +166,17 @@ export default class NivoLine extends Component {
                     "y": compareLabels[i] == null ? 0 : Math.floor(Math.random() * Math.floor(300)),
                     "label": compareLabels[i] == null ? "Out of Range" : compareLabels[i]
                 };
+
+                // Get data for each day
+                lineObj[2]["data"][dateLabels[i]] = Math.floor(Math.random() * Math.floor(150));
+                lineObj[3]["data"][dateLabels[i]] = Math.floor(Math.random() * Math.floor(300));
             }
         }
 
         // Set state with fresh data
         this.state = {
             chartData: tempObj,
+            lineData: lineObj,
         }
     };
 
@@ -147,6 +185,7 @@ export default class NivoLine extends Component {
         let nivoData = this.state.chartData;
         let propsColor = this.props.color;
         let title = this.props.title;
+        let lineData = this.state.lineData;
 
         return (
             <Card className="nivoCard">
@@ -154,6 +193,14 @@ export default class NivoLine extends Component {
                     <h4 className="nivoCardTitle">{title}</h4>
                 </CardHeader>
                 <CardBody>
+                    <LineChart
+                        data={lineData}
+                        xtitle='Date'
+                        ytitle='Conversions'
+                        label='Value'
+                        colors={['#4EAF4A', '#377EB8', '#5E35B1', '#FF7F02']}
+                        download='boom'
+                    />
                     <div className="nivoGraph">
                         <ResponsiveLine
                             stacked={false}
@@ -214,7 +261,7 @@ export default class NivoLine extends Component {
                                     "itemHeight": 20,
                                     "itemOpacity": 0.75,
                                     "symbolSize": 12,
-                                    "symbolShape": "circle",
+                                    "symbolShape": "triangle",
                                     "symbolBorderColor": "rgba(0, 0, 0, .5)",
                                     "effects": [
                                         {
