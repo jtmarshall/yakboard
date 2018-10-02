@@ -14,7 +14,7 @@ import ConversionSummary from './summary';
 import NivoPie from "./nivoPie";
 //import moment from "moment/moment";
 //import MaterialIcon from 'material-icons-react';
-import ReactChart from './graph';
+import LineChart from './lineChart';
 
 
 const styles = {
@@ -85,7 +85,7 @@ class Conversion extends Component {
 
     render() {
         const {classes} = this.props;
-        const { tabValue } = this.state;
+        const {tabValue} = this.state;
 
         return (
             <div className="conversionComponent">
@@ -104,9 +104,10 @@ class Conversion extends Component {
                 </Tabs>
 
                 {tabValue === 0 && <TabContainer>
-                    <NivoPie color={"prime"} title={"First Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
-                    <NivoPie color={"info"} title={"Last Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
-                    <NivoPie color={"primary"} title={"Contributing Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]} />
+                    <NivoPie color={"prime"} title={"First Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
+                    <NivoPie color={"info"} title={"Last Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
+                    <NivoPie color={"primary"} title={"Contributing Touch Summary"}
+                             chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
@@ -140,24 +141,24 @@ class Conversion extends Component {
                 </TabContainer>}
 
                 {tabValue === 2 && <TabContainer>
-                    <NivoLine color={"prime"} title={"Conversions by Line"} chartCallData={[11, 14, 13, 8, 10, 12]} />
-                    <NivoBar color={"mint"} title={"Conversions Bar Graph"} chartCallData={[11, 14, 13, 8, 10, 12]} />
                     <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
-                            <h4 className={classes.cardTitleWhite}>Conversions by Type</h4>
+                            <h4 className={classes.cardTitleWhite}>Conversions Line</h4>
                         </CardHeader>
                         <CardBody>
 
-                            <ReactChart chartCallData={[11, 14, 13, 8, 10, 12]} chart5minData={[141, 113, 81, 101, 112, 116]}
-                                        chartOptions={{
-                                                dataLabel: 'Calls',
-                                                xName: 'Conversions per Day',
-                                                yName: ''
-                                            }}/>
+                            <LineChart chartCallData={[11, 14, 13, 8, 10, 12]}
+                                       chart5minData={[141, 113, 81, 101, 112, 116]}
+                                       chartOptions={{
+                                           dataLabel: 'Calls',
+                                           xName: 'Conversions per Day',
+                                           yName: ''
+                                       }}/>
                         </CardBody>
                     </Card>
 
-
+                    <NivoLine color={"prime"} title={"Conversions by Line"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
+                    <NivoBar color={"mint"} title={"Conversions Bar Graph"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 </TabContainer>}
 
             </div>
