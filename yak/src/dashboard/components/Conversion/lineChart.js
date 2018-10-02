@@ -3,7 +3,7 @@ import {Line, Bar} from 'react-chartjs-2';
 import toolbox from "../../tools/toolbox";
 import moment from 'moment';
 
-export class ReactChart extends Component {
+export class LineChart extends Component {
     constructor(props) {
         super(props);
 
@@ -197,4 +197,4 @@ export class ReactChart extends Component {
     }
 }
 
-export default ReactChart;
+export default LineChart;
