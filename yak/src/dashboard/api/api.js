@@ -5,6 +5,7 @@ let statusURL = "http://go-monitor.us-east-1.elasticbeanstalk.com/api/monitorsta
 let monthlyStatusURL = "http://go-monitor.us-east-1.elasticbeanstalk.com/api/monthlymonitorstatus";
 let fofURL = "http://go-monitor.us-east-1.elasticbeanstalk.com/api/404list";
 let facilityListURL = "http://go-monitor.us-east-1.elasticbeanstalk.com/api/getFacilities";
+let authURL = "";
 
 // Check if we need to convert to relative url because basic auth
 if (document.location.host === "monitor.acadiadevelopment.com") {
@@ -20,7 +21,7 @@ export default {
             return axios.get(facilityListURL).then((resp) => {
                 return resp.data;
             })
-                .catch(function (err) {
+                .catch((err) => {
                     console.log("GET Facility List ERR: ", err);
                 })
         }
@@ -30,8 +31,24 @@ export default {
             return axios.get(fofURL).then((resp) => {
                 return resp.data;
             })
-                .catch(function (err) {
+                .catch((err) => {
                     console.log("GET 404 ERR: ", err);
+                })
+        }
+    },
+    security: {
+        authenticateLogin: (user, pass) => {
+            // Set user creds in from data
+            let formData = new FormData();
+            formData.set('user', user);
+            formData.set('pass', pass);
+
+            return axios.post(authURL, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+                .then((resp) => {
+                    return resp.data
+                })
+                .catch((err) => {
+                    console.log("Authentication ERR: ", err)
                 })
         }
     },
@@ -40,7 +57,7 @@ export default {
             return axios.get(statusURL).then((resp) => {
                 return resp.data;
             })
-                .catch(function (err) {
+                .catch((err) => {
                     console.log("GET Status ERR: ", err);
                 })
         },
@@ -48,7 +65,7 @@ export default {
             return axios.get(monthlyStatusURL).then((resp) => {
                 return resp.data;
             })
-                .catch(function (err) {
+                .catch((err) => {
                     console.log("GET MonthlyStatus ERR: ", err);
                 })
         }
