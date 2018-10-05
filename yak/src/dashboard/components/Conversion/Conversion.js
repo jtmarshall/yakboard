@@ -15,6 +15,8 @@ import NivoPie from "./nivoPie";
 //import moment from "moment/moment";
 //import MaterialIcon from 'material-icons-react';
 import LineChart from './lineChart';
+import Button from '@material-ui/core/Button';
+import MaterialIcon from "material-icons-react";
 
 
 const styles = {
@@ -146,6 +148,20 @@ class Conversion extends Component {
                             <h4 className={classes.cardTitleWhite}>Conversions Line</h4>
                         </CardHeader>
                         <CardBody>
+                            <div style={{paddingBottom: '20px', float: 'right'}}>
+                                <Button variant="outlined" disabled color="secondary">
+                                    Day
+                                </Button>
+                                <Button variant="outlined" color="secondary" >
+                                    Week
+                                </Button>
+                                <Button variant="outlined" color="secondary">
+                                    Month
+                                </Button>
+                                <Button style={{top: '5px'}}>
+
+                                </Button>
+                            </div>
 
                             <LineChart chartCallData={[11, 14, 13, 8, 10, 12]}
                                        chart5minData={[141, 113, 81, 101, 112, 116]}

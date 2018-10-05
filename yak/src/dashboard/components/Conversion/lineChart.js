@@ -58,11 +58,14 @@ export class LineChart extends Component {
             },
             chartOptions: {
                 tooltips: {
+                    titleFontSize: 0,
+                    titleSpacing: 0,
                     callbacks: {
                         label: function(tooltipItem, data) {
                             console.log(data);
-                            var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].pointLabel;
-                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                            let label = data.datasets[tooltipItem.datasetIndex].label + ' ' +
+                                data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].pointLabel;
+                            return label + ': (' + tooltipItem.yLabel + ')';
                         }
                     }
                 },
@@ -146,7 +149,7 @@ export class LineChart extends Component {
 
         if (compareLabels != null) {
             tempObj.datasets[2] = {
-                label: "Compare Call",
+                label: "SEC Call",
                 backgroundColor: '#5E35B1',
                 borderColor: '#5E35B1',
                 borderWidth: 2,
@@ -154,7 +157,7 @@ export class LineChart extends Component {
                 data: [],
             };
             tempObj.datasets[3] = {
-                label: "Compare 5+ TOS",
+                label: "SEC 5+ TOS",
                 backgroundColor: '#FF7F02',
                 borderColor: '#FF7F02',
                 borderWidth: 2,
