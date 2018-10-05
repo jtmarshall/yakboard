@@ -118,30 +118,34 @@ class DatePicker extends React.Component {
     render() {
         return (
             <form className="col-lg-4 datePicker">
-                <TextField
-                    required={true}
-                    id="dateFrom"
-                    label="From"
-                    type="date"
-                    value={this.props.dateFrame.From}
-                    onChange={(e) => this.updateFromDate(e.target.value)}
-                    className="datePicker-textField"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-                <TextField
-                    required={true}
-                    id="dateTo"
-                    label="To"
-                    type="date"
-                    value={this.props.dateFrame.To}
-                    onChange={(e) => this.updateToDate(e.target.value)}
-                    className="datePicker-textField"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
+                <Tooltip title="Primary Start Date" placement="bottom">
+                    <TextField
+                        required={true}
+                        id="dateFrom"
+                        label="From"
+                        type="date"
+                        value={this.props.dateFrame.From}
+                        onChange={(e) => this.updateFromDate(e.target.value)}
+                        className="datePicker-textField"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Tooltip>
+                <Tooltip title="Primary End Date" placement="bottom">
+                    <TextField
+                        required={true}
+                        id="dateTo"
+                        label="To"
+                        type="date"
+                        value={this.props.dateFrame.To}
+                        onChange={(e) => this.updateToDate(e.target.value)}
+                        className="datePicker-textField"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Tooltip>
                 <Tooltip title="Compare Dates" placement="bottom">
                     <Button onClick={this.toggleDrawer('top', true)} style={{top: '5px'}}>
                         <MaterialIcon icon='compare_arrows' size={18} color=''/>
@@ -175,22 +179,25 @@ class DatePicker extends React.Component {
                                     <MenuItem value={'last30'}>Last 30 Days</MenuItem>
                                 </Select>
                             </FormControl>
-                            <TextField
-                                required={true}
-                                id="dateCompareFrom"
-                                label="CompareFrom"
-                                type="date"
-                                value={this.props.dateFrame.CompareFrom}
-                                onChange={(e) => this.updateCompareFromDate(e.target.value)}
-                                className="datePicker-textField"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
+                            <Tooltip title="Secondary Start Date" placement="bottom">
+                                <TextField
+                                    required={true}
+                                    id="dateCompareFrom"
+                                    label="SEC From"
+                                    type="date"
+                                    value={this.props.dateFrame.CompareFrom}
+                                    onChange={(e) => this.updateCompareFromDate(e.target.value)}
+                                    className="datePicker-textField"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                />
+                            </Tooltip>
+                            <Tooltip title="Secondary End Date" placement="bottom">
                             <TextField
                                 required={true}
                                 id="dateCompareTo"
-                                label="CompareTo"
+                                label="SEC To"
                                 type="date"
                                 value={this.props.dateFrame.CompareTo}
                                 onChange={(e) => this.updateCompareToDate(e.target.value)}
@@ -199,7 +206,9 @@ class DatePicker extends React.Component {
                                     shrink: true,
                                 }}
                             />
-                            <Button variant="contained" color="primary" onClick={this.props.refreshView} style={{backgroundColor: '#00C853', color: '#ffffff', marginRight: '10px'}}>
+                            </Tooltip>
+                            <Button variant="contained" color="primary" onClick={this.props.refreshView}
+                                    style={{backgroundColor: '#00C853', color: '#ffffff', marginRight: '10px'}}>
                                 Apply
                             </Button>
                             <Button variant="contained" className="" onClick={this.clearDates}>

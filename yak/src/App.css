@@ -465,8 +465,12 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
 
 }
 
+/*.skuFilter {*/
+    /*display: grid;*/
+/*}*/
+
 .skuFilter > * {
-    min-width: 180px !important;
+    min-width: 90% !important;
     padding: 4px !important;
 }
 

@@ -46,7 +46,7 @@ class SKUFilter extends React.Component {
         // console.log(event.target.name, event.target.value);
         // dummy object so we don't clear other filter values
         let dummyObj = this.state.Filter;
-        dummyObj[name] = event.target.value;
+        dummyObj[name].selected = event.target.value;
 
         this.setState({
             Filter: dummyObj
@@ -60,6 +60,41 @@ class SKUFilter extends React.Component {
         this.props.onUpdate(dummyObj);
     };
 
+    // clear filters from state
+    clearFilters = () => {
+        let cleanFilter = {
+            conversion: [],
+            touch: [],
+            channel: [],
+            source: [],
+            campaign: [],
+            tier: [],
+            medium: [],
+            disorder: [],
+            network: [],
+            targetingMethod: [],
+            format: [],
+            message: [],
+            ageRange: [],
+            ethnicity: [],
+            familyRole: [],
+            gender: [],
+            income: [],
+            interestsBehaviors: [],
+            language: [],
+            education: [],
+            occupation: [],
+            relationship: [],
+            religion: []
+        };
+
+        this.setState({
+            Filter: cleanFilter
+        });
+
+        this.props.onUpdate(cleanFilter);
+    };
+
     render() {
         return (
             <div className="filterComponent">
@@ -69,7 +104,29 @@ class SKUFilter extends React.Component {
                     </Button>
                 </Tooltip>
 
-                <Drawer  anchor="right" open={this.state.right} onClose={this.toggleDrawer('right')}>
+                <Drawer
+                    anchor="right"
+                    open={this.state.right}
+                    onClose={this.toggleDrawer('right')}
+                    style={{display: 'block'}}
+                >
+                    <div style={{margin: 'auto'}}>
+                        <Button variant="contained"
+                                style={{backgroundColor: '#ff9800', color: '#ffffff', margin: '5px'}}
+                                onClick={() => {
+                                    this.toggleDrawer('right', false);
+                                    window.location.reload();
+                                }}>
+                            Apply
+                        </Button>
+                        <Button variant="contained" style={{margin: '5px'}}
+                                onClick={() => {
+                                    this.clearFilters();
+                                    //window.location.reload();
+                                }}>
+                            Clear
+                        </Button>
+                    </div>
                     <div
                         style={{width: 400, padding: 20}}
                         tabIndex={0}
@@ -107,9 +164,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterTouch',
                                     }}
                                 >
-                                    <MenuItem value={'all'}>All</MenuItem>
                                     <MenuItem value={'first'}>First</MenuItem>
-                                    <MenuItem value={'last'}>Last</MenuItem>
+                                    <MenuItem value={'converting'}>Converting</MenuItem>
+                                    <MenuItem value={'Latest'}>Latest</MenuItem>
                                     <MenuItem value={'contributing'}>Contributing</MenuItem>
                                 </Select>
                             </FormControl>
@@ -686,13 +743,6 @@ class SKUFilter extends React.Component {
                             </FormControl>
                         </form>
                     </div>
-                    <Button variant="contained" style={{backgroundColor: '#ff9800', color: '#ffffff', margin: 'auto'}}
-                            onClick={() => {
-                                this.toggleDrawer('right', false);
-                                window.location.reload();
-                            }}>
-                        Apply
-                    </Button>
                 </Drawer>
             </div>
 
