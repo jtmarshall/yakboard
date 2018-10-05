@@ -37,9 +37,18 @@ class Dash extends React.Component {
                     CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
                 },
                 Filter: {
-                    conversion: [],
-                    touch: [],
-                    channel: [],
+                    conversion: {
+                        logic: '&&',
+                        selected: []
+                    },
+                    touch: {
+                        logic: '&&',
+                        selected: []
+                    },
+                    channel: {
+                        logic: '&&',
+                        selected: []
+                    },
                     source: [],
                     campaign: [],
                     tier: [],
@@ -173,7 +182,8 @@ class Dash extends React.Component {
                     <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
                                 refreshView={this.refreshView}/>
 
-                    <Sidebar/>
+                    <Sidebar selected={this.state.Filter} onUpdate={this.updateSKUFilter}
+                             rightDrawer={this.state.rightDrawer}/>
 
                     <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
                     <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>

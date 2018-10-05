@@ -169,6 +169,12 @@
     transition-duration: .5s;
 }
 
+.sidebarBottom {
+    bottom: 5%;
+    position: absolute;
+    width: 90%;
+}
+
 /* Remove X and Arrows from Datepicker */
 
 input[type=date]::-webkit-inner-spin-button {

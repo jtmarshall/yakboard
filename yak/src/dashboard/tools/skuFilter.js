@@ -27,10 +27,18 @@ class SKUFilter extends React.Component {
         right: this.rightDrawer
     };
 
-    toggleDrawer = (side, open) => () => {
-        this.setState({
-            [side]: open,
-        });
+    toggleDrawer = (side) => () => {
+
+        if (this.state.right) {
+            this.setState({
+                [side]: false,
+            });
+        } else {
+            this.setState({
+                [side]: true,
+            });
+        }
+
     };
 
     // update sku filter state
@@ -56,17 +64,17 @@ class SKUFilter extends React.Component {
         return (
             <div className="filterComponent">
                 <Tooltip title="Show Filters" placement="bottom">
-                    <Button onClick={this.toggleDrawer('right', true)} style={{top: '5px'}}>
+                    <Button onClick={this.toggleDrawer('right')} style={{top: '5px'}}>
                         <MaterialIcon icon='filter_list' size={24} color='#ff9800'/>
                     </Button>
                 </Tooltip>
 
-                <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+                <Drawer  anchor="right" open={this.state.right} onClose={this.toggleDrawer('right')}>
                     <div
                         style={{width: 400, padding: 20}}
                         tabIndex={0}
                         role="button"
-                        onKeyDown={this.toggleDrawer('right', false)}
+                        onKeyDown={this.toggleDrawer('right')}
                     >
                         <form className="skuFilter" noValidate autoComplete="off">
                             <FormControl className="">
