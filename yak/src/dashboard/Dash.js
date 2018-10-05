@@ -39,15 +39,15 @@ class Dash extends React.Component {
                 Filter: {
                     conversion: {
                         logic: '&&',
-                        selected: []
+                        selected: [],
                     },
                     touch: {
                         logic: '&&',
-                        selected: []
+                        selected: [],
                     },
                     channel: {
                         logic: '&&',
-                        selected: []
+                        selected: [],
                     },
                     source: [],
                     campaign: [],
