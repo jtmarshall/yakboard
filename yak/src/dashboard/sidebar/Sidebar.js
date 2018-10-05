@@ -5,6 +5,7 @@ import MaterialIcon from 'material-icons-react';
 import SKUFilter from '../tools/skuFilter';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 
 class Sidebar extends React.Component {
@@ -24,7 +25,7 @@ class Sidebar extends React.Component {
                     <span>Passport
                         <FormControlLabel
                             control={
-                                <Switch defaultChecked value="checkedF" color="default" style={{color: "white"}} />
+                                <Switch defaultChecked value="checkedF" color="default" style={{color: "white"}}/>
                             }
                             label="Session"
                             root={{color: "white"}}
@@ -35,31 +36,41 @@ class Sidebar extends React.Component {
                 </div>
                 <hr/>
 
-                <ul style={{listStyleType: "none", paddingLeft: 0, textAlign: 'left',  color: "#fff"}}>
+                <ul style={{listStyleType: "none", paddingLeft: 0, textAlign: 'left', color: "#fff"}}>
                     <Link to="/story">
-                        <li style={{paddingLeft: 25}}>
-                            <MaterialIcon icon='map' color='#EEEEEE' />  Storyboard
-                        </li>
+                        <Tooltip title="View user data" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='map' color='#EEEEEE'/> Storyboard
+                            </li>
+                        </Tooltip>
                     </Link>
                     <Link to="/conversion">
-                        <li style={{paddingLeft: 25}}>
-                            <MaterialIcon icon='view_compact' color='#EEEEEE' />  Conversion
-                        </li>
+                        <Tooltip title="View only conversion data" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='view_compact' color='#EEEEEE'/> Conversion
+                            </li>
+                        </Tooltip>
                     </Link>
                     <Link to="/builder">
-                        <li style={{paddingLeft: 25}}>
-                            <MaterialIcon icon='build' color='#EEEEEE' />  Builder
-                        </li>
+                        <Tooltip title="Build a specialized view" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='build' color='#EEEEEE'/> Builder
+                            </li>
+                        </Tooltip>
                     </Link>
                     <Link to="/export">
-                        <li style={{paddingLeft: 25}}>
-                            <MaterialIcon icon='cloud_download' color='#EEEEEE' />  Export
-                        </li>
+                        <Tooltip title="Export data to CSV" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='cloud_download' color='#EEEEEE'/> Export
+                            </li>
+                        </Tooltip>
                     </Link>
                     <Link to="/settings">
-                        <li style={{paddingLeft: 25}}>
-                            <MaterialIcon icon='settings' color='#EEEEEE' />  Settings
-                        </li>
+                        <Tooltip title="User Settings" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='settings' color='#EEEEEE'/> Settings
+                            </li>
+                        </Tooltip>
                     </Link>
                 </ul>
 
