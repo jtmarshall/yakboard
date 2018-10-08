@@ -22,14 +22,15 @@ class Sidebar extends React.Component {
 
                 <hr/>
                 <div>
-                    <span>Passport
+                    <span>
+                        Passport
                         <FormControlLabel
                             control={
                                 <Switch defaultChecked value="checkedF" color="default" style={{color: "white"}}/>
                             }
-                            label="Session"
                             root={{color: "white"}}
                         />
+                        Session
                     </span>
                     <SKUFilter selected={this.props.selected} onUpdate={this.props.onUpdate}
                                rightDrawer={this.props.rightDrawer}/>
@@ -51,10 +52,10 @@ class Sidebar extends React.Component {
                             </li>
                         </Tooltip>
                     </Link>
-                    <Link to="/builder">
-                        <Tooltip title="Build a specialized view" placement="bottom">
+                    <Link to="/explorer">
+                        <Tooltip title="Explore uncurated views" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='build' color='#EEEEEE'/> Builder
+                                <MaterialIcon icon='explore' color='#EEEEEE'/> Explorer
                             </li>
                         </Tooltip>
                     </Link>
