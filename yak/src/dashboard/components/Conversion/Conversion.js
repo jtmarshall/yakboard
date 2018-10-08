@@ -16,7 +16,6 @@ import NivoPie from "./nivoPie";
 //import MaterialIcon from 'material-icons-react';
 import LineChart from './lineChart';
 import Button from '@material-ui/core/Button';
-import MaterialIcon from "material-icons-react";
 
 
 const styles = {

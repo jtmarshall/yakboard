@@ -10,7 +10,7 @@ import Storyboard from './components/Storyboard/Storyboard';
 import Conversion from './components/Conversion/Conversion';
 import Export from './components/Export/Export';
 import Settings from "./components/Settings/Settings";
-import Builder from './components/Builder/Builder';
+import Explorer from "./components/Explorer/Explorer";
 
 
 // Global state for local storage
@@ -71,6 +71,9 @@ class Dash extends React.Component {
                     religion: []
                 },
                 Conversion: {
+                    tabValue: 0
+                },
+                Explorer: {
                     tabValue: 0
                 },
                 Storyboard: {
@@ -158,9 +161,11 @@ class Dash extends React.Component {
     };
 
     // For child elements to update dash state
-    updateDashBuilder = (val) => {
+    updateDashExplorer = (name, val) => {
         this.setState({
-            Builder: val
+            Explorer:  {
+                [name]: val
+            }
         });
     };
 
@@ -187,7 +192,7 @@ class Dash extends React.Component {
 
                     <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
                     <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
-                    <Route path="/builder" render={() => <Builder parentState={this.state} updateDash={this.updateDashBuilder}/>}/>
+                    <Route path="/explorer" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
                 </div>
