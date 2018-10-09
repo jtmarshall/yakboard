@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from "../../tools/Card/CardBody";
 import Table from "../../tools/table";
@@ -12,20 +13,27 @@ import Grid from '@material-ui/core/Grid';
 import MaterialIcon from "material-icons-react";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
-export default class Stalker extends Component {
+class Stalker extends Component {
     constructor(props) {
         super(props);
     }
 
     state = {
         searchMetric: "passport",
+        user: "",
     };
+
+    componentDidMount () {
+        let id = 0;
+
+        this.setState({
+            user: id
+        })
+    }
 
     // update search metric selection
     handleSelect = event => {
@@ -33,8 +41,12 @@ export default class Stalker extends Component {
     };
 
     render() {
+        const {match} = this.props;
+        const id = match.params.id;
+
         return (
             <div className="stalkerComponent">
+                <h3>{id}</h3>
                 <form className="" noValidate autoComplete="off">
                     <FormControl style={{width: '120px', paddingRight: '8px'}} className="">
                         <InputLabel htmlFor="filterSearchMetric">Search Metric</InputLabel>
@@ -133,7 +145,7 @@ export default class Stalker extends Component {
                                             </ListItem>
                                             <ListItem>
                                                 <ListItemIcon>
-                                                    <MaterialIcon icon='touch_app'/>
+                                                    <MaterialIcon icon='flag'/>
                                                 </ListItemIcon>
                                                 <ListItemText
                                                     primary="5"
@@ -196,3 +208,5 @@ export default class Stalker extends Component {
         );
     }
 }
+
+export default withRouter(Stalker);

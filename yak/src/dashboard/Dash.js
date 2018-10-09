@@ -23,7 +23,7 @@ class Dash extends React.Component {
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
-        console.log(yakPak);
+        console.log(JSON.stringify(yakPak));
 
         // If local store not found, initialize base state
         if (yakPak == null) {
@@ -192,7 +192,7 @@ class Dash extends React.Component {
 
                     <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
                     <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
-                    <Route path="/explorer" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
+                    <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
                 </div>

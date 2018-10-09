@@ -111,6 +111,7 @@ class Explorer extends Component {
                 </TabContainer>}
 
                 {tabValue === 2 && <TabContainer>
+
                     <Builder parentState={this.props.parentState} updateDash={this.updateDashBuilder}/>
                 </TabContainer>}
 
