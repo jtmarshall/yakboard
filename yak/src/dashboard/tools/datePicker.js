@@ -97,9 +97,57 @@ class DatePicker extends React.Component {
 
     // update date denomination
     handleDateDenominationSelect = name => event => {
+        let dateDenom = event.target.value;
+
         this.setState({
-            dateDenomination: event.target.value
+            dateDenomination: dateDenom
         });
+
+        // Initialize temp dates
+        let tempTo;
+        let tempFrom;
+
+        // Set values for temp dates based on input
+        switch (dateDenom) {
+            case 'today':
+                tempTo = moment();
+                tempFrom = moment();
+                break;
+            case 'yesterday':
+                tempTo = moment().subtract(1, 'days');
+                tempFrom = moment().subtract(1, 'days');
+                break;
+            case 'lastWeek':
+                tempTo = moment().subtract(1, 'weeks').endOf('week');
+                tempFrom = moment().subtract(1, 'weeks').startOf('week');
+                break;
+            case 'lastMonth':
+                tempTo = moment().subtract(1, 'months').endOf('month');
+                tempFrom = moment().subtract(1, 'months').startOf('month');
+                break;
+            case 'last7':
+                tempTo = moment();
+                tempFrom = moment().subtract(7, 'days');
+                break;
+            case 'last30':
+                tempTo = moment();
+                tempFrom = moment().subtract(30, 'days');
+                break;
+            default:
+                tempTo = moment(this.props.dateFrame.To);
+                tempFrom = moment(this.props.dateFrame.From);
+
+        }
+
+        let dateFrame = {
+            From: tempFrom.format('YYYY-MM-DD'),
+            To: tempTo.format('YYYY-MM-DD'),
+            CompareFrom: this.props.dateFrame.CompareFrom,
+            CompareTo: this.props.dateFrame.CompareTo
+        };
+
+        // Push update to Dash state
+        this.props.onUpdate(dateFrame);
     };
 
     // Remove comparison date range
