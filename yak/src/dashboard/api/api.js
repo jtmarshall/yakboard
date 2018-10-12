@@ -50,6 +50,19 @@ export default {
                 .catch((err) => {
                     console.log("Authentication ERR: ", err)
                 })
+        },
+        pushYakPak: (yakPak) => {
+            // Access the user's pak and push to goauth server to save
+            let formData = new FormData();
+            formData.set('yakpak', yakPak.toString());
+
+            axios.post(authURL, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+                .then((resp) => {
+                    console.log("pak stored.")
+                })
+                .catch((err) => {
+                    console.log("Pak store ERR: ", err)
+                })
         }
     },
     status: {
