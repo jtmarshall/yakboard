@@ -6,6 +6,7 @@ let monthlyStatusURL = "http://go-monitor.us-east-1.elasticbeanstalk.com/api/mon
 let fofURL = "http://go-monitor.us-east-1.elasticbeanstalk.com/api/404list";
 let facilityListURL = "http://go-monitor.us-east-1.elasticbeanstalk.com/api/getFacilities";
 let authURL = "";
+let updateURL = "/updatePak";
 
 // Check if we need to convert to relative url because basic auth
 if (document.location.host === "monitor.acadiadevelopment.com") {
@@ -56,7 +57,7 @@ export default {
             let formData = new FormData();
             formData.set('yakpak', yakPak.toString());
 
-            axios.post(authURL, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+            axios.post(updateURL, formData, {headers: {'Content-Type': 'multipart/form-data'}})
                 .then((resp) => {
                     console.log("pak stored.")
                 })
