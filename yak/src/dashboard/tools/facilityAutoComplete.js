@@ -34,30 +34,31 @@ function retrieveList() {
         suggestions = [
             {
                 label: "All CTC",
-                url: "ctc"
+                url: "CTC"
             },
             {
                 label: "All Inpatient",
-                url: "inpatient"
+                url: "Inpatient"
             },
             {
                 label: "All Residential Dual",
-                url: "residentialDual"
+                url: "Residential Dual"
             },
             {
                 label: "All Residential SA",
-                url: "residentialSA"
+                url: "Residential SA"
             },
             {
                 label: "All Specialty",
-                url: "specialty"
+                url: "Specialty"
             }
         ];
         for (let key in resp) {
             suggestions.push(
                 {
-                    label: resp[key],
-                    url: key
+                    label: resp[key].FacilityName,
+                    url: key,
+                    type: resp[key].FacilityType
                 }
             )
         }
