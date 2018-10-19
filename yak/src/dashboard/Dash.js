@@ -4,13 +4,13 @@ import moment from 'moment';
 import toolbox from './tools/toolbox';
 import FacilityAutoComplete from './tools/facilityAutoComplete';
 import SKUFilter from './tools/skuFilter';
-import DatePicker from './tools/datePicker';
 import Sidebar from './sidebar/Sidebar';
 import Storyboard from './components/Storyboard/Storyboard';
 import Conversion from './components/Conversion/Conversion';
 import Export from './components/Export/Export';
 import Settings from "./components/Settings/Settings";
 import Explorer from "./components/Explorer/Explorer";
+import DateComponent from './tools/DateComponent';
 
 
 // Global state for local storage
@@ -184,7 +184,7 @@ class Dash extends React.Component {
                                rightDrawer={this.state.rightDrawer}/>
                     <FacilityAutoComplete selected={this.state.SelectedFacility}
                                           onUpdate={this.updateSelectedFacility}/>
-                    <DatePicker dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
+                    <DateComponent dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
                                 refreshView={this.refreshView}/>
 
                     <Sidebar selected={this.state.Filter} onUpdate={this.updateSKUFilter}
