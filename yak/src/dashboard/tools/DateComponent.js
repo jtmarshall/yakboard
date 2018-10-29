@@ -195,12 +195,12 @@ class DateComponent extends React.Component {
                     aria-labelledby="form-dialog-title"
                     style={{paddingLeft: '180px', top: '-20%'}}
                 >
-                    <DialogTitle id="form-dialog-title">Date Range</DialogTitle>
+                    <DialogTitle id="form-dialog-title">Date Options</DialogTitle>
                     <DialogContent>
                         <DialogContentText></DialogContentText>
 
                         <FormGroup>
-                            <FormGroup row style={{margin: 'auto', padding: '8px 0'}}>
+                            <FormGroup row style={{margin: 'auto', padding: '10px 5px'}}>
                                 <FormControl style={{paddingRight: '20px'}}>
                                     <InputLabel htmlFor="filterDateDenomination">Presets</InputLabel>
                                     <Select
@@ -252,7 +252,7 @@ class DateComponent extends React.Component {
                                 </Tooltip>
                             </FormGroup>
 
-                            <FormGroup row style={{margin: 'auto', paddingTop: '10px'}}>
+                            <FormGroup row style={{margin: 'auto', paddingTop: '20px'}}>
                                 <Tooltip title="Secondary Start Date" placement="bottom">
                                     <TextField
                                         required={true}
@@ -284,7 +284,7 @@ class DateComponent extends React.Component {
                             </FormGroup>
                         </FormGroup>
                     </DialogContent>
-                    <DialogActions>
+                    <DialogActions style={{padding: '10px'}}>
                         <Button variant="contained" color="primary"
                                 style={{backgroundColor: '#00C853', color: '#ffffff', marginRight: '10px'}}
                                 onClick={() => {
