@@ -394,6 +394,7 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'b18'}>Geographic</MenuItem>
                                     <MenuItem value={'b19'}>Conversion</MenuItem>
                                     <MenuItem value={'b20'}>Newsletter - Mood</MenuItem>
+                                    <MenuItem value={'b21'}>Custom Segments</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from "../../tools/Card/CardBody";
 import Table from "../../tools/table";
@@ -27,7 +27,7 @@ class Stalker extends Component {
         user: "",
     };
 
-    componentDidMount () {
+    componentDidMount() {
         let id = 0;
 
         this.setState({
@@ -84,36 +84,28 @@ class Stalker extends Component {
                                     <Grid item xs={12} md={6}>
                                         <List>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='fingerprint'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='fingerprint'/>
                                                 <ListItemText
                                                     primary="7DZ04BUIMV"
                                                     secondary='Passport ID'
                                                 />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='phone'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='phone'/>
                                                 <ListItemText
                                                     primary="555-555-5555"
                                                     secondary='Phone'
                                                 />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='person'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='person'/>
                                                 <ListItemText
                                                     primary="Bill"
                                                     secondary='Name'
                                                 />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='public'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='public'/>
                                                 <ListItemText
                                                     primary="N/A"
                                                     secondary='Geo'
@@ -135,36 +127,28 @@ class Stalker extends Component {
                                     <Grid item xs={12} md={6}>
                                         <List>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='phone_callback'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='phone_callback'/>
                                                 <ListItemText
                                                     primary="1"
                                                     secondary='# of Calls'
                                                 />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='flag'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='flag'/>
                                                 <ListItemText
                                                     primary="5"
                                                     secondary='# of Actions'
                                                 />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='visibility'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='visibility'/>
                                                 <ListItemText
                                                     primary="09/09/18"
                                                     secondary='First Encounter'
                                                 />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemIcon>
-                                                    <MaterialIcon icon='visibility_off'/>
-                                                </ListItemIcon>
+                                                <MaterialIcon icon='visibility_off'/>
                                                 <ListItemText
                                                     primary="09/13/18"
                                                     secondary='Final Encounter'
