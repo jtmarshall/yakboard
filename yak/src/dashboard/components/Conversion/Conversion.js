@@ -144,7 +144,7 @@ class Conversion extends Component {
                 {tabValue === 2 && <TabContainer>
                     <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
-                            <h4 className={classes.cardTitleWhite}>Conversions Line</h4>
+                            <h4 className={classes.cardTitleWhite}>Conversions by Medium</h4>
                         </CardHeader>
                         <CardBody>
                             <div style={{paddingBottom: '20px', float: 'right'}}>
@@ -162,18 +162,13 @@ class Conversion extends Component {
                                 </Button>
                             </div>
 
-                            <LineChart chartCallData={[11, 14, 13, 8, 10, 12]}
-                                       chart5minData={[141, 113, 81, 101, 112, 116]}
-                                       chartOptions={{
+                            <LineChart chartOptions={{
                                            dataLabel: 'Calls',
-                                           xName: 'Conversions per Day',
+                                           xName: 'Date',
                                            yName: ''
                                        }}/>
                         </CardBody>
                     </Card>
-
-                    <NivoLine color={"prime"} title={"Conversions by Line"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                    <NivoBar color={"mint"} title={"Conversions Bar Graph"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 </TabContainer>}
 
             </div>

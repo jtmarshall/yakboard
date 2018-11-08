@@ -29,27 +29,81 @@ export class LineChart extends Component {
                 labels: primaryLabels,
                 datasets: [
                     {
-                        label: "Call",
+                        label: "Directories",
                         backgroundColor: '#4EAF4A',
-                        // 'rgba(255, 99, 132, 0.9)',
-                        // 'rgba(255, 206, 86, 0.9)',
-                        // 'rgba(75, 192, 192, 0.9)',
-                        // 'rgba(153, 102, 255, 0.9)',
-                        // 'rgba(255, 159, 64, 0.9)'
                         borderColor: '#4EAF4A',
-                        // 'rgba(255,99,132,1)',
-                        // 'rgba(255, 206, 86, 1)',
-                        // 'rgba(75, 192, 192, 1)',
-                        // 'rgba(153, 102, 255, 1)',
-                        // 'rgba(255, 159, 64, 1)'
                         borderWidth: 2,
                         fill: false,
                         data: [],  // chart data comes from props in domain-card
                     },
                     {
-                        label: "5+ TOS",
+                        label: "Internal Directories",
                         backgroundColor: '#377EB8',
                         borderColor: '#377EB8',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Lead Gen",
+                        backgroundColor: '#FF6F00',
+                        borderColor: '#FF6F00',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Other",
+                        backgroundColor: '#B71C1C',
+                        borderColor: '#B71C1C',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Placement",
+                        backgroundColor: '#6A1B9A',
+                        borderColor: '#6A1B9A',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Search",
+                        backgroundColor: '#FFD600',
+                        borderColor: '#FFD600',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Search Engine",
+                        backgroundColor: '#546E7A',
+                        borderColor: '#546E7A',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Sign Up",
+                        backgroundColor: '#1DE9B6',
+                        borderColor: '#1DE9B6',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Social",
+                        backgroundColor: '#FF4081',
+                        borderColor: '#FF4081',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                    },
+                    {
+                        label: "Sponsorship",
+                        backgroundColor: '#B388FF',
+                        borderColor: '#B388FF',
                         borderWidth: 2,
                         fill: false,
                         data: [],
@@ -69,9 +123,10 @@ export class LineChart extends Component {
                         }
                     }
                 },
-                responsive: true,
+                //responsive: true,
                 scales: {
                     xAxes: [{
+                        stacked: true,
                         scaleLabel: {
                             display: !!this.props.chartOptions.xName,  // coercion to bool, true if it exists
                             labelString: this.props.chartOptions.xName
@@ -82,9 +137,10 @@ export class LineChart extends Component {
                                 quarter: 'MMM D'
                             }
                         },
-                        distribution: 'series'
+                        distribution: 'series',
                     }],
                     yAxes: [{
+                        stacked: true,
                         scaleLabel: {
                             display: !!this.props.chartOptions.yName,  // coercion to bool, true if it exists
                             labelString: this.props.chartOptions.yName
@@ -130,19 +186,28 @@ export class LineChart extends Component {
     // Pass in calculated date labels, assign them to
     populateData = (dateLabels, compareLabels = null) => {
         let tempObj = this.state.chartData;
+        let datasets = this.state.chartData.datasets.length;
+        console.log(datasets);
 
         for (let i = 0; i < dateLabels.length; i++) {
-            tempObj.datasets[0].data[i] = {
-                "x": dateLabels[i],
-                "y": Math.floor(Math.random() * Math.floor(150)),
-                "pointLabel": dateLabels[i]
-            };
-
-            tempObj.datasets[1].data[i] = {
-                "x": dateLabels[i],
-                "y": Math.floor(Math.random() * Math.floor(400)),
-                "pointLabel": dateLabels[i]
-            };
+            for (let j = 0; j < datasets; j++) {
+                tempObj.datasets[j].data[i] = {
+                    "x": dateLabels[i],
+                    "y": Math.floor(Math.random() * Math.floor(20)),
+                    "pointLabel": dateLabels[i]
+                };
+            }
+            // tempObj.datasets[0].data[i] = {
+            //     "x": dateLabels[i],
+            //     "y": Math.floor(Math.random() * Math.floor(150)),
+            //     "pointLabel": dateLabels[i]
+            // };
+            //
+            // tempObj.datasets[1].data[i] = {
+            //     "x": dateLabels[i],
+            //     "y": Math.floor(Math.random() * Math.floor(400)),
+            //     "pointLabel": dateLabels[i]
+            // };
         }
 
         console.log(tempObj);
@@ -191,7 +256,7 @@ export class LineChart extends Component {
     render() {
         return (
             <div className="reactChart">
-                <Line
+                <Bar
                     data={this.state.chartData}
                     options={this.state.chartOptions}
                 />
