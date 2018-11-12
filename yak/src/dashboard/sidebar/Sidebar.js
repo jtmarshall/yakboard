@@ -21,21 +21,6 @@ class Sidebar extends React.Component {
                 <h1 className="App-title">YAK</h1>
 
                 <hr/>
-                <div>
-                    <span>
-                        Passport
-                        <FormControlLabel
-                            control={
-                                <Switch defaultChecked value="checkedF" color="default" style={{color: "white"}}/>
-                            }
-                            root={{color: "white"}}
-                        />
-                        Session
-                    </span>
-                    <SKUFilter selected={this.props.selected} onUpdate={this.props.onUpdate}
-                               rightDrawer={this.props.rightDrawer}/>
-                </div>
-                <hr/>
 
                 <ul style={{listStyleType: "none", paddingLeft: 0, textAlign: 'left', color: "#fff"}}>
                     <Link to="/story">
