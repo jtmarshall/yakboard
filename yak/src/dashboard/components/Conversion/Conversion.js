@@ -144,23 +144,10 @@ class Conversion extends Component {
                 {tabValue === 2 && <TabContainer>
                     <Card className={classes.cardConversionGraph}>
                         <CardHeader color="prime">
-                            <h4 className={classes.cardTitleWhite}>Conversions by Medium</h4>
+                            <h4 className={classes.cardTitleWhite}>Conversions (Medium)</h4>
                         </CardHeader>
                         <CardBody>
-                            <div style={{paddingBottom: '20px', float: 'right'}}>
-                                <Button variant="outlined" disabled color="secondary">
-                                    Day
-                                </Button>
-                                <Button variant="outlined" color="secondary" >
-                                    Week
-                                </Button>
-                                <Button variant="outlined" color="secondary">
-                                    Month
-                                </Button>
-                                <Button style={{top: '5px'}}>
 
-                                </Button>
-                            </div>
 
                             <LineChart chartOptions={{
                                            dataLabel: 'Calls',

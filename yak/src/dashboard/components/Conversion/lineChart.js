@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Line, Bar} from 'react-chartjs-2';
 import toolbox from "../../tools/toolbox";
 import moment from 'moment';
+import Button from "@material-ui/core/Button/Button";
 
 export class LineChart extends Component {
     constructor(props) {
@@ -35,6 +36,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],  // chart data comes from props in domain-card
+                        stack: 1,
                     },
                     {
                         label: "Internal Directories",
@@ -43,6 +45,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Lead Gen",
@@ -51,6 +54,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Other",
@@ -59,6 +63,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Placement",
@@ -67,6 +72,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Search",
@@ -75,6 +81,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Search Engine",
@@ -83,6 +90,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Sign Up",
@@ -91,6 +99,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Social",
@@ -99,6 +108,7 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
                     },
                     {
                         label: "Sponsorship",
@@ -107,6 +117,29 @@ export class LineChart extends Component {
                         borderWidth: 2,
                         fill: false,
                         data: [],
+                        stack: 1,
+                    },
+                    {
+                        data: [125, 140, 130, 160, 110, 150, 140, 120],
+                        type: 'line',
+                        label: 'Calls',
+                        fill: false,
+                        backgroundColor: "#fff",
+                        borderColor: "#737373",
+                        borderCapStyle: 'butt',
+                        borderDash: [10, 10],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        lineTension: .3,
+                        pointBackgroundColor: "#fff",
+                        pointBorderColor: "#737373",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "#737373",
+                        pointHoverBorderColor: "#737373",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHitRadius: 10
                     },
                 ]
             },
@@ -126,7 +159,6 @@ export class LineChart extends Component {
                 //responsive: true,
                 scales: {
                     xAxes: [{
-                        stacked: true,
                         scaleLabel: {
                             display: !!this.props.chartOptions.xName,  // coercion to bool, true if it exists
                             labelString: this.props.chartOptions.xName
@@ -190,7 +222,7 @@ export class LineChart extends Component {
         console.log(datasets);
 
         for (let i = 0; i < dateLabels.length; i++) {
-            for (let j = 0; j < datasets; j++) {
+            for (let j = 0; j < datasets-1; j++) {
                 tempObj.datasets[j].data[i] = {
                     "x": dateLabels[i],
                     "y": Math.floor(Math.random() * Math.floor(20)),
@@ -212,38 +244,27 @@ export class LineChart extends Component {
 
         console.log(tempObj);
 
-        if (compareLabels != null) {
-            tempObj.datasets[2] = {
-                label: "SEC Call",
-                backgroundColor: '#5E35B1',
-                borderColor: '#5E35B1',
-                borderWidth: 2,
-                fill: false,
-                data: [],
-            };
-            tempObj.datasets[3] = {
-                label: "SEC 5+ TOS",
-                backgroundColor: '#FF7F02',
-                borderColor: '#FF7F02',
-                borderWidth: 2,
-                fill: false,
-                data: [],
-            };
 
-            for (let i = 0; i < dateLabels.length; i++) {
-                tempObj.datasets[2].data[i] = {
-                    "x": dateLabels[i],
-                    "y": compareLabels[i] == null ? 0 : Math.floor(Math.random() * Math.floor(150)),
-                    "pointLabel": compareLabels[i] == null ? "Out of Range" : compareLabels[i]
-                };
-
-                tempObj.datasets[3].data[i] = {
-                    "x": dateLabels[i],
-                    "y": compareLabels[i] == null ? 0 : Math.floor(Math.random() * Math.floor(300)),
-                    "pointLabel": compareLabels[i] == null ? "Out of Range" : compareLabels[i]
-                };
-            }
-        }
+        // if (compareLabels != null) {
+        //     let SecIndex = this.state.chartData.datasets.length+1;
+        //     tempObj.datasets[SecIndex] = {
+        //         label: "SEC Call",
+        //         backgroundColor: '#C6FF00',
+        //         borderColor: '#C6FF00',
+        //         borderWidth: 2,
+        //         fill: false,
+        //         data: [],
+        //         stack: 2,
+        //     };
+        //
+        //     for (let i = 0; i < dateLabels.length; i++) {
+        //         tempObj.datasets[SecIndex].data[i] = {
+        //             "x": dateLabels[i],
+        //             "y": compareLabels[i] == null ? 0 : Math.floor(Math.random() * Math.floor(20)),
+        //             "pointLabel": compareLabels[i] == null ? "Out of Range" : compareLabels[i]
+        //         };
+        //     }
+        // }
 
         let dummyOptions = this.state.chartOptions;
         // Set state with fresh data
@@ -253,9 +274,43 @@ export class LineChart extends Component {
         }
     };
 
+    convertToDay = () => {
+
+    };
+
+    convertToWeek = () => {
+        let yakPak = toolbox.retrievePak();
+        let toDate = moment(yakPak.DateFrame.To);
+        let startDay = moment(yakPak.DateFrame.From);
+        let numbWeeks = toDate.diff(startDay, 'week') +1;  // Add 1 because it doesn't count starting week
+        console.log('Weeks: '+ numbWeeks);
+    };
+
+    convertToMonth = () => {
+        let yakPak = toolbox.retrievePak();
+        let toDate = moment(yakPak.DateFrame.To);
+        let startDay = moment(yakPak.DateFrame.From);
+        let numbMonths = toDate.diff(startDay, 'month') +1;  // Add 1 because it doesn't count starting month
+        console.log('Months: '+ numbMonths);
+    };
+
     render() {
         return (
             <div className="reactChart">
+                <div style={{paddingBottom: '20px', float: 'right'}}>
+                    <Button variant="outlined" disabled color="secondary">
+                        Day
+                    </Button>
+                    <Button variant="outlined" color="secondary" onClick={this.convertToWeek}>
+                        Week
+                    </Button>
+                    <Button variant="outlined" color="secondary" onClick={this.convertToMonth}>
+                        Month
+                    </Button>
+                    <Button style={{top: '5px'}}>
+
+                    </Button>
+                </div>
                 <Bar
                     data={this.state.chartData}
                     options={this.state.chartOptions}
