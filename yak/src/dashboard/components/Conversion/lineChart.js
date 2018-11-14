@@ -149,7 +149,6 @@ export class LineChart extends Component {
                     titleSpacing: 0,
                     callbacks: {
                         label: function(tooltipItem, data) {
-                            console.log(data);
                             let label = data.datasets[tooltipItem.datasetIndex].label + ' ' +
                                 data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].pointLabel;
                             return label + ': (' + tooltipItem.yLabel + ')';
@@ -306,9 +305,6 @@ export class LineChart extends Component {
                     </Button>
                     <Button variant="outlined" color="secondary" onClick={this.convertToMonth}>
                         Month
-                    </Button>
-                    <Button style={{top: '5px'}}>
-
                     </Button>
                 </div>
                 <Bar

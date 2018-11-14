@@ -110,7 +110,7 @@ class SKUFilter extends React.Component {
                     onClose={this.toggleDrawer('right')}
                     style={{display: 'block'}}
                 >
-                    <div style={{margin: 'auto'}}>
+                    <div style={{margin: 'auto', position: 'absolute', bottom: '8px', left: '25%'}}>
                         <Button variant="contained"
                                 style={{backgroundColor: '#ff9800', color: '#ffffff', margin: '5px'}}
                                 onClick={() => {
@@ -128,7 +128,7 @@ class SKUFilter extends React.Component {
                         </Button>
                     </div>
                     <div
-                        style={{width: 400, padding: 20}}
+                        style={{width: 400, padding: 20, paddingTop: 5, height: '90%', overflowY: 'scroll'}}
                         tabIndex={0}
                         role="button"
                         onKeyDown={this.toggleDrawer('right')}
