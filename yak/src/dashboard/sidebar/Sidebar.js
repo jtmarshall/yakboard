@@ -75,7 +75,12 @@ class Sidebar extends React.Component {
                     <Link to="/timeframe">
                         <Tooltip title="Time Frame" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='calendar_today' color='#EEEEEE'/> TimeFrame
+                                <MaterialIcon icon='calendar_today' color='#EEEEEE'/> Timeframe
+                                <ul>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                </ul>
                             </li>
                         </Tooltip>
                     </Link>

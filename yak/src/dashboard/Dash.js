@@ -11,6 +11,8 @@ import Export from './components/Export/Export';
 import Settings from "./components/Settings/Settings";
 import Explorer from "./components/Explorer/Explorer";
 import DateComponent from './tools/DateComponent';
+import Touch from "./components/Touch/Touch";
+import Timeframe from "./components/Timeframe/Timeframe";
 
 
 // Global state for local storage
@@ -37,18 +39,9 @@ class Dash extends React.Component {
                     CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
                 },
                 Filter: {
-                    conversion: {
-                        logic: '&&',
-                        selected: [],
-                    },
-                    touch: {
-                        logic: '&&',
-                        selected: [],
-                    },
-                    channel: {
-                        logic: '&&',
-                        selected: [],
-                    },
+                    conversion: [],
+                    touch: [],
+                    channel: [],
                     source: [],
                     campaign: [],
                     tier: [],
@@ -70,6 +63,9 @@ class Dash extends React.Component {
                     relationship: [],
                     religion: []
                 },
+                Touch: {
+                    tabValue: 0
+                },
                 Conversion: {
                     tabValue: 0
                 },
@@ -83,7 +79,10 @@ class Dash extends React.Component {
                 },
                 Builder: {
                     Columns: [],
-                }
+                },
+                Timeframe: {
+                    tabValue: 0
+                },
             };
         } else {
             this.state = toolbox.retrievePak();
@@ -92,6 +91,7 @@ class Dash extends React.Component {
         // Set global state so it's not empty
         savedState = this.state;
     }
+
 
     // Check if user was authenticated, return true if so
     isAuthenticated() {
@@ -154,6 +154,15 @@ class Dash extends React.Component {
     };
 
     // For child elements to update dash state
+    updateDashTimeframe = (name, val) => {
+        this.setState({
+            Timeframe: {
+                [name]: val
+            }
+        })
+    };
+
+    // For child elements to update dash state
     updateDashStoryboard = (val) => {
         this.setState({
             Storyboard: val
@@ -188,11 +197,12 @@ class Dash extends React.Component {
                     <Sidebar selected={this.state.Filter} onUpdate={this.updateSKUFilter}
                              rightDrawer={this.state.rightDrawer}/>
 
-                    <Route path="/story" render={() => <Storyboard parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
+                    <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
                     <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                     <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
+                    <Route path="/timeframe" render={() => <Timeframe parentState={this.state} updateDash={this.updateDashTimeframe}/>}/>
                 </div>
             );
         } else {

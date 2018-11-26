@@ -3,19 +3,12 @@ import Table from '../../tools/table.js';
 import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
-import NivoBar from './nivoBar';
-import NivoLine from './nivoLine';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import ConversionSummary from './summary';
-import NivoPie from "./nivoPie";
-//import moment from "moment/moment";
-//import MaterialIcon from 'material-icons-react';
 import LineChart from './lineChart';
-import Button from '@material-ui/core/Button';
 
 
 const styles = {
@@ -67,7 +60,7 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-class Conversion extends Component {
+class Timeframe extends Component {
     constructor(props) {
         super(props);
 
@@ -75,7 +68,7 @@ class Conversion extends Component {
     }
 
     state = {
-        tabValue: this.props.parentState.Conversion.tabValue,
+        tabValue: this.props.parentState.Timeframe.tabValue,
     };
 
     handleTabChange = (event, tabValue) => {
@@ -90,7 +83,7 @@ class Conversion extends Component {
 
         return (
             <div className="conversionComponent">
-                <h3>Conversion</h3>
+                <h3>Timeframe</h3>
 
                 <Tabs
                     value={this.state.tabValue}
@@ -100,15 +93,12 @@ class Conversion extends Component {
                     style={{display: 'inline-block'}}
                 >
                     <Tab label="Summary"/>
-                    <Tab label="Tables"/>
-                    <Tab label="Graphs"/>
+                    <Tab label="Last Week"/>
+                    <Tab label="Last Month"/>
                 </Tabs>
 
                 {tabValue === 0 && <TabContainer>
-                    <NivoPie color={"prime"} title={"First Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                    <NivoPie color={"info"} title={"Converting Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                    <NivoPie color={"primary"} title={"Contributing Touch Summary"}
-                             chartCallData={[11, 14, 13, 8, 10, 12]}/>
+
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
@@ -148,10 +138,10 @@ class Conversion extends Component {
                         </CardHeader>
                         <CardBody className={classes.cardConversionTable}>
                             <LineChart chartOptions={{
-                                           dataLabel: 'Calls',
-                                           xName: 'Date',
-                                           yName: ''
-                                       }}/>
+                                dataLabel: 'Calls',
+                                xName: 'Date',
+                                yName: ''
+                            }}/>
                         </CardBody>
                     </Card>
                 </TabContainer>}
@@ -161,4 +151,4 @@ class Conversion extends Component {
     }
 }
 
-export default withStyles(styles)(Conversion);
+export default withStyles(styles)(Timeframe);
