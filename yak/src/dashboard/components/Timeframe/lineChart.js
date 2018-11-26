@@ -32,6 +32,29 @@ export class LineChart extends Component {
                 labels: primaryLabels,
                 datasets: [
                     {
+                        data: [125, 140, 130, 160, 110, 150, 140, 120],
+                        yAxisID: 'b',
+                        type: 'line',
+                        label: 'Calls',
+                        fill: false,
+                        backgroundColor: "#fff",
+                        borderColor: "#737373",
+                        borderCapStyle: 'butt',
+                        borderDash: [10, 10],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        lineTension: .3,
+                        pointBackgroundColor: "#fff",
+                        pointBorderColor: "#737373",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "#737373",
+                        pointHoverBorderColor: "#737373",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHitRadius: 10
+                    },
+                    {
                         label: "Directories",
                         backgroundColor: 'rgb(78,175,74)',
                         borderColor: '#4EAF4A',
@@ -121,29 +144,6 @@ export class LineChart extends Component {
                         data: [],
                         stack: 1,
                     },
-
-                    {
-                        data: [125, 140, 130, 160, 110, 150, 140, 120],
-                        type: 'line',
-                        label: 'Calls',
-                        fill: false,
-                        backgroundColor: "#fff",
-                        borderColor: "#737373",
-                        borderCapStyle: 'butt',
-                        borderDash: [10, 10],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        lineTension: .3,
-                        pointBackgroundColor: "#fff",
-                        pointBorderColor: "#737373",
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: "#737373",
-                        pointHoverBorderColor: "#737373",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 4,
-                        pointHitRadius: 10
-                    },
                 ]
             },
             chartOptions: {
@@ -174,6 +174,9 @@ export class LineChart extends Component {
                         distribution: 'series',
                     }],
                     yAxes: [{
+                        id: 'a',
+                        weight: 2,
+                        position: 'left',
                         stacked: true,
                         scaleLabel: {
                             display: !!this.props.chartOptions.yName,  // coercion to bool, true if it exists
@@ -182,6 +185,16 @@ export class LineChart extends Component {
                         ticks: {
                             beginAtZero: true,
                         }
+                    },{
+                        id: 'b',
+                        weight: 1,
+                        scalePositionLeft: true,
+                        stacked: false,
+                        position: 'right',
+                        scaleLabel: {
+                            display: !!this.props.chartOptions.yName,  // coercion to bool, true if it exists
+                            labelString: this.props.chartOptions.yName
+                        },
                     }]
                 }
             }
@@ -228,7 +241,7 @@ export class LineChart extends Component {
         console.log(datasets);
 
         for (let i = 0; i < dateLabels.length; i++) {
-            for (let j = 0; j < datasets - 1; j++) {
+            for (let j = 0; j < datasets; j++) {
                 tempObj.datasets[j].data[i] = {
                     "x": dateLabels[i],
                     "y": Math.floor(Math.random() * Math.floor(20)),
@@ -247,8 +260,7 @@ export class LineChart extends Component {
             chartData: tempObj,
             chartOptions: dummyOptions,
         }
-    }
-    ;
+    };
 
     handleHistoryChange = name => event => {
         let labels = this.state.chartData.labels;
@@ -259,6 +271,29 @@ export class LineChart extends Component {
                 tempChartD = {
                     labels: labels,
                     datasets: [
+                        {
+                            data: [125, 140, 130, 160, 110, 150, 140, 120],
+                            yAxisID: 'b',
+                            type: 'line',
+                            label: 'Calls',
+                            fill: false,
+                            backgroundColor: "#fff",
+                            borderColor: "#737373",
+                            borderCapStyle: 'butt',
+                            borderDash: [10, 10],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            lineTension: .3,
+                            pointBackgroundColor: "#fff",
+                            pointBorderColor: "#737373",
+                            pointBorderWidth: 1,
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "#737373",
+                            pointHoverBorderColor: "#737373",
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHitRadius: 10
+                        },
                         {
                             label: "Directories",
                             backgroundColor: 'rgb(78,175,74)',
@@ -439,8 +474,15 @@ export class LineChart extends Component {
                             data: [],
                             stack: 2,
                         },
+                    ]
+                }
+        } else {
+                tempChartD = {
+                    labels: labels,
+                    datasets: [
                         {
                             data: [125, 140, 130, 160, 110, 150, 140, 120],
+                            yAxisID: 'b',
                             type: 'line',
                             label: 'Calls',
                             fill: false,
@@ -461,12 +503,6 @@ export class LineChart extends Component {
                             pointRadius: 4,
                             pointHitRadius: 10
                         },
-                    ]
-                }
-        } else {
-                tempChartD = {
-                    labels: labels,
-                    datasets: [
                         {
                             label: "Directories",
                             backgroundColor: 'rgb(78,175,74)',
@@ -556,28 +592,6 @@ export class LineChart extends Component {
                             fill: false,
                             data: [],
                             stack: 1,
-                        },
-                        {
-                            data: [125, 140, 130, 160, 110, 150, 140, 120],
-                            type: 'line',
-                            label: 'Calls',
-                            fill: false,
-                            backgroundColor: "#fff",
-                            borderColor: "#737373",
-                            borderCapStyle: 'butt',
-                            borderDash: [10, 10],
-                            borderDashOffset: 0.0,
-                            borderJoinStyle: 'miter',
-                            lineTension: .3,
-                            pointBackgroundColor: "#fff",
-                            pointBorderColor: "#737373",
-                            pointBorderWidth: 1,
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: "#737373",
-                            pointHoverBorderColor: "#737373",
-                            pointHoverBorderWidth: 2,
-                            pointRadius: 4,
-                            pointHitRadius: 10
                         },
                     ]
                 }

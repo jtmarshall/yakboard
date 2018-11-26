@@ -12,7 +12,17 @@ class Sidebar extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            subTimeframe: false,
+        };
     }
+
+    toggleHidden = name => event => {
+        console.log(name, !this.state[name]);
+        this.setState({
+            [name]: !this.state[name]
+        });
+    };
 
     render() {
         return (
@@ -72,18 +82,26 @@ class Sidebar extends React.Component {
                             </li>
                         </Tooltip>
                     </Link>
-                    <Link to="/timeframe">
-                        <Tooltip title="Time Frame" placement="bottom">
-                            <li style={{paddingLeft: 25}}>
+
+
+                        <span style={{paddingLeft: 25}} className="parentSideNav">
+                            <span onClick={this.toggleHidden("subTimeframe")}>
                                 <MaterialIcon icon='calendar_today' color='#EEEEEE'/> Timeframe
-                                <ul>
-                                    <li>sublist</li>
-                                    <li>sublist</li>
-                                    <li>sublist</li>
-                                </ul>
-                            </li>
-                        </Tooltip>
-                    </Link>
+                            </span>
+                            {this.state.subTimeframe && <ul className="sidebarSubNav">
+                                <Link to="/timeframe">
+                                    <li>Summary</li>
+                                </Link>
+                                <Link to="/timeframe">
+                                    <li>Last Week</li>
+                                </Link>
+                                <Link to="/timeframe">
+                                    <li>Last Month</li>
+                                </Link>
+                            </ul>}
+                        </span>
+
+
                 </ul>
 
                 <div className="sidebarBottom">
