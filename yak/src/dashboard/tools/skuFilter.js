@@ -1,8 +1,4 @@
 import React from 'react';
-// import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-// import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-// import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-// import Typography from '@material-ui/core/Typography';
 import MaterialIcon from 'material-icons-react';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -19,11 +15,11 @@ class SKUFilter extends React.Component {
         super(props);
     }
 
-    current = this.props.selected;
+    currentFilter = this.props.selected;
     rightDrawer = this.props.rightDrawer;
 
     state = {
-        Filter: this.current,
+        Filter: this.currentFilter,
         right: this.rightDrawer
     };
 
@@ -110,7 +106,7 @@ class SKUFilter extends React.Component {
                     onClose={this.toggleDrawer('right')}
                     style={{display: 'block'}}
                 >
-                    <div style={{margin: 'auto'}}>
+                    <div style={{margin: 'auto', position: 'absolute', bottom: '8px', left: '25%'}}>
                         <Button variant="contained"
                                 style={{backgroundColor: '#ff9800', color: '#ffffff', margin: '5px'}}
                                 onClick={() => {
@@ -128,7 +124,7 @@ class SKUFilter extends React.Component {
                         </Button>
                     </div>
                     <div
-                        style={{width: 400, padding: 20}}
+                        style={{width: 400, padding: 20, paddingTop: 5, height: '90%', overflowY: 'scroll'}}
                         tabIndex={0}
                         role="button"
                         onKeyDown={this.toggleDrawer('right')}

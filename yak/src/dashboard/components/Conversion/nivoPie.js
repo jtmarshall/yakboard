@@ -10,19 +10,19 @@ export default class NivoPie extends Component {
         super(props);
         //let today = new Date();
 
-        // Retrieve local store
-        let yakPak = toolbox.retrievePak();
-        let toDate = new Date(yakPak.DateFrame.To);
-
-        let tempLabels = [];
-
-        // Generate date labels starting with 'toDate' and iterating back through length of data
-        for (let i = 0; i < this.props.chartCallData.length; i++) {
-            // parse date for how many days prior
-            let temp = new Date();
-            temp.setDate(toDate.getDate() - i);
-            tempLabels.unshift((toDate.getUTCMonth() + 1) + "/" + temp.getDate());
-        }
+        // // Retrieve local store
+        // let yakPak = toolbox.retrievePak();
+        // let toDate = new Date(yakPak.DateFrame.To);
+        //
+        // let tempLabels = [];
+        //
+        // // Generate date labels starting with 'toDate' and iterating back through length of data
+        // for (let i = 0; i < this.props.chartCallData.length; i++) {
+        //     // parse date for how many days prior
+        //     let temp = new Date();
+        //     temp.setDate(toDate.getDate() - i);
+        //     tempLabels.unshift((toDate.getUTCMonth() + 1) + "/" + temp.getDate());
+        // }
 
         this.state = {
             chartData: [

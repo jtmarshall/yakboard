@@ -23,38 +23,64 @@ class Sidebar extends React.Component {
                 <hr/>
 
                 <ul style={{listStyleType: "none", paddingLeft: 0, textAlign: 'left', color: "#fff"}}>
-                    <Link to="/story">
-                        <Tooltip title="View user data" placement="bottom">
+                    <Link to="/help">
+                        <Tooltip title="HELP!" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='map' color='#EEEEEE'/> Storyboard
+                                <MaterialIcon icon='error' color='#EEEEEE'/> Help Section
+                            </li>
+                        </Tooltip>
+                    </Link>
+                    <Link to="/report">
+                        <Tooltip title="Reports & Exports" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='timeline' color='#EEEEEE'/> Report/Export
+                            </li>
+                        </Tooltip>
+                    </Link>
+                    <Link to="/touch">
+                        <Tooltip title="Touches led to Conversions" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='touch_app' color='#EEEEEE'/> Touch
                             </li>
                         </Tooltip>
                     </Link>
                     <Link to="/conversion">
-                        <Tooltip title="View only conversion data" placement="bottom">
+                        <Tooltip title="Conversion Data" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='view_compact' color='#EEEEEE'/> Conversion
+                                <MaterialIcon icon='how_to_reg' color='#EEEEEE'/> Conversions
                             </li>
                         </Tooltip>
                     </Link>
-                    <Link to="/explorer">
-                        <Tooltip title="Explore uncurated views" placement="bottom">
+                    <Link to="/behavior">
+                        <Tooltip title="User Behavior & Jumping" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='explore' color='#EEEEEE'/> Explorer
+                                <MaterialIcon icon='face' color='#EEEEEE'/> Behavior
                             </li>
                         </Tooltip>
                     </Link>
-                    <Link to="/export">
-                        <Tooltip title="Export data to CSV" placement="bottom">
+                    <Link to="/audience">
+                        <Tooltip title="Audience type & SKU mapping" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='cloud_download' color='#EEEEEE'/> Export
+                                <MaterialIcon icon='assignment' color='#EEEEEE'/> Audience/SKU
                             </li>
                         </Tooltip>
                     </Link>
-                    <Link to="/settings">
-                        <Tooltip title="User Settings" placement="bottom">
+                    <Link to="/lob">
+                        <Tooltip title="Line of Business/Facility Type" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='settings' color='#EEEEEE'/> Settings
+                                <MaterialIcon icon='business' color='#EEEEEE'/> LOB
+                            </li>
+                        </Tooltip>
+                    </Link>
+                    <Link to="/timeframe">
+                        <Tooltip title="Time Frame" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='calendar_today' color='#EEEEEE'/> Timeframe
+                                <ul>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                </ul>
                             </li>
                         </Tooltip>
                     </Link>

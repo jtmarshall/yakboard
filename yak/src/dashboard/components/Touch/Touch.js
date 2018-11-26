@@ -1,21 +1,12 @@
 import React, {Component} from 'react';
-import Table from '../../tools/table.js';
 import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
-import NivoBar from './nivoBar';
-import NivoLine from './nivoLine';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import ConversionSummary from './summary';
-import NivoPie from "./nivoPie";
-//import moment from "moment/moment";
-//import MaterialIcon from 'material-icons-react';
-import LineChart from './lineChart';
-import Button from '@material-ui/core/Button';
 
 
 const styles = {
@@ -67,7 +58,7 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-class Conversion extends Component {
+class Touch extends Component {
     constructor(props) {
         super(props);
 
@@ -75,7 +66,8 @@ class Conversion extends Component {
     }
 
     state = {
-        tabValue: this.props.parentState.Conversion.tabValue,
+        tabValue: this.props.parentState.Touch.tabValue,
+
     };
 
     handleTabChange = (event, tabValue) => {
@@ -89,8 +81,8 @@ class Conversion extends Component {
         const {tabValue} = this.state;
 
         return (
-            <div className="conversionComponent">
-                <h3>Conversion</h3>
+            <div className="touchComponent">
+                <h3>Touch</h3>
 
                 <Tabs
                     value={this.state.tabValue}
@@ -99,44 +91,29 @@ class Conversion extends Component {
                     onChange={this.handleTabChange}
                     style={{display: 'inline-block'}}
                 >
-                    <Tab label="Summary"/>
-                    <Tab label="Tables"/>
-                    <Tab label="Graphs"/>
+                    <Tab label="Medium"/>
+                    <Tab label="Source"/>
+                    <Tab label="Disorder"/>
                 </Tabs>
 
                 {tabValue === 0 && <TabContainer>
-                    <NivoPie color={"prime"} title={"First Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                    <NivoPie color={"info"} title={"Converting Touch Summary"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                    <NivoPie color={"primary"} title={"Contributing Touch Summary"}
-                             chartCallData={[11, 14, 13, 8, 10, 12]}/>
+                    <Card>
+                        <CardHeader color="danger">
+                            <h4 className="cardTitleWhite">Medium</h4>
+                        </CardHeader>
+                        <CardBody className={classes.cardConversionTable}>
+
+                        </CardBody>
+                    </Card>
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
                     <Card>
                         <CardHeader color="info">
-                            <h4 className="cardTitleWhite">Channel Performance</h4>
+                            <h4 className="cardTitleWhite">Source</h4>
                         </CardHeader>
                         <CardBody className={classes.cardConversionTable}>
-                            <Table
-                                tableHeaderColor="info"
-                                tableHead={[
-                                    "Network",
-                                    "Total 5min",
-                                    "Total Call",
-                                    "Total 5min + Call",
-                                    "Last Touch 5min",
-                                    "Last Touch Call",
-                                    "Last Touch 5min + Call",
-                                    "1st Touch 5min",
-                                    "1st Touch Call",
-                                    "1st Touch 5min + Call"
-                                ]}
-                                tableData={[
-                                    ["Search", "1001", "16", "7", "2", "5", "2", "5", "2", "5"],
-                                    ["Display", "777", "11", "17", "9", "4", "1", "9", "7", "3"],
-                                    ["Social", "263", "8", "15", "1", "3", "2", "5", "2", "0"],
-                                ]}
-                            />
+
                         </CardBody>
                     </Card>
                 </TabContainer>}
@@ -144,14 +121,10 @@ class Conversion extends Component {
                 {tabValue === 2 && <TabContainer>
                     <Card>
                         <CardHeader color="prime">
-                            <h4 className="cardTitleWhite">Conversions (Medium)</h4>
+                            <h4 className="cardTitleWhite">Disorder</h4>
                         </CardHeader>
                         <CardBody className={classes.cardConversionTable}>
-                            <LineChart chartOptions={{
-                                           dataLabel: 'Calls',
-                                           xName: 'Date',
-                                           yName: ''
-                                       }}/>
+
                         </CardBody>
                     </Card>
                 </TabContainer>}
@@ -161,4 +134,4 @@ class Conversion extends Component {
     }
 }
 
-export default withStyles(styles)(Conversion);
+export default withStyles(styles)(Touch);
