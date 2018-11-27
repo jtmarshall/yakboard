@@ -23,18 +23,17 @@ class Dash extends React.Component {
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
-        console.log(JSON.stringify(yakPak));
+        console.log("Saved PAK: ", JSON.stringify(yakPak));
 
         // If local store not found, initialize base state
         if (yakPak == null) {
             this.state = {
-                SelectedFacility: yakPak != null ?
-                    yakPak.SelectedFacility : [],
+                SelectedFacility: [],
                 DateFrame: {
-                    From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
-                    To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD'),
-                    CompareFrom: yakPak != null ? yakPak.DateFrame.CompareFrom : '',
-                    CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
+                    From: moment().add(-7, 'days').format('YYYY-MM-DD'),
+                    To: moment().format('YYYY-MM-DD'),
+                    CompareFrom: '',
+                    CompareTo: ''
                 },
                 Filter: {
                     conversion: [],
