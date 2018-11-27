@@ -169,6 +169,16 @@
     transition-duration: .5s;
 }
 
+.parentSideNav {
+    cursor: pointer;
+    position: absolute;
+}
+
+.sidebarSubNav {
+    list-style-type: none;
+    color: #fff;
+}
+
 .sidebarBottom {
     bottom: 5%;
     position: absolute;
@@ -466,7 +476,7 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
 }
 
 /*.skuFilter {*/
-    /*display: grid;*/
+/*display: grid;*/
 /*}*/
 
 .skuFilter > * {
