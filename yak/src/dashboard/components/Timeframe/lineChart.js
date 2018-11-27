@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Line, Bar} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import toolbox from "../../tools/toolbox";
 import moment from 'moment';
 import Switch from '@material-ui/core/Switch';
@@ -35,7 +35,7 @@ export class LineChart extends Component {
                         data: [125, 140, 130, 160, 110, 150, 140, 120],
                         yAxisID: 'b',
                         type: 'line',
-                        label: 'Calls',
+                        label: 'Conversions',
                         fill: false,
                         backgroundColor: "#fff",
                         borderColor: "#737373",
@@ -195,6 +195,9 @@ export class LineChart extends Component {
                             display: !!this.props.chartOptions.yName,  // coercion to bool, true if it exists
                             labelString: this.props.chartOptions.yName
                         },
+                        ticks: {
+                            beginAtZero: true,
+                        }
                     }]
                 }
             }
@@ -275,7 +278,7 @@ export class LineChart extends Component {
                             data: [125, 140, 130, 160, 110, 150, 140, 120],
                             yAxisID: 'b',
                             type: 'line',
-                            label: 'Calls',
+                            label: 'Conversions',
                             fill: false,
                             backgroundColor: "#fff",
                             borderColor: "#737373",
@@ -484,7 +487,7 @@ export class LineChart extends Component {
                             data: [125, 140, 130, 160, 110, 150, 140, 120],
                             yAxisID: 'b',
                             type: 'line',
-                            label: 'Calls',
+                            label: 'Conversions',
                             fill: false,
                             backgroundColor: "#fff",
                             borderColor: "#737373",

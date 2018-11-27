@@ -134,7 +134,7 @@ class Timeframe extends Component {
                 {tabValue === 2 && <TabContainer>
                     <Card>
                         <CardHeader color="prime">
-                            <h4 className="cardTitleWhite">Conversions (Medium)</h4>
+                            <h4 className="cardTitleWhite">Touches (Medium) v Conversions</h4>
                         </CardHeader>
                         <CardBody className={classes.cardConversionTable}>
                             <LineChart chartOptions={{

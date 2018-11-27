@@ -15,7 +15,7 @@ import NivoPie from "./nivoPie";
 //import moment from "moment/moment";
 //import MaterialIcon from 'material-icons-react';
 import LineChart from './lineChart';
-import Button from '@material-ui/core/Button';
+import {Route} from 'react-router-dom';
 
 
 const styles = {
@@ -71,12 +71,12 @@ class Conversion extends Component {
     constructor(props) {
         super(props);
 
-        console.log(props.parentState);
+        this.state = {
+            tabValue: this.props.parentState.Conversion.tabValue,
+        };
     }
 
-    state = {
-        tabValue: this.props.parentState.Conversion.tabValue,
-    };
+
 
     handleTabChange = (event, tabValue) => {
         this.setState({tabValue});
@@ -91,7 +91,6 @@ class Conversion extends Component {
         return (
             <div className="conversionComponent">
                 <h3>Conversion</h3>
-
                 <Tabs
                     value={this.state.tabValue}
                     indicatorColor="primary"
@@ -155,6 +154,10 @@ class Conversion extends Component {
                         </CardBody>
                     </Card>
                 </TabContainer>}
+
+                <Route path="/conversion/path" render={() =>
+                    <h1>Conversion Path Component Here</h1>
+                }/>
 
             </div>
         )
