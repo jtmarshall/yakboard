@@ -17,9 +17,6 @@ TabContainer.propTypes = {
 };
 
 class ConversionSummary extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

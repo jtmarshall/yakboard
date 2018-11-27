@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Line, Bar} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import toolbox from "../../tools/toolbox";
 import moment from 'moment';
 import Button from "@material-ui/core/Button/Button";
@@ -282,7 +282,7 @@ export class LineChart extends Component {
         let yakPak = toolbox.retrievePak();
 
         // Check if we have comparison dates
-        if (yakPak.DateFrame.CompareFrom != '' && yakPak.DateFrame.CompareTo != '') {
+        if (yakPak.DateFrame.CompareFrom !== '' && yakPak.DateFrame.CompareTo !== '') {
             let compareToDate = new Date(yakPak.DateFrame.CompareTo);
             let compareStartDay = moment(yakPak.DateFrame.CompareFrom);
             let compareEndDay = moment(yakPak.DateFrame.CompareTo);
@@ -357,10 +357,10 @@ export class LineChart extends Component {
 
         let dummyOptions = this.state.chartOptions;
         // Set state with fresh data
-        this.state = {
+        this.setState({
             chartData: tempObj,
             chartOptions: dummyOptions,
-        }
+        });
     };
 
     convertToDay = () => {

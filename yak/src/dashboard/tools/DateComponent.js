@@ -19,10 +19,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 class DateComponent extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     state = {
         top: false,
         dateDenomination: 'custom',

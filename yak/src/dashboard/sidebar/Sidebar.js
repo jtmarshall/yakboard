@@ -3,8 +3,6 @@ import {Link} from "react-router-dom";
 import logo from '../../assets/logo/yak-logo-fullbody.svg';
 import MaterialIcon from 'material-icons-react';
 import SKUFilter from '../tools/skuFilter';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 

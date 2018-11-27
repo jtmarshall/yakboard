@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Chip from '@material-ui/core/Chip';
 import api from '../api/api';
 
+
 let suggestions = [];
 
 function renderInput(inputProps) {

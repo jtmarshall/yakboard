@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import './App.css';
 import Dash from './dashboard/Dash';
 import Login from './login/Login.js';
+import 'typeface-roboto';
 
 
-function onAuthRequired({history}) {
-    history.push('/login');
-}
+// function onAuthRequired({history}) {
+//     history.push('/login');
+// }
 
 class App extends Component {
 

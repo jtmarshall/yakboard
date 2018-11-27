@@ -13,14 +13,10 @@ import Grid from '@material-ui/core/Grid';
 import MaterialIcon from "material-icons-react";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
 class Stalker extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         searchMetric: "passport",
