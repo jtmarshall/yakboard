@@ -137,11 +137,7 @@ class Timeframe extends Component {
                             <h4 className="cardTitleWhite">Touches (Medium) v Conversions</h4>
                         </CardHeader>
                         <CardBody className={classes.cardConversionTable}>
-                            <LineChart chartOptions={{
-                                dataLabel: 'Calls',
-                                xName: 'Date',
-                                yName: ''
-                            }}/>
+                            <LineChart/>
                         </CardBody>
                     </Card>
                 </TabContainer>}

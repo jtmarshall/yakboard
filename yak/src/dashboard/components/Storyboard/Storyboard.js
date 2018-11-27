@@ -27,9 +27,6 @@ TabContainer.propTypes = {
 };
 
 export default class Storyboard extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         tabValue: this.props.parentState.Storyboard.tabValue,

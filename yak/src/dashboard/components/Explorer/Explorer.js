@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Builder from "./Builder";
 import Stalker from './Stalker';
-import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 
 const styles = {

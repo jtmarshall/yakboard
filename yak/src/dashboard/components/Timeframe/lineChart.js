@@ -32,7 +32,7 @@ export class LineChart extends Component {
                 labels: primaryLabels,
                 datasets: [
                     {
-                        data: [125, 140, 130, 160, 110, 150, 140, 120],
+                        data: [],
                         yAxisID: 'b',
                         type: 'line',
                         label: 'Conversions',
@@ -162,8 +162,8 @@ export class LineChart extends Component {
                 scales: {
                     xAxes: [{
                         scaleLabel: {
-                            display: !!this.props.chartOptions.xName,  // coercion to bool, true if it exists
-                            labelString: this.props.chartOptions.xName
+                            display: true,
+                            labelString: 'Date'
                         },
                         time: {
                             unit: 'day',
@@ -179,8 +179,8 @@ export class LineChart extends Component {
                         position: 'left',
                         stacked: true,
                         scaleLabel: {
-                            display: !!this.props.chartOptions.yName,  // coercion to bool, true if it exists
-                            labelString: this.props.chartOptions.yName
+                            display: true,
+                            labelString: 'Touches'
                         },
                         ticks: {
                             beginAtZero: true,
@@ -188,19 +188,18 @@ export class LineChart extends Component {
                     },{
                         id: 'b',
                         weight: 1,
-                        scalePositionLeft: true,
                         stacked: false,
                         position: 'right',
                         scaleLabel: {
-                            display: !!this.props.chartOptions.yName,  // coercion to bool, true if it exists
-                            labelString: this.props.chartOptions.yName
+                            display: true,
+                            labelString: 'Conversions'
                         },
                         ticks: {
                             beginAtZero: true,
                         }
                     }]
                 }
-            }
+            },
         };
 
         this.calculateDateRange();
@@ -211,7 +210,7 @@ export class LineChart extends Component {
         let yakPak = toolbox.retrievePak();
 
         // Check if we have comparison dates
-        if (yakPak.DateFrame.CompareFrom != '' && yakPak.DateFrame.CompareTo != '') {
+        if (yakPak.DateFrame.CompareFrom !== '' && yakPak.DateFrame.CompareTo !== '') {
             let compareToDate = new Date(yakPak.DateFrame.CompareTo);
             let compareStartDay = moment(yakPak.DateFrame.CompareFrom);
             let compareEndDay = moment(yakPak.DateFrame.CompareTo);
@@ -259,10 +258,10 @@ export class LineChart extends Component {
 
         let dummyOptions = this.state.chartOptions;
         // Set state with fresh data
-        this.state = {
+        this.setState({
             chartData: tempObj,
             chartOptions: dummyOptions,
-        }
+        });
     };
 
     handleHistoryChange = name => event => {
@@ -275,7 +274,7 @@ export class LineChart extends Component {
                     labels: labels,
                     datasets: [
                         {
-                            data: [125, 140, 130, 160, 110, 150, 140, 120],
+                            data: [],
                             yAxisID: 'b',
                             type: 'line',
                             label: 'Conversions',
@@ -484,7 +483,7 @@ export class LineChart extends Component {
                     labels: labels,
                     datasets: [
                         {
-                            data: [125, 140, 130, 160, 110, 150, 140, 120],
+                            data: [],
                             yAxisID: 'b',
                             type: 'line',
                             label: 'Conversions',

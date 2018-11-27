@@ -11,10 +11,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 class SKUFilter extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     currentFilter = this.props.selected;
     rightDrawer = this.props.rightDrawer;
 
@@ -750,26 +746,3 @@ class SKUFilter extends React.Component {
 }
 
 export default SKUFilter;
-
-{/*<ExpansionPanel style={{*/
-}
-{/*width: '90%',*/
-}
-{/*display: 'inline-block',*/
-}
-{/*backgroundColor: '#EEEEEE',*/
-}
-{/*boxShadow: 'none',*/
-}
-{/*margin: '0'*/
-}
-{/*}}>*/
-}
-{/*<ExpansionPanelSummary expandIcon={<MaterialIcon icon='keyboard_arrow_down' color='#00bcd4'/>}>*/
-}
-{/*<Typography className="">Filter</Typography>*/
-}
-{/*</ExpansionPanelSummary>*/
-}
-{/*<ExpansionPanelDetails>*/
-}

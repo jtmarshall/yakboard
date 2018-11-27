@@ -57,9 +57,6 @@ const styles = {
 };
 
 class Export extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         exportName: 'Sample Export',
