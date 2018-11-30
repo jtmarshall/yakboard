@@ -5,6 +5,7 @@ import toolbox from './tools/toolbox';
 import FacilityAutoComplete from './tools/facilityAutoComplete';
 import Sidebar from './sidebar/Sidebar';
 import Conversion from './components/Conversion/Conversion';
+import ConversionPath from './components/Conversion/ConversionPath';
 import Export from './components/Export/Export';
 import Settings from "./components/Settings/Settings";
 import Explorer from "./components/Explorer/Explorer";
@@ -195,7 +196,8 @@ class Dash extends React.Component {
                              rightDrawer={this.state.rightDrawer}/>
 
                     <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
-                    <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
+                    <Route exact path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
+                    <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                     <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
