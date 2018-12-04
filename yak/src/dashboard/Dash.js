@@ -39,6 +39,7 @@ class Dash extends React.Component {
                 Filter: {
                     conversion: [],
                     touch: [],
+                    rollup: [],
                     channel: [],
                     source: [],
                     campaign: [],
