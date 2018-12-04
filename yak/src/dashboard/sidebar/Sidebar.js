@@ -46,6 +46,23 @@ class Sidebar extends React.Component {
                             </li>
                         </Tooltip>
                     </Link>
+                    <Tooltip title="Timeframe Show/Hide" placement="bottom">
+                        <li style={{paddingLeft: 25, cursor: "pointer"}} onClick={this.toggleHidden("subTimeframe")}>
+                            <span style={{verticalAlign: "sub"}}><MaterialIcon icon='calendar_today' color='#EEEEEE'/> </span>
+                            Timeframe
+                        </li>
+                    </Tooltip>
+                    {this.state.subTimeframe && <ul className="sidebarSubNav">
+                        <Link to="/timeframe">
+                            <li>Summary</li>
+                        </Link>
+                        <Link to="/timeframe">
+                            <li>Last Week</li>
+                        </Link>
+                        <Link to="/timeframe">
+                            <li>Last Month</li>
+                        </Link>
+                    </ul>}
                     <Link to="/touch">
                         <Tooltip title="Touches led to Conversions" placement="bottom">
                             <li style={{paddingLeft: 25}}>
@@ -55,10 +72,9 @@ class Sidebar extends React.Component {
                     </Link>
 
                     <Tooltip title="Conversion Show/Hide" placement="bottom">
-                        <li style={{paddingLeft: 25, cursor: "pointer"}}>
-                            <span onClick={this.toggleHidden("subConversion")}>
-                                <MaterialIcon icon='how_to_reg' color='#EEEEEE'/> Conversions
-                            </span>
+                        <li style={{paddingLeft: 25, cursor: "pointer"}} onClick={this.toggleHidden("subConversion")}>
+                            <span style={{verticalAlign: "sub"}}><MaterialIcon icon='how_to_reg' color='#EEEEEE'/> </span>
+                            Conversions
                         </li>
                     </Tooltip>
                     {this.state.subConversion && <ul className="sidebarSubNav">
@@ -92,24 +108,6 @@ class Sidebar extends React.Component {
                         </Tooltip>
                     </Link>
 
-                    <Tooltip title="Timeframe Show/Hide" placement="bottom">
-                        <li style={{paddingLeft: 25, cursor: "pointer"}}>
-                            <span onClick={this.toggleHidden("subTimeframe")}>
-                                <MaterialIcon icon='calendar_today' color='#EEEEEE'/> Timeframe
-                            </span>
-                        </li>
-                    </Tooltip>
-                    {this.state.subTimeframe && <ul className="sidebarSubNav">
-                        <Link to="/timeframe">
-                            <li>Summary</li>
-                        </Link>
-                        <Link to="/timeframe">
-                            <li>Last Week</li>
-                        </Link>
-                        <Link to="/timeframe">
-                            <li>Last Month</li>
-                        </Link>
-                    </ul>}
 
                 </ul>
 

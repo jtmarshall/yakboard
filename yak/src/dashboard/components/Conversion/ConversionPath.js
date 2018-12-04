@@ -6,6 +6,7 @@ import CardBody from '../../tools/Card/CardBody';
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import moment from "moment";
 
 const styles = {
     cardCategoryWhite: {
@@ -62,6 +63,7 @@ class ConversionPath extends Component {
 
         this.state = {
             tabValue: this.props.parentState.Conversion.tabValue,
+            timeToShow: moment().subtract(1, 'month').format('MMMM'),
         };
     }
 
@@ -74,18 +76,20 @@ class ConversionPath extends Component {
 
     render() {
         const {classes} = this.props;
+        const timeFrameToShow = this.state.timeToShow;
 
         return (
             <div className="conversionComponent">
                 <h3>Conversion Path</h3>
                 <Card>
-                    <CardHeader color="danger">
-                        <h4 className="cardTitleWhite">Frequent Channel Paths</h4>
+                    <CardHeader color="mint">
+                        <h4 className="cardTitleWhite">Top 5 Channel Paths - {timeFrameToShow}</h4>
                     </CardHeader>
                     <CardBody className={classes.cardConversionTable}>
                         <Table
-                            tableHeaderColor="info"
+                            tableHeaderColor="success"
                             tableHead={[
+                                "",
                                 "First Touch",
                                 "Middle Touch",
                                 "Converting Touch",
@@ -93,10 +97,36 @@ class ConversionPath extends Component {
                                 "Conversion Total"
                             ]}
                             tableData={[
-                                ["Organic - Google", "Direct", "Email", "=", "72"],
-                                ["Referring", "Referring - Internal", "Referring - Other", "=", "39"],
-                                ["Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "25"],
-                                ["Organic - Pinterest", "Email", "Direct", "=", "15"],
+                                ["1st", "Organic - Google", "Direct", "Email", "=", "72"],
+                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "=", "39"],
+                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "25"],
+                                ["4th", "Organic - Pinterest", "Email", "Direct", "=", "16"],
+                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "4"],
+                            ]}
+                        />
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardHeader color="danger">
+                        <h4 className="cardTitleWhite">Bottom 5 Channel Paths - {timeFrameToShow}</h4>
+                    </CardHeader>
+                    <CardBody className={classes.cardConversionTable}>
+                        <Table
+                            tableHeaderColor="danger"
+                            tableHead={[
+                                "",
+                                "First Touch",
+                                "Middle Touch",
+                                "Converting Touch",
+                                "",
+                                "Conversion Total"
+                            ]}
+                            tableData={[
+                                ["1st", "Organic - Google", "Direct", "Email", "=", "-72"],
+                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "=", "-39"],
+                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "-25"],
+                                ["4th", "Organic - Pinterest", "Email", "Direct", "=", "-16"],
+                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "-4"],
                             ]}
                         />
                     </CardBody>
