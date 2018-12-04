@@ -4,12 +4,8 @@ import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import withStyles from "@material-ui/core/styles/withStyles";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import LineChart from './lineChart';
-
 
 const styles = {
     cardCategoryWhite: {
@@ -60,16 +56,15 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-class Timeframe extends Component {
+class ConversionPath extends Component {
     constructor(props) {
         super(props);
 
-        console.log(props.parentState);
+        this.state = {
+            tabValue: this.props.parentState.Conversion.tabValue,
+        };
     }
 
-    state = {
-        tabValue: this.props.parentState.Timeframe.tabValue,
-    };
 
     handleTabChange = (event, tabValue) => {
         this.setState({tabValue});
@@ -79,24 +74,36 @@ class Timeframe extends Component {
 
     render() {
         const {classes} = this.props;
-        const {tabValue} = this.state;
 
         return (
             <div className="conversionComponent">
-                <h3>Timeframe</h3>
-
+                <h3>Conversion Path</h3>
                 <Card>
-                    <CardHeader color="prime">
-                        <h4 className="cardTitleWhite">Touches (Medium) v Conversions</h4>
+                    <CardHeader color="danger">
+                        <h4 className="cardTitleWhite">Frequent Channel Paths</h4>
                     </CardHeader>
                     <CardBody className={classes.cardConversionTable}>
-                        <LineChart/>
+                        <Table
+                            tableHeaderColor="info"
+                            tableHead={[
+                                "First Touch",
+                                "Middle Touch",
+                                "Converting Touch",
+                                "",
+                                "Conversion Total"
+                            ]}
+                            tableData={[
+                                ["Organic - Google", "Direct", "Email", "=", "72"],
+                                ["Referring", "Referring - Internal", "Referring - Other", "=", "39"],
+                                ["Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "25"],
+                                ["Organic - Pinterest", "Email", "Direct", "=", "15"],
+                            ]}
+                        />
                     </CardBody>
                 </Card>
-
             </div>
         )
     }
 }
 
-export default withStyles(styles)(Timeframe);
+export default withStyles(styles)(ConversionPath);

@@ -12,7 +12,6 @@ import NivoPie from "./nivoPie";
 //import moment from "moment/moment";
 //import MaterialIcon from 'material-icons-react';
 import LineChart from './lineChart';
-import {Route} from 'react-router-dom';
 
 
 const styles = {
@@ -151,11 +150,6 @@ class Conversion extends Component {
                         </CardBody>
                     </Card>
                 </TabContainer>}
-
-                <Route path="/conversion/path" render={() =>
-                    <h1>Conversion Path Component Here</h1>
-                }/>
-
             </div>
         )
     }

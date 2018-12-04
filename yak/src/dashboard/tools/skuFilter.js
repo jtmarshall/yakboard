@@ -38,7 +38,7 @@ class SKUFilter extends React.Component {
         // console.log(event.target.name, event.target.value);
         // dummy object so we don't clear other filter values
         let dummyObj = this.state.Filter;
-        dummyObj[name].selected = event.target.value;
+        dummyObj[name] = event.target.value;
 
         this.setState({
             Filter: dummyObj
@@ -57,6 +57,7 @@ class SKUFilter extends React.Component {
         let cleanFilter = {
             conversion: [],
             touch: [],
+            rollup: [],
             channel: [],
             source: [],
             campaign: [],
@@ -160,6 +161,25 @@ class SKUFilter extends React.Component {
                                     <MenuItem value={'converting'}>Converting</MenuItem>
                                     <MenuItem value={'Latest'}>Latest</MenuItem>
                                     <MenuItem value={'contributing'}>Contributing</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl className="">
+                                <InputLabel htmlFor="filterRollup">Rollup</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    multiple
+                                    value={this.state.Filter.rollup}
+                                    onChange={this.handleSelect('rollup')}
+                                    inputProps={{
+                                        name: 'rollup',
+                                        id: 'filterRollup',
+                                    }}
+                                >
+                                    <MenuItem value={'direct'}>Direct</MenuItem>
+                                    <MenuItem value={'email'}>Email</MenuItem>
+                                    <MenuItem value={'organic'}>Organic</MenuItem>
+                                    <MenuItem value={'paidAdvertising'}>Paid Advertising</MenuItem>
+                                    <MenuItem value={'referring'}>Referring</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl className="">

@@ -5,6 +5,7 @@ import toolbox from './tools/toolbox';
 import FacilityAutoComplete from './tools/facilityAutoComplete';
 import Sidebar from './sidebar/Sidebar';
 import Conversion from './components/Conversion/Conversion';
+import ConversionPath from './components/Conversion/ConversionPath';
 import Export from './components/Export/Export';
 import Settings from "./components/Settings/Settings";
 import Explorer from "./components/Explorer/Explorer";
@@ -23,22 +24,22 @@ class Dash extends React.Component {
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
-        console.log(JSON.stringify(yakPak));
+        console.log("Saved PAK: ", JSON.stringify(yakPak));
 
         // If local store not found, initialize base state
         if (yakPak == null) {
             this.state = {
-                SelectedFacility: yakPak != null ?
-                    yakPak.SelectedFacility : [],
+                SelectedFacility: [],
                 DateFrame: {
-                    From: yakPak != null ? yakPak.DateFrame.From : moment().add(-7, 'days').format('YYYY-MM-DD'),
-                    To: yakPak != null ? yakPak.DateFrame.To : moment().format('YYYY-MM-DD'),
-                    CompareFrom: yakPak != null ? yakPak.DateFrame.CompareFrom : '',
-                    CompareTo: yakPak != null ? yakPak.DateFrame.CompareTo : ''
+                    From: moment().add(-7, 'days').format('YYYY-MM-DD'),
+                    To: moment().format('YYYY-MM-DD'),
+                    CompareFrom: '',
+                    CompareTo: ''
                 },
                 Filter: {
                     conversion: [],
                     touch: [],
+                    rollup: [],
                     channel: [],
                     source: [],
                     campaign: [],
@@ -196,7 +197,8 @@ class Dash extends React.Component {
                              rightDrawer={this.state.rightDrawer}/>
 
                     <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
-                    <Route path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
+                    <Route exact path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
+                    <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                     <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
