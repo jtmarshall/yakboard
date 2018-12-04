@@ -85,62 +85,14 @@ class Timeframe extends Component {
             <div className="conversionComponent">
                 <h3>Timeframe</h3>
 
-                <Tabs
-                    value={this.state.tabValue}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    onChange={this.handleTabChange}
-                    style={{display: 'inline-block'}}
-                >
-                    <Tab label="Summary"/>
-                    <Tab label="Last Week"/>
-                    <Tab label="Last Month"/>
-                </Tabs>
-
-                {tabValue === 0 && <TabContainer>
-
-                </TabContainer>}
-
-                {tabValue === 1 && <TabContainer>
-                    <Card>
-                        <CardHeader color="info">
-                            <h4 className="cardTitleWhite">Channel Performance</h4>
-                        </CardHeader>
-                        <CardBody className={classes.cardConversionTable}>
-                            <Table
-                                tableHeaderColor="info"
-                                tableHead={[
-                                    "Network",
-                                    "Total 5min",
-                                    "Total Call",
-                                    "Total 5min + Call",
-                                    "Last Touch 5min",
-                                    "Last Touch Call",
-                                    "Last Touch 5min + Call",
-                                    "1st Touch 5min",
-                                    "1st Touch Call",
-                                    "1st Touch 5min + Call"
-                                ]}
-                                tableData={[
-                                    ["Search", "1001", "16", "7", "2", "5", "2", "5", "2", "5"],
-                                    ["Display", "777", "11", "17", "9", "4", "1", "9", "7", "3"],
-                                    ["Social", "263", "8", "15", "1", "3", "2", "5", "2", "0"],
-                                ]}
-                            />
-                        </CardBody>
-                    </Card>
-                </TabContainer>}
-
-                {tabValue === 2 && <TabContainer>
-                    <Card>
-                        <CardHeader color="prime">
-                            <h4 className="cardTitleWhite">Touches (Medium) v Conversions</h4>
-                        </CardHeader>
-                        <CardBody className={classes.cardConversionTable}>
-                            <LineChart/>
-                        </CardBody>
-                    </Card>
-                </TabContainer>}
+                <Card>
+                    <CardHeader color="prime">
+                        <h4 className="cardTitleWhite">Touches (Medium) v Conversions</h4>
+                    </CardHeader>
+                    <CardBody className={classes.cardConversionTable}>
+                        <LineChart/>
+                    </CardBody>
+                </Card>
 
             </div>
         )

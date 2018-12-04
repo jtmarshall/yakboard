@@ -89,13 +89,14 @@ class ConversionPath extends Component {
                                 "First Touch",
                                 "Middle Touch",
                                 "Converting Touch",
+                                "",
                                 "Conversion Total"
                             ]}
                             tableData={[
-                                ["Organic - Google", "Direct", "Email", "72"],
-                                ["Referring", "Referring - Internal", "Referring - Other", "39"],
-                                ["Paid Advertising", "Organic - Other", "Email - Lead Gen", "25"],
-                                ["Organic - Pinterest", "Email", "Direct", "15"],
+                                ["Organic - Google", "Direct", "Email", "=", "72"],
+                                ["Referring", "Referring - Internal", "Referring - Other", "=", "39"],
+                                ["Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "25"],
+                                ["Organic - Pinterest", "Email", "Direct", "=", "15"],
                             ]}
                         />
                     </CardBody>
