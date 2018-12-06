@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Doughnut} from 'react-chartjs-2';
 import Table from '../../tools/table.js';
 import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
@@ -64,6 +65,44 @@ class ConversionPath extends Component {
         this.state = {
             tabValue: this.props.parentState.Conversion.tabValue,
             timeToShow: moment().subtract(1, 'month').format('MMMM'),
+            topPieData: {
+                labels: [
+                    '1st',
+                    '2nd',
+                    '3rd',
+                    '4th',
+                    '5th'
+                ],
+                datasets: [{
+                    backgroundColor: ["#4EAF4A", "#377EB8","#FF6F00","#AF1B3F","#963484"],
+                    data: [72,39,25,16,4]
+                }],
+            },
+            topPieOptions: {
+                title: {
+                    display: true,
+                    text: 'Top 5 Paths'
+                }
+            },
+            botPieData: {
+                labels: [
+                    '1st',
+                    '2nd',
+                    '3rd',
+                    '4th',
+                    '5th'
+                ],
+                datasets: [{
+                    backgroundColor: ["#4EAF4A", "#377EB8","#FF6F00","#AF1B3F","#963484"],
+                    data: [72,39,25,16,4]
+                }],
+            },
+            botPieOptions: {
+                title: {
+                    display: true,
+                    text: 'Worst 5 Paths'
+                }
+            },
         };
     }
 
@@ -104,8 +143,13 @@ class ConversionPath extends Component {
                                 ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "4"],
                             ]}
                         />
+                        <Doughnut
+                            data={this.state.topPieData}
+                            options={this.state.topPieOptions}
+                        />
                     </CardBody>
                 </Card>
+
                 <Card>
                     <CardHeader color="danger">
                         <h4 className="cardTitleWhite">Bottom 5 Channel Paths - {timeFrameToShow}</h4>
@@ -128,6 +172,10 @@ class ConversionPath extends Component {
                                 ["4th", "Organic - Pinterest", "Email", "Direct", "=", "-16"],
                                 ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "-4"],
                             ]}
+                        />
+                        <Doughnut
+                            data={this.state.botPieData}
+                            options={this.state.botPieOptions}
                         />
                     </CardBody>
                 </Card>
