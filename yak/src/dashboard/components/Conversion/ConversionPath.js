@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Doughnut} from 'react-chartjs-2';
 import Table from '../../tools/table.js';
 import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
@@ -6,6 +7,7 @@ import CardBody from '../../tools/Card/CardBody';
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import moment from "moment";
 
 const styles = {
     cardCategoryWhite: {
@@ -62,6 +64,45 @@ class ConversionPath extends Component {
 
         this.state = {
             tabValue: this.props.parentState.Conversion.tabValue,
+            timeToShow: moment().subtract(1, 'month').format('MMMM'),
+            topPieData: {
+                labels: [
+                    '1st',
+                    '2nd',
+                    '3rd',
+                    '4th',
+                    '5th'
+                ],
+                datasets: [{
+                    backgroundColor: ["#4EAF4A", "#377EB8","#FF6F00","#AF1B3F","#963484"],
+                    data: [72,39,25,16,4]
+                }],
+            },
+            topPieOptions: {
+                title: {
+                    display: true,
+                    text: 'Top 5 Paths'
+                }
+            },
+            botPieData: {
+                labels: [
+                    '1st',
+                    '2nd',
+                    '3rd',
+                    '4th',
+                    '5th'
+                ],
+                datasets: [{
+                    backgroundColor: ["#4EAF4A", "#377EB8","#FF6F00","#AF1B3F","#963484"],
+                    data: [72,39,25,16,4]
+                }],
+            },
+            botPieOptions: {
+                title: {
+                    display: true,
+                    text: 'Worst 5 Paths'
+                }
+            },
         };
     }
 
@@ -74,18 +115,20 @@ class ConversionPath extends Component {
 
     render() {
         const {classes} = this.props;
+        const timeFrameToShow = this.state.timeToShow;
 
         return (
             <div className="conversionComponent">
                 <h3>Conversion Path</h3>
                 <Card>
-                    <CardHeader color="danger">
-                        <h4 className="cardTitleWhite">Frequent Channel Paths</h4>
+                    <CardHeader color="mint">
+                        <h4 className="cardTitleWhite">Top 5 Channel Paths - {timeFrameToShow}</h4>
                     </CardHeader>
                     <CardBody className={classes.cardConversionTable}>
                         <Table
-                            tableHeaderColor="info"
+                            tableHeaderColor="success"
                             tableHead={[
+                                "",
                                 "First Touch",
                                 "Middle Touch",
                                 "Converting Touch",
@@ -93,11 +136,46 @@ class ConversionPath extends Component {
                                 "Conversion Total"
                             ]}
                             tableData={[
-                                ["Organic - Google", "Direct", "Email", "=", "72"],
-                                ["Referring", "Referring - Internal", "Referring - Other", "=", "39"],
-                                ["Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "25"],
-                                ["Organic - Pinterest", "Email", "Direct", "=", "15"],
+                                ["1st", "Organic - Google", "Direct", "Email", "=", "72"],
+                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "=", "39"],
+                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "25"],
+                                ["4th", "Organic - Pinterest", "Email", "Direct", "=", "16"],
+                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "4"],
                             ]}
+                        />
+                        <Doughnut
+                            data={this.state.topPieData}
+                            options={this.state.topPieOptions}
+                        />
+                    </CardBody>
+                </Card>
+
+                <Card>
+                    <CardHeader color="danger">
+                        <h4 className="cardTitleWhite">Bottom 5 Channel Paths - {timeFrameToShow}</h4>
+                    </CardHeader>
+                    <CardBody className={classes.cardConversionTable}>
+                        <Table
+                            tableHeaderColor="danger"
+                            tableHead={[
+                                "",
+                                "First Touch",
+                                "Middle Touch",
+                                "Converting Touch",
+                                "",
+                                "Conversion Total"
+                            ]}
+                            tableData={[
+                                ["1st", "Organic - Google", "Direct", "Email", "=", "-72"],
+                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "=", "-39"],
+                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "-25"],
+                                ["4th", "Organic - Pinterest", "Email", "Direct", "=", "-16"],
+                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "-4"],
+                            ]}
+                        />
+                        <Doughnut
+                            data={this.state.botPieData}
+                            options={this.state.botPieOptions}
                         />
                     </CardBody>
                 </Card>
