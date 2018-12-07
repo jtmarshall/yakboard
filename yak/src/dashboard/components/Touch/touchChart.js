@@ -3,6 +3,10 @@ import {Bar} from 'react-chartjs-2';
 import toolbox from "../../tools/toolbox";
 import moment from 'moment';
 import Switch from '@material-ui/core/Switch';
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
 
 
 export class TouchChart extends Component {
@@ -11,9 +15,9 @@ export class TouchChart extends Component {
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
-        let toDate = new Date(yakPak.DateFrame.To);
-        let startDay = moment(yakPak.DateFrame.From);
-        let endDay = moment(yakPak.DateFrame.To);
+        let toDate = yakPak == null ? new Date() : new Date(yakPak.DateFrame.To);
+        let startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
+        let endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
         let numbDays = endDay.diff(startDay, 'days');
 
         let primaryLabels = [];
@@ -27,35 +31,12 @@ export class TouchChart extends Component {
         }
 
         this.state = {
-            showHistory: false,
+            touchMakeup: 'medium',
             chartData: {
                 labels: primaryLabels,
                 datasets: [
                     {
-                        data: [],
-                        yAxisID: 'b',
-                        type: 'line',
-                        label: 'Conversions',
-                        fill: false,
-                        backgroundColor: "#fff",
-                        borderColor: "#737373",
-                        borderCapStyle: 'butt',
-                        borderDash: [10, 10],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        lineTension: .3,
-                        pointBackgroundColor: "#fff",
-                        pointBorderColor: "#737373",
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: "#737373",
-                        pointHoverBorderColor: "#737373",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 4,
-                        pointHitRadius: 10
-                    },
-                    {
-                        label: "Directories",
+                        label: "Touch - Directories",
                         backgroundColor: 'rgb(78,175,74)',
                         borderColor: '#4EAF4A',
                         borderWidth: 2,
@@ -64,7 +45,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Internal Directories",
+                        label: "Touch - Internal Directories",
                         backgroundColor: '#377EB8',
                         borderColor: '#377EB8',
                         borderWidth: 2,
@@ -73,7 +54,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Lead Gen",
+                        label: "Touch - Lead Gen",
                         backgroundColor: '#FF6F00',
                         borderColor: '#FF6F00',
                         borderWidth: 2,
@@ -82,7 +63,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Other",
+                        label: "Touch - Other",
                         backgroundColor: '#AF1B3F',
                         borderColor: '#AF1B3F',
                         borderWidth: 2,
@@ -91,7 +72,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Placement",
+                        label: "Touch - Placement",
                         backgroundColor: '#963484',
                         borderColor: '#963484',
                         borderWidth: 2,
@@ -100,7 +81,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Search",
+                        label: "Touch - Search",
                         backgroundColor: '#FFD600',
                         borderColor: '#FFD600',
                         borderWidth: 2,
@@ -109,7 +90,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Search Engine",
+                        label: "Touch - Search Engine",
                         backgroundColor: '#73FBD3',
                         borderColor: '#73FBD3',
                         borderWidth: 2,
@@ -118,7 +99,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Sign Up",
+                        label: "Touch - Sign Up",
                         backgroundColor: '#80A1C1',
                         borderColor: '#80A1C1',
                         borderWidth: 2,
@@ -127,7 +108,7 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Social",
+                        label: "Touch - Social",
                         backgroundColor: '#FF4081',
                         borderColor: '#FF4081',
                         borderWidth: 2,
@@ -136,13 +117,103 @@ export class TouchChart extends Component {
                         stack: 1,
                     },
                     {
-                        label: "Sponsorship",
+                        label: "Touch - Sponsorship",
                         backgroundColor: '#B388FF',
                         borderColor: '#B388FF',
                         borderWidth: 2,
                         fill: false,
                         data: [],
                         stack: 1,
+                    },
+                    {
+                        label: "Conversion - Directories",
+                        backgroundColor: 'rgb(78,175,74)',
+                        borderColor: 'rgb(78,175,74)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Internal Directories",
+                        backgroundColor: 'rgb(55,126,184)',
+                        borderColor: 'rgb(55,126,184)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Lead Gen",
+                        backgroundColor: 'rgb(255,111,0)',
+                        borderColor: 'rgb(255,111,0)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Other",
+                        backgroundColor: 'rgb(175,27,63)',
+                        borderColor: 'rgb(175,27,63)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Placement",
+                        backgroundColor: 'rgb(150,52,132)',
+                        borderColor: 'rgb(150,52,132)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Search",
+                        backgroundColor: 'rgb(255,214,0)',
+                        borderColor: 'rgb(255,214,0)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Search Engine",
+                        backgroundColor: 'rgb(115,251,211)',
+                        borderColor: 'rgb(115,251,211)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Sign Up",
+                        backgroundColor: 'rgb(128,161,193)',
+                        borderColor: 'rgb(128,161,193)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Social",
+                        backgroundColor: 'rgb(255,64,129)',
+                        borderColor: 'rgb(255,64,129)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
+                    },
+                    {
+                        label: "Conversion - Sponsorship",
+                        backgroundColor: 'rgb(179,136,255)',
+                        borderColor: 'rgb(179,136,255)',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [],
+                        stack: 2,
                     },
                 ]
             },
@@ -181,18 +252,6 @@ export class TouchChart extends Component {
                         scaleLabel: {
                             display: true,
                             labelString: 'Touches'
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                        }
-                    },{
-                        id: 'b',
-                        weight: 1,
-                        stacked: false,
-                        position: 'right',
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Conversions'
                         },
                         ticks: {
                             beginAtZero: true,
@@ -250,8 +309,6 @@ export class TouchChart extends Component {
                     "pointLabel": dateLabels[i]
                 };
             }
-
-
         }
 
         console.log(tempObj);
@@ -264,363 +321,33 @@ export class TouchChart extends Component {
         });
     };
 
-    handleHistoryChange = name => event => {
-        let labels = this.state.chartData.labels;
-        console.log(event.target.checked);
-
-        let tempChartD = {};
-        if (event.target.checked) {
-            tempChartD = {
-                labels: labels,
-                datasets: [
-                    {
-                        data: [],
-                        yAxisID: 'b',
-                        type: 'line',
-                        label: 'Conversions',
-                        fill: false,
-                        backgroundColor: "#fff",
-                        borderColor: "#737373",
-                        borderCapStyle: 'butt',
-                        borderDash: [10, 10],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        lineTension: .3,
-                        pointBackgroundColor: "#fff",
-                        pointBorderColor: "#737373",
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: "#737373",
-                        pointHoverBorderColor: "#737373",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 4,
-                        pointHitRadius: 10
-                    },
-                    {
-                        label: "Directories",
-                        backgroundColor: 'rgb(78,175,74)',
-                        borderColor: '#4EAF4A',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],  // chart data comes from props in domain-card
-                        stack: 1,
-                    },
-                    {
-                        label: "Internal Directories",
-                        backgroundColor: '#377EB8',
-                        borderColor: '#377EB8',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Lead Gen",
-                        backgroundColor: '#FF6F00',
-                        borderColor: '#FF6F00',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Other",
-                        backgroundColor: '#AF1B3F',
-                        borderColor: '#AF1B3F',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Placement",
-                        backgroundColor: '#963484',
-                        borderColor: '#963484',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Search",
-                        backgroundColor: '#FFD600',
-                        borderColor: '#FFD600',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Search Engine",
-                        backgroundColor: '#73FBD3',
-                        borderColor: '#73FBD3',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Sign Up",
-                        backgroundColor: '#80A1C1',
-                        borderColor: '#80A1C1',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Social",
-                        backgroundColor: '#FF4081',
-                        borderColor: '#FF4081',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Sponsorship",
-                        backgroundColor: '#B388FF',
-                        borderColor: '#B388FF',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "_Directories",
-                        backgroundColor: 'rgb(78,175,74, 0.2)',
-                        borderColor: 'rgb(78,175,74, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Internal Directories",
-                        backgroundColor: 'rgb(55,126,184, 0.2)',
-                        borderColor: 'rgb(55,126,184, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Lead Gen",
-                        backgroundColor: 'rgb(255,111,0, 0.2)',
-                        borderColor: 'rgb(255,111,0, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Other",
-                        backgroundColor: 'rgb(175,27,63, 0.2)',
-                        borderColor: 'rgb(175,27,63, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Placement",
-                        backgroundColor: 'rgb(150,52,132, 0.2)',
-                        borderColor: 'rgb(150,52,132, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Search",
-                        backgroundColor: 'rgb(255,214,0, 0.2)',
-                        borderColor: 'rgb(255,214,0, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Search Engine",
-                        backgroundColor: 'rgb(115,251,211, 0.2)',
-                        borderColor: 'rgb(115,251,211, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Sign Up",
-                        backgroundColor: 'rgb(128,161,193, 0.2)',
-                        borderColor: 'rgb(128,161,193, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Social",
-                        backgroundColor: 'rgb(255,64,129, 0.2)',
-                        borderColor: 'rgb(255,64,129, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                    {
-                        label: "_Sponsorship",
-                        backgroundColor: 'rgb(179,136,255, 0.2)',
-                        borderColor: 'rgb(179,136,255, 0.4)',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 2,
-                    },
-                ]
-            }
-        } else {
-            tempChartD = {
-                labels: labels,
-                datasets: [
-                    {
-                        data: [],
-                        yAxisID: 'b',
-                        type: 'line',
-                        label: 'Conversions',
-                        fill: false,
-                        backgroundColor: "#fff",
-                        borderColor: "#737373",
-                        borderCapStyle: 'butt',
-                        borderDash: [10, 10],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        lineTension: .3,
-                        pointBackgroundColor: "#fff",
-                        pointBorderColor: "#737373",
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: "#737373",
-                        pointHoverBorderColor: "#737373",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 4,
-                        pointHitRadius: 10
-                    },
-                    {
-                        label: "Directories",
-                        backgroundColor: 'rgb(78,175,74)',
-                        borderColor: '#4EAF4A',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],  // chart data comes from props in domain-card
-                        stack: 1,
-                    },
-                    {
-                        label: "Internal Directories",
-                        backgroundColor: '#377EB8',
-                        borderColor: '#377EB8',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Lead Gen",
-                        backgroundColor: '#FF6F00',
-                        borderColor: '#FF6F00',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Other",
-                        backgroundColor: '#AF1B3F',
-                        borderColor: '#AF1B3F',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Placement",
-                        backgroundColor: '#963484',
-                        borderColor: '#963484',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Search",
-                        backgroundColor: '#FFD600',
-                        borderColor: '#FFD600',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Search Engine",
-                        backgroundColor: '#73FBD3',
-                        borderColor: '#73FBD3',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Sign Up",
-                        backgroundColor: '#80A1C1',
-                        borderColor: '#80A1C1',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Social",
-                        backgroundColor: '#FF4081',
-                        borderColor: '#FF4081',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                    {
-                        label: "Sponsorship",
-                        backgroundColor: '#B388FF',
-                        borderColor: '#B388FF',
-                        borderWidth: 2,
-                        fill: false,
-                        data: [],
-                        stack: 1,
-                    },
-                ]
-            }
-        }
-
+    // update touch makeup filter state
+    handleSelect = name => event => {
         this.setState({
-            showHistory: event.target.checked,
-            chartData: tempChartD,
+            touchMakeup: event.target.value
         });
-
-        console.log(this.state);
-        // Then reload data
-        this.populateData(labels, tempChartD);
     };
-
 
     render() {
         return (
             <div className="reactChart">
-                <div style={{paddingBottom: '20px', float: 'right'}}>
-                    Show History:
-                    <Switch
-                        checked={this.state.showHistory}
-                        onChange={this.handleHistoryChange('showHistory')}
-                        value="showHistory"
-                        color="primary"
-                    />
+                <div style={{paddingBottom: '20px', float: 'left'}}>
+                    <FormControl style={{width: '200px'}}>
+                        <InputLabel htmlFor="filterTouchMakeup">Touch Makeup</InputLabel>
+                        <Select
+                            className="skuFilterSelect"
+                            value={this.state.touchMakeup}
+                            onChange={this.handleSelect('touchMakeup')}
+                            inputProps={{
+                                name: 'touchMakeup',
+                                id: 'filterTouchMakeup',
+                            }}
+                        >
+                            <MenuItem value={'medium'}>Medium</MenuItem>
+                            <MenuItem value={'source'}>Source</MenuItem>
+                            <MenuItem value={'channel'}>Channel</MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
                 <Bar
                     data={this.state.chartData}

@@ -11,9 +11,9 @@ export class LineChart extends Component {
 
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
-        let toDate = new Date(yakPak.DateFrame.To);
-        let startDay = moment(yakPak.DateFrame.From);
-        let endDay = moment(yakPak.DateFrame.To);
+        let toDate = yakPak == null ? new Date() : new Date(yakPak.DateFrame.To);
+        let startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
+        let endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
         let numbDays = endDay.diff(startDay, 'days');
 
         let primaryLabels = [];
