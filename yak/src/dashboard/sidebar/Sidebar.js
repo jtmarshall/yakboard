@@ -39,7 +39,7 @@ class Sidebar extends React.Component {
                             </li>
                         </Tooltip>
                     </Link>
-                    <Link to="/report">
+                    <Link to="/export">
                         <Tooltip title="Reports & Exports" placement="bottom">
                             <li style={{paddingLeft: 25}}>
                                 <MaterialIcon icon='timeline' color='#EEEEEE'/> Report/Export
@@ -86,6 +86,13 @@ class Sidebar extends React.Component {
                         </Link>
                     </ul>}
 
+                    <Link to="/geo">
+                        <Tooltip title="Geo Data" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='map' color='#EEEEEE'/> Map
+                            </li>
+                        </Tooltip>
+                    </Link>
                     <Link to="/behavior">
                         <Tooltip title="User Behavior & Jumping" placement="bottom">
                             <li style={{paddingLeft: 25}}>
