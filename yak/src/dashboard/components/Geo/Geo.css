@@ -1,7 +1,26 @@
 path {
     pointer-events: all;
 }
+
 path:hover {
     opacity: 0.50;
     cursor: pointer;
+}
+
+.color-box {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    left: 5px;
+    top: 5px;
+}
+
+.geoLegend {
+    list-style: none;
+    display: inline-flex;
+    float: right;
+}
+
+.geoLegend li {
+    margin: 8px;
 }

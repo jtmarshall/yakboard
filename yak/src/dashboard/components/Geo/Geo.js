@@ -5,6 +5,10 @@ import CardBody from '../../tools/Card/CardBody';
 import withStyles from "@material-ui/core/styles/withStyles";
 import USAMap from "react-usa-map";
 import './Geo.css';
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
 
 
 const styles = {
@@ -49,21 +53,181 @@ class Geo extends Component {
         super(props);
     }
 
-    // Mandatory for maps
-    mapHandler = (event) => {
-        alert(event.target.dataset.name);
+    state = {
+        geoView: 'state'
     };
 
+    // Mandatory for maps library
+    mapHandler = (event) => {
+        alert('Click handler for: ' + event.target.dataset.name);
+    };
+
+    // Configuration for display map data
     statesCustomConfig = () => {
+        let colors = ['#58A4BD', '#54BB97', '#50B956', '#87B74D', '#B14268', '#AF3FA8'];
+        if (this.state.geoView === 'bubble') {
+            colors = ['#92ddc8', '#81b69d', '#5aa17f', '#137a63', '#0a3a2a', ''];
+        }
         return {
+            "AL": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "AK": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "AZ": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "AR": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "CA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "CO": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "CT": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "DE": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "FL": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "GA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "HI": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "ID": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "IL": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "IN": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "IA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "KS": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "KY": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "LA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "ME": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "MD": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "MA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "MI": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "MN": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "MS": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "MO": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "MT": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "NE": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "NV": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "NH": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
             "NJ": {
-                fill: "navy",
-                clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                // clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+            },
+            "NM": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
             },
             "NY": {
-                fill: "#CC0000"
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "NC": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "ND": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "OH": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "OK": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "OR": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "PA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "RI": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "SC": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "SD": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "TN": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "TX": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "UT": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "VT": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "VA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "WA": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "WV": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "WI": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "WY": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
             }
         };
+    };
+
+    // update touch makeup filter state
+    handleSelect = name => event => {
+        this.setState({
+            geoView: event.target.value
+        });
     };
 
     render() {
@@ -75,10 +239,48 @@ class Geo extends Component {
 
                 <h3>Geo</h3>
                 <Card>
-                    <CardHeader color="mint">
+                    <CardHeader color="prime">
                         <h4 className="cardTitleWhite">Conversion Heat Map (U.S.)</h4>
                     </CardHeader>
                     <CardBody className={classes.cardConversionTable}>
+                        <div style={{paddingBottom: '20px', textAlign: 'left'}}>
+                            <FormControl style={{width: '200px', textAlign: 'center'}}>
+                                <InputLabel htmlFor="filterGeoView">Map View</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    value={this.state.geoView}
+                                    onChange={this.handleSelect('geoView')}
+                                    inputProps={{
+                                        name: 'geoView',
+                                        id: 'filterGeoView',
+                                    }}
+                                >
+                                    <MenuItem value={'state'}>State</MenuItem>
+                                    <MenuItem value={'bubble'}>Bubble</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <ul className="geoLegend">
+                                <li>
+                                    <div className="color-box" style={{backgroundColor: '#58A4BD'}}></div> 0 - 9
+                                </li>
+                                <li>
+                                    <div className="color-box" style={{backgroundColor: '#54BB97'}}></div> 10 - 19
+                                </li>
+                                <li>
+                                    <div className="color-box" style={{backgroundColor: '#50B956'}}></div> 20 - 29
+                                </li>
+                                <li>
+                                    <div className="color-box" style={{backgroundColor: '#87B74D'}}></div> 30 - 49
+                                </li>
+                                <li>
+                                    <div className="color-box" style={{backgroundColor: '#B14268'}}></div> 50 - 74
+                                </li>
+                                <li>
+                                    <div className="color-box" style={{backgroundColor: '#AF3FA8'}}></div> 75+
+                                </li>
+                            </ul>
+                        </div>
+                        <br/>
                         <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
                     </CardBody>
                 </Card>
