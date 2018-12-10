@@ -53,9 +53,27 @@ class Geo extends Component {
         super(props);
     }
 
+    currentState = '';
+
     state = {
-        geoView: 'state'
+        geoView: 'state',
+        mapDatatype: 'call',
+        currentState: ''
     };
+
+    componentDidMount() {
+        // Mouseover geo map event listener
+        const geoMapElement = document.querySelector(".us-state-map");
+        geoMapElement.addEventListener("mouseover", event => {
+            // this.state.currentState = event.target.dataset.name;
+            this.setState({
+                currentState: event.target.dataset.name
+            });
+            console.log(this.state.currentState);
+        });
+
+
+    }
 
     // Mandatory for maps library
     mapHandler = (event) => {
@@ -88,6 +106,9 @@ class Geo extends Component {
                 fill: colors[Math.floor(Math.random() * Math.floor(6))]
             },
             "CT": {
+                fill: colors[Math.floor(Math.random() * Math.floor(6))]
+            },
+            "DC": {
                 fill: colors[Math.floor(Math.random() * Math.floor(6))]
             },
             "DE": {
@@ -226,25 +247,25 @@ class Geo extends Component {
     // update touch makeup filter state
     handleSelect = name => event => {
         this.setState({
-            geoView: event.target.value
+            [name]: event.target.value
         });
     };
 
     render() {
         const {classes} = this.props;
-
+        const c = this.state.currentState;
 
         return (
             <div className="geoComponent">
 
-                <h3>Geo</h3>
+                <h3>Geo - {c}</h3>
                 <Card>
                     <CardHeader color="prime">
                         <h4 className="cardTitleWhite">Conversion Heat Map (U.S.)</h4>
                     </CardHeader>
                     <CardBody className={classes.cardConversionTable}>
                         <div style={{paddingBottom: '20px', textAlign: 'left'}}>
-                            <FormControl style={{width: '200px', textAlign: 'center'}}>
+                            <FormControl style={{width: '180px', textAlign: 'center', padding: '6px'}}>
                                 <InputLabel htmlFor="filterGeoView">Map View</InputLabel>
                                 <Select
                                     className="skuFilterSelect"
@@ -259,29 +280,57 @@ class Geo extends Component {
                                     <MenuItem value={'bubble'}>Bubble</MenuItem>
                                 </Select>
                             </FormControl>
+                            <FormControl style={{width: '180px', textAlign: 'center', padding: '6px'}}>
+                                <InputLabel htmlFor="filterMapDatatype">Map Datatype</InputLabel>
+                                <Select
+                                    className="skuFilterSelect"
+                                    value={this.state.mapDatatype}
+                                    onChange={this.handleSelect('mapDatatype')}
+                                    inputProps={{
+                                        name: 'mapDatatype',
+                                        id: 'filterMapDatatype',
+                                    }}
+                                >
+                                    <MenuItem value={'call'}>Calls</MenuItem>
+                                    <MenuItem value={'inquiry'}>Inquiries</MenuItem>
+                                    <MenuItem value={'admit'}>Admits</MenuItem>
+                                </Select>
+                            </FormControl>
                             <ul className="geoLegend">
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#58A4BD'}}></div> 0 - 9
+                                    <div className="color-box" style={{backgroundColor: '#58A4BD'}}></div>
+                                    0 - 9
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#54BB97'}}></div> 10 - 19
+                                    <div className="color-box" style={{backgroundColor: '#54BB97'}}></div>
+                                    10 - 19
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#50B956'}}></div> 20 - 29
+                                    <div className="color-box" style={{backgroundColor: '#50B956'}}></div>
+                                    20 - 29
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#87B74D'}}></div> 30 - 49
+                                    <div className="color-box" style={{backgroundColor: '#87B74D'}}></div>
+                                    30 - 49
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#B14268'}}></div> 50 - 74
+                                    <div className="color-box" style={{backgroundColor: '#B14268'}}></div>
+                                    50 - 74
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#AF3FA8'}}></div> 75+
+                                    <div className="color-box" style={{backgroundColor: '#AF3FA8'}}></div>
+                                    75+
                                 </li>
                             </ul>
                         </div>
                         <br/>
-                        <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
+
+                        <USAMap className="tooltip" customize={this.statesCustomConfig()} onClick={this.mapHandler} title={""}>
+                            <span id="tooltip-span">
+                                <img alt="" src="http://www.google.com/images/srpr/logo4w.png" />
+                            </span>
+                        </USAMap>
+
                     </CardBody>
                 </Card>
             </div>

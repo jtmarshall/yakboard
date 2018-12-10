@@ -13,6 +13,7 @@ path:hover {
     display: inline-block;
     left: 5px;
     top: 5px;
+    margin-right: 5px;
 }
 
 .geoLegend {
@@ -22,5 +23,32 @@ path:hover {
 }
 
 .geoLegend li {
-    margin: 8px;
+    margin: 6px;
+}
+
+.geoTooltip:hover {
+    display: block;
+}
+
+.geoTooltip {
+    /*display: none;*/
+    margin-left: 28px;
+    padding: 10px;
+    /*position: absolute;*/
+    z-index: 1000;
+    width:200px;
+    height:100px;
+}
+
+.tooltip {
+    text-decoration:none;
+    position:relative;
+}
+.tooltip span {
+    display:none;
+}
+.tooltip:hover span {
+    display:block;
+    position:fixed;
+    overflow:hidden;
 }
