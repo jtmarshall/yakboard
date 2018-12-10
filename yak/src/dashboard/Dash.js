@@ -12,6 +12,7 @@ import Explorer from "./components/Explorer/Explorer";
 import DateComponent from './tools/DateComponent';
 import Touch from "./components/Touch/Touch";
 import Timeframe from "./components/Timeframe/Timeframe";
+import Geo from "./components/Geo/Geo";
 
 
 // Global state for local storage
@@ -201,8 +202,10 @@ class Dash extends React.Component {
                     <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                     <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                     <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
-                    <Route path="/settings" render={() => <Settings/>}/>
                     <Route path="/timeframe" render={() => <Timeframe parentState={this.state} updateDash={this.updateDashTimeframe}/>}/>
+                    <Route path="/geo" render={() => <Geo parentState={this.state}/>}/>
+                    <Route path="/settings" render={() => <Settings/>}/>
+
                 </div>
             );
         } else {
