@@ -127,6 +127,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Directories",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(78,175,74)',
                         borderColor: 'rgb(78,175,74)',
                         borderWidth: 2,
@@ -136,6 +137,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Internal Directories",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(55,126,184)',
                         borderColor: 'rgb(55,126,184)',
                         borderWidth: 2,
@@ -145,6 +147,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Lead Gen",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(255,111,0)',
                         borderColor: 'rgb(255,111,0)',
                         borderWidth: 2,
@@ -154,6 +157,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Other",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(175,27,63)',
                         borderColor: 'rgb(175,27,63)',
                         borderWidth: 2,
@@ -163,6 +167,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Placement",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(150,52,132)',
                         borderColor: 'rgb(150,52,132)',
                         borderWidth: 2,
@@ -172,6 +177,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Search",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(255,214,0)',
                         borderColor: 'rgb(255,214,0)',
                         borderWidth: 2,
@@ -181,6 +187,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Search Engine",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(115,251,211)',
                         borderColor: 'rgb(115,251,211)',
                         borderWidth: 2,
@@ -190,6 +197,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Sign Up",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(128,161,193)',
                         borderColor: 'rgb(128,161,193)',
                         borderWidth: 2,
@@ -199,6 +207,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Social",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(255,64,129)',
                         borderColor: 'rgb(255,64,129)',
                         borderWidth: 2,
@@ -208,6 +217,7 @@ export class TouchChart extends Component {
                     },
                     {
                         label: "Conversion - Sponsorship",
+                        yAxisID: 'b',
                         backgroundColor: 'rgb(179,136,255)',
                         borderColor: 'rgb(179,136,255)',
                         borderWidth: 2,
@@ -256,7 +266,21 @@ export class TouchChart extends Component {
                         ticks: {
                             beginAtZero: true,
                         }
-                    }]
+                        },
+                        {
+                            id: 'b',
+                            weight: 1,
+                            stacked: true,
+                            position: 'right',
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Conversions'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }
+                    ]
                 }
             },
         };
