@@ -3,8 +3,8 @@ import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import withStyles from "@material-ui/core/styles/withStyles";
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
+import USAMap from "react-usa-map";
+import './Geo.css';
 
 
 const styles = {
@@ -44,39 +44,42 @@ const styles = {
     },
 };
 
-function TabContainer(props) {
-    return (
-        <Typography component="div" style={{padding: 8 * 3}}>
-            {props.children}
-        </Typography>
-    );
-}
-
-TabContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-};
-
 class Geo extends Component {
     constructor(props) {
         super(props);
     }
 
-    state = {
+    // Mandatory for maps
+    mapHandler = (event) => {
+        alert(event.target.dataset.name);
+    };
 
+    statesCustomConfig = () => {
+        return {
+            "NJ": {
+                fill: "navy",
+                clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+            },
+            "NY": {
+                fill: "#CC0000"
+            }
+        };
     };
 
     render() {
         const {classes} = this.props;
 
+
         return (
             <div className="geoComponent">
+
                 <h3>Geo</h3>
                 <Card>
                     <CardHeader color="mint">
                         <h4 className="cardTitleWhite">Conversion Heat Map (U.S.)</h4>
                     </CardHeader>
                     <CardBody className={classes.cardConversionTable}>
-
+                        <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
                     </CardBody>
                 </Card>
             </div>
