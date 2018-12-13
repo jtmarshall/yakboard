@@ -60,8 +60,6 @@ class Geo extends Component {
         this.statesCustomConfig()
     }
 
-    currentState = '';
-
     state = {
         geoView: 'state',
         mapDatatype: 'call',
@@ -77,7 +75,6 @@ class Geo extends Component {
             this.setState({
                 currentState: event.target.dataset.name
             });
-            console.log(this.state.currentState);
         });
 
 
