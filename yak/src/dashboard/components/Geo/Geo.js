@@ -9,6 +9,11 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import Divider from "@material-ui/core/es/Divider/Divider";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 
 const styles = {
@@ -51,6 +56,8 @@ const styles = {
 class Geo extends Component {
     constructor(props) {
         super(props);
+
+        this.statesCustomConfig()
     }
 
     currentState = '';
@@ -58,7 +65,8 @@ class Geo extends Component {
     state = {
         geoView: 'state',
         mapDatatype: 'call',
-        currentState: ''
+        currentState: '',
+        customConfig: '',
     };
 
     componentDidMount() {
@@ -86,168 +94,175 @@ class Geo extends Component {
         if (this.state.geoView === 'bubble') {
             colors = ['#92ddc8', '#81b69d', '#5aa17f', '#137a63', '#0a3a2a', ''];
         }
-        return {
-            "AL": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "AK": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "AZ": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "AR": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "CA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "CO": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "CT": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "DC": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "DE": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "FL": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "GA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "HI": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "ID": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "IL": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "IN": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "IA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "KS": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "KY": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "LA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "ME": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "MD": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "MA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "MI": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "MN": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "MS": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "MO": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "MT": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "NE": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "NV": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "NH": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "NJ": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-                // clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
-            },
-            "NM": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "NY": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "NC": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "ND": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "OH": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "OK": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "OR": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "PA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "RI": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "SC": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "SD": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "TN": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "TX": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "UT": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "VT": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "VA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "WA": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "WV": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "WI": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            },
-            "WY": {
-                fill: colors[Math.floor(Math.random() * Math.floor(6))]
-            }
-        };
+        if (this.state.customConfig == '') {
+            this.setState({
+                customConfig: {
+                    "AL": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "AK": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "AZ": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "AR": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "CA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "CO": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "CT": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "DC": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "DE": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "FL": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "GA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "HI": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "ID": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "IL": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "IN": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "IA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "KS": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "KY": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "LA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "ME": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "MD": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "MA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "MI": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "MN": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "MS": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "MO": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "MT": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "NE": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "NV": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "NH": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "NJ": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                        // clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+                    },
+                    "NM": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "NY": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "NC": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "ND": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "OH": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "OK": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "OR": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "PA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "RI": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "SC": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "SD": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "TN": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "TX": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "UT": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "VT": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "VA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "WA": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "WV": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "WI": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    },
+                    "WY": {
+                        fill: colors[Math.floor(Math.random() * Math.floor(6))]
+                    }
+                }
+            });
+        } else {
+            return this.state.customConfig;
+        }
     };
 
     // update touch makeup filter state
     handleSelect = name => event => {
         this.setState({
-            [name]: event.target.value
+            [name]: event.target.value,
+            customConfig: ''
         });
     };
 
@@ -258,7 +273,7 @@ class Geo extends Component {
         return (
             <div className="geoComponent">
 
-                <h3>Geo - {c}</h3>
+                <h3>Geo</h3>
                 <Card>
                     <CardHeader color="prime">
                         <h4 className="cardTitleWhite">Conversion Heat Map (U.S.)</h4>
@@ -325,12 +340,33 @@ class Geo extends Component {
                         </div>
                         <br/>
 
-                        <USAMap className="tooltip" customize={this.statesCustomConfig()} onClick={this.mapHandler} title={""}>
+                        <div className="col-lg-12" style={{display: 'inline-flex'}}>
+                            <div className="col-lg-4" style={{minWidth: '240px', padding: '12px'}}>
+                                <Card>
+                                    <CardBody>
+                                        <h3>Info</h3>
+                                        <Divider/>
+                                        <List style={{float: 'left'}}>
+                                            <ListItem>
+                                                <ListItemText primary={"State: " + c} />
+                                            </ListItem>
+                                            <ListItem>
+                                                <ListItemText primary={"Conversions: "} />
+                                            </ListItem>
+                                        </List>
+                                    </CardBody>
+                                </Card>
+                            </div>
+                            <div className="col-lg-8" >
+                                <USAMap className="tooltip" customize={this.statesCustomConfig()}
+                                        onClick={this.mapHandler}
+                                        title={""}>
                             <span id="tooltip-span">
-                                <img alt="" src="http://www.google.com/images/srpr/logo4w.png" />
+                                <img alt="" src="http://www.google.com/images/srpr/logo4w.png"/>
                             </span>
-                        </USAMap>
-
+                                </USAMap>
+                            </div>
+                        </div>
                     </CardBody>
                 </Card>
             </div>
