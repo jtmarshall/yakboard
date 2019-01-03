@@ -17,7 +17,7 @@ class Sidebar extends React.Component {
     }
 
     toggleHidden = name => event => {
-        console.log(name, !this.state[name]);
+        // console.log(name, !this.state[name]);
         this.setState({
             [name]: !this.state[name]
         });

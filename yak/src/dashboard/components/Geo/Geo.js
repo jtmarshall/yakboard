@@ -56,8 +56,6 @@ const styles = {
 class Geo extends Component {
     constructor(props) {
         super(props);
-
-        this.statesCustomConfig()
     }
 
     state = {
@@ -77,7 +75,7 @@ class Geo extends Component {
             });
         });
 
-
+        this.statesCustomConfig();
     }
 
     // Mandatory for maps library
