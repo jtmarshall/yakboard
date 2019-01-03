@@ -201,7 +201,9 @@ export class LineChart extends Component {
                 }
             },
         };
+    }
 
+    componentDidMount() {
         this.calculateDateRange();
     }
 

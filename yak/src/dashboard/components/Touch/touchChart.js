@@ -284,7 +284,10 @@ export class TouchChart extends Component {
                 }
             },
         };
+    }
 
+    componentDidMount() {
+        // Wait for component to mount before loading in data
         this.calculateDateRange();
     }
 
@@ -338,7 +341,10 @@ export class TouchChart extends Component {
         console.log(tempObj);
 
         let dummyOptions = this.state.chartOptions;
+
         // Set state with fresh data
+        //this.state.chartData = tempObj;
+        //this.state.chartOptions = dummyOptions;
         this.setState({
             chartData: tempObj,
             chartOptions: dummyOptions,

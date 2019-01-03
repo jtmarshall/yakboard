@@ -21,6 +21,9 @@ class App extends Component {
     };
 
     render() {
+        // migration to typography2
+        window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
+
         let path = window.location.hash;
         console.log(path);
 

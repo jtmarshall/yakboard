@@ -56,11 +56,7 @@ const styles = {
 class Geo extends Component {
     constructor(props) {
         super(props);
-
-        this.statesCustomConfig()
     }
-
-    currentState = '';
 
     state = {
         geoView: 'state',
@@ -77,10 +73,9 @@ class Geo extends Component {
             this.setState({
                 currentState: event.target.dataset.name
             });
-            console.log(this.state.currentState);
         });
 
-
+        this.statesCustomConfig();
     }
 
     // Mandatory for maps library
