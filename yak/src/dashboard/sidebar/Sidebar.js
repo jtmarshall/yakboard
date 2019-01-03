@@ -46,6 +46,13 @@ class Sidebar extends React.Component {
                             </li>
                         </Tooltip>
                     </Link>
+                    <Link to="/facility">
+                        <Tooltip title="Facility Reports" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='view_quilt' color='#EEEEEE'/> Facility
+                            </li>
+                        </Tooltip>
+                    </Link>
                     <Tooltip title="Timeframe Show/Hide" placement="bottom">
                         <li style={{paddingLeft: 25, cursor: "pointer"}} onClick={this.toggleHidden("subTimeframe")}>
                             <span style={{verticalAlign: "sub"}}><MaterialIcon icon='calendar_today' color='#EEEEEE'/> </span>
