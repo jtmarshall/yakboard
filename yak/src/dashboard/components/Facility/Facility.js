@@ -67,6 +67,16 @@ class Facility extends Component {
         commentBox: '',
     };
 
+    // Load selected facility into view
+    loadFacility = (facility) => {
+        this.setState({
+            fName: '',
+            fLogo: '',
+            fType: '',
+            fLoc: '',
+        })
+    };
+
     handleChange = name => event => {
         this.setState({
             [name]: event.target.value,
@@ -78,7 +88,7 @@ class Facility extends Component {
 
         return (
             <div className="facilityComponent">
-                <h3>Facility Summary</h3>
+                <h3>Facility Report</h3>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <div style={{width: '48%'}}>
