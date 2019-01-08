@@ -15,6 +15,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import FacilityVolume from './FacilityVolume';
 
 
 const styles = {
@@ -65,6 +66,10 @@ class Facility extends Component {
         fType: 'Inpatient',
         fLoc: 'location',
         commentBox: '',
+        admitsCommentBox: '',
+        inquiriesCommentBox: '',
+        callsCommentBox: '',
+        trafficCommentBox: '',
     };
 
     // Load selected facility into view
@@ -91,10 +96,11 @@ class Facility extends Component {
                 <h3>Facility Report</h3>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
-                    <div style={{width: '48%'}}>
+                    <div style={{width: '35%', margin: 'auto'}}>
                         <Card>
                             <CardBody>
-                                <h2>{this.state.fLogo} - {this.state.fName}</h2>
+                                <h2>{this.state.fLogo}</h2>
+                                <h3>{this.state.fName}</h3>
                                 <p>
                                     {this.state.fType}
                                     <br/>
@@ -103,7 +109,7 @@ class Facility extends Component {
                             </CardBody>
                         </Card>
                     </div>
-                    <div style={{width: '48%'}}>
+                    <div style={{width: '60%'}}>
                         <TextField
                             id="outlined-multiline-flexible"
                             label="Comments"
@@ -122,7 +128,7 @@ class Facility extends Component {
 
                 <Card>
                     <CardHeader color="prime">
-                        <h4 className="cardTitleWhite">Stats</h4>
+                        <h4 className="cardTitleWhite">Stats Summary</h4>
                     </CardHeader>
                     <CardBody>
                         <Table className={classes.table}>
@@ -130,7 +136,8 @@ class Facility extends Component {
                                 <TableRow>
                                     <TableCell></TableCell>
                                     <TableCell align="right">MoM</TableCell>
-                                    <TableCell align="right">YoY</TableCell>
+                                    <TableCell align="right">YTD</TableCell>
+                                    <TableCell align="center">Comments</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -140,9 +147,25 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.admitsCommentBox}
+                                            onChange={this.handleChange('admitsCommentBox')}
+                                            className={classes.textField}
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='inquiries'>
@@ -155,6 +178,21 @@ class Facility extends Component {
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
                                     </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.inquiriesCommentBox}
+                                            onChange={this.handleChange('inquiriesCommentBox')}
+                                            className={classes.textField}
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
                                 </TableRow>
                                 <TableRow key='calls'>
                                     <TableCell component="th" scope="row">
@@ -165,6 +203,21 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.callsCommentBox}
+                                            onChange={this.handleChange('callsCommentBox')}
+                                            className={classes.textField}
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='traffic'>
@@ -177,20 +230,36 @@ class Facility extends Component {
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.trafficCommentBox}
+                                            onChange={this.handleChange('trafficCommentBox')}
+                                            className={classes.textField}
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
                     </CardBody>
                 </Card>
 
+                <hr style={{width: '90%'}}/>
+                <FacilityVolume/>
+
                 <ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography>Supporting Data</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
-                        <Typography>
-                            This is the supporting data!
-                        </Typography>
+                        Dis is data.
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             </div>
