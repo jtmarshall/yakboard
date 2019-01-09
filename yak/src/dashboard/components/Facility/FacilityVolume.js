@@ -4,7 +4,7 @@ import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import TextField from '@material-ui/core/TextField';
 import FacilityPie from './facilityPie';
-import NivoPie from "../Conversion/Conversion";
+import FacilityVolumeChart from './facilityVolumeChart';
 
 
 class FacilityVolume extends Component {
@@ -26,11 +26,11 @@ class FacilityVolume extends Component {
         return (
             <div className="facilityVolumeComponent">
 
-                <div className="row" style={{display: 'inline-flex', width: '90%'}}>
-                    <div style={{width: '35%', margin: 'auto'}}>
+                <div className="row" style={{display: 'inline-flex', width: '90%', alignItems: 'center'}}>
+                    <div style={{width: '40%', margin: 'auto'}}>
                         <h3>Volume</h3>
                     </div>
-                    <div style={{width: '60%'}}>
+                    <div style={{width: '55%'}}>
                         <TextField
                             id="outlined-multiline-flexible"
                             label="Comments"
@@ -41,22 +41,18 @@ class FacilityVolume extends Component {
                             onChange={this.handleChange('commentBox')}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '70%', marginTop: '25px', paddingTop: '6px'}}
+                            style={{minWidth: '80%', paddingTop: '6px', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
-
 
                 <FacilityPie color={"info"} title={"Spend"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 <FacilityPie color={"info"} title={"Traffic"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 <FacilityPie color={"info"} title={"Calls"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
 
                 <Card>
-                    <CardHeader color="prime">
-                        <h4 className="cardTitleWhite">Stats Summary</h4>
-                    </CardHeader>
                     <CardBody>
-                        BarChart
+                        <FacilityVolumeChart/>
                     </CardBody>
                 </Card>
             </div>

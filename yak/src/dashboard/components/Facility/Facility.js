@@ -70,6 +70,8 @@ class Facility extends Component {
         inquiriesCommentBox: '',
         callsCommentBox: '',
         trafficCommentBox: '',
+        ytd: '2019',
+        ytdPrevious: '2018',
     };
 
     // Load selected facility into view
@@ -96,7 +98,7 @@ class Facility extends Component {
                 <h3>Facility Report</h3>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
-                    <div style={{width: '35%', margin: 'auto'}}>
+                    <div style={{width: '40%', margin: 'auto'}}>
                         <Card>
                             <CardBody>
                                 <h2>{this.state.fLogo}</h2>
@@ -109,7 +111,7 @@ class Facility extends Component {
                             </CardBody>
                         </Card>
                     </div>
-                    <div style={{width: '60%'}}>
+                    <div style={{width: '55%'}}>
                         <TextField
                             id="outlined-multiline-flexible"
                             label="Comments"
@@ -121,7 +123,7 @@ class Facility extends Component {
                             className={classes.textField}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '70%', marginTop: '25px', paddingTop: '6px'}}
+                            style={{minWidth: '80%', marginTop: '25px', paddingTop: '6px', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
@@ -136,7 +138,8 @@ class Facility extends Component {
                                 <TableRow>
                                     <TableCell></TableCell>
                                     <TableCell align="right">MoM</TableCell>
-                                    <TableCell align="right">YTD</TableCell>
+                                    <TableCell align="right">YTD {this.state.ytd}</TableCell>
+                                    <TableCell align="right">YTD {this.state.ytdPrevious}</TableCell>
                                     <TableCell align="center">Comments</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -148,6 +151,9 @@ class Facility extends Component {
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
@@ -178,6 +184,9 @@ class Facility extends Component {
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
                                     </TableCell>
+                                    <TableCell align="right">
+                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                    </TableCell>
                                     <TableCell>
                                         <TextField
                                             id="outlined-multiline-flexible"
@@ -197,6 +206,9 @@ class Facility extends Component {
                                 <TableRow key='calls'>
                                     <TableCell component="th" scope="row">
                                         Calls
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
@@ -230,6 +242,9 @@ class Facility extends Component {
                                     <TableCell align="right">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
+                                    <TableCell align="right">
+                                        <MaterialIcon icon='arrow_downward' color='red'/>
+                                    </TableCell>
                                     <TableCell>
                                         <TextField
                                             id="outlined-multiline-flexible"
@@ -253,6 +268,7 @@ class Facility extends Component {
 
                 <hr style={{width: '90%'}}/>
                 <FacilityVolume/>
+                <hr style={{width: '90%'}}/>
 
                 <ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>

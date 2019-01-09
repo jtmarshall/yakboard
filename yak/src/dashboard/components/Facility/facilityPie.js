@@ -20,7 +20,7 @@ export default class FacilityPie extends Component {
         //     // parse date for how many days prior
         //     let temp = new Date();
         //     temp.setDate(toDate.getDate() - i);
-        //     tempLabels.unshift((toDate.getUTCMonth() + 1) + "/" + temp.getDate());
+        //     tempLabels.unshift(moment(temp).format('M') + "/" + temp.getDate());
         // }
 
         this.state = {
