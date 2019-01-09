@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {Bar} from 'react-chartjs-2';
 import toolbox from "../../tools/toolbox";
 import moment from 'moment';
-import Switch from '@material-ui/core/Switch';
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -27,7 +26,7 @@ export class TouchChart extends Component {
             // parse date for how many days prior
             let temp = new Date();
             temp.setDate(toDate.getDate() - i);
-            primaryLabels.unshift((toDate.getUTCMonth() + 1) + "/" + temp.getDate());
+            primaryLabels.unshift(moment(temp).format('M') + "/" + temp.getDate());
         }
 
         this.state = {

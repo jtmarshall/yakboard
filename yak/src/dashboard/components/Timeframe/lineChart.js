@@ -23,7 +23,7 @@ export class LineChart extends Component {
             // parse date for how many days prior
             let temp = new Date();
             temp.setDate(toDate.getDate() - i);
-            primaryLabels.unshift((toDate.getUTCMonth() + 1) + "/" + temp.getDate());
+            primaryLabels.unshift(moment(temp).format('M') + "/" + temp.getDate());
         }
 
         this.state = {
