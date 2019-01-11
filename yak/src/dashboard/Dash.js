@@ -32,6 +32,7 @@ class Dash extends React.Component {
         if (yakPak == null) {
             this.state = {
                 SelectedFacility: [],
+                SelectedFacilityDomain: '',
                 DateFrame: {
                     From: moment().add(-7, 'days').format('YYYY-MM-DD'),
                     To: moment().format('YYYY-MM-DD'),
@@ -118,9 +119,10 @@ class Dash extends React.Component {
     }
 
     // Update SelectedFacility state; pass back from facility auto complete component
-    updateSelectedFacility = (val) => {
+    updateSelectedFacility = (name, domain) => {
         this.setState({
-            SelectedFacility: val
+            SelectedFacility: name,
+            SelectedFacilityDomain: domain,
         });
     };
 
