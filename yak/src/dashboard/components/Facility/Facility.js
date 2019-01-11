@@ -58,14 +58,18 @@ const styles = {
 class Facility extends Component {
     constructor(props) {
         super(props);
+
+        if (this.props.parentState.SelectedFacility.length > 1) {
+            alert('This page can show only one facility report at a time. \n Remove the extras and reload the page.');
+        }
     }
 
     state = {
-        fName: 'Acadia Facility',
+        fName: this.props.parentState.SelectedFacility[0] || 'Acadia Facility',
         fLogo: 'LOGO HERE',
         fType: 'Inpatient',
         fLoc: 'location',
-        fDomain: 'domain',
+        fDomain: this.props.parentState.SelectedFacilityDomain || 'domain',
         commentBox: '',
         admitsCommentBox: '',
         inquiriesCommentBox: '',
@@ -104,6 +108,7 @@ class Facility extends Component {
                             <CardBody>
                                 <h2>{this.state.fLogo}</h2>
                                 <h3>{this.state.fName}</h3>
+                                <h5>{this.state.fDomain}</h5>
                                 <p>
                                     {this.state.fType}
                                     <br/>
