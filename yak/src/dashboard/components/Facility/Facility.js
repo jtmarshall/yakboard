@@ -65,6 +65,7 @@ class Facility extends Component {
         fLogo: 'LOGO HERE',
         fType: 'Inpatient',
         fLoc: 'location',
+        fDomain: 'domain',
         commentBox: '',
         admitsCommentBox: '',
         inquiriesCommentBox: '',
