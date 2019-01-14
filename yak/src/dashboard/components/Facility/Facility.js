@@ -16,6 +16,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FacilityVolume from './FacilityVolume';
+import logo from "../../../assets/logo/yak-logo-fullbody.svg";
 
 
 const styles = {
@@ -55,6 +56,8 @@ const styles = {
     },
 };
 
+const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
+
 class Facility extends Component {
     constructor(props) {
         super(props);
@@ -79,6 +82,14 @@ class Facility extends Component {
         ytdPrevious: '2018',
     };
 
+    componentDidMount() {
+        if(this.props.parentState.SelectedFacilityDomain.length > 1) {
+            this.setState({
+                fLogo: logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png",
+            });
+        }
+    }
+
     // Load selected facility into view
     loadFacility = (facility) => {
         this.setState({
@@ -100,19 +111,16 @@ class Facility extends Component {
 
         return (
             <div className="facilityComponent">
-                <h3>Facility Report</h3>
+                <h3>Facility Report - {this.state.fName}</h3>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <div style={{width: '40%', margin: 'auto'}}>
                         <Card>
                             <CardBody>
-                                <h2>{this.state.fLogo}</h2>
-                                <h3>{this.state.fName}</h3>
+                                <img src={this.state.fLogo} style={{width: '50%'}} alt="logo"/>
                                 <h5>{this.state.fDomain}</h5>
                                 <p>
                                     {this.state.fType}
-                                    <br/>
-                                    {this.state.fLoc}
                                 </p>
                             </CardBody>
                         </Card>
