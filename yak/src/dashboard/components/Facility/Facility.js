@@ -16,6 +16,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FacilityVolume from './FacilityVolume';
+import logo from "../../../assets/logo/yak-logo-fullbody.svg";
+import FacilityFormStepper from './facilityForm';
 
 
 const styles = {
@@ -55,6 +57,8 @@ const styles = {
     },
 };
 
+const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
+
 class Facility extends Component {
     constructor(props) {
         super(props);
@@ -79,6 +83,16 @@ class Facility extends Component {
         ytdPrevious: '2018',
     };
 
+    componentDidMount() {
+        if(this.state.fDomain !== 'domain') {
+            this.setState({
+                fLogo: logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png",
+            });
+
+            document.title = "YAK - " + this.state.fName;
+        }
+    }
+
     // Load selected facility into view
     loadFacility = (facility) => {
         this.setState({
@@ -100,24 +114,14 @@ class Facility extends Component {
 
         return (
             <div className="facilityComponent">
-                <h3>Facility Report</h3>
+                <h3>Facility Report - {this.state.fName}</h3>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <div style={{width: '40%', margin: 'auto'}}>
-                        <Card>
-                            <CardBody>
-                                <h2>{this.state.fLogo}</h2>
-                                <h3>{this.state.fName}</h3>
-                                <h5>{this.state.fDomain}</h5>
-                                <p>
-                                    {this.state.fType}
-                                    <br/>
-                                    {this.state.fLoc}
-                                </p>
-                            </CardBody>
-                        </Card>
+                        <img src={this.state.fLogo} style={{width: '50%'}} alt="logo"/>
+                        <h3><b><em>Summary</em></b></h3>
                     </div>
-                    <div style={{width: '55%'}}>
+                    <div style={{width: '55%', margin: 'auto'}}>
                         <TextField
                             id="outlined-multiline-flexible"
                             label="Comments"
@@ -126,10 +130,9 @@ class Facility extends Component {
                             rowsMax="12"
                             value={this.state.commentBox}
                             onChange={this.handleChange('commentBox')}
-                            className={classes.textField}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '80%', marginTop: '25px', paddingTop: '6px', overflowX: 'hidden'}}
+                            style={{minWidth: '80%', marginTop: '25px', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
@@ -272,8 +275,10 @@ class Facility extends Component {
                     </CardBody>
                 </Card>
 
+                <FacilityFormStepper/>
+
                 <hr style={{width: '90%'}}/>
-                <FacilityVolume/>
+                <FacilityVolume parentState={this.state}/>
                 <hr style={{width: '90%'}}/>
 
                 <ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Card from '../../tools/Card/Card';
-import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import TextField from '@material-ui/core/TextField';
 import FacilityPie from './facilityPie';
@@ -26,11 +25,12 @@ class FacilityVolume extends Component {
         return (
             <div className="facilityVolumeComponent">
 
-                <div className="row" style={{display: 'inline-flex', width: '90%', alignItems: 'center'}}>
+                <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <div style={{width: '40%', margin: 'auto'}}>
-                        <h3>Volume</h3>
+                        <img src={this.props.parentState.fLogo} style={{width: '50%'}} alt="logo"/>
+                        <h3><b><em>Volume</em></b></h3>
                     </div>
-                    <div style={{width: '55%'}}>
+                    <div style={{width: '55%', margin: 'auto'}}>
                         <TextField
                             id="outlined-multiline-flexible"
                             label="Comments"
@@ -41,7 +41,7 @@ class FacilityVolume extends Component {
                             onChange={this.handleChange('commentBox')}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '80%', paddingTop: '6px', overflowX: 'hidden'}}
+                            style={{minWidth: '80%', marginTop: '25px', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
