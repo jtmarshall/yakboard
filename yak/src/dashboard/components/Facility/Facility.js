@@ -17,6 +17,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FacilityVolume from './FacilityVolume';
 import logo from "../../../assets/logo/yak-logo-fullbody.svg";
+import FacilityFormStepper from './facilityForm';
 
 
 const styles = {
@@ -279,6 +280,8 @@ class Facility extends Component {
                         </Table>
                     </CardBody>
                 </Card>
+
+                <FacilityFormStepper/>
 
                 <hr style={{width: '90%'}}/>
                 <FacilityVolume/>
