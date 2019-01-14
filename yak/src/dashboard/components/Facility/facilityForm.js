@@ -6,6 +6,8 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+
 
 const styles = theme => ({
     root: {
@@ -26,22 +28,51 @@ function getSteps() {
     return ['Input some facility info', 'Maybe some more info', 'Double check that info, then display'];
 }
 
-function getStepContent(stepIndex) {
-    switch (stepIndex) {
-        case 0:
-            return 'Input facility view data...';
-        case 1:
-            return 'Other settings for that data';
-        case 2:
-            return 'Now we\'re cookin!';
-        default:
-            return 'Unknown stepIndex';
-    }
-}
-
 class FacilityFormStepper extends React.Component {
     state = {
         activeStep: 0,
+        formAdmits: '',
+        formInquiries: '',
+    };
+
+    getStepContent = (stepIndex) => {
+        switch (stepIndex) {
+            case 0:
+                return(
+                    <div style={{display: 'block'}}>
+                        <TextField
+                            id="admits"
+                            label="Admits"
+                            type="number"
+                            value={this.state.formAdmits}
+                            onChange={this.handleFormChange('formAdmits')}
+                            margin="normal"
+                        />
+                        <br/>
+                        <TextField
+                            id="inquiries"
+                            label="Inquiries"
+                            type="number"
+                            value={this.state.formInquiries}
+                            onChange={this.handleFormChange('formInquiries')}
+                            margin="normal"
+                        />
+                    </div>
+                );
+            case 1:
+                return 'Other settings for that data';
+            case 2:
+                return 'Now we\'re cookin!';
+            default:
+                return 'Unknown stepIndex';
+        }
+    };
+
+    handleFormChange = name => event => {
+        this.setState({
+            [name]: event.target.value,
+        });
+        console.log(this.state);
     };
 
     handleNext = () => {
@@ -86,7 +117,7 @@ class FacilityFormStepper extends React.Component {
                         </div>
                     ) : (
                         <div>
-                            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+                            <Typography className={classes.instructions}>{this.getStepContent(activeStep)}</Typography>
                             <div>
                                 <Button
                                     disabled={activeStep === 0}
