@@ -94,7 +94,7 @@ export default class FacilityPie extends Component {
                             radialLabelsLinkHorizontalLength={24}
                             radialLabelsLinkStrokeWidth={1}
                             radialLabelsLinkColor="inherit"
-                            sliceLabel={function(e){return"".concat(e.id,"\n\ (").concat(e.value,")")}}
+                            sliceLabel={function(e){return"".concat(e.id,"\n (").concat(e.value,")")}}
                             slicesLabelsSkipAngle={10}
                             slicesLabelsTextColor="#fff"
                             animate={true}

@@ -27,7 +27,7 @@ class FacilityVolume extends Component {
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <div style={{width: '40%', margin: 'auto'}}>
-                        <img src={this.props.parentState.fLogo} style={{width: '50%'}} alt="logo"/>
+                        <img src={this.props.logo} style={{width: '50%'}} alt="logo"/>
                         <h3><b><em>Volume</em></b></h3>
                     </div>
                     <div style={{width: '55%', margin: 'auto'}}>
