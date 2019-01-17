@@ -112,14 +112,15 @@ class Facility extends Component {
 
     render() {
         const {classes} = this.props;
+        const fLogo = logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png";
 
         return (
             <div className="facilityComponent">
-                <h3>Facility Report - {this.state.fName}</h3>
+                <h3>Facility Report - {this.props.parentState.SelectedFacility[0]}</h3>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <div style={{width: '40%', margin: 'auto'}}>
-                        <img src={this.state.fLogo} style={{width: '50%'}} alt="logo"/>
+                        <img src={fLogo} style={{width: '50%'}} alt="logo"/>
                         <h3><b><em>Summary</em></b></h3>
                     </div>
                     <div style={{width: '55%', margin: 'auto'}}>
@@ -279,7 +280,7 @@ class Facility extends Component {
                 <FacilityFormStepper/>
 
                 <hr style={{width: '90%'}}/>
-                <FacilityVolume parentState={this.state}/>
+                <FacilityVolume parentState={this.state} logo={fLogo}/>
                 <hr style={{width: '90%'}}/>
 
                 <ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>
