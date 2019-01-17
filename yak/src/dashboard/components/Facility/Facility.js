@@ -84,6 +84,7 @@ class Facility extends Component {
     };
 
     componentDidMount() {
+        // Check if we have a facility then create logo url string to show logo
         if(this.state.fDomain !== 'domain') {
             this.setState({
                 fLogo: logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png",
