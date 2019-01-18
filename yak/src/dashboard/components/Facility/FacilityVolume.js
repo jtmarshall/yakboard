@@ -7,9 +7,6 @@ import FacilityVolumeChart from './facilityVolumeChart';
 
 
 class FacilityVolume extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         commentBox: '',
