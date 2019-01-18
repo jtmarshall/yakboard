@@ -6,7 +6,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-// import thunk from 'redux-thunk';
 import reducers from './reducers';
 import moment from 'moment';
 
@@ -68,24 +67,24 @@ const defaultState = {
     },
 };
 
-// declare store using all combined reducers and a pre-loaded(default) state; enhancers for redux dev tools
+// declare store using all combined reducers and a pre-loaded(default) state;
 const store = createStore(
     reducers,
     defaultState,
-    window.devToolsExtension && window.devToolsExtension()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 console.log(store.getState());
 
-// redux test user action
-const updateUserAction = {
-    type: 'updateUser',
-    payload: {
-        user: 'john'
-    }
-};
-
-store.dispatch(updateUserAction);
+// // redux test user action
+// const updateUserAction = {
+//     type: 'updateUser',
+//     payload: {
+//         user: 'john'
+//     }
+// };
+//
+// store.dispatch(updateUserAction);
 
 ReactDOM.render(
     <HashRouter>

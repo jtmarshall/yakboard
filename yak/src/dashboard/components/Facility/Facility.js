@@ -16,7 +16,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FacilityVolume from './FacilityVolume';
-import logo from "../../../assets/logo/yak-logo-fullbody.svg";
 import FacilityFormStepper from './facilityForm';
 
 

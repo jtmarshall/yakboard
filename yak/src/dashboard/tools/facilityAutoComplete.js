@@ -194,7 +194,7 @@ class FacilityAutoComplete extends React.Component {
                       selectedItem: selectedItem2,
                       highlightedIndex,
                   }) => (
-                    <div className='col-lg-7 autoComplete-container'>
+                    <div className='autoComplete-container'>
                         {renderInput({
                             fullWidth: true,
                             InputProps: getInputProps({

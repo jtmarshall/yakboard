@@ -3,8 +3,7 @@ import './App.css';
 import Dash from './dashboard/Dash';
 import Login from './login/Login.js';
 import {connect} from 'react-redux';
-import {updateUser} from "./reducers/actions";
-import {bindActionCreators} from "redux";
+import withRouter from "react-router/es/withRouter";
 
 
 // function onAuthRequired({history}) {
@@ -34,8 +33,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.props);
-
         // migration to typography2
         window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
@@ -51,8 +48,7 @@ class App extends Component {
         } else {
             return (
                 <div className="App">
-                    <div onClick={this.onUpdateUser}>Update User</div>
-                    <Dash/>
+                    <Dash store={this.props.store}/>
                 </div>
             );
         }
@@ -60,19 +56,17 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = (state, props) => {
-    console.log(state, props);
-
-    return {
-        products: state.products,
-        user: state.user
-    }
+const mapStateToProps = (state) => {
+    return { items: state.items };
 };
 
-const mapActionsToProps = (dispatch, props) => {
-    return bindActionCreators({
-        onUpdateUser: updateUser
-    }, dispatch);
-};
+// const mapActionsToProps = {
+//     onUpdateUser: updateUser,
+//     onApiRequest: getFacilityList
+// };
 
-export default connect(mapStateToProps, mapActionsToProps)(App);
+// const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
+//     return {};
+// };
+
+export default withRouter(connect(mapStateToProps)(App));
