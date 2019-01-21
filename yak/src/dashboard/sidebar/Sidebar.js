@@ -40,9 +40,9 @@ class Sidebar extends React.Component {
                         </Tooltip>
                     </Link>
                     <Link to="/export">
-                        <Tooltip title="Reports & Exports" placement="bottom">
+                        <Tooltip title="Export a File" placement="bottom">
                             <li style={{paddingLeft: 25}}>
-                                <MaterialIcon icon='timeline' color='#EEEEEE'/> Report/Export
+                                <MaterialIcon icon='cloud_download' color='#EEEEEE'/> Export
                             </li>
                         </Tooltip>
                     </Link>

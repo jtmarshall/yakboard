@@ -12,7 +12,6 @@ import FormControl from "@material-ui/core/FormControl";
 import Divider from "@material-ui/core/es/Divider/Divider";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
@@ -54,9 +53,6 @@ const styles = {
 };
 
 class Geo extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         geoView: 'state',
@@ -89,7 +85,7 @@ class Geo extends Component {
         if (this.state.geoView === 'bubble') {
             colors = ['#92ddc8', '#81b69d', '#5aa17f', '#137a63', '#0a3a2a', ''];
         }
-        if (this.state.customConfig == '') {
+        if (this.state.customConfig === '') {
             this.setState({
                 customConfig: {
                     "AL": {

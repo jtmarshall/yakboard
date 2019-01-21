@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0483b1ec-063a-4224-a77d-59ffa7e3966e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Facility/Facility.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Facility/Facility.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Facility/FacilityVolume.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Facility/FacilityVolume.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/tools/DateComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/tools/DateComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/tools/datePicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/tools/datePicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard/tools/facilityAutoComplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/tools/facilityAutoComplete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dashboard/components/Geo/Geo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/components/Geo/Geo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,27 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="80" column="26" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dashboard/components/Facility/Facility.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -78,11 +49,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="851">
               <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dashboard/components/Geo/Geo.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="542">
+              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="44" column="66" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -210,9 +205,7 @@
         <option value="$PROJECT_DIR$/src/dashboard/components/Touch/Touch.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Geo/geo.css" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Geo/Geo.css" />
-        <option value="$PROJECT_DIR$/src/dashboard/components/Geo/Geo.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Timeframe/Timeframe.js" />
-        <option value="$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Conversion/Conversion.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Facility/facilityVolumeChart.js" />
         <option value="$PROJECT_DIR$/src/dashboard/components/Touch/touchChart.js" />
@@ -233,6 +226,8 @@
         <option value="$PROJECT_DIR$/src/dashboard/tools/datePicker.js" />
         <option value="$PROJECT_DIR$/src/dashboard/tools/DateComponent.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/src/dashboard/components/Geo/Geo.js" />
+        <option value="$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js" />
       </list>
     </option>
   </component>
@@ -294,6 +289,14 @@
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Facility" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yak" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Geo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yak" type="b2602c69:ProjectViewProjectNode" />
@@ -433,11 +436,12 @@
       <workItem from="1547739861927" duration="7000" />
       <workItem from="1547739886840" duration="10405000" />
       <workItem from="1547824716626" duration="203000" />
+      <workItem from="1548083839613" duration="238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316860000" />
+    <option name="totallyTimeSpent" value="317098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="-1057" width="1505" height="1057" extended-state="0" />
@@ -631,16 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Geo/Geo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dashboard/components/Conversion/nivoPie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
@@ -721,16 +715,6 @@
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -876,6 +860,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="851">
           <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/components/Geo/Geo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dashboard/sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="44" column="66" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
