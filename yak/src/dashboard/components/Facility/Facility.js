@@ -17,6 +17,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FacilityVolume from './FacilityVolume';
 import FacilityFormStepper from './facilityForm';
+import moment from 'moment';
 
 
 const styles = {
@@ -78,8 +79,9 @@ class Facility extends Component {
         inquiriesCommentBox: '',
         callsCommentBox: '',
         trafficCommentBox: '',
-        ytd: '2019',
-        ytdPrevious: '2018',
+        momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') +'/'+ moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
+        ytd: moment(this.props.parentState.DateFrame.To).format('MMM YYYY'),
+        ytdPrevious: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM YYYY'),
     };
 
     componentDidMount() {
@@ -147,9 +149,9 @@ class Facility extends Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell></TableCell>
-                                    <TableCell align="right">MoM</TableCell>
-                                    <TableCell align="right">YTD {this.state.ytd}</TableCell>
-                                    <TableCell align="right">YTD {this.state.ytdPrevious}</TableCell>
+                                    <TableCell align="center">MoM {this.state.momLabel}</TableCell>
+                                    <TableCell align="center">YTD {this.state.ytd}</TableCell>
+                                    <TableCell align="center">YTD {this.state.ytdPrevious}</TableCell>
                                     <TableCell align="center">Comments</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -158,14 +160,14 @@ class Facility extends Component {
                                     <TableCell component="th" scope="row">
                                         Admits
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
                                     <TableCell>
@@ -188,13 +190,13 @@ class Facility extends Component {
                                     <TableCell component="th" scope="row">
                                         Inquiries
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
                                     <TableCell>
@@ -217,13 +219,13 @@ class Facility extends Component {
                                     <TableCell component="th" scope="row">
                                         Calls
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
                                     <TableCell>
@@ -246,13 +248,13 @@ class Facility extends Component {
                                     <TableCell component="th" scope="row">
                                         Traffic
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
                                     </TableCell>
                                     <TableCell>
