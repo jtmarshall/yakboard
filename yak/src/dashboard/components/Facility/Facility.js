@@ -75,10 +75,13 @@ class Facility extends Component {
         fLoc: 'location',
         fDomain: this.props.parentState.SelectedFacilityDomain || 'domain',
         commentBox: '',
+        spendCommentBox: '',
+        webformsCommentBox: '',
         admitsCommentBox: '',
         inquiriesCommentBox: '',
         callsCommentBox: '',
         trafficCommentBox: '',
+        cpaCommentBox: '',
         momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') +'/'+ moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
         ytd: moment(this.props.parentState.DateFrame.To).format('MMM YYYY'),
         ytdPrevious: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM YYYY'),
@@ -166,6 +169,70 @@ class Facility extends Component {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
+                                <TableRow key='spend'>
+                                    <TableCell component="th" scope="row">
+                                        Spend
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.spendCommentBox}
+                                            onChange={this.handleChange('spendCommentBox')}
+                                            className={classes.textField}
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='webforms'>
+                                    <TableCell component="th" scope="row">
+                                        Webforms
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.webformsCommentBox}
+                                            onChange={this.handleChange('webformsCommentBox')}
+                                            className={classes.textField}
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
+                                </TableRow>
                                 <TableRow key='admits'>
                                     <TableCell component="th" scope="row">
                                         Admits
@@ -287,6 +354,38 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.trafficCommentBox}
                                             onChange={this.handleChange('trafficCommentBox')}
+                                            className={classes.textField}
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='cpa'>
+                                    <TableCell component="th" scope="row">
+                                        CPA
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.cpaCommentBox}
+                                            onChange={this.handleChange('cpaCommentBox')}
                                             className={classes.textField}
                                             margin="normal"
                                             variant="outlined"
