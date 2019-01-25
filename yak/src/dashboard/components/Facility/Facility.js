@@ -166,9 +166,11 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
                                         <TextField
@@ -192,12 +194,15 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
                                         <TextField
@@ -221,12 +226,15 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
                                         <TextField
@@ -250,12 +258,15 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
                                         <TextField
