@@ -111,13 +111,23 @@ class Facility extends Component {
         });
     };
 
+    printReport = () => {
+        alert("Printing PDF Report");
+    };
+
     render() {
         const {classes} = this.props;
         const fLogo = logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png";
 
         return (
             <div className="facilityComponent">
+                <span style={{position: 'absolute', right: '5%', cursor: 'pointer'}} onClick={this.printReport}>
+                    <MaterialIcon icon='print' color='#4caf50'/>
+                    <span style={{fontSize: '16px', verticalAlign: 'top'}}> Print Report</span>
+                </span>
+
                 <h3>Facility Report - {this.props.parentState.SelectedFacility[0]}</h3>
+
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <div style={{width: '40%', margin: 'auto'}}>
@@ -161,15 +171,15 @@ class Facility extends Component {
                                         Admits
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -193,15 +203,15 @@ class Facility extends Component {
                                         Inquiries
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -225,15 +235,15 @@ class Facility extends Component {
                                         Calls
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -257,15 +267,15 @@ class Facility extends Component {
                                         Traffic
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='green'/>
+                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='red'/>
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
