@@ -178,7 +178,7 @@ class Facility extends Component {
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
@@ -214,7 +214,7 @@ class Facility extends Component {
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
