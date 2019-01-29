@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import Card from '../../tools/Card/Card';
+import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import TextField from '@material-ui/core/TextField';
 import FacilityPie from './facilityPie';
 import FacilityVolumeChart from './facilityVolumeChart';
+import MaterialIcon from 'material-icons-react';
+import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 
 class FacilityVolume extends Component {
@@ -50,6 +53,77 @@ class FacilityVolume extends Component {
                 <Card>
                     <CardBody>
                         <FacilityVolumeChart/>
+                    </CardBody>
+                </Card>
+
+                <Card>
+                    <CardHeader color="info">
+                        <h4 className="cardTitleWhite">Miscellaneous</h4>
+                    </CardHeader>
+                    <CardBody>
+                        <div className="row" style={{display: 'inline-flex', width: '90%'}}>
+                            <ul className='ulFacility'>
+                                <Tooltip title="Website Updates" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='update' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Collateral" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='import_contacts' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Photos" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='photo' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Video" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='videocam' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Rebrand" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='star_half' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Online Reviews" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='mood' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Media" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='video_library' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Advertisement" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='tv' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Email" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='email' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+
+                                <Tooltip title="Social Media" placement="bottom">
+                                    <li>
+                                        <MaterialIcon icon='group_add' color=''/> 1337
+                                    </li>
+                                </Tooltip>
+                            </ul>
+                        </div>
                     </CardBody>
                 </Card>
             </div>
