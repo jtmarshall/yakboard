@@ -26,34 +26,46 @@ export default class FacilityPie extends Component {
         this.state = {
             chartData: [
                 {
-                    "id": "Direct",
-                    "label": "Direct",
+                    "id": "Referring",
+                    "label": "Referring",
                     "value": 425,
                     "color": '#4EAF4A'
                 },
                 {
-                    "id": "Email",
-                    "label": "Email",
+                    "id": "Direct",
+                    "label": "Direct",
                     "value": 180,
                     "color": '#377EB8'
                 },
                 {
-                    "id": "Organic",
-                    "label": "Organic",
+                    "id": "Ad-Video",
+                    "label": "Ad-Video",
                     "value": 539,
                     "color": '#FF6F00'
                 },
                 {
-                    "id": "Paid Ad",
-                    "label": "Paid Advertising",
+                    "id": "Email",
+                    "label": "Email",
                     "value": 292,
                     "color": '#AF1B3F'
                 },
                 {
-                    "id": "Referring",
-                    "label": "Referring",
+                    "id": "Organic",
+                    "label": "Organic",
                     "value": 317,
                     "color": '#963484'
+                },
+                {
+                    "id": "Offline",
+                    "label": "Offline",
+                    "value": 191,
+                    "color": '#FFD600'
+                },
+                {
+                    "id": "CPC",
+                    "label": "CPC",
+                    "value": 247,
+                    "color": '#80A1C1'
                 }
             ]
         }
