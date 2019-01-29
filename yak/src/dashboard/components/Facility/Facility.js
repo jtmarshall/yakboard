@@ -120,6 +120,7 @@ class Facility extends Component {
 
     render() {
         const {classes} = this.props;
+        // Concatenate logo url together
         const fLogo = logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png";
 
         return (
