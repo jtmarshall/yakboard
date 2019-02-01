@@ -29,3 +29,57 @@ body {
 .raised-btn:active::before {
   opacity: 0.32;
 }
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    padding-left: 0px !important;
+    text-align: center !important;
+  }
+
+  .facilityPrint {
+
+  }
+
+  [class^="Card"] {
+    display: block !important;
+    /*width: auto !important;*/
+    margin: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  [class^="CardHeader"] {
+    width: unset !important;
+  }
+
+  .nivoCard {
+    width: 320px !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+  }
+
+  .nivoCard [class^="CardHeader"] {
+    width: 80% !important;
+    text-align: center !important;
+  }
+
+  .nivoCard [class^="CardBody"] {
+    padding: unset !important;
+  }
+
+  .facilityBarChart {
+    width: 65% !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: none !important;
+    /*margin: unset !important;*/
+    margin-left: -20px !important;
+  }
+
+  .historySwitch {
+    display: none;
+  }
+}

@@ -112,12 +112,12 @@ class FacilityFormStepper extends React.Component {
                 <div>
                     {this.state.activeStep === steps.length ? (
                         <div>
-                            <Typography className={classes.instructions}>All steps completed</Typography>
+                            <Typography component={'span'} className={classes.instructions}>All steps completed</Typography>
                             <Button onClick={this.handleReset}>Reset</Button>
                         </div>
                     ) : (
                         <div>
-                            <Typography className={classes.instructions}>{this.getStepContent(activeStep)}</Typography>
+                            <Typography component={'span'} className={classes.instructions}>{this.getStepContent(activeStep)}</Typography>
                             <div>
                                 <Button
                                     disabled={activeStep === 0}

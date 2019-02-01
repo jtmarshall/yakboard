@@ -13,7 +13,7 @@ import DateComponent from './tools/DateComponent';
 import Touch from "./components/Touch/Touch";
 import Timeframe from "./components/Timeframe/Timeframe";
 import Geo from "./components/Geo/Geo";
-import Facility from './components/Facility/Facility';
+import PrintComponent from './components/Facility/PrintComponent';
 
 
 // Global state for local storage
@@ -209,7 +209,8 @@ class Dash extends React.Component {
                     <Route path="/timeframe" render={() => <Timeframe parentState={this.state} updateDash={this.updateDashTimeframe}/>}/>
                     <Route path="/geo" render={() => <Geo parentState={this.state}/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
-                    <Route path="/facility" render={() => <Facility parentState={this.state}/>}/>
+                    <Route path="/facility" render={() => <PrintComponent parentState={this.state}/>}/>
+                    {/*<Route path="/facility" render={() => <Facility parentState={this.state}/>}/>*/}
 
                 </div>
             );
