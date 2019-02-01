@@ -2,6 +2,7 @@ import React from "react";
 import ReactToPrint from "react-to-print";
 import Facility from './Facility';
 import MaterialIcon from 'material-icons-react';
+import './facility.css';
 
 
 class PrintComponent extends React.Component {
@@ -11,7 +12,7 @@ class PrintComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='facilityPrint'>
                 <ReactToPrint
                     pageStyle={{
                         width: '100%',

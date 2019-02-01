@@ -50,7 +50,7 @@ class FacilityVolume extends Component {
                 <FacilityPie color={"info"} title={"Traffic"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 <FacilityPie color={"info"} title={"Calls"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
 
-                <Card>
+                <Card className='facilityBarChart'>
                     <CardBody>
                         <FacilityVolumeChart/>
                     </CardBody>

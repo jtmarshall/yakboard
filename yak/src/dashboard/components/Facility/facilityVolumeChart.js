@@ -569,7 +569,7 @@ export class FacilityVolumeChart extends Component {
     render() {
         return (
             <div className="reactChart">
-                <div style={{paddingBottom: '20px', float: 'right'}}>
+                <div className='historySwitch' style={{paddingBottom: '20px', float: 'right'}}>
                     Show History:
                     <Switch
                         checked={this.state.showHistory}
