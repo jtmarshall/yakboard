@@ -43,10 +43,11 @@ body {
 
   [class^="Card"] {
     display: block !important;
-    /*width: auto !important;*/
+    width: auto !important;
     margin: auto !important;
     border: none !important;
     box-shadow: none !important;
+    /*max-height: 600px;*/
   }
 
   [class^="CardHeader"] {
@@ -70,6 +71,10 @@ body {
     padding: unset !important;
   }
 
+  .nivoGraph {
+    max-height: 320px !important;
+  }
+
   .facilityBarChart {
     width: 65% !important;
     box-shadow: none !important;
@@ -79,7 +84,16 @@ body {
     margin-left: -20px !important;
   }
 
+  .chartjs-render-monitor {
+    height: unset !important;
+    width: 950px !important;
+  }
+
   .historySwitch {
     display: none;
+  }
+
+  #facilityLogo {
+    max-height: 280px;
   }
 }
