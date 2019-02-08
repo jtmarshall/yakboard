@@ -262,7 +262,7 @@ export class FacilityVolumeChart extends Component {
     render() {
         return (
             <div className="reactChart">
-                
+
                 <Bar
                     data={this.state.chartData}
                     options={this.state.chartOptions}

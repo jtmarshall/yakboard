@@ -445,11 +445,11 @@ class Facility extends Component {
                     </CardBody>
                 </Card>
 
-                <FacilityFormStepper/>
-
                 <hr style={{width: '90%'}}/>
                 <FacilityVolume parentState={this.state} logo={fLogo}/>
                 <hr style={{width: '90%'}}/>
+
+                <FacilityFormStepper/>
 
                 <ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
