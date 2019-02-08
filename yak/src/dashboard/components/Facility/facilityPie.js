@@ -86,10 +86,10 @@ export default class FacilityPie extends Component {
                         <ResponsivePie
                             data={nivoData}
                             margin={{
-                                "top": 40,
-                                "right": 20,
-                                "bottom": 40,
-                                "left": 20
+                                "top": 30,
+                                "right": 15,
+                                "bottom": 30,
+                                "left": 15
                             }}
                             innerRadius={0.5}
                             padAngle={0.7}
