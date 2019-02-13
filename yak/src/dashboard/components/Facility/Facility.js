@@ -168,9 +168,12 @@ class Facility extends Component {
         const {classes} = this.props;
         // Concatenate logo url together
         const fLogo = logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png";
+        // Set facility css rel; stripping out www. and .com
+        const facilityStyle = this.state.fDomain.replace(/(www\.)/, '').replace(/(\.com)/, '');
+        console.log(facilityStyle);
 
         return (
-            <div id='captureArea' className="facilityComponent">
+            <div id='captureArea' className='facilityComponent' rel={facilityStyle}>
                 {/*<span style={{position: 'absolute', right: '5%', cursor: 'pointer'}} onClick={this.printReport}>*/}
                     {/*<MaterialIcon icon='print' color='#4caf50'/>*/}
                     {/*<span style={{fontSize: '16px', verticalAlign: 'top'}}> Print Report</span>*/}

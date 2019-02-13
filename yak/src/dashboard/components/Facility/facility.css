@@ -1,5 +1,188 @@
 /* Styles applied for PDF printing */
 
+/* Fix for comments label getting cutoff */
+[class^="MuiInputLabel"] {
+    padding-top: 6px;
+}
+
+/* Facility Styles */
+.facilityComponent[rel="acadiamontana"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="acadianaaddiction"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="acadiavermilion"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="azureacres"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="baysidemarin"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="belmontbehavioral"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="blueridgemountainrecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="bowlinggreenbrandywine"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="burkwoodtreatmentcenter"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="camprecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="carolinaeatingdisorders"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="cascadebh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="cedarcresthospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="centerforhopeofthesierras"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="conwaybh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="coveforgebehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="coveprep"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="covingtonbh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="crestwynbh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="crosscreekhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="dbinstitute"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="deltamedcenter"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="deserthills-nm"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="duffysrehab"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="erlangerbh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="galaxrecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="greenleafhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="harboroaks"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="harmonyhc"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="highlandridgehospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="huntingtoncreekrecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="keystonetreatment"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="lakelandbehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="lakeviewbehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="life-healing"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="longleafhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="mccallumplace"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="meadowwoodhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="millcreekbehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="millcreekofmagee"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="millcreekofpontotoc"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="mirrorlakerecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="montecatinieatingdisorder"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+/* Wildcard CTCs */
+div[rel*="ctc"] [class^="CardHeader"] {
+    background: #244289 !important;
+}
+
 @media print {
     body {
         -webkit-print-color-adjust: exact !important;
