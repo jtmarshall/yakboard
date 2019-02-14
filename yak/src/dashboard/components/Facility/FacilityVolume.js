@@ -33,7 +33,7 @@ class FacilityVolume extends Component {
                     <div style={{width: '55%', margin: 'auto'}}>
                         <TextField
                             id="outlined-multiline-flexible"
-                            label="Comments"
+                            label="Highlights"
                             multiline
                             rows="8"
                             rowsMax="12"

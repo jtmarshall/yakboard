@@ -30,6 +30,7 @@ class PrintComponent extends React.Component {
                     }
                     content={() => this.componentRef}
                 />
+                <h3>Facility Report</h3>
                 <Facility ref={el => (this.componentRef = el)} parentState={this.props.parentState}/>
             </div>
         );

@@ -1,8 +1,41 @@
 /* Styles applied for PDF printing */
 
-/* Fix for comments label getting cutoff */
-[class^="MuiInputLabel"] {
-    padding-top: 6px;
+.facilityProfileCard {
+    max-width: 375px;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+h5 {
+    font-size: 1.5rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+    color: #003087;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+#monthText {
+    font-size: 1.2rem;
+    color: #03B5E2;
+}
+
+h6 {
+    font-size: 1.25rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.0075em;
+    color: #003087;
+    text-transform: none;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#facilityNameText {
+    font-size: 1rem;
+    color: #365CA0;
 }
 
 /* Facility Styles */
@@ -18,8 +51,12 @@
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="azureacres"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="azureacres"] {
+    --fPrimary1: #419639;
+    --fPrimary2: #3E3E3E;
+    --fSecondary1: #B3C381;
+    --fSecondary2: #0E165E;
+    --fAccent: #C5DF95;
 }
 
 .facilityComponent[rel="baysidemarin"] [class^="CardHeader"] {
@@ -98,8 +135,12 @@
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="duffysrehab"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="duffysrehab"] {
+    --fPrimary1: #AD172B;
+    --fPrimary2: #363A35;
+    --fSecondary1: #A3BAC5;
+    --fSecondary2: #77974C;
+    --fAccent: #C28B34;
 }
 
 .facilityComponent[rel="erlangerbh"] [class^="CardHeader"] {
@@ -183,6 +224,10 @@ div[rel*="ctc"] [class^="CardHeader"] {
     background: #244289 !important;
 }
 
+[class^="CardHeader"] {
+    background: var(--fPrimary1) !important;
+}
+
 @media print {
     body {
         -webkit-print-color-adjust: exact !important;
@@ -256,6 +301,11 @@ div[rel*="ctc"] [class^="CardHeader"] {
 
     #facilityLogo {
         max-height: 280px;
+    }
+
+    /* Fix for comments label getting cutoff */
+    [class^="MuiFormControl"] {
+        overflow-x: unset !important;
     }
 
 }
