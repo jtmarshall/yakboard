@@ -7,65 +7,94 @@ import Card from "../../tools/Card/Card";
 export default class FacilityPie extends Component {
     constructor(props) {
         super(props);
-        //let today = new Date();
-
-        // // Retrieve local store
-        // let yakPak = toolbox.retrievePak();
-        // let toDate = new Date(yakPak.DateFrame.To);
-        //
-        // let tempLabels = [];
-        //
-        // // Generate date labels starting with 'toDate' and iterating back through length of data
-        // for (let i = 0; i < this.props.chartCallData.length; i++) {
-        //     // parse date for how many days prior
-        //     let temp = new Date();
-        //     temp.setDate(toDate.getDate() - i);
-        //     tempLabels.unshift(moment(temp).format('M') + "/" + temp.getDate());
-        // }
 
         this.state = {
+            // chartData: [
+            //     {
+            //         "id": "Referring",
+            //         "label": "Referring",
+            //         "value": 425,
+            //         "color": '#4EAF4A'
+            //     },
+            //     {
+            //         "id": "Direct",
+            //         "label": "Direct",
+            //         "value": 180,
+            //         "color": '#377EB8'
+            //     },
+            //     {
+            //         "id": "Ad-Video",
+            //         "label": "Ad-Video",
+            //         "value": 539,
+            //         "color": '#FF6F00'
+            //     },
+            //     {
+            //         "id": "Email",
+            //         "label": "Email",
+            //         "value": 292,
+            //         "color": '#AF1B3F'
+            //     },
+            //     {
+            //         "id": "Organic",
+            //         "label": "Organic",
+            //         "value": 317,
+            //         "color": '#963484'
+            //     },
+            //     {
+            //         "id": "Offline",
+            //         "label": "Offline",
+            //         "value": 191,
+            //         "color": '#FFD600'
+            //     },
+            //     {
+            //         "id": "CPC",
+            //         "label": "CPC",
+            //         "value": 247,
+            //         "color": '#80A1C1'
+            //     }
+            // ]
             chartData: [
                 {
                     "id": "Referring",
                     "label": "Referring",
                     "value": 425,
-                    "color": '#4EAF4A'
+                    "color": '#365CA0'
                 },
                 {
                     "id": "Direct",
                     "label": "Direct",
                     "value": 180,
-                    "color": '#377EB8'
+                    "color": '#33C3E9'
                 },
                 {
                     "id": "Ad-Video",
                     "label": "Ad-Video",
                     "value": 539,
-                    "color": '#FF6F00'
+                    "color": '#33BFBB'
                 },
                 {
                     "id": "Email",
                     "label": "Email",
                     "value": 292,
-                    "color": '#AF1B3F'
+                    "color": '#A3D50C'
                 },
                 {
                     "id": "Organic",
                     "label": "Organic",
                     "value": 317,
-                    "color": '#963484'
+                    "color": '#FFD600'
                 },
                 {
                     "id": "Offline",
                     "label": "Offline",
                     "value": 191,
-                    "color": '#FFD600'
+                    "color": '#E53947'
                 },
                 {
                     "id": "CPC",
                     "label": "CPC",
                     "value": 247,
-                    "color": '#80A1C1'
+                    "color": '#9E5E8C'
                 }
             ]
         }

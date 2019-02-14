@@ -20,6 +20,9 @@ import FacilityFormStepper from './facilityForm';
 import moment from 'moment';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 
 
 const styles = {
@@ -76,6 +79,8 @@ class Facility extends Component {
         fType: 'Inpatient',
         fLoc: 'location',
         fDomain: this.props.parentState.SelectedFacilityDomain || 'domain',
+        fAddress: 'Facility Address',
+        fPhone: 'Facility Phone',
         commentBox: '',
         spendCommentBox: '',
         webformsCommentBox: '',
@@ -84,6 +89,7 @@ class Facility extends Component {
         callsCommentBox: '',
         trafficCommentBox: '',
         cpaCommentBox: '',
+        month: moment(this.props.parentState.DateFrame.To).format('MMMM YYYY'),
         momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') + '/' + moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
         ytd: moment(this.props.parentState.DateFrame.To).format('MMM YYYY'),
         ytdPrevious: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM YYYY'),
@@ -168,26 +174,45 @@ class Facility extends Component {
         const {classes} = this.props;
         // Concatenate logo url together
         const fLogo = logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png";
+        // Set facility css rel; stripping out www. and .com
+        const facilityStyle = this.state.fDomain.replace(/(www\.)/, '').replace(/(\.com)/, '');
+        console.log(facilityStyle);
 
         return (
-            <div id='captureArea' className="facilityComponent">
-                {/*<span style={{position: 'absolute', right: '5%', cursor: 'pointer'}} onClick={this.printReport}>*/}
-                    {/*<MaterialIcon icon='print' color='#4caf50'/>*/}
-                    {/*<span style={{fontSize: '16px', verticalAlign: 'top'}}> Print Report</span>*/}
-                {/*</span>*/}
-
-                <h3>Facility Report - {this.props.parentState.SelectedFacility[0]}</h3>
-
+            <div id='captureArea' className='facilityComponent' rel={facilityStyle}>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
-                    <div style={{width: '40%', margin: 'auto'}}>
-                        <img id='facilityLogo' src={fLogo} style={{width: '50%'}} alt="logo"/>
-                        <h3><b><em>Summary</em></b></h3>
-                    </div>
-                    <div style={{width: '55%', margin: 'auto'}}>
+                    <Card className='facilityProfileCard'>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                style={{maxWidth: '60%', margin: 'auto'}}
+                                height="auto"
+                                image={fLogo}
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <h5><strong>Monthly Report:</strong></h5>
+                                <span id='monthText'>
+                                    <strong>{this.state.month}</strong>
+                                </span>
+                                <h6>Facility:</h6>
+                                <span id='facilityNameText'>
+                                    {this.props.parentState.SelectedFacility[0]}
+                                </span>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+
+                    {/*<div style={{width: '40%', margin: 'auto'}}>*/}
+                        {/*<img id='facilityLogo' src={fLogo} style={{width: '50%'}} alt="logo"/>*/}
+                        {/*<h3><b><em>Summary</em></b></h3>*/}
+                    {/*</div>*/}
+                    <div style={{width: '75%', margin: 'auto'}}>
                         <TextField
                             id="outlined-multiline-flexible"
-                            label="Comments"
+                            label="Highlights"
                             multiline
                             rows="8"
                             rowsMax="12"
@@ -221,15 +246,15 @@ class Facility extends Component {
                                         Spend
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -253,15 +278,15 @@ class Facility extends Component {
                                         Webforms
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -285,15 +310,15 @@ class Facility extends Component {
                                         Admits
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -317,15 +342,15 @@ class Facility extends Component {
                                         Inquiries
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -349,15 +374,15 @@ class Facility extends Component {
                                         Calls
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -381,15 +406,15 @@ class Facility extends Component {
                                         Traffic
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>
@@ -413,15 +438,15 @@ class Facility extends Component {
                                         CPA
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_upward' color='#4caf50'/>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell align="center">
-                                        <MaterialIcon icon='arrow_downward' color='#f44336'/>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span style={{fontSize: '16px', verticalAlign: 'text-bottom'}}> 6% (184)</span>
                                     </TableCell>
                                     <TableCell>

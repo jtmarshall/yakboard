@@ -1,5 +1,233 @@
 /* Styles applied for PDF printing */
 
+.facilityProfileCard {
+    max-width: 375px;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+h5 {
+    font-size: 1.5rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+    color: #003087;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+#monthText {
+    font-size: 1.2rem;
+    color: #03B5E2;
+}
+
+h6 {
+    font-size: 1.25rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.0075em;
+    color: #003087;
+    text-transform: none;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#facilityNameText {
+    font-size: 1rem;
+    color: #365CA0;
+}
+
+/* Facility Styles */
+.facilityComponent[rel="acadiamontana"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="acadianaaddiction"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="acadiavermilion"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="azureacres"] {
+    --fPrimary1: #419639;
+    --fPrimary2: #3E3E3E;
+    --fSecondary1: #B3C381;
+    --fSecondary2: #0E165E;
+    --fAccent: #C5DF95;
+}
+
+.facilityComponent[rel="baysidemarin"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="belmontbehavioral"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="blueridgemountainrecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="bowlinggreenbrandywine"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="burkwoodtreatmentcenter"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="camprecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="carolinaeatingdisorders"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="cascadebh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="cedarcresthospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="centerforhopeofthesierras"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="conwaybh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="coveforgebehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="coveprep"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="covingtonbh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="crestwynbh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="crosscreekhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="dbinstitute"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="deltamedcenter"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="deserthills-nm"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="duffysrehab"] {
+    --fPrimary1: #AD172B;
+    --fPrimary2: #363A35;
+    --fSecondary1: #A3BAC5;
+    --fSecondary2: #77974C;
+    --fAccent: #C28B34;
+}
+
+.facilityComponent[rel="erlangerbh"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="galaxrecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="greenleafhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="harboroaks"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="harmonyhc"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="highlandridgehospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="huntingtoncreekrecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="keystonetreatment"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="lakelandbehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="lakeviewbehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="life-healing"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="longleafhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="mccallumplace"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="meadowwoodhospital"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="millcreekbehavioralhealth"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="millcreekofmagee"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="millcreekofpontotoc"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="mirrorlakerecovery"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="montecatinieatingdisorder"] [class^="CardHeader"] {
+    background: #05a2af !important;
+}
+
+/* Wildcard CTCs */
+div[rel*="ctc"] [class^="CardHeader"] {
+    background: #244289 !important;
+}
+
+[class^="CardHeader"] {
+    background: var(--fPrimary1) !important;
+}
+
 @media print {
     body {
         -webkit-print-color-adjust: exact !important;
@@ -73,6 +301,11 @@
 
     #facilityLogo {
         max-height: 280px;
+    }
+
+    /* Fix for comments label getting cutoff */
+    [class^="MuiFormControl"] {
+        overflow-x: unset !important;
     }
 
 }
