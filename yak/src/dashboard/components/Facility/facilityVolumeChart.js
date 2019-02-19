@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {Bar} from 'react-chartjs-2';
 import toolbox from "../../tools/toolbox";
 import moment from 'moment';
-import Switch from '@material-ui/core/Switch';
 
 
 export class FacilityVolumeChart extends Component {

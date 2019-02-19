@@ -58,47 +58,71 @@ export default class FacilityPie extends Component {
                     "id": "Referring",
                     "label": "Referring",
                     "value": 425,
-                    "color": '#365CA0'
+                    "color": '#365CA0',
+                    "percent": 0
                 },
                 {
                     "id": "Direct",
                     "label": "Direct",
                     "value": 180,
-                    "color": '#33C3E9'
+                    "color": '#33C3E9',
+                    "percent": 0
                 },
                 {
                     "id": "Ad-Video",
                     "label": "Ad-Video",
                     "value": 539,
-                    "color": '#33BFBB'
+                    "color": '#33BFBB',
+                    "percent": 0
                 },
                 {
                     "id": "Email",
                     "label": "Email",
                     "value": 292,
-                    "color": '#A3D50C'
+                    "color": '#A3D50C',
+                    "percent": 0
                 },
                 {
                     "id": "Organic",
                     "label": "Organic",
                     "value": 317,
-                    "color": '#FFD600'
+                    "color": '#FFD600',
+                    "percent": 0
                 },
                 {
                     "id": "Offline",
                     "label": "Offline",
                     "value": 191,
-                    "color": '#E53947'
+                    "color": '#E53947',
+                    "percent": 0
                 },
                 {
                     "id": "CPC",
                     "label": "CPC",
                     "value": 247,
-                    "color": '#9E5E8C'
+                    "color": '#9E5E8C',
+                    "percent": 0
                 }
             ]
-        }
+        };
+
+        this.loadData();
     }
+
+    loadData = () => {
+        let tempChartData = this.state.chartData;
+        let totalVal = 2191;
+
+        for (let item in tempChartData) {
+            item['percent'] = (item.value/totalVal * 100).toFixed(1);
+        }
+
+        console.log(tempChartData);
+
+        this.setState({
+            chartData: tempChartData,
+        })
+    };
 
     render() {
         let nivoData = this.state.chartData;
@@ -135,7 +159,7 @@ export default class FacilityPie extends Component {
                             radialLabelsLinkHorizontalLength={24}
                             radialLabelsLinkStrokeWidth={1}
                             radialLabelsLinkColor="inherit"
-                            sliceLabel={function(e){return"".concat(e.id,"\n (").concat(e.value,")")}}
+                            sliceLabel={function(e){return"".concat(e.id,"\n ").concat(e.percent, "% (").concat(e.value,")")}}
                             slicesLabelsSkipAngle={10}
                             slicesLabelsTextColor="#fff"
                             animate={true}

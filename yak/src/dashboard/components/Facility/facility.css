@@ -1,4 +1,13 @@
-/* Styles applied for PDF printing */
+
+.admitsCard {
+    margin: auto;
+    height: 280px;
+}
+
+.admitsPieGraph {
+    margin: auto;
+    height: 200px;
+}
 
 .facilityProfileCard {
     max-width: 375px;
@@ -7,7 +16,7 @@
 }
 
 h5 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     line-height: 1.6;
@@ -224,10 +233,11 @@ div[rel*="ctc"] [class^="CardHeader"] {
     background: #244289 !important;
 }
 
-[class^="CardHeader"] {
+.facilityComponent [class^="CardHeader"] {
     background: var(--fPrimary1) !important;
 }
 
+/* Styles applied for PDF printing */
 @media print {
     body {
         -webkit-print-color-adjust: exact !important;

@@ -20,9 +20,9 @@ import FacilityFormStepper from './facilityForm';
 import moment from 'moment';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import FacilityAdmitsGoal from './facilityAdmitsGoal';
 
 
 const styles = {
@@ -183,33 +183,33 @@ class Facility extends Component {
 
                 <div className="row" style={{display: 'inline-flex', width: '90%'}}>
                     <Card className='facilityProfileCard'>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                alt="Contemplative Reptile"
-                                style={{maxWidth: '60%', margin: 'auto'}}
-                                height="auto"
-                                image={fLogo}
-                                title="Contemplative Reptile"
-                            />
-                            <CardContent>
-                                <h5><strong>Monthly Report:</strong></h5>
-                                <span id='monthText'>
-                                    <strong>{this.state.month}</strong>
-                                </span>
-                                <h6>Facility:</h6>
-                                <span id='facilityNameText'>
-                                    {this.props.parentState.SelectedFacility[0]}
-                                </span>
-                            </CardContent>
-                        </CardActionArea>
+                        <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            style={{maxWidth: '60%', margin: 'auto'}}
+                            height="auto"
+                            image={fLogo}
+                            title="Contemplative Reptile"
+                        />
+                        <CardContent style={{padding: '8px'}}>
+                            <h5><strong>Monthly Report:</strong></h5>
+                            <span id='monthText'>
+                                <strong>{this.state.month}</strong>
+                            </span>
+                            <h6>Facility:</h6>
+                            <span id='facilityNameText'>
+                                {this.props.parentState.SelectedFacility[0]}
+                            </span>
+                        </CardContent>
                     </Card>
+
+                    <FacilityAdmitsGoal color={"info"} title={"Admits Goal"}/>
 
                     {/*<div style={{width: '40%', margin: 'auto'}}>*/}
                         {/*<img id='facilityLogo' src={fLogo} style={{width: '50%'}} alt="logo"/>*/}
                         {/*<h3><b><em>Summary</em></b></h3>*/}
                     {/*</div>*/}
-                    <div style={{width: '75%', margin: 'auto'}}>
+                    <div style={{width: '80%', margin: 'auto'}}>
                         <TextField
                             id="outlined-multiline-flexible"
                             label="Highlights"
