@@ -1,4 +1,22 @@
 
+#statsSummary tr {
+    height: 90px !important;
+}
+
+.tableRowHeader {
+    font-size: 1rem !important;
+    width: 10%;
+}
+
+i {
+    vertical-align: middle;
+}
+
+.iconText {
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
 .admitsCard {
     margin: auto;
     height: 280px;
@@ -250,7 +268,7 @@ div[rel*="ctc"] [class^="CardHeader"] {
     }
 
     [class^="Card"] {
-        display: block !important;
+        display: block;
         width: auto !important;
         margin: auto !important;
         border: none !important;
@@ -259,7 +277,8 @@ div[rel*="ctc"] [class^="CardHeader"] {
     }
 
     [class^="CardHeader"] {
-        width: unset !important;
+        width: 100% !important;
+        display: block !important;
     }
 
     .facilityPieRow {
