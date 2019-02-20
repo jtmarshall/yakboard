@@ -140,9 +140,9 @@ export default class FacilityPie extends Component {
                             data={this.state.chartData}
                             margin={{
                                 "top": 30,
-                                "right": 10,
+                                "right": 20,
                                 "bottom": 30,
-                                "left": 10
+                                "left": 20
                             }}
                             innerRadius={0.5}
                             padAngle={0.7}

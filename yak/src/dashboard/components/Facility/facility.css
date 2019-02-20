@@ -255,6 +255,10 @@ div[rel*="ctc"] [class^="CardHeader"] {
     background: var(--fPrimary1) !important;
 }
 
+.nivoCard [class^="CardBody"] {
+    padding: unset !important;
+}
+
 /* Styles applied for PDF printing */
 @media print {
     body {
@@ -268,7 +272,7 @@ div[rel*="ctc"] [class^="CardHeader"] {
     }
 
     [class^="Card"] {
-        display: block;
+        display: block !important;
         width: auto !important;
         margin: auto !important;
         border: none !important;
@@ -279,6 +283,10 @@ div[rel*="ctc"] [class^="CardHeader"] {
     [class^="CardHeader"] {
         width: 100% !important;
         display: block !important;
+    }
+
+    #statsSummary [class^="CardBody"] {
+        display: inline-flex !important;
     }
 
     .facilityPieRow {
@@ -301,27 +309,29 @@ div[rel*="ctc"] [class^="CardHeader"] {
         left: 40px;
     }
 
-    /*.nivoCard [class^="CardBody"] {*/
-        /*padding: 4px !important;*/
-    /*}*/
-
-    /*.nivoGraph {*/
-        /*height: 280px !important;*/
-    /*}*/
+    .nivoGraph {
+        height: 365px !important;
+    }
 
     .facilityBarChart {
         /*width: 65% !important;*/
         box-shadow: none !important;
         border: none !important;
         background: none !important;
-        /*margin: unset !important;*/
-        margin-left: -10px !important;
-        display: block;
+        margin-top: 40px !important;
+    }
+
+    .facilityBarChart [class^="CardBody"] {
+        padding: 10px 0 !important;
+        margin: 30px 0 !important;
+        page-break-after: always;
     }
 
     .chartjs-render-monitor {
         height: unset !important;
-        width: 1050px !important;
+        width: 1080px !important;
+        display: block;
+        margin: auto;
     }
 
     .historySwitch {
