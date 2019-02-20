@@ -76,15 +76,15 @@ export default class FacilityPie extends Component {
                     "percent": 0
                 },
                 {
-                    "id": "Email",
-                    "label": "Email",
+                    "id": "Organic",
+                    "label": "Organic",
                     "value": 292,
                     "color": '#A3D50C',
                     "percent": 0
                 },
                 {
-                    "id": "Organic",
-                    "label": "Organic",
+                    "id": "Email",
+                    "label": "Email",
                     "value": 317,
                     "color": '#FFD600',
                     "percent": 0
@@ -113,8 +113,8 @@ export default class FacilityPie extends Component {
         let tempChartData = this.state.chartData;
         let totalVal = 2191;
 
-        for (let item in tempChartData) {
-            item['percent'] = (item.value/totalVal * 100).toFixed(1);
+        for (let i = 0; i < tempChartData.length; i++) {
+            tempChartData[i].percent = (tempChartData[i].value/totalVal * 100).toFixed(0);
         }
 
         console.log(tempChartData);
@@ -137,12 +137,12 @@ export default class FacilityPie extends Component {
                 <CardBody>
                     <div className="nivoGraph">
                         <ResponsivePie
-                            data={nivoData}
+                            data={this.state.chartData}
                             margin={{
                                 "top": 30,
-                                "right": 15,
+                                "right": 10,
                                 "bottom": 30,
-                                "left": 15
+                                "left": 10
                             }}
                             innerRadius={0.5}
                             padAngle={0.7}
@@ -165,26 +165,6 @@ export default class FacilityPie extends Component {
                             animate={true}
                             motionStiffness={90}
                             motionDamping={15}
-                            legends={[
-                                {
-                                    "anchor": "bottom",
-                                    "direction": "row",
-                                    "translateY": 56,
-                                    "itemWidth": 100,
-                                    "itemHeight": 18,
-                                    "itemTextColor": "#999",
-                                    "symbolSize": 18,
-                                    "symbolShape": "circle",
-                                    "effects": [
-                                        {
-                                            "on": "hover",
-                                            "style": {
-                                                "itemTextColor": "#000"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]}
                         />
                     </div>
                 </CardBody>
