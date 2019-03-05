@@ -185,11 +185,10 @@ class Facility extends Component {
                     <Card className='facilityProfileCard'>
                         <CardMedia
                             component="img"
-                            alt="Contemplative Reptile"
+                            alt="Facility Logo"
                             style={{maxWidth: '60%', margin: 'auto'}}
                             height="auto"
                             image={fLogo}
-                            title="Contemplative Reptile"
                         />
                         <CardContent style={{padding: '8px'}}>
                             <h5><strong>Monthly Report:</strong></h5>

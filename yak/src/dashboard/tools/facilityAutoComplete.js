@@ -64,7 +64,6 @@ function retrieveList() {
             )
         }
         suggestions.push();
-        console.log(suggestions);
     });
 }
 
