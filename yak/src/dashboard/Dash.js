@@ -123,6 +123,10 @@ class Dash extends React.Component {
         this.setState({
             SelectedFacility: name,
             SelectedFacilityDomain: domain,
+        }, () => {
+            if (this.state.SelectedFacility.length > 0) {
+                this.refreshView();
+            }
         });
     };
 
@@ -131,7 +135,6 @@ class Dash extends React.Component {
         this.setState({
             Filter: val
         });
-
         console.log(this.state);
     };
 

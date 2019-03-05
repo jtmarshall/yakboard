@@ -11,17 +11,23 @@ export class FacilityVolumeChart extends Component {
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
         let toDate = yakPak == null ? new Date() : new Date(yakPak.DateFrame.To);
-        let startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
-        let endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
-        let numbDays = endDay.diff(startDay, 'days');
+        // let startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
+        // let endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
+        // let numbDays = endDay.diff(startDay, 'days');
 
         let primaryLabels = [];
         let temp = moment(toDate);
 
         // Generate date labels starting with 'toDate' and iterating back through length of data
-        for (let i = -1; i < numbDays; i++) {
+        // for (let i = -1; i < numbDays; i++) {
+        //     // parse date for how many days prior
+        //     primaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
+        // }
+
+        // Generate date labels starting with 'toDate' and iterating back through length of data
+        for (let i = -1; i < 12; i++) {
             // parse date for how many days prior
-            primaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
+            primaryLabels.unshift(moment(temp).subtract(i, 'months').format('MMM \'YY'));
         }
 
         this.state = {

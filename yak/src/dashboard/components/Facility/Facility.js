@@ -185,11 +185,10 @@ class Facility extends Component {
                     <Card className='facilityProfileCard'>
                         <CardMedia
                             component="img"
-                            alt="Contemplative Reptile"
+                            alt="Facility Logo"
                             style={{maxWidth: '60%', margin: 'auto'}}
                             height="auto"
                             image={fLogo}
-                            title="Contemplative Reptile"
                         />
                         <CardContent style={{padding: '8px'}}>
                             <h5><strong>Monthly Report:</strong></h5>
@@ -371,13 +370,13 @@ class Facility extends Component {
                         <Table className={classes.table} style={{width: '40%', borderLeft: '2px solid #222'}}>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Non-Data Highlights</TableCell>
+                                    <TableCell align="center">Non-Data Highlights</TableCell>
                                     <TableCell align="center">Comments</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 <TableRow key='websiteUpdates'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" align="center">
                                         <MaterialIcon icon='important_devices' color='#03B5E2'/>
                                         <span className="iconText"> Website Updates</span>
                                     </TableCell>
@@ -398,7 +397,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='branding'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" align="center">
                                         <MaterialIcon icon='security' color='#03B5E2'/>
                                         <span className="iconText"> Branding</span>
                                     </TableCell>
@@ -419,7 +418,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='emailMarketing'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" align="center">
                                         <MaterialIcon icon='alternate_email' color='#03B5E2'/>
                                         <span className="iconText"> Email Marketing</span>
                                     </TableCell>
@@ -440,7 +439,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='collateral'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" align="center">
                                         <MaterialIcon icon='description' color='#03B5E2'/>
                                         <span className="iconText"> Collateral</span>
                                     </TableCell>
@@ -461,7 +460,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='globalUpdates'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" align="center">
                                         <MaterialIcon icon='cloud_done' color='#03B5E2'/>
                                         <span className="iconText"> Global Updates</span>
                                     </TableCell>
@@ -482,7 +481,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='adVideo'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" align="center">
                                         <MaterialIcon icon='play_circle_filled' color='#03B5E2'/>
                                         <span className="iconText"> Ad & Video</span>
                                     </TableCell>
@@ -503,7 +502,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='nonDataPoint'>
-                                    <TableCell component="th" scope="row" style={{verticalAlign: 'middle !important'}}>
+                                    <TableCell component="th" scope="row" align="center">
                                         <MaterialIcon icon='flag' color='#03B5E2'/>
                                         <span className="iconText"> Non-Data Point</span>
                                     </TableCell>
@@ -528,7 +527,7 @@ class Facility extends Component {
                     </CardBody>
                 </Card>
 
-                <hr style={{width: '90%'}}/>
+                <hr className="hidePrint" style={{width: '90%'}}/>
                 <FacilityVolume parentState={this.state} logo={fLogo}/>
                 <hr style={{width: '90%'}}/>
 

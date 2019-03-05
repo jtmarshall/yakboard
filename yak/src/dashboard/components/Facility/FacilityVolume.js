@@ -52,7 +52,10 @@ class FacilityVolume extends Component {
                     <FacilityPie color={"info"} title={"Calls"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 </div>
 
-                <Card className='facilityBarChart'>
+                <Card className='facilityBarChart' style={{marginTop: '20px'}}>
+                    <CardHeader color="info">
+                        <h4 className="cardTitleWhite">Year/Year by Month</h4>
+                    </CardHeader>
                     <CardBody>
                         <FacilityVolumeChart/>
                     </CardBody>
@@ -63,7 +66,7 @@ class FacilityVolume extends Component {
                         <h4 className="cardTitleWhite">Miscellaneous</h4>
                     </CardHeader>
                     <CardBody>
-                        <div className="row" style={{display: 'inline-flex', width: '90%'}}>
+                        <div className="row" style={{display: 'block', width: '90%'}}>
                             <ul className='ulFacility'>
                                 <Tooltip title="Website Updates" placement="bottom">
                                     <li>
