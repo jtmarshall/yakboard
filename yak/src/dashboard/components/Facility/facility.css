@@ -259,12 +259,20 @@ div[rel*="ctc"] [class^="CardHeader"] {
     padding: unset !important;
 }
 
+.iconText {
+    display: inline-block;
+}
+
 /* Styles applied for PDF printing */
 @media print {
     body {
         -webkit-print-color-adjust: exact !important;
         padding-left: 0px !important;
         text-align: center !important;
+    }
+
+    .hidePrint {
+        display: none !important;
     }
 
     .facilityPrint {
@@ -283,6 +291,10 @@ div[rel*="ctc"] [class^="CardHeader"] {
     [class^="CardHeader"] {
         width: 100% !important;
         display: block !important;
+    }
+
+    #statsSummary {
+        margin-top: 40px !important;
     }
 
     #statsSummary [class^="CardBody"] {
@@ -340,6 +352,11 @@ div[rel*="ctc"] [class^="CardHeader"] {
 
     #facilityLogo {
         max-height: 280px;
+    }
+
+    .iconText {
+        font-size: 0.8125rem;
+        display: block;
     }
 
     /* Fix for comments label getting cutoff */
