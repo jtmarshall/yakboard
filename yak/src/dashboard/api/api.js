@@ -7,7 +7,7 @@ let fofURL = "http://monitoring-env.qj3cticwqw.us-east-1.elasticbeanstalk.com/ap
 let facilityListURL = "http://monitoring-env.qj3cticwqw.us-east-1.elasticbeanstalk.com/api/getFacilities";
 let authURL = "";
 let updateURL = "/updatePak";
-let csvEndpoint = location.origin + this.pathName + "/api/csv";
+let csvEndpoint = document.location.origin + "/api/csv";
 
 // Check if we need to convert to relative url because basic auth
 if (document.location.host === "monitor.acadiadevelopment.com") {

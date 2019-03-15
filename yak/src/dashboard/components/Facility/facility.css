@@ -66,100 +66,185 @@ h6 {
 }
 
 /* Facility Styles */
-.facilityComponent[rel="acadiamontana"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="acadiamontana"] {
+    --fPrimary1: #092F87;
+    --fPrimary2: #222222;
+    --fSecondary1: #436CA9;
+    --fSecondary2: #9AB6D3;
+    --fAccent: #EE7600;
 }
 
-.facilityComponent[rel="acadianaaddiction"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="acadianatreatmentcenter"] {
+    --fPrimary1: #0A5587;
+    --fPrimary2: #F6B332;
+    --fSecondary1: #1675A9;
+    --fSecondary2: #B8D9EC;
+    --fAccent: #41464D;
 }
 
-.facilityComponent[rel="acadiavermilion"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="acadiavermilion"] {
+    --fPrimary1: #A41E34;
+    --fPrimary2: #231F20;
+    --fSecondary1: #ECEEEF;
+    --fAccent: #FDC741;
 }
 
 .facilityComponent[rel="azureacres"] {
     --fPrimary1: #419639;
-    --fPrimary2: #3E3E3E;
-    --fSecondary1: #B3C381;
+    --fPrimary2: #5a666c;
+    --fSecondary1: #5a666c;
     --fSecondary2: #0E165E;
-    --fAccent: #C5DF95;
+    --fAccent: #B3C381;
 }
 
-.facilityComponent[rel="baysidemarin"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="baysidemarin"] {
+    --fPrimary1: #A2282E;
+    --fPrimary2: #69435A;
+    --fSecondary1: #092F57;
+    --fSecondary2: #3A5979;
+    --fAccent: #7998AC;
 }
 
-.facilityComponent[rel="belmontbehavioral"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="belmontbehavioral"] {
+    --fPrimary1: #003E70;
+    --fPrimary2: #E31D1A;
+    --fSecondary1: #00A1E1;
+    --fSecondary2: #A9DEEE;
+    --fAccent: #948378;
 }
 
-.facilityComponent[rel="blueridgemountainrecovery"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="blueridgemountainrecovery"] {
+    --fPrimary1: #03347E;
+    --fPrimary2: #343434;
+    --fSecondary1: #858591;
+    --fSecondary2: #343434;
+    --fAccent: #005DAC;
 }
 
-.facilityComponent[rel="bowlinggreenbrandywine"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="bowlinggreenbrandywine"] {
+    --fPrimary1: #0D5E1E;
+    --fPrimary2: #54844F;
+    --fSecondary1: #4D738A;
+    --fSecondary2: #233746;
+    --fAccent: #A3D65C;
 }
 
-.facilityComponent[rel="burkwoodtreatmentcenter"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="burkwoodtreatmentcenter"] {
+    --fPrimary1: #166936;
+    --fPrimary2: #6E5100;
+    --fSecondary1: #E25829;
+    --fSecondary2: #5C4520;
+    --fAccent: #C34527;
 }
 
-.facilityComponent[rel="camprecovery"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="camprecovery"] {
+    --fPrimary1: #006851;
+    --fPrimary2: #CBE0D9;
+    --fSecondary1: #ABC6CA;
+    --fSecondary2: #739AA0;
+    --fAccent: #F6B332;
 }
 
-.facilityComponent[rel="carolinaeatingdisorders"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="carolinaeatingdisorders"] {
+    --fPrimary1: #FC9F4C;
+    --fPrimary2: #B9B199;
+    --fSecondary1: #37728D;
+    --fSecondary2: #65615D;
+    --fAccent: #97995C;
 }
 
-.facilityComponent[rel="cascadebh"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="cascadebh"] {
+    --fPrimary1: #69813A;
+    --fPrimary2: #3C441C;
+    --fSecondary1: #FFB126;
+    --fSecondary2: #234C5A;
+    --fAccent: #73233C;
 }
 
-.facilityComponent[rel="cedarcresthospital"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="cedarcresthospital"] {
+    --fPrimary1: #05a2af;
+    --fPrimary2: #0E2240;
+    --fSecondary1: #C3955B;
+    --fSecondary2: #7E6656;
+    --fAccent: #822F32;
 }
 
-.facilityComponent[rel="centerforhopeofthesierras"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="centerforhopeofthesierras"] {
+    --fPrimary1: #003764;
+    --fPrimary2: #1B5630;
+    --fSecondary1: #444A54;
+    --fAccent: #FDD834;
 }
 
-.facilityComponent[rel="conwaybh"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="conwaybh"] {
+    --fPrimary1: #627B96;
+    --fPrimary2: #9E542A;
+    --fSecondary1: #9E542A;
+    --fSecondary2: #C6D7D7;
+    --fAccent: #42787C;
 }
 
-.facilityComponent[rel="coveforgebehavioralhealth"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="coveforgebehavioralhealth"] {
+    --fPrimary1: #40773D;
+    --fPrimary2: #9BB48D;
+    --fSecondary1: #4D374D;
+    --fAccent: #AE8E3F;
 }
 
-.facilityComponent[rel="coveprep"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="coveprep"] {
+    --fPrimary1: #711B45;
+    --fPrimary2: #231F20;
+    --fSecondary1: #65646A;
+    --fSecondary2: #CDC5A5;
+    --fAccent: #F19F53;
 }
 
-.facilityComponent[rel="covingtonbh"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="covingtonbh"] {
+    --fPrimary1: #564F22;
+    --fPrimary2: #A2A466;
+    --fSecondary1: #DCE6C8;
+    --fSecondary2: #848647;
+    --fAccent: #85A3AD;
 }
 
-.facilityComponent[rel="crestwynbh"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="crestwynbh"] {
+    --fPrimary1: #5E7775;
+    --fPrimary2: #638B18;
+    --fSecondary1: #4D4F43;
+    --fSecondary2: #82A246;
+    --fAccent: #FFC558;
 }
 
-.facilityComponent[rel="crosscreekhospital"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="crosscreekhospital"] {
+    --fPrimary1: #335F83;
+    --fPrimary2: #748693;
+    --fSecondary1: #0ABA97;
+    --fSecondary2: #7B9BC0;
+    --fAccent: #A93338;
 }
 
-.facilityComponent[rel="dbinstitute"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="dbinstitute"] {
+    --fPrimary1: #444971;
+    --fPrimary2: #6786B8;
+    --fSecondary1: #717BA1;
+    --fSecondary2: #151B4E;
+    --fAccent: #901235;
 }
 
-.facilityComponent[rel="deltamedcenter"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="deltamedcenter"] {
+    --fPrimary1: #655579;
+    --fPrimary2: #943235;
+    --fSecondary1: #99999B;
+    --fSecondary2: #D19115;
+    --fAccent: #FFA700;
 }
 
-.facilityComponent[rel="deserthills-nm"] [class^="CardHeader"] {
-    background: #05a2af !important;
+.facilityComponent[rel="deserthills-nm"] {
+    --fPrimary1: #133595;
+    --fPrimary2: #88AD92;
+    --fSecondary1: #00A19C;
+    --fSecondary2: #00837D;
+    --fAccent: #E1854E;
 }
 
 .facilityComponent[rel="duffysrehab"] {
@@ -170,89 +255,232 @@ h6 {
     --fAccent: #C28B34;
 }
 
-.facilityComponent[rel="erlangerbh"] [class^="CardHeader"] {
+.facilityComponent[rel="erlangerbh"] {
+    --fPrimary1: #092F87;
+    --fPrimary2: #CF9F51;
+    --fSecondary1: #E5C8A2;
+    --fSecondary2: #BDBBBB;
+    --fAccent: #3A599F;
+}
+
+.facilityComponent[rel="galaxrecovery"] {
+    --fPrimary1: #5F4D63;
+    --fPrimary2: #D89D5D;
+    --fSecondary1: #C8893C;
+    --fSecondary2: #56565A;
+    --fAccent: #7D7EAB;
+}
+
+.facilityComponent[rel="greenleafhospital"] {
+    --fPrimary1: #00AD68;
+    --fPrimary2: #2E2925;
+    --fSecondary1: #70D549;
+    --fSecondary2: #008997;
+    --fAccent: #65D1ED;
+}
+
+.facilityComponent[rel="harboroaks"] {
+    --fPrimary1: #3B5165;
+    --fPrimary2: #0099A8;
+    --fSecondary1: #FCDD00;
+    --fSecondary2: #014A87;
+    --fAccent: #40D5AF;
+}
+
+.facilityComponent[rel="harmonyhc"] {
+    --fPrimary1: #244289;
+    --fPrimary2: #91A0C4;
+    --fSecondary1: #2C9A40;
+    --fSecondary2: #80BD01;
+    --fAccent: #E31D1A;
+}
+
+.facilityComponent[rel="haverhillpavilion"] {
+    --fPrimary1: #4D738A;
+    --fPrimary2: #B98B1A;
+    --fSecondary1: #233746;
+    --fSecondary2: #92B7BC;
+    --fAccent: #93B59D;
+}
+
+.facilityComponent[rel="highlandridgehospital"] {
+    --fPrimary1: #8A4B51;
+    --fPrimary2: #5E4272;
+    --fSecondary1: #F19F53;
+    --fSecondary2: #F9CB89;
+    --fAccent: #E25829;
+}
+
+.facilityComponent[rel="huntingtoncreekrecovery"] {
+    --fPrimary1: #455370;
+    --fPrimary2: #EA4E3C;
+    --fSecondary1: #6292BA;
+    --fSecondary2: #BECED6;
+    --fAccent: #FABF3A;
+}
+
+.facilityComponent[rel="keystonetreatment"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="galaxrecovery"] [class^="CardHeader"] {
+.facilityComponent[rel="lakelandbehavioralhealth"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="greenleafhospital"] [class^="CardHeader"] {
+.facilityComponent[rel="lakeviewbehavioralhealth"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="harboroaks"] [class^="CardHeader"] {
+.facilityComponent[rel="life-healing"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="harmonyhc"] [class^="CardHeader"] {
+.facilityComponent[rel="longleafhospital"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="highlandridgehospital"] [class^="CardHeader"] {
+.facilityComponent[rel="mccallumplace"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="huntingtoncreekrecovery"] [class^="CardHeader"] {
+.facilityComponent[rel="meadowwoodhospital"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="keystonetreatment"] [class^="CardHeader"] {
+.facilityComponent[rel="millcreekbehavioralhealth"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="lakelandbehavioralhealth"] [class^="CardHeader"] {
+.facilityComponent[rel="millcreekofmagee"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="lakeviewbehavioralhealth"] [class^="CardHeader"] {
+.facilityComponent[rel="millcreekofpontotoc"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="life-healing"] [class^="CardHeader"] {
+.facilityComponent[rel="mirrorlakerecovery"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="longleafhospital"] [class^="CardHeader"] {
+.facilityComponent[rel="montecatinieatingdisorder"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="mccallumplace"] [class^="CardHeader"] {
+.facilityComponent[rel="mountcarmelbehavioralhealth"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="meadowwoodhospital"] [class^="CardHeader"] {
+.facilityComponent[rel="mtregis"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="millcreekbehavioralhealth"] [class^="CardHeader"] {
+.facilityComponent[rel="northtampabehavioralhealth"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="millcreekofmagee"] [class^="CardHeader"] {
+.facilityComponent[rel="obhhospital"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="millcreekofpontotoc"] [class^="CardHeader"] {
+.facilityComponent[rel="ohiohospitalforpsychiatry"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="mirrorlakerecovery"] [class^="CardHeader"] {
+.facilityComponent[rel="optionsbehavioralheathsystem"] {
     background: #05a2af !important;
 }
 
-.facilityComponent[rel="montecatinieatingdisorder"] [class^="CardHeader"] {
+.facilityComponent[rel="pacificgrovehospital"] {
     background: #05a2af !important;
+}
+
+.facilityComponent[rel="parkroyalhospital"] {
+    background: #05a2af !important;
+}
+
+.facilityComponent[rel="pineyridge"] {
+
+}
+
+.facilityComponent[rel="poconomountainrecoverycenter"] {
+
+}
+
+.facilityComponent[rel="reboundbehavioralhealth"] {
+
+}
+
+.facilityComponent[rel="redriverhospital"] {
+
+}
+
+.facilityComponent[rel="resolutetreatmentcenter"] {
+
+}
+
+.facilityComponent[rel="resourcetreatmentcenter"] {
+
+}
+
+.facilityComponent[rel="riovistabh"] {
+
+}
+
+.facilityComponent[rel="riverplacebh"] {
+
+}
+
+.facilityComponent[rel="riverviewbehavioralhealth"] {
+
+}
+
+.facilityComponent[rel="riverwoodsbehavioral"] {
+
+}
+
+.facilityComponent[rel="rollinghillshospital"] {
+
 }
 
 /* Wildcard CTCs */
-div[rel*="ctc"] [class^="CardHeader"] {
-    background: #244289 !important;
+.facilityComponent[rel*="ctc"] {
+    --fPrimary1: #244289;
+    --fPrimary2: #436ca9;
+    --fSecondary1: #84256c;
+    --fSecondary2: #363a35;
+    --fAccent: #00aebc;
 }
 
 .facilityComponent [class^="CardHeader"] {
     background: var(--fPrimary1) !important;
+}
+
+.facilityComponent h3 {
+    color: var(--fPrimary2) !important;
+}
+
+.facilityComponent h5 {
+    color: var(--fPrimary2) !important;
+}
+
+.facilityComponent h6 {
+    color: var(--fPrimary2) !important;
+}
+
+.facilityComponent #monthText {
+    color: var(--fPrimary1) !important;
+}
+
+.facilityComponent #facilityNameText {
+    color: var(--fPrimary1) !important;
+}
+
+/* Export Accent color for use in react components */
+@value fAccent: var(--fAccent);
+
+#admitsGoalTitle {
+    color: var(--fPrimary2) !important;
 }
 
 .nivoCard [class^="CardBody"] {

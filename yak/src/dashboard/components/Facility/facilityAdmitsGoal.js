@@ -2,8 +2,11 @@ import React, {Component} from "react";
 import {ResponsivePie} from 'nivo';
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
+// Import accent color from css file
+import {fAccent} from './facility.css';
 
 export default class FacilityAdmitsGoal extends Component {
+
     constructor(props) {
         super(props);
 
@@ -19,7 +22,7 @@ export default class FacilityAdmitsGoal extends Component {
                     "id": "Admits",
                     "label": "Admits",
                     "value": facilityAdmitVal,
-                    "color": '#365CA0',
+                    "color": fAccent,
                     "percent": "".concat(facilityAdmitPercent,"%")
                 },
                 {
@@ -40,7 +43,7 @@ export default class FacilityAdmitsGoal extends Component {
         return (
             <Card className="admitsCard" style={{width: '30%', margin: 'auto', padding: '0px', background: 'none', boxShadow: 'none'}}>
                 <CardBody>
-                    <h4 className="nivoCardTitle" style={{color: 'black'}}><strong>{title}</strong></h4>
+                    <h4 id="admitsGoalTitle" className="nivoCardTitle"><strong>{title}</strong></h4>
                     <h4 className="nivoCardTitle" style={{color: 'black'}}>{this.state.admitVal} / {this.state.admitGoal}</h4>
                     <div className="admitsPieGraph">
                         <ResponsivePie
