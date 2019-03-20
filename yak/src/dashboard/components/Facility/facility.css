@@ -320,127 +320,507 @@ h6 {
 }
 
 .facilityComponent[rel="keystonetreatment"] {
-    background: #05a2af !important;
+    --fPrimary1: #8A1E04;
+    --fPrimary2: #42393D;
+    --fSecondary1: #411E1E;
+    --fSecondary2: #D9D1C3;
+    --fAccent: #234C5A;
 }
 
 .facilityComponent[rel="lakelandbehavioralhealth"] {
-    background: #05a2af !important;
+    --fPrimary1: #216093;
+    --fPrimary2: #6BC048;
+    --fSecondary1: #567E95;
+    --fSecondary2: #D9E0E2;
+    --fAccent: #0099A8;
 }
 
 .facilityComponent[rel="lakeviewbehavioralhealth"] {
-    background: #05a2af !important;
+    --fPrimary1: #336E9F;
+    --fPrimary2: #002857;
+    --fSecondary1: #278DC1;
+    --fSecondary2: #d4e8f3;
+    --fAccent: #ee7600;
 }
 
 .facilityComponent[rel="life-healing"] {
-    background: #05a2af !important;
+    --fPrimary1: #89431E;
+    --fPrimary2: #8C9584;
+    --fSecondary1: #383c49;
+    --fSecondary2: #D2CAA8;
+    --fAccent: #3A8898;
 }
 
 .facilityComponent[rel="longleafhospital"] {
-    background: #05a2af !important;
+    --fPrimary1: #166936;
+    --fPrimary2: #0E5C67;
+    --fSecondary1: #5E3226;
+    --fSecondary2: #85B099;
+    --fAccent: #E25829;
 }
 
 .facilityComponent[rel="mccallumplace"] {
-    background: #05a2af !important;
+    --fPrimary1: #A93338;
+    --fPrimary2: #F78C26;
+    --fSecondary1: #A49C94;
+    --fSecondary2: #BA5C60;
+    --fAccent: #62CCCA;
 }
 
 .facilityComponent[rel="meadowwoodhospital"] {
-    background: #05a2af !important;
+    --fPrimary1: #01548B;
+    --fPrimary2: #AB9F88;
+    --fSecondary1: #A48650;
+    --fSecondary2: #E7AC55;
+    --fAccent: #9F162E;
 }
 
 .facilityComponent[rel="millcreekbehavioralhealth"] {
-    background: #05a2af !important;
+    --fPrimary1: #235996;
+    --fPrimary2: #2A3C73;
+    --fSecondary1: #495156;
+    --fSecondary2: #6786B8;
+    --fAccent: #CA602B;
 }
 
 .facilityComponent[rel="millcreekofmagee"] {
-    background: #05a2af !important;
+    --fPrimary1: #092F87;
+    --fPrimary2: #6A6057;
+    --fSecondary1: #3A599F;
+    --fSecondary2: #B8B7DD;
+    --fAccent: #87319A;
 }
 
 .facilityComponent[rel="millcreekofpontotoc"] {
-    background: #05a2af !important;
+    --fPrimary1: #32657E;
+    --fPrimary2: #A2A466;
+    --fSecondary1: #093E52;
+    --fSecondary2: #D6E0E5;
+    --fAccent: #78853A;
 }
 
 .facilityComponent[rel="mirrorlakerecovery"] {
-    background: #05a2af !important;
+    --fPrimary1: #093c71;
+    --fPrimary2: #3ac1e1;
+    --fSecondary1: #AA9B83;
+    --fSecondary2: #6eb5b1;
+    --fAccent: #0e837d;
 }
 
 .facilityComponent[rel="montecatinieatingdisorder"] {
-    background: #05a2af !important;
+    --fPrimary1: #00ADC8;
+    --fPrimary2: #76BF4E;
+    --fSecondary1: #DBD1C5;
+    --fSecondary2: #94D7EA;
+    --fAccent: #FFC52C;
 }
 
 .facilityComponent[rel="mountcarmelbehavioralhealth"] {
-    background: #05a2af !important;
+    --fPrimary1: #8B1B3F;
+    --fPrimary2: #2E2925;
+    --fSecondary1: #716258;
+    --fSecondary2: #EEEEEE;
+    --fAccent: #41797B;
 }
 
 .facilityComponent[rel="mtregis"] {
-    background: #05a2af !important;
+    --fPrimary1: #194E91;
+    --fPrimary2: #F6B220;
+    --fSecondary1: #16284C;
+    --fSecondary2: #3B7CCA;
+    --fAccent: #D5441C;
 }
 
 .facilityComponent[rel="northtampabehavioralhealth"] {
-    background: #05a2af !important;
+    --fPrimary1: #0083C2;
+    --fPrimary2: #3AC1E1;
+    --fSecondary1: #FFB339;
+    --fSecondary2: #B6DDE3;
+    --fAccent: #E16A2C;
 }
 
 .facilityComponent[rel="obhhospital"] {
-    background: #05a2af !important;
+    --fPrimary1: #4A858F;
+    --fPrimary2: #234C5A;
+    --fSecondary1: #C5BE9D;
+    --fSecondary2: #7BA7AE;
+    --fAccent: #A3402A;
 }
 
 .facilityComponent[rel="ohiohospitalforpsychiatry"] {
-    background: #05a2af !important;
+    --fPrimary1: #3F8995;
+    --fPrimary2: #5E9553;
+    --fSecondary1: #61A3B8;
+    --fSecondary2: #F9E5B4;
+    --fAccent: #4E5194;
 }
 
-.facilityComponent[rel="optionsbehavioralheathsystem"] {
-    background: #05a2af !important;
+.facilityComponent[rel="optionsbehavioralhealthsystem"] {
+    --fPrimary1: #004A98;
+    --fPrimary2: #0094CA;
+    --fSecondary1: #DCD8D6;
+    --fSecondary2: #C5DEEF;
+    --fAccent: #FD7F3E;
 }
 
 .facilityComponent[rel="pacificgrovehospital"] {
-    background: #05a2af !important;
+    --fPrimary1: #00609C;
+    --fPrimary2: #44C8E8;
+    --fSecondary1: #318DDE;
+    --fSecondary2: #CCDFEB;
+    --fAccent: #76BD1D;
 }
 
 .facilityComponent[rel="parkroyalhospital"] {
-    background: #05a2af !important;
+    --fPrimary1: #16216A;
+    --fPrimary2: #42A7C6;
+    --fSecondary1: #5A718A;
+    --fSecondary2: #63CABA;
+    --fAccent: #FB7038;
 }
 
-.facilityComponent[rel="pineyridge"] {
-
+.facilityComponent[rel="pineyridge.net"] {
+    --fPrimary1: #41797B;
+    --fPrimary2: #49A584;
+    --fSecondary1: #DBC554;
+    --fSecondary2: #A4D2C1;
+    --fAccent: #CE3061;
 }
 
 .facilityComponent[rel="poconomountainrecoverycenter"] {
-
+    --fPrimary1: #00827E;
+    --fPrimary2: #16284C;
+    --fSecondary1: #FABF3A;
+    --fSecondary2: #9ADADA;
+    --fAccent: #EA4E3C;
 }
 
 .facilityComponent[rel="reboundbehavioralhealth"] {
-
+    --fPrimary1: #4D6182;
+    --fPrimary2: #7AA6BC;
+    --fSecondary1: #A4A3C2;
+    --fSecondary2: #D6DDBD;
+    --fAccent: #E28330;
 }
 
 .facilityComponent[rel="redriverhospital"] {
-
+    --fPrimary1: #AC2B28;
+    --fPrimary2: #244289;
+    --fSecondary1: #802428;
+    --fSecondary2: #D8EAF5;
+    --fAccent: #3C98CC;
 }
 
 .facilityComponent[rel="resolutetreatmentcenter"] {
-
+    --fPrimary1: #004A87;
+    --fPrimary2: #4886A1;
+    --fSecondary1: #926927;
+    --fSecondary2: #6D9EB4;
+    --fAccent: #A93338;
 }
 
 .facilityComponent[rel="resourcetreatmentcenter"] {
-
+    --fPrimary1: #004A87;
+    --fPrimary2: #4886A1;
+    --fSecondary1: #926927;
+    --fSecondary2: #6D9EB4;
+    --fAccent: #A93338;
 }
 
 .facilityComponent[rel="riovistabh"] {
-
+    --fPrimary1: #00609C;
+    --fPrimary2: #006680;
+    --fSecondary1: #0B2A4A;
+    --fSecondary2: #99B8BD;
+    --fAccent: #FD6019;
 }
 
 .facilityComponent[rel="riverplacebh"] {
-
+    --fPrimary1: #004A87;
+    --fPrimary2: #F4A71A;
+    --fSecondary1: #EC6851;
+    --fSecondary2: #32B1CA;
+    --fAccent: #0098CF;
 }
 
 .facilityComponent[rel="riverviewbehavioralhealth"] {
-
+    --fPrimary1: #244289;
+    --fPrimary2: #3C98CC;
+    --fSecondary1: #455370;
+    --fSecondary2: #C4E0F0;
+    --fAccent: #DB8721;
 }
 
 .facilityComponent[rel="riverwoodsbehavioral"] {
-
+    --fPrimary1: #004A87;
+    --fPrimary2: #007565;
+    --fSecondary1: #FF7E40;
+    --fSecondary2: #99C8C1;
+    --fAccent: #FFA300;
 }
 
 .facilityComponent[rel="rollinghillshospital"] {
+    --fPrimary1: #5A839C;
+    --fPrimary2: #3B5B59;
+    --fSecondary1: #6C9896;
+    --fSecondary2: #ACC1CD;
+    --fAccent: #DBAB34;
+}
 
+.facilityComponent[rel="roserehab"] {
+    --fPrimary1: #E56284;
+    --fPrimary2: #65646A;
+    --fSecondary1: #007580;
+    --fSecondary2: #ee9bac;
+    --fAccent: #55B7B3;
+}
+
+.facilityComponent[rel="sanjosebh"] {
+    --fPrimary1: #278DC1;
+    --fPrimary2: #31516A;
+    --fSecondary1: #5A7E96;
+    --fSecondary2: #9FDBEC;
+    --fAccent: #E25829;
+}
+
+.facilityComponent[rel="sanjuancapestrano"] {
+    --fPrimary1: #036B5A;
+    --fPrimary2: #074F51;
+    --fSecondary1: #C46D14;
+    --fSecondary2: #6ACDB1;
+    --fAccent: #F6A704;
+}
+
+.facilityComponent[rel="serenityknolls"] {
+    --fPrimary1: #639479;
+    --fPrimary2: #88BB84;
+    --fSecondary1: #E25829;
+    --fSecondary2: #A1D782;
+    --fAccent: #C43A31;
+}
+
+.facilityComponent[rel="sevenhillsbi"] {
+    --fPrimary1: #169BBF;
+    --fPrimary2: #3A4E7D;
+    --fSecondary1: #196E91;
+    --fSecondary2: #EDE2CE;
+    --fAccent: #F6B220;
+}
+
+.facilityComponent[rel="shakerclinic"] {
+    --fPrimary1: #3A97B5;
+    --fPrimary2: #6CA437;
+    --fSecondary1: #194E91;
+    --fSecondary2: #85C53E;
+    --fAccent: #A3D65C;
+}
+
+.facilityComponent[rel="sierratucson"] {
+    --fPrimary1: #955F27;
+    --fPrimary2: #61504D;
+    --fSecondary1: #B57813;
+    --fSecondary2: #E3D0A5;
+    --fAccent: #D59000;
+}
+
+.facilityComponent[rel="soberlanding"] {
+    --fPrimary1: #233A77;
+    --fPrimary2: #A39261;
+    --fSecondary1: #88704C;
+    --fSecondary2: #DCD6C9;
+    --fAccent: #33A1AB;
+}
+
+.facilityComponent[rel="soberliving"] {
+    --fPrimary1: #5EC5E9;
+    --fPrimary2: #1B5A7D;
+    --fSecondary1: #5C99B0;
+    --fSecondary2: #32ADBB;
+    --fAccent: #F78C26;
+}
+
+.facilityComponent[rel="sonorabehavioral"] {
+    --fPrimary1: #76381A;
+    --fPrimary2: #BA7230;
+    --fSecondary1: #002F55;
+    --fSecondary2: #E8DBC2;
+    --fAccent: #0099A9;
+}
+
+.facilityComponent[rel="southcoastbehavioral"] {
+    --fPrimary1: #007F6F;
+    --fPrimary2: #53585A;
+    --fSecondary1: #B5BE00;
+    --fSecondary2: #00B3E3;
+    --fAccent: #E21683;
+}
+
+.facilityComponent[rel="southstonebhc"] {
+    --fPrimary1: #16216A;
+    --fPrimary2: #0096A9;
+    --fSecondary1: #A72134;
+    --fSecondary2: #737AA6;
+    --fAccent: #F5C300;
+}
+
+.facilityComponent[rel="southwoodhospital"] {
+    --fPrimary1: #0098CF;
+    --fPrimary2: #FF9E19;
+    --fSecondary1: #FDCF83;
+    --fSecondary2: #B8D9EC;
+    --fAccent: #0074C8;
+}
+
+.facilityComponent[rel="starliterecovery"] {
+    --fPrimary1: #0066A1;
+    --fPrimary2: #FF7E30;
+    --fSecondary1: #C55425;
+    --fSecondary2: #5EC5E9;
+    --fAccent: #FFBF3D;
+}
+
+.facilityComponent[rel="stonecrestcenter"] {
+    --fPrimary1: #136F42;
+    --fPrimary2: #B3A87C;
+    --fSecondary1: #3C4542;
+    --fSecondary2: #428C68;
+    --fAccent: #DC5F13;
+}
+
+.facilityComponent[rel="structurehouse"] {
+    --fPrimary1: #ACD560;
+    --fPrimary2: #002059;
+    --fSecondary1: #604F4F;
+    --fSecondary2: #B8DBD3;
+    --fAccent: #64BBB1;
+}
+
+.facilityComponent[rel="sunriserecoveryranch"] {
+    --fPrimary1: #F78C26;
+    --fPrimary2: #3C4542;
+    --fSecondary1: #13426B;
+    --fSecondary2: #F9A351;
+    --fAccent: #6EB2C8;
+}
+
+.facilityComponent[rel="suwscarolinas"] {
+    --fPrimary1: #1A355E;
+    --fPrimary2: #739082;
+    --fSecondary1: #848647;
+    --fSecondary2: #BECDC6;
+    --fAccent: #BD6122;
+}
+
+.facilityComponent[rel="tenlakescenter"] {
+    --fPrimary1: #1946BA;
+    --fPrimary2: #0A1971;
+    --fSecondary1: #1F9BDE;
+    --fSecondary2: #ADD5F0;
+    --fAccent: #E16A2C;
+}
+
+.facilityComponent[rel="themanorclinic"] {
+    --fPrimary1: #006C9F;
+    --fPrimary2: #5C5D5F;
+    --fSecondary1: #00598D;
+    --fSecondary2: #E8EFF2;
+    --fAccent: #CC6C00;
+}
+
+.facilityComponent[rel="therefuge-ahealingplace"] {
+    --fPrimary1: #C4502F;
+    --fPrimary2: #105677;
+    --fSecondary1: #0A2A3B;
+    --fSecondary2: #D9D1C3;
+    --fAccent: #F16852;
+}
+
+.facilityComponent[rel="timberlineknolls"] {
+    --fPrimary1: #5B7C42;
+    --fPrimary2: #5E5D5F;
+    --fSecondary1: #3D5C29;
+    --fSecondary2: #C2CB7E;
+    --fAccent: #A9AE00;
+}
+
+.facilityComponent[rel="trustpointhospital"] {
+    --fPrimary1: #216093;
+    --fPrimary2: #4C4C4C;
+    --fSecondary1: #0A3061;
+    --fSecondary2: #F2F2F2;
+    --fAccent: #5AB3E8;
+}
+
+.facilityComponent[rel="twelveoaksrecovery"] {
+    --fPrimary1: #0A548B;
+    --fPrimary2: #00ACC8;
+    --fSecondary1: #86776F;
+    --fSecondary2: #E7D5B9;
+    --fAccent: #FF9E19;
+}
+
+.facilityComponent[rel="valleybehavioral"] {
+    --fPrimary1: #1B5630;
+    --fPrimary2: #80382B;
+    --fSecondary1: #53302B;
+    --fSecondary2: #D0D9D6;
+    --fAccent: #F3BD46;
+}
+
+.facilityComponent[rel="vantagepointnwa"] {
+    --fPrimary1: #006AA6;
+    --fPrimary2: #38B5E6;
+    --fSecondary1: #003764;
+    --fSecondary2: #DDE4ED;
+    --fAccent: #EE7421;
+}
+
+.facilityComponent[rel="villagebh"] {
+    --fPrimary1: #0066A1;
+    --fPrimary2: #231F20;
+    --fSecondary1: #163E34;
+    --fSecondary2: #EAE5CE;
+    --fAccent: #D85E00;
+}
+
+.facilityComponent[rel="wellnessresourcecenter"] {
+    --fPrimary1: #82CFCA;
+    --fPrimary2: #FDA487;
+    --fSecondary1: #0099A8;
+    --fSecondary2: #DDE3E1;
+    --fAccent: #1A355E;
+}
+
+.facilityComponent[rel="wellplace"] {
+    --fPrimary1: #092c74;
+    --fPrimary2: #b1c8ea;
+    --fSecondary1: #211651;
+    --fSecondary2: #ebe8db;
+    --fAccent: #fd7e2d;
+}
+
+.facilityComponent[rel="whitedeerrun"] {
+    --fPrimary1: #1E5C37;
+    --fPrimary2: #7A916E;
+    --fSecondary1: #3C556E;
+    --fSecondary2: #E3EBD6;
+    --fAccent: #E1AE54;
+}
+
+.facilityComponent[rel="wilmingtontreatment"] {
+    --fPrimary1: #216093;
+    --fPrimary2: #9C8065;
+    --fSecondary1: #13426B;
+    --fSecondary2: #9BB8D3;
+    --fAccent: #802629;
+}
+
+.facilityComponent[rel="youthcare"] {
+    --fPrimary1: #004A87;
+    --fPrimary2: #8A7A25;
+    --fSecondary1: #006093;
+    --fSecondary2: #DBD6C1;
+    --fAccent: #62A70F;
 }
 
 /* Wildcard CTCs */
