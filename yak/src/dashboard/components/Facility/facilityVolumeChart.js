@@ -11,18 +11,8 @@ export class FacilityVolumeChart extends Component {
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
         let toDate = yakPak == null ? new Date() : new Date(yakPak.DateFrame.To);
-        // let startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
-        // let endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
-        // let numbDays = endDay.diff(startDay, 'days');
-
         let primaryLabels = [];
         let temp = moment(toDate);
-
-        // Generate date labels starting with 'toDate' and iterating back through length of data
-        // for (let i = -1; i < numbDays; i++) {
-        //     // parse date for how many days prior
-        //     primaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
-        // }
 
         // Generate date labels starting with 'toDate' and iterating back through length of data
         for (let i = -1; i < 12; i++) {
@@ -183,7 +173,7 @@ export class FacilityVolumeChart extends Component {
                         ticks: {
                             beginAtZero: true,
                         }
-                    },{
+                    }, {
                         id: 'b',
                         weight: 1,
                         stacked: false,
@@ -215,7 +205,6 @@ export class FacilityVolumeChart extends Component {
             let compareStartDay = moment(yakPak.DateFrame.CompareFrom);
             let compareEndDay = moment(yakPak.DateFrame.CompareTo);
             let compareNumbDays = compareEndDay.diff(compareStartDay, 'days');
-
             let tempLabels = [];
 
             for (let i = -1; i < compareNumbDays; i++) {
@@ -240,8 +229,6 @@ export class FacilityVolumeChart extends Component {
         }
         let datasets = tempObj.datasets.length;
 
-        console.log(datasets);
-
         for (let i = 0; i < dateLabels.length; i++) {
             for (let j = 0; j < datasets; j++) {
                 tempObj.datasets[j].data[i] = {
@@ -250,11 +237,7 @@ export class FacilityVolumeChart extends Component {
                     "pointLabel": dateLabels[i]
                 };
             }
-
-
         }
-
-        console.log(tempObj);
 
         let dummyOptions = this.state.chartOptions;
         // Set state with fresh data
@@ -267,7 +250,6 @@ export class FacilityVolumeChart extends Component {
     render() {
         return (
             <div className="reactChart">
-
                 <Bar
                     data={this.state.chartData}
                     options={this.state.chartOptions}

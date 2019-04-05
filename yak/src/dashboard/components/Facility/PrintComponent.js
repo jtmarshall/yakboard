@@ -7,14 +7,11 @@ import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 
 class PrintComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className='facilityPrint'>
-                <ReactToPrint
+                {/* use .default to fix library bug for now */}
+                <ReactToPrint.default
                     pageStyle={{
                         width: '100%',
                         paddingLeft: '0px',

@@ -832,7 +832,7 @@ h6 {
     --fAccent: #00aebc;
 }
 
-.facilityComponent [class^="CardHeader"] {
+.facilityComponent .facilityCardHeader {
     background: var(--fPrimary1) !important;
 }
 
