@@ -20,17 +20,9 @@ class SKUFilter extends React.Component {
     };
 
     toggleDrawer = (side) => () => {
-
-        if (this.state.right) {
-            this.setState({
-                [side]: false,
-            });
-        } else {
-            this.setState({
-                [side]: true,
-            });
-        }
-
+        this.setState({
+            [side]: !this.state.right,
+        });
     };
 
     // update sku filter state

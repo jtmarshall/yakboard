@@ -18,11 +18,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FacilityVolume from './FacilityVolume';
 import FacilityFormStepper from './facilityForm';
 import moment from 'moment';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import FacilityAdmitsGoal from './facilityAdmitsGoal';
+// import html2canvas from 'html2canvas';
+// import jsPDF from 'jspdf';
 
 
 const styles = {
@@ -135,40 +135,40 @@ class Facility extends Component {
     };
 
 
-    printReport = () => {
-        // html2canvas(document.querySelector("#captureArea")).then(canvas => {
-        //     document.body.appendChild(canvas)
-        // });
-
-        const input = document.getElementById('captureArea');
-        const inputHeightMm = this.pxToMm(input.offsetHeight);
-        const a4WidthMm = 210;
-        const a4HeightMm = 297;
-        const a4HeightPx = this.mmToPx(a4HeightMm);
-        const numPages = inputHeightMm <= a4HeightMm ? 1 : Math.floor(inputHeightMm/a4HeightMm) + 1;
-        console.log({
-            input, inputHeightMm, a4HeightMm, a4HeightPx, numPages, range: this.range(0, numPages),
-            comp: inputHeightMm <= a4HeightMm, inputHeightPx: input.offsetHeight
-        });
-
-        html2canvas(input)
-            .then((canvas) => {
-                const imgData = canvas.toDataURL('image/png');
-
-                // standard a4
-                let pdf = new jsPDF();
-                // Document of a4WidthMm wide and inputHeightMm high
-                if (inputHeightMm > a4HeightMm) {
-                    // elongated a4 (system print dialog will handle page breaks)
-                    pdf = new jsPDF('p', 'mm', [inputHeightMm+16, a4WidthMm]);
-                }
-
-                pdf.addImage(imgData, 'PNG', 0, 0);
-                pdf.save(`${this.state.fName}.pdf`);
-            });
-
-        console.log("Printing PDF Report");
-    };
+    // printReport = () => {
+    //     // html2canvas(document.querySelector("#captureArea")).then(canvas => {
+    //     //     document.body.appendChild(canvas)
+    //     // });
+    //
+    //     const input = document.getElementById('captureArea');
+    //     const inputHeightMm = this.pxToMm(input.offsetHeight);
+    //     const a4WidthMm = 210;
+    //     const a4HeightMm = 297;
+    //     const a4HeightPx = this.mmToPx(a4HeightMm);
+    //     const numPages = inputHeightMm <= a4HeightMm ? 1 : Math.floor(inputHeightMm/a4HeightMm) + 1;
+    //     console.log({
+    //         input, inputHeightMm, a4HeightMm, a4HeightPx, numPages, range: this.range(0, numPages),
+    //         comp: inputHeightMm <= a4HeightMm, inputHeightPx: input.offsetHeight
+    //     });
+    //
+    //     html2canvas(input)
+    //         .then((canvas) => {
+    //             const imgData = canvas.toDataURL('image/png');
+    //
+    //             // standard a4
+    //             let pdf = new jsPDF();
+    //             // Document of a4WidthMm wide and inputHeightMm high
+    //             if (inputHeightMm > a4HeightMm) {
+    //                 // elongated a4 (system print dialog will handle page breaks)
+    //                 pdf = new jsPDF('p', 'mm', [inputHeightMm+16, a4WidthMm]);
+    //             }
+    //
+    //             pdf.addImage(imgData, 'PNG', 0, 0);
+    //             pdf.save(`${this.state.fName}.pdf`);
+    //         });
+    //
+    //     console.log("Printing PDF Report");
+    // };
 
     render() {
         const {classes} = this.props;
@@ -225,7 +225,7 @@ class Facility extends Component {
                 </div>
 
                 <Card id="statsSummary">
-                    <CardHeader color="prime">
+                    <CardHeader className="facilityCardHeader" color="prime">
                         <h4 className="cardTitleWhite">Stats Summary</h4>
                     </CardHeader>
                     <CardBody style={{display: 'inline-flex'}}>

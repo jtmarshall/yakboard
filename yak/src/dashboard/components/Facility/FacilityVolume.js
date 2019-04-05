@@ -53,7 +53,7 @@ class FacilityVolume extends Component {
                 </div>
 
                 <Card className='facilityBarChart' style={{marginTop: '20px'}}>
-                    <CardHeader color="info">
+                    <CardHeader className="facilityCardHeader" color="info">
                         <h4 className="cardTitleWhite">Year/Year by Month</h4>
                     </CardHeader>
                     <CardBody>
@@ -62,7 +62,7 @@ class FacilityVolume extends Component {
                 </Card>
 
                 <Card>
-                    <CardHeader color="info">
+                    <CardHeader className="facilityCardHeader" color="info">
                         <h4 className="cardTitleWhite">Miscellaneous</h4>
                     </CardHeader>
                     <CardBody>
