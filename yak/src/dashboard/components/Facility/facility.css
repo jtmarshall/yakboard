@@ -1,6 +1,18 @@
 
 #statsSummary tr {
-    height: 90px !important;
+    height: 60px;
+}
+
+#statsSummary [class^="MuiTableCell"] {
+    padding: 4px 8px;
+}
+
+#statsSummary [class^="MuiFormControl"] {
+    margin: 2px 0;
+}
+
+#statsSummary [class^="MuiInputBase"] {
+    padding: 10px 8px;
 }
 
 .tableRowHeader {
