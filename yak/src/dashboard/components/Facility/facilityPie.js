@@ -135,10 +135,10 @@ export default class FacilityPie extends Component {
                         <ResponsivePie
                             data={this.state.chartData}
                             margin={{
-                                "top": 30,
-                                "right": 20,
-                                "bottom": 30,
-                                "left": 20
+                                "top": 15,
+                                "right": 10,
+                                "bottom": 15,
+                                "left": 10
                             }}
                             innerRadius={0.5}
                             padAngle={0.7}

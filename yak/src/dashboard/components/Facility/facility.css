@@ -3,16 +3,12 @@
     height: 60px;
 }
 
-#statsSummary [class^="MuiTableCell"] {
-    padding: 4px 8px;
+.facilityStatsInput {
+    margin: 2px 0 !important;
 }
 
-#statsSummary [class^="MuiFormControl"] {
-    margin: 2px 0;
-}
-
-#statsSummary [class^="MuiInputBase"] {
-    padding: 10px 8px;
+.facilityStatsInput > div {
+    padding: 10px 8px !important;
 }
 
 .tableRowHeader {
@@ -69,7 +65,7 @@ h6 {
     color: #003087;
     text-transform: none;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 16px;
 }
 
 #facilityNameText {
@@ -880,7 +876,7 @@ h6 {
 }
 
 .iconText {
-    display: inline-block;
+    display: inline;
 }
 
 /* Styles applied for PDF printing */

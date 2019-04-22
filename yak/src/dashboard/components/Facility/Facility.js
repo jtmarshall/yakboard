@@ -60,6 +60,12 @@ const styles = {
     cardConversionTable: {
         overflowX: 'auto',
     },
+    greenText: {
+        color: '#4caf50',
+    },
+    redText: {
+        color: '#f44336',
+    },
 };
 
 const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
@@ -134,42 +140,6 @@ class Facility extends Component {
         return Array(end-start).join(0).split(0).map(function(val, id) {return id+start});
     };
 
-
-    // printReport = () => {
-    //     // html2canvas(document.querySelector("#captureArea")).then(canvas => {
-    //     //     document.body.appendChild(canvas)
-    //     // });
-    //
-    //     const input = document.getElementById('captureArea');
-    //     const inputHeightMm = this.pxToMm(input.offsetHeight);
-    //     const a4WidthMm = 210;
-    //     const a4HeightMm = 297;
-    //     const a4HeightPx = this.mmToPx(a4HeightMm);
-    //     const numPages = inputHeightMm <= a4HeightMm ? 1 : Math.floor(inputHeightMm/a4HeightMm) + 1;
-    //     console.log({
-    //         input, inputHeightMm, a4HeightMm, a4HeightPx, numPages, range: this.range(0, numPages),
-    //         comp: inputHeightMm <= a4HeightMm, inputHeightPx: input.offsetHeight
-    //     });
-    //
-    //     html2canvas(input)
-    //         .then((canvas) => {
-    //             const imgData = canvas.toDataURL('image/png');
-    //
-    //             // standard a4
-    //             let pdf = new jsPDF();
-    //             // Document of a4WidthMm wide and inputHeightMm high
-    //             if (inputHeightMm > a4HeightMm) {
-    //                 // elongated a4 (system print dialog will handle page breaks)
-    //                 pdf = new jsPDF('p', 'mm', [inputHeightMm+16, a4WidthMm]);
-    //             }
-    //
-    //             pdf.addImage(imgData, 'PNG', 0, 0);
-    //             pdf.save(`${this.state.fName}.pdf`);
-    //         });
-    //
-    //     console.log("Printing PDF Report");
-    // };
-
     render() {
         const {classes} = this.props;
         // Concatenate logo url together
@@ -181,8 +151,8 @@ class Facility extends Component {
         return (
             <div id='captureArea' className='facilityComponent' rel={facilityStyle}>
 
-                <div className="row" style={{display: 'inline-flex', width: '90%'}}>
-                    <Card className='facilityProfileCard'>
+                <div className="row" style={{display: 'inline-flex', width: '90%', marginBottom: '10px'}}>
+                    <Card className='facilityProfileCard' style={{width: '30%'}}>
                         <CardMedia
                             component="img"
                             alt="Facility Logo"
@@ -204,10 +174,6 @@ class Facility extends Component {
 
                     <FacilityAdmitsGoal color={"info"} title={"Admits Goal"}/>
 
-                    {/*<div style={{width: '40%', margin: 'auto'}}>*/}
-                        {/*<img id='facilityLogo' src={fLogo} style={{width: '50%'}} alt="logo"/>*/}
-                        {/*<h3><b><em>Summary</em></b></h3>*/}
-                    {/*</div>*/}
                     <div style={{width: '80%', margin: 'auto'}}>
                         <TextField
                             id="outlined-multiline-flexible"
@@ -219,7 +185,7 @@ class Facility extends Component {
                             onChange={this.handleChange('commentBox')}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '80%', marginTop: '25px', overflowX: 'hidden'}}
+                            style={{minWidth: '80%', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
@@ -235,7 +201,7 @@ class Facility extends Component {
                                     <TableCell></TableCell>
                                     <TableCell align="center">MoM {this.state.momLabel}</TableCell>
                                     <TableCell align="center">YTD {this.state.ytd}</TableCell>
-                                    <TableCell align="center">YTD {this.state.ytdPrevious}</TableCell>
+                                    <TableCell align="center">{this.state.ytd} / {this.state.ytdPrevious}</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -246,13 +212,13 @@ class Facility extends Component {
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span style={{color: '#f44336'}}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span style={{color: '#f44336'}}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
                                     <TableCell align="center">
@@ -389,7 +355,7 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.cpaCommentBox}
                                             onChange={this.handleChange('cpaCommentBox')}
-                                            className={classes.textField}
+                                            className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
                                             style={{minWidth: '100%'}}
@@ -410,7 +376,7 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.cpaCommentBox}
                                             onChange={this.handleChange('cpaCommentBox')}
-                                            className={classes.textField}
+                                            className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
                                             style={{minWidth: '100%'}}
@@ -431,7 +397,7 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.cpaCommentBox}
                                             onChange={this.handleChange('cpaCommentBox')}
-                                            className={classes.textField}
+                                            className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
                                             style={{minWidth: '100%'}}
@@ -452,7 +418,7 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.cpaCommentBox}
                                             onChange={this.handleChange('cpaCommentBox')}
-                                            className={classes.textField}
+                                            className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
                                             style={{minWidth: '100%'}}
@@ -473,7 +439,7 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.cpaCommentBox}
                                             onChange={this.handleChange('cpaCommentBox')}
-                                            className={classes.textField}
+                                            className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
                                             style={{minWidth: '100%'}}
@@ -494,7 +460,7 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.cpaCommentBox}
                                             onChange={this.handleChange('cpaCommentBox')}
-                                            className={classes.textField}
+                                            className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
                                             style={{minWidth: '100%'}}
@@ -515,7 +481,7 @@ class Facility extends Component {
                                             rowsMax="4"
                                             value={this.state.cpaCommentBox}
                                             onChange={this.handleChange('cpaCommentBox')}
-                                            className={classes.textField}
+                                            className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
                                             style={{minWidth: '100%'}}

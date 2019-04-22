@@ -7,6 +7,8 @@ import FacilityPie from './facilityPie';
 import FacilityVolumeChart from './facilityVolumeChart';
 import MaterialIcon from 'material-icons-react';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
+import EPie from "../test/ePie";
+import EVolumeChart from "../test/eVolumeChart";
 
 
 class FacilityVolume extends Component {
@@ -24,8 +26,7 @@ class FacilityVolume extends Component {
     render() {
         return (
             <div className="facilityVolumeComponent">
-
-                <div className="row" style={{display: 'inline-flex', width: '90%'}}>
+                <div className="row" style={{display: 'inline-flex', width: '90%', marginBottom: '10px'}}>
                     <div style={{width: '40%', margin: 'auto'}}>
                         <img src={this.props.logo} style={{width: '50%'}} alt="logo"/>
                         <h3><b><em>Volume</em></b></h3>
@@ -41,10 +42,12 @@ class FacilityVolume extends Component {
                             onChange={this.handleChange('commentBox')}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '80%', marginTop: '25px', overflowX: 'hidden'}}
+                            style={{minWidth: '80%', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
+
+                <EPie id='pieSpend'/>
 
                 <div className='facilityPieRow'>
                     <FacilityPie color={"info"} title={"Spend"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
@@ -52,6 +55,7 @@ class FacilityVolume extends Component {
                     <FacilityPie color={"info"} title={"Calls"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
                 </div>
 
+                <EVolumeChart id='eVolumeChart'/>
                 <Card className='facilityBarChart' style={{marginTop: '20px'}}>
                     <CardHeader className="facilityCardHeader" color="info">
                         <h4 className="cardTitleWhite">Year/Year by Month</h4>

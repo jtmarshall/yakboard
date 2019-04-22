@@ -121,8 +121,13 @@ class Sidebar extends React.Component {
                             </li>
                         </Tooltip>
                     </Link>
-
-
+                    <Link to="/test">
+                        <Tooltip title="Testing Area" placement="bottom">
+                            <li style={{paddingLeft: 25}}>
+                                <MaterialIcon icon='whatshot' color='#EEEEEE'/> Test
+                            </li>
+                        </Tooltip>
+                    </Link>
                 </ul>
 
                 <div className="sidebarBottom">
