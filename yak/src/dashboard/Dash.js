@@ -14,6 +14,7 @@ import Touch from "./components/Touch/Touch";
 import Timeframe from "./components/Timeframe/Timeframe";
 import Geo from "./components/Geo/Geo";
 import PrintComponent from './components/Facility/PrintComponent';
+import TestComponent from './components/test/TestComponent';
 
 
 // Global state for local storage
@@ -203,7 +204,7 @@ class Dash extends React.Component {
                     <Sidebar selected={this.state.Filter} onUpdate={this.updateSKUFilter}
                              rightDrawer={this.state.rightDrawer}/>
 
-
+                    <Route path="/test" render={() => <TestComponent parentState={this.state}/>}/>
                     <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
                     <Route exact path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                     <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>

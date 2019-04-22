@@ -10,8 +10,7 @@ class PrintComponent extends React.Component {
     render() {
         return (
             <div className='facilityPrint'>
-                {/* use .default to fix library bug for now */}
-                <ReactToPrint.default
+                <ReactToPrint
                     pageStyle={{
                         width: '100%',
                         paddingLeft: '0px',

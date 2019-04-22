@@ -10,8 +10,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 const cardStyle = {
   card: {
     border: "0",
-    marginBottom: "20px",
-    marginTop: "20px",
+    marginBottom: "16px",
+    marginTop: "16px",
     borderRadius: "6px",
     color: "rgba(0, 0, 0, 0.87)",
     background: "#fff",
@@ -22,7 +22,7 @@ const cardStyle = {
     flexDirection: "column",
     wordWrap: "break-word",
     fontSize: ".875rem",
-      padding: "6px",
+      padding: "4px",
   },
   cardPlain: {
     background: "transparent",
