@@ -10,8 +10,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 const cardStyle = {
   card: {
     border: "0",
-    marginBottom: "16px",
-    marginTop: "16px",
+    marginBottom: "12px",
+    marginTop: "12px",
     borderRadius: "6px",
     color: "rgba(0, 0, 0, 0.87)",
     background: "#fff",

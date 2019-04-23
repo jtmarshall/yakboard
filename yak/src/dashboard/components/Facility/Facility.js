@@ -20,7 +20,7 @@ import FacilityFormStepper from './facilityForm';
 import moment from 'moment';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import FacilityAdmitsGoal from './facilityAdmitsGoal';
+import EFacilityAdmitGoal from '../test/eFacilityAdmitGoal';
 // import html2canvas from 'html2canvas';
 // import jsPDF from 'jspdf';
 
@@ -87,13 +87,13 @@ class Facility extends Component {
         fDomain: this.props.parentState.SelectedFacilityDomain || 'domain',
         fAddress: 'Facility Address',
         fPhone: 'Facility Phone',
-        commentBox: '',
-        spendCommentBox: '',
-        webformsCommentBox: '',
-        admitsCommentBox: '',
-        inquiriesCommentBox: '',
-        callsCommentBox: '',
-        trafficCommentBox: '',
+        commentHighlights: '',
+        commentWebUpdates: '',
+        commentBranding: '',
+        commentEmail: '',
+        commentCollateral: '',
+        commentGlobalUpdates: '',
+        commentAdVideo: '',
         cpaCommentBox: '',
         month: moment(this.props.parentState.DateFrame.To).format('MMMM YYYY'),
         momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') + '/' + moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
@@ -172,7 +172,8 @@ class Facility extends Component {
                         </CardContent>
                     </Card>
 
-                    <FacilityAdmitsGoal color={"info"} title={"Admits Goal"}/>
+                    {/*<FacilityAdmitsGoal color={"info"} title={"Admits Goal"}/>*/}
+                    <EFacilityAdmitGoal id='admitGoal'/>
 
                     <div style={{width: '80%', margin: 'auto'}}>
                         <TextField
@@ -181,11 +182,11 @@ class Facility extends Component {
                             multiline
                             rows="10"
                             rowsMax="12"
-                            value={this.state.commentBox}
-                            onChange={this.handleChange('commentBox')}
+                            value={this.state.commentHighlights}
+                            onChange={this.handleChange('commentHighlights')}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '80%', overflowX: 'hidden'}}
+                            style={{width: '90%', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
@@ -353,8 +354,8 @@ class Facility extends Component {
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.cpaCommentBox}
-                                            onChange={this.handleChange('cpaCommentBox')}
+                                            value={this.state.commentWebUpdates}
+                                            onChange={this.handleChange('commentWebUpdates')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -374,8 +375,8 @@ class Facility extends Component {
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.cpaCommentBox}
-                                            onChange={this.handleChange('cpaCommentBox')}
+                                            value={this.state.commentBranding}
+                                            onChange={this.handleChange('commentBranding')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -395,8 +396,8 @@ class Facility extends Component {
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.cpaCommentBox}
-                                            onChange={this.handleChange('cpaCommentBox')}
+                                            value={this.state.commentEmail}
+                                            onChange={this.handleChange('commentEmail')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -416,8 +417,8 @@ class Facility extends Component {
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.cpaCommentBox}
-                                            onChange={this.handleChange('cpaCommentBox')}
+                                            value={this.state.commentCollateral}
+                                            onChange={this.handleChange('commentCollateral')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -437,8 +438,8 @@ class Facility extends Component {
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.cpaCommentBox}
-                                            onChange={this.handleChange('cpaCommentBox')}
+                                            value={this.state.commentGlobalUpdates}
+                                            onChange={this.handleChange('commentGlobalUpdates')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -458,8 +459,8 @@ class Facility extends Component {
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.cpaCommentBox}
-                                            onChange={this.handleChange('cpaCommentBox')}
+                                            value={this.state.commentAdVideo}
+                                            onChange={this.handleChange('commentAdVideo')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"

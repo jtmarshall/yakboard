@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
-import CardHeader from "../../tools/Card/CardHeader";
 
 
 export default class EPie extends Component {
@@ -10,7 +9,7 @@ export default class EPie extends Component {
     state = {
         title: this.props.title,
         chardID: this.props.id,
-        height: this.props.height || '420px',
+        height: this.props.height || '380px',
         width: this.props.width || 'auto',
         headerColor: this.props.headerColor || 'prime',
         backgroundColor: this.props.backgroundColor || '#2c343c',
@@ -33,7 +32,7 @@ export default class EPie extends Component {
                 {/*<CardHeader className="facilityCardHeader" color={this.state.headerColor}>*/}
                 {/*    <h4 className="cardTitleWhite">{this.state.title}</h4>*/}
                 {/*</CardHeader>*/}
-                <CardBody style={{padding: '20px',}}>
+                <CardBody style={{padding: '16px'}}>
                     <div id={this.state.chardID} style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
             </Card>
@@ -87,6 +86,7 @@ export default class EPie extends Component {
                     radius: ['35%', '65%'],
                     center: ['15%', '50%'],
                     color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
+                    // color: ['#003f5c', '#374c80', '#7a5195', '#bc5090', '#ef5675', '#ff764a', '#ffa600'],
                     avoidLabelOverlap: false,
                     label: {
                         normal: {

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
+import {accent} from '../Facility/facility.css';
 
 
 export default class EFacilityAdmitGoal extends Component {
@@ -9,10 +10,11 @@ export default class EFacilityAdmitGoal extends Component {
     state = {
         title: this.props.title,
         chardID: this.props.id,
-        height: this.props.height || '260px',
-        width: this.props.width || 'auto',
+        height: this.props.height || '240px',
+        width: this.props.width || '200px',
         headerColor: this.props.headerColor || 'prime',
-        backgroundColor: this.props.backgroundColor || '#2c343c',
+        backgroundColor: this.props.backgroundColor || '#eeeeee',
+        admitsColor: accent,
     };
 
     // update search metric selection
@@ -28,8 +30,15 @@ export default class EFacilityAdmitGoal extends Component {
         let cardHeight = (chartHeight + (chartHeight * .1)) + 'px';
 
         return (
-            <Card style={{height: cardHeight}}>
-                <CardBody style={{padding: '20px',}}>
+            <Card style={{
+                maxWidth: '240px',
+                height: cardHeight,
+                backgroundColor: this.state.backgroundColor,
+                boxShadow: 'none',
+                margin: 'auto'
+            }}>
+                <CardBody>
+                    <span id="accentColorDummy" style={{color: 'var(--fAccent)'}}/>
                     <div id={this.state.chardID} style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
             </Card>
@@ -38,6 +47,10 @@ export default class EFacilityAdmitGoal extends Component {
 
     componentDidMount() {
         let myChart = echarts.init(document.getElementById(this.state.chardID));
+        let targetGoal = 400;
+        let admitsNumb = targetGoal - 33;
+        let goalMissNumb = targetGoal - admitsNumb;
+        let admitColor = getComputedStyle(document.getElementById('accentColorDummy')).color;
 
         // specify chart configuration item and data
         let option = {
@@ -49,22 +62,34 @@ export default class EFacilityAdmitGoal extends Component {
             ],
             tooltip: {
                 trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
+                formatter: "{b}: {c}/"+targetGoal+"<br/>({d}%)"
             },
             series: [
                 {
-                    name: 'Traffic',
+                    name: 'Admits',
                     type: 'pie',
-                    radius: '55%',
-                    color: ['#365CA0', '#fff'],
+                    radius: '80%',
+                    color: [admitColor, 'none'],
                     label: {
                         normal: {
-                            show: false,
-                        },
+                            formatter: '{per|{c}}\n({d}%)',
+                            position: 'inner',
+                            height: 50,
+                            rich: {
+                                per: {
+                                    color: '#eee',
+                                    // backgroundColor: '#334455',
+                                    fontSize: 12,
+                                    align: 'center',
+                                    padding: [2, 3],
+                                    borderRadius: 2
+                                }
+                            }
+                        }
                     },
                     data: [
-                        {value: 335, name: 'Admits'},
-                        {value: 65, name: 'NA'},
+                        {value: admitsNumb, name: 'Admits'},
+                        {value: goalMissNumb, label: {show: false,}},
                     ]
                 }
             ]
