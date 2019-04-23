@@ -244,7 +244,7 @@ export class LineChart extends Component {
                         }
                     }
                 },
-                //responsive: true,
+                responsive: true,
                 scales: {
                     xAxes: [{
                         scaleLabel: {
