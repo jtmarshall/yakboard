@@ -11,13 +11,17 @@ import EPie from "../test/ePie";
 import EVolumeChart from "../test/eVolumeChart";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import colorPalette from "../../tools/colorPalette";
+import Button from "@material-ui/core/Button";
 
 
 class FacilityVolume extends Component {
 
     state = {
         commentBox: '',
-        chartToggle: false,
+        chartToggle: true,
+        graphColorIndex: 1,
+        graphColor: colorPalette.greenBlue,
     };
 
     handleChange = name => event => {
@@ -28,6 +32,20 @@ class FacilityVolume extends Component {
 
     handleToggle = name => event => {
         this.setState({ [name]: event.target.checked });
+    };
+
+    colorPaletteToggle = event => {
+        let newIndex = (this.state.graphColorIndex + 1)%5;
+        let newColor = Object.keys(colorPalette)[newIndex];
+        console.log(newIndex, newColor, colorPalette[newColor]);
+        this.setState({
+            graphColorIndex: newIndex,
+            graphColor: colorPalette[newColor],
+        });
+
+        this.setState({
+            state: this.state
+        });
     };
 
 
@@ -71,8 +89,12 @@ class FacilityVolume extends Component {
 
                 {this.state.chartToggle &&
                     <span>
-                        <EPie id='pieSpend'/>
-                        <EVolumeChart id='eVolumeChart'/>
+                        <Button variant="contained" color="primary" style={{color: '#fff'}} onClick={this.colorPaletteToggle}>
+                            Toggle Color
+                        </Button>
+                        <br/>
+                        <EPie id='pieSpend' colors={this.state.graphColor} index={this.state.graphColorIndex}/>
+                        <EVolumeChart id='eVolumeChart' colors={this.state.graphColor}/>
                     </span>
                 }
 

@@ -32,6 +32,7 @@ export default class EVolumeChart extends Component {
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
             axisLabels: primaryLabels,
+            // colors: this.props.colors || colorPalette.sunburst,
         };
     }
 
@@ -55,6 +56,12 @@ export default class EVolumeChart extends Component {
         )
     }
 
+    // Handle color toggle
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // Re-run component mount func when component is updated
+        this.componentDidMount();
+    }
+
     componentDidMount() {
         let randata = [];
         let randata2 = [];
@@ -75,7 +82,7 @@ export default class EVolumeChart extends Component {
                     color: '#fff'
                 },
             },
-            color: colorPalette.greenBlue,
+            color: this.props.colors,
             textStyle: {
                 color: '#fff'
             },

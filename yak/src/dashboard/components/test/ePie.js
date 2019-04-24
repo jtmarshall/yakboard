@@ -13,7 +13,7 @@ export default class EPie extends Component {
         width: this.props.width || 'auto',
         headerColor: this.props.headerColor || 'prime',
         backgroundColor: this.props.backgroundColor || '#2c343c',
-        // backgroundColor: this.props.backgroundColor || 'var(--fSecondary1)',
+        // colors: this.props.colors || colorPalette.skittles,
     };
 
     // update search metric selection
@@ -40,6 +40,12 @@ export default class EPie extends Component {
         )
     }
 
+    // Handle color toggle
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // Re-run component mount func when component is updated
+        this.componentDidMount();
+    }
+
     componentDidMount() {
         let myChart = echarts.init(document.getElementById(this.state.chardID));
 
@@ -47,24 +53,25 @@ export default class EPie extends Component {
         let option = {
             title: [
                 {
-                    text: 'Spend',
-                    x: 'left',
-                    textStyle: {
-                        color: '#fff'
-                    },
-                }, {
-                    text: 'Traffic',
+                    text: 'Spend - Traffic - Calls',
                     x: 'center',
                     textStyle: {
                         color: '#fff'
                     },
-                }, {
-                    text: 'Calls',
-                    x: 'right',
-                    textStyle: {
-                        color: '#fff'
-                    },
-                }
+                },
+                // {
+                //     text: 'Traffic',
+                //     // x: 'center',
+                //     textStyle: {
+                //         color: '#fff'
+                //     },
+                // }, {
+                //     text: 'Calls',
+                //     // x: 'right',
+                //     textStyle: {
+                //         color: '#fff'
+                //     },
+                // }
             ],
             tooltip: {
                 trigger: 'item',
@@ -87,7 +94,7 @@ export default class EPie extends Component {
                     radius: ['35%', '65%'],
                     center: ['15%', '50%'],
                     // color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
-                    color: colorPalette.mutedRainbow,
+                    color: this.props.colors,
                     avoidLabelOverlap: false,
                     label: {
                         normal: {
@@ -121,8 +128,27 @@ export default class EPie extends Component {
                     name: 'Traffic',
                     type: 'pie',
                     // radius: ['35%', '65%'],
-                    radius: '55%',
+                    radius: '65%',
                     center: ['50%', '50%'],
+                    label: {
+                        normal: {
+                            verticalAlign: 'top',
+                            textStyle: {
+                                fontSize: '12',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                fontSize: '26',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        length2: 5,
+                    },
                     data: [
                         {value: 335, name: 'CPC'},
                         {value: 310, name: 'Referring'},
@@ -136,10 +162,16 @@ export default class EPie extends Component {
                 {
                     name: 'Calls',
                     type: 'pie',
-                    radius: '55%',
+                    radius: '60%',
                     // radius: ['35%', '65%'],
                     center: ['85%', '50%'],
                     avoidLabelOverlap: true,
+                    label: {
+                        color: '#fff',
+                    },
+                    labelLine: {
+                        length2: 5,
+                    },
                     data: [
                         {value: 335, name: 'CPC'},
                         {value: 310, name: 'Referring'},
