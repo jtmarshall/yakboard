@@ -225,7 +225,7 @@ class Facility extends Component {
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
-                                            <span style={{color: '#4caf50'}}> 6%</span> (184)
+                                            <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
                                 </TableRow>
@@ -235,15 +235,21 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='admits'>
@@ -252,15 +258,21 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='inquiries'>
@@ -269,15 +281,21 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='calls'>
@@ -286,15 +304,21 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='traffic'>
@@ -303,15 +327,21 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='cpa'>
@@ -320,15 +350,21 @@ class Facility extends Component {
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                        <span className="iconText"> 6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
                                     </TableCell>
                                     <TableCell align="center">
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
-                                        <span className="iconText"> -6% (184)</span>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
-
+import colorPalette from '../../tools/colorPalette';
 
 export default class EPie extends Component {
 
@@ -13,6 +13,7 @@ export default class EPie extends Component {
         width: this.props.width || 'auto',
         headerColor: this.props.headerColor || 'prime',
         backgroundColor: this.props.backgroundColor || '#2c343c',
+        // backgroundColor: this.props.backgroundColor || 'var(--fSecondary1)',
     };
 
     // update search metric selection
@@ -85,8 +86,8 @@ export default class EPie extends Component {
                     type: 'pie',
                     radius: ['35%', '65%'],
                     center: ['15%', '50%'],
-                    color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
-                    // color: ['#003f5c', '#374c80', '#7a5195', '#bc5090', '#ef5675', '#ff764a', '#ffa600'],
+                    // color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
+                    color: colorPalette.mutedRainbow,
                     avoidLabelOverlap: false,
                     label: {
                         normal: {

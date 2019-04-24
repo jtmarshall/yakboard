@@ -4,6 +4,7 @@ import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
 import toolbox from "../../tools/toolbox";
 import moment from "moment";
+import colorPalette from "../../tools/colorPalette";
 
 
 export default class EVolumeChart extends Component {
@@ -74,8 +75,7 @@ export default class EVolumeChart extends Component {
                     color: '#fff'
                 },
             },
-            // color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
-            color: ['#003f5c', '#374c80', '#7a5195', '#bc5090', '#ef5675', '#ff764a', '#ffa600'],
+            color: colorPalette.greenBlue,
             textStyle: {
                 color: '#fff'
             },
@@ -187,14 +187,14 @@ export default class EVolumeChart extends Component {
                 },
                 {
                     name: 'Inquiries',
-                    color: '#7dd5ff',
+                    // color: '#7dd5ff',
                     type: 'line',
                     yAxisIndex: 1,
                     data: randata
                 },
                 {
                     name: 'Admits',
-                    color: '#80A1C1',
+                    // color: '#80A1C1',
                     type: 'line',
                     lineStyle: {
                         type: 'dashed'
