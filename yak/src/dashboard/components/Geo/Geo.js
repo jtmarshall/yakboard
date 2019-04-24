@@ -81,7 +81,8 @@ class Geo extends Component {
 
     // Configuration for display map data
     statesCustomConfig = () => {
-        let colors = ['#58A4BD', '#54BB97', '#50B956', '#87B74D', '#B14268', '#AF3FA8'];
+        // let colors = ['#58A4BD', '#54BB97', '#50B956', '#87B74D', '#B14268', '#AF3FA8'];
+        let colors = ['#004c6d', '#3c6480', '#627e93', '#8798a7', '#abb3bb', '#cfcfcf'];
         if (this.state.geoView === 'bubble') {
             colors = ['#92ddc8', '#81b69d', '#5aa17f', '#137a63', '#0a3a2a', ''];
         }
@@ -339,16 +340,16 @@ class Geo extends Component {
                                         <Divider/>
                                         <List style={{float: 'left'}}>
                                             <ListItem>
-                                                <ListItemText primary={"State: " + c} />
+                                                <ListItemText primary={"State: " + c}/>
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary={"Conversions: "} />
+                                                <ListItemText primary={"Conversions: "}/>
                                             </ListItem>
                                         </List>
                                     </CardBody>
                                 </Card>
                             </div>
-                            <div className="col-lg-8" >
+                            <div className="col-lg-8">
                                 <USAMap className="tooltip" customize={this.statesCustomConfig()}
                                         onClick={this.mapHandler}
                                         title={""}>

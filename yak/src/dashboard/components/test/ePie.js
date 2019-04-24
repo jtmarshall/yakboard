@@ -2,18 +2,18 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
-import CardHeader from "../../tools/Card/CardHeader";
-
+import colorPalette from '../../tools/colorPalette';
 
 export default class EPie extends Component {
 
     state = {
         title: this.props.title,
         chardID: this.props.id,
-        height: this.props.height || '420px',
+        height: this.props.height || '380px',
         width: this.props.width || 'auto',
         headerColor: this.props.headerColor || 'prime',
         backgroundColor: this.props.backgroundColor || '#2c343c',
+        // colors: this.props.colors || colorPalette.skittles,
     };
 
     // update search metric selection
@@ -33,11 +33,17 @@ export default class EPie extends Component {
                 {/*<CardHeader className="facilityCardHeader" color={this.state.headerColor}>*/}
                 {/*    <h4 className="cardTitleWhite">{this.state.title}</h4>*/}
                 {/*</CardHeader>*/}
-                <CardBody style={{padding: '20px',}}>
+                <CardBody style={{padding: '16px'}}>
                     <div id={this.state.chardID} style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
             </Card>
         )
+    }
+
+    // Handle color toggle
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // Re-run component mount func when component is updated
+        this.componentDidMount();
     }
 
     componentDidMount() {
@@ -47,24 +53,25 @@ export default class EPie extends Component {
         let option = {
             title: [
                 {
-                    text: 'Spend',
-                    x: 'left',
-                    textStyle: {
-                        color: '#fff'
-                    },
-                }, {
-                    text: 'Traffic',
+                    text: 'Spend - Traffic - Calls',
                     x: 'center',
                     textStyle: {
                         color: '#fff'
                     },
-                }, {
-                    text: 'Calls',
-                    x: 'right',
-                    textStyle: {
-                        color: '#fff'
-                    },
-                }
+                },
+                // {
+                //     text: 'Traffic',
+                //     // x: 'center',
+                //     textStyle: {
+                //         color: '#fff'
+                //     },
+                // }, {
+                //     text: 'Calls',
+                //     // x: 'right',
+                //     textStyle: {
+                //         color: '#fff'
+                //     },
+                // }
             ],
             tooltip: {
                 trigger: 'item',
@@ -86,7 +93,8 @@ export default class EPie extends Component {
                     type: 'pie',
                     radius: ['35%', '65%'],
                     center: ['15%', '50%'],
-                    color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
+                    // color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
+                    color: this.props.colors,
                     avoidLabelOverlap: false,
                     label: {
                         normal: {
@@ -120,8 +128,27 @@ export default class EPie extends Component {
                     name: 'Traffic',
                     type: 'pie',
                     // radius: ['35%', '65%'],
-                    radius: '55%',
+                    radius: '65%',
                     center: ['50%', '50%'],
+                    label: {
+                        normal: {
+                            verticalAlign: 'top',
+                            textStyle: {
+                                fontSize: '12',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                fontSize: '26',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        length2: 5,
+                    },
                     data: [
                         {value: 335, name: 'CPC'},
                         {value: 310, name: 'Referring'},
@@ -135,10 +162,16 @@ export default class EPie extends Component {
                 {
                     name: 'Calls',
                     type: 'pie',
-                    radius: '55%',
+                    radius: '60%',
                     // radius: ['35%', '65%'],
                     center: ['85%', '50%'],
                     avoidLabelOverlap: true,
+                    label: {
+                        color: '#fff',
+                    },
+                    labelLine: {
+                        length2: 5,
+                    },
                     data: [
                         {value: 335, name: 'CPC'},
                         {value: 310, name: 'Referring'},

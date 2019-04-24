@@ -4,6 +4,7 @@ import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
 import toolbox from "../../tools/toolbox";
 import moment from "moment";
+import colorPalette from "../../tools/colorPalette";
 
 
 export default class EMixed extends Component {
@@ -75,6 +76,7 @@ export default class EMixed extends Component {
                 text: 'Touch v Conversion',
                 x: 'center',
             },
+            color: colorPalette.acadiaCorp,
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {

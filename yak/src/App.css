@@ -13,7 +13,9 @@
 }
 
 .App-header {
-    background-color: #222;
+    /*background-color: #222;*/
+    /*background-color: #1b2126;*/
+    background-color: #242a31;
     height: 150px;
     padding: 10px;
     color: white;
@@ -124,12 +126,16 @@
 }
 
 .sidebarComponent {
+    /* Original Background */
+    /*background-color: #222;*/
+    /* New Sidebar Background Colors (dark-light) #080b0e #0f1317 #13171b #171c21 #1b2126 #242a31 */
+    background-color: #1b2126;
+    /*background-color: #242a31;*/
     color: #fafafa;
     position: fixed;
     left: 0;
     bottom: 0;
     top: 0;
-    background: #222;
     padding: 10px;
     width: 180px;
     height: 100%;

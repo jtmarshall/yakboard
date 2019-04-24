@@ -4,6 +4,7 @@ import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
 import toolbox from "../../tools/toolbox";
 import moment from "moment";
+import colorPalette from "../../tools/colorPalette";
 
 
 export default class EVolumeChart extends Component {
@@ -31,6 +32,7 @@ export default class EVolumeChart extends Component {
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
             axisLabels: primaryLabels,
+            // colors: this.props.colors || colorPalette.sunburst,
         };
     }
 
@@ -46,12 +48,18 @@ export default class EVolumeChart extends Component {
         let cardHeight = (chartHeight + (chartHeight * .1)) + 'px';
 
         return (
-            <Card style={{padding: '0px', height: cardHeight, backgroundColor: this.state.backgroundColor}}>
-                <CardBody style={{padding: '20px',}}>
+            <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}}>
+                <CardBody style={{padding: '16px'}}>
                     <div id={this.state.chardID} style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
             </Card>
         )
+    }
+
+    // Handle color toggle
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // Re-run component mount func when component is updated
+        this.componentDidMount();
     }
 
     componentDidMount() {
@@ -74,7 +82,7 @@ export default class EVolumeChart extends Component {
                     color: '#fff'
                 },
             },
-            color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
+            color: this.props.colors,
             textStyle: {
                 color: '#fff'
             },
@@ -93,7 +101,7 @@ export default class EVolumeChart extends Component {
                 textStyle: {
                     color: '#fff'
                 },
-                data: ['CPC', 'Referring', 'Direct', 'Ad-Video', 'Organic', 'Email', 'Offline', "Inquiries", "Admits"]
+                data: ['Referring', 'Direct', 'Ad-Video', 'Organic', 'Email', 'Offline', 'CPC', "Inquiries", "Admits"]
             },
             xAxis: [
                 {
@@ -110,7 +118,7 @@ export default class EVolumeChart extends Component {
             yAxis: [
                 {
                     type: 'value',
-                    name: 'Touch',
+                    name: 'Calls',
                     interval: 25,
                     max: 150,
                     position: 'left',
@@ -120,7 +128,7 @@ export default class EVolumeChart extends Component {
                 },
                 {
                     type: 'value',
-                    name: 'Conversion',
+                    name: 'Inquiries/Admits',
                     interval: 5,
                     max: 30,
                     position: 'right',
@@ -132,62 +140,68 @@ export default class EVolumeChart extends Component {
             series: [
                 {
                     name: 'Referring',
-                    color: '#365CA0',
+                    // color: '#365CA0',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
                     name: 'Direct',
-                    color: '#33C3E9',
+                    // color: '#33C3E9',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
                     name: 'Ad-Video',
-                    color: '#33BFBB',
+                    // color: '#33BFBB',
+                    // color: '#1a936f',
                     stack: 1,
                     type: 'bar',
                     data: randata2
                 },
                 {
                     name: 'Organic',
-                    color: '#A3D50C',
+                    // color: '#A3D50C',
+                    // color: '#88d498',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
                     name: 'Email',
-                    color: '#FFD600',
+                    // color: '#FFD600',
+                    // color: '#e9c46a',
                     stack: 1,
                     type: 'bar',
                     data: randata2
                 },
                 {
                     name: 'Offline',
-                    color: '#E53947',
+                    // color: '#E53947',
+                    // color: '#e76f51',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
                     name: 'CPC',
-                    color: '#9E5E8C',
+                    // color: '#9E5E8C',
+                    // color: '#f3e9d2',
                     stack: 1,
                     type: 'bar',
                     data: randata2
                 },
                 {
                     name: 'Inquiries',
-                    color: '#03DAC6',
+                    // color: '#7dd5ff',
                     type: 'line',
                     yAxisIndex: 1,
                     data: randata
                 },
                 {
                     name: 'Admits',
+                    // color: '#80A1C1',
                     type: 'line',
                     lineStyle: {
                         type: 'dashed'

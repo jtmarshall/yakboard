@@ -254,6 +254,8 @@ export class FacilityVolumeChart extends Component {
                     data={this.state.chartData}
                     options={this.state.chartOptions}
                     className='facilityBar'
+                    height={420}
+                    width={1256}
                 />
             </div>
         );

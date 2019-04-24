@@ -1,6 +1,5 @@
-
 #statsSummary tr {
-    height: 60px;
+    height: 56px;
 }
 
 .facilityStatsInput {
@@ -866,6 +865,10 @@ h6 {
 
 /* Export Accent color for use in react components */
 @value fAccent: var(--fAccent);
+
+:root {
+    --accent:  var(--fAccent) !important;
+}
 
 #admitsGoalTitle {
     color: var(--fPrimary2) !important;

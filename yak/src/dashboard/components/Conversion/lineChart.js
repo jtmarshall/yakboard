@@ -244,7 +244,7 @@ export class LineChart extends Component {
                         }
                     }
                 },
-                //responsive: true,
+                responsive: true,
                 scales: {
                     xAxes: [{
                         scaleLabel: {
@@ -399,6 +399,8 @@ export class LineChart extends Component {
                 <Bar
                     data={this.state.chartData}
                     options={this.state.chartOptions}
+                    height={420}
+                    width={1256}
                 />
             </div>
         );

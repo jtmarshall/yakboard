@@ -9,12 +9,19 @@ import MaterialIcon from 'material-icons-react';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import EPie from "../test/ePie";
 import EVolumeChart from "../test/eVolumeChart";
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+import colorPalette from "../../tools/colorPalette";
+import Button from "@material-ui/core/Button";
 
 
 class FacilityVolume extends Component {
 
     state = {
         commentBox: '',
+        chartToggle: true,
+        graphColorIndex: 1,
+        graphColor: colorPalette.greenBlue,
     };
 
     handleChange = name => event => {
@@ -22,6 +29,25 @@ class FacilityVolume extends Component {
             [name]: event.target.value,
         });
     };
+
+    handleToggle = name => event => {
+        this.setState({ [name]: event.target.checked });
+    };
+
+    colorPaletteToggle = event => {
+        let newIndex = (this.state.graphColorIndex + 1)%5;
+        let newColor = Object.keys(colorPalette)[newIndex];
+        console.log(newIndex, newColor, colorPalette[newColor]);
+        this.setState({
+            graphColorIndex: newIndex,
+            graphColor: colorPalette[newColor],
+        });
+
+        this.setState({
+            state: this.state
+        });
+    };
+
 
     render() {
         return (
@@ -47,23 +73,50 @@ class FacilityVolume extends Component {
                     </div>
                 </div>
 
-                <EPie id='pieSpend'/>
+                <br/>
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={this.state.chartToggle}
+                            onChange={this.handleToggle('chartToggle')}
+                            value="chartToggle"
+                            color="primary"
+                        />
+                    }
+                    label="Show New Charts"
+                />
+                <br/>
 
-                <div className='facilityPieRow'>
-                    <FacilityPie color={"info"} title={"Spend"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                    <FacilityPie color={"info"} title={"Traffic"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                    <FacilityPie color={"info"} title={"Calls"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                </div>
+                {this.state.chartToggle &&
+                    <span>
+                        <Button variant="contained" color="primary" style={{color: '#fff'}} onClick={this.colorPaletteToggle}>
+                            Toggle Color
+                        </Button>
+                        <br/>
+                        <EPie id='pieSpend' colors={this.state.graphColor} index={this.state.graphColorIndex}/>
+                        <EVolumeChart id='eVolumeChart' colors={this.state.graphColor}/>
+                    </span>
+                }
 
-                <EVolumeChart id='eVolumeChart'/>
-                <Card className='facilityBarChart' style={{marginTop: '20px'}}>
-                    <CardHeader className="facilityCardHeader" color="info">
-                        <h4 className="cardTitleWhite">Year/Year by Month</h4>
-                    </CardHeader>
-                    <CardBody>
-                        <FacilityVolumeChart/>
-                    </CardBody>
-                </Card>
+                {!this.state.chartToggle &&
+                    <span>
+                        <div className='facilityPieRow'>
+                            <FacilityPie color={"info"} title={"Spend"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
+                            <FacilityPie color={"info"} title={"Traffic"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
+                            <FacilityPie color={"info"} title={"Calls"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
+                        </div>
+
+
+                        <Card className='facilityBarChart' style={{marginTop: '20px'}}>
+                            <CardHeader className="facilityCardHeader" color="info">
+                                <h4 className="cardTitleWhite">Year/Year by Month</h4>
+                            </CardHeader>
+                            <CardBody>
+                                <FacilityVolumeChart/>
+                            </CardBody>
+                        </Card>
+                    </span>
+                }
 
                 <Card>
                     <CardHeader className="facilityCardHeader" color="info">
