@@ -34,7 +34,7 @@ export default class EPie extends Component {
                 {/*    <h4 className="cardTitleWhite">{this.state.title}</h4>*/}
                 {/*</CardHeader>*/}
                 <CardBody style={{padding: '16px'}}>
-                    <div id={this.state.chardID} style={{width: this.state.width, height: this.state.height}}/>
+                    <div id={this.state.chardID} className='eChart' style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
             </Card>
         )

@@ -379,7 +379,7 @@ class Facility extends Component {
                             </TableHead>
                             <TableBody>
                                 <TableRow key='websiteUpdates'>
-                                    <TableCell component="th" scope="row" align="center">
+                                    <TableCell component="th" scope="row">
                                         <MaterialIcon icon='important_devices' color='#03B5E2'/>
                                         <span className="iconText"> Website Updates</span>
                                     </TableCell>
@@ -400,7 +400,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='branding'>
-                                    <TableCell component="th" scope="row" align="center">
+                                    <TableCell component="th" scope="row">
                                         <MaterialIcon icon='security' color='#03B5E2'/>
                                         <span className="iconText"> Branding</span>
                                     </TableCell>
@@ -421,7 +421,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='emailMarketing'>
-                                    <TableCell component="th" scope="row" align="center">
+                                    <TableCell component="th" scope="row">
                                         <MaterialIcon icon='alternate_email' color='#03B5E2'/>
                                         <span className="iconText"> Email Marketing</span>
                                     </TableCell>
@@ -442,7 +442,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='collateral'>
-                                    <TableCell component="th" scope="row" align="center">
+                                    <TableCell component="th" scope="row">
                                         <MaterialIcon icon='description' color='#03B5E2'/>
                                         <span className="iconText"> Collateral</span>
                                     </TableCell>
@@ -463,7 +463,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='globalUpdates'>
-                                    <TableCell component="th" scope="row" align="center">
+                                    <TableCell component="th" scope="row">
                                         <MaterialIcon icon='cloud_done' color='#03B5E2'/>
                                         <span className="iconText"> Global Updates</span>
                                     </TableCell>
@@ -484,7 +484,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='adVideo'>
-                                    <TableCell component="th" scope="row" align="center">
+                                    <TableCell component="th" scope="row">
                                         <MaterialIcon icon='play_circle_filled' color='#03B5E2'/>
                                         <span className="iconText"> Ad & Video</span>
                                     </TableCell>
@@ -505,7 +505,7 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='nonDataPoint'>
-                                    <TableCell component="th" scope="row" align="center">
+                                    <TableCell component="th" scope="row">
                                         <MaterialIcon icon='flag' color='#03B5E2'/>
                                         <span className="iconText"> Non-Data Point</span>
                                     </TableCell>
