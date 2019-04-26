@@ -48,7 +48,6 @@ class FacilityVolume extends Component {
         });
     };
 
-
     render() {
         return (
             <div className="facilityVolumeComponent">

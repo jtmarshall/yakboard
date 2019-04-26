@@ -196,26 +196,27 @@ class Dash extends React.Component {
         if (this.isAuthenticated()) {
             return (
                 <div className="dash">
-                    <FacilityAutoComplete selected={this.state.SelectedFacility}
-                                          onUpdate={this.updateSelectedFacility}/>
-                    <DateComponent dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
-                                refreshView={this.refreshView}/>
-
                     <Sidebar selected={this.state.Filter} onUpdate={this.updateSKUFilter}
                              rightDrawer={this.state.rightDrawer}/>
 
-                    <Route path="/test" render={() => <TestComponent parentState={this.state}/>}/>
-                    <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
-                    <Route exact path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
-                    <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>
-                    <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
-                    <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
-                    <Route path="/timeframe" render={() => <Timeframe parentState={this.state} updateDash={this.updateDashTimeframe}/>}/>
-                    <Route path="/geo" render={() => <Geo parentState={this.state}/>}/>
-                    <Route path="/settings" render={() => <Settings/>}/>
-                    <Route path="/facility" render={() => <PrintComponent parentState={this.state}/>}/>
-                    {/*<Route path="/facility" render={() => <Facility parentState={this.state}/>}/>*/}
+                    <div className="componentContainer">
+                        <FacilityAutoComplete selected={this.state.SelectedFacility}
+                                              onUpdate={this.updateSelectedFacility}/>
+                        <DateComponent dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
+                                       refreshView={this.refreshView}/>
 
+                        <Route path="/test" render={() => <TestComponent parentState={this.state}/>}/>
+                        <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
+                        <Route exact path="/conversion" render={() => <Conversion parentState={this.state} updateDash={this.updateDashConversion}/>}/>
+                        <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>
+                        <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
+                        <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
+                        <Route path="/timeframe" render={() => <Timeframe parentState={this.state} updateDash={this.updateDashTimeframe}/>}/>
+                        <Route path="/geo" render={() => <Geo parentState={this.state}/>}/>
+                        <Route path="/settings" render={() => <Settings/>}/>
+                        <Route path="/facility" render={() => <PrintComponent parentState={this.state}/>}/>
+                        {/*<Route path="/facility" render={() => <Facility parentState={this.state}/>}/>*/}
+                    </div>
                 </div>
             );
         } else {

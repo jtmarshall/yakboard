@@ -1,5 +1,20 @@
+.eChart canvas {
+    width: 100% !important;
+}
+.eChart div:first-child {
+    width: 100% !important;
+}
+
 #statsSummary tr {
-    height: 56px;
+    height: 52px;
+}
+
+#statsSummary th {
+    padding: 4px 12px;
+}
+
+#statsSummary td {
+    padding: 4px 12px;
 }
 
 .facilityStatsInput {

@@ -1,6 +1,112 @@
 /* Material Design theme */
 @import "assets/css/material-dashboard.css";
 
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.sidebarComponent {
+    /* Original Background */
+    /*background-color: #222;*/
+    /* New Sidebar Background Colors (dark-light) #080b0e #0f1317 #13171b #171c21 #1b2126 #242a31 */
+    background-color: #1b2126;
+    /*background-color: #242a31;*/
+    color: #fafafa;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    padding: 10px;
+    width: 180px;
+    height: 100%;
+}
+
+.sidebarComponent a {
+    text-decoration: none !important;
+}
+
+.sidebarComponent li {
+    padding: 5px;
+    text-decoration: none;
+    color: #fafafa;
+}
+
+.sidebarComponent li:hover {
+    background-color: #00bcd4;
+    box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+    /*width: 90%;*/
+    border-radius: 3px;
+    left: 5%;
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-duration: .5s;
+}
+
+.sidebarComponent li::selection {
+    background-color: #00bcd4;
+    box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+    width: 90%;
+    border-radius: 3px;
+    left: 5%;
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-duration: .5s;
+}
+
+.sidebarSubNav {
+    list-style-type: none;
+    color: #fff;
+}
+
+.sidebarBottom {
+    bottom: 5%;
+    position: absolute;
+    width: 90%;
+}
+
+.componentContainer {
+    width: calc(100vw - (100vw - 100%)- 180px);
+    margin-left: 180px;
+}
+
+/* Raised Buttons */
+.raised-btn {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.raised-btn:hover,
+.raised-btn:focus {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.raised-btn:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.raised-btn:hover::before {
+    opacity: 0.12;
+}
+
+.raised-btn:focus::before {
+    opacity: 0.2;
+}
+
+.raised-btn:active::before {
+    opacity: 0.32;
+}
+/* END Raised Buttons */
+
+/* Facility Style colors */
+:root {
+    --primary-color: green;
+    --secondary-color: white;
+}
+
+.header-logo {
+    color: var(--secondary-color);
+}
+
 /* React CLI Boiler Plate */
 .App {
     text-align: center;
@@ -66,14 +172,14 @@
 }
 
 .card {
-    max-width: 90%;
+    /*max-width: 90%;*/
     display: inline-flex;
     padding: 8px;
 }
 
 .cardTitleWhite {
     color: #FFFFFF;
-    margin-top: 0px;
+    margin-top: 0;
     min-height: auto;
     font-weight: 300;
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
@@ -111,7 +217,7 @@
 
 .nivoCardTitle {
     color: #FFFFFF;
-    margin-top: 0px;
+    margin-top: 0;
     min-height: auto;
     font-weight: 300;
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
@@ -125,68 +231,9 @@
     width: 100%;
 }
 
-.sidebarComponent {
-    /* Original Background */
-    /*background-color: #222;*/
-    /* New Sidebar Background Colors (dark-light) #080b0e #0f1317 #13171b #171c21 #1b2126 #242a31 */
-    background-color: #1b2126;
-    /*background-color: #242a31;*/
-    color: #fafafa;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    padding: 10px;
-    width: 180px;
-    height: 100%;
-}
-
-.sidebarComponent a {
-    text-decoration: none !important;
-}
-
-.sidebarComponent li {
-    padding: 5px;
-    text-decoration: none;
-    color: #fafafa;
-}
-
-.sidebarComponent li:hover {
-    background-color: #00bcd4;
-    box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
-    /*width: 90%;*/
-    border-radius: 3px;
-    left: 5%;
-    transition-property: all;
-    transition-timing-function: ease;
-    transition-duration: .5s;
-}
-
-.sidebarComponent li::selection {
-    background-color: #00bcd4;
-    box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
-    width: 90%;
-    border-radius: 3px;
-    left: 5%;
-    transition-property: all;
-    transition-timing-function: ease;
-    transition-duration: .5s;
-}
-
 .parentSideNav {
     cursor: pointer;
     position: absolute;
-}
-
-.sidebarSubNav {
-    list-style-type: none;
-    color: #fff;
-}
-
-.sidebarBottom {
-    bottom: 5%;
-    position: absolute;
-    width: 90%;
 }
 
 /* Remove X and Arrows from Datepicker */
@@ -234,7 +281,7 @@ input[type=date]::-webkit-inner-spin-button {
 
 .progress .determinate {
     position: absolute;
-    background-color: inherit;
+    /*background-color: inherit;*/
     top: 0;
     bottom: 0;
     background-color: #26a69a;
@@ -371,7 +418,7 @@ input[type=date]::-webkit-inner-spin-button {
 .navbar .navbar-nav > li > a.btn.btn-prime:focus,
 .navbar .navbar-nav > li > a.btn.btn-prime:active,
 .navbar .navbar-nav > li > a.btn.btn-prime:hover {
-    box-shadow: 0 14px 26px -12px rgba(57, 77, 171, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(57, 77, 171, 0.2);
+    box-shadow: 0 14px 26px -12px rgba(57, 77, 171, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(57, 77, 171, 0.2);
 }
 
 .btn.btn-prime.disabled,
@@ -449,7 +496,7 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
     margin-left: 1%;
     width: 98%;
     background-color: #FFFFFF;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .exportsTable {
