@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
-import colorPalette from '../../tools/colorPalette';
+
 
 export default class EPie extends Component {
 

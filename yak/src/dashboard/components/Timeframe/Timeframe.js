@@ -6,6 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import LineChart from './lineChart';
+import ETimeframeChart from './eTimeframeChart';
 
 
 const styles = {
@@ -74,6 +75,8 @@ class Timeframe extends Component {
         return (
             <div className="conversionComponent">
                 <h3>Timeframe</h3>
+
+                <ETimeframeChart id='eTimeframeChart'/>
 
                 <Card>
                     <CardHeader color="prime">

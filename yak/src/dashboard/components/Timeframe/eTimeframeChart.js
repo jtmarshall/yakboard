@@ -4,9 +4,10 @@ import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
 import toolbox from "../../tools/toolbox";
 import moment from "moment";
+import colorPalette from "../../tools/colorPalette";
 
 
-export default class EVolumeChart extends Component {
+export default class ETimeframeChart extends Component {
 
     constructor(props) {
         super(props);
@@ -14,13 +15,17 @@ export default class EVolumeChart extends Component {
         // Retrieve local store
         let yakPak = toolbox.retrievePak();
         let toDate = yakPak == null ? new Date() : new Date(yakPak.DateFrame.To);
+        let startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
+        let endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
+        let numbDays = endDay.diff(startDay, 'days');
+
         let primaryLabels = [];
         let temp = moment(toDate);
 
         // Generate date labels starting with 'toDate' and iterating back through length of data
-        for (let i = -1; i < 12; i++) {
+        for (let i = -1; i < numbDays; i++) {
             // parse date for how many days prior
-            primaryLabels.unshift(moment(temp).subtract(i, 'months').format('MMM \'YY'));
+            primaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
         }
 
         this.state = {
@@ -31,7 +36,20 @@ export default class EVolumeChart extends Component {
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
             axisLabels: primaryLabels,
-            // colors: this.props.colors || colorPalette.sunburst,
+            colors: this.props.colors || colorPalette.graphColors.mutedRainbow,
+            dataLabels: [
+                'Directories',
+                'Internal Directories',
+                'Lead Gen',
+                'Other',
+                'Placement',
+                'Search',
+                'Search Engine',
+                'Sign Up',
+                'Social',
+                'Sponsorship',
+                'Conversions'
+            ],
         };
     }
 
@@ -49,7 +67,8 @@ export default class EVolumeChart extends Component {
         return (
             <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}}>
                 <CardBody style={{padding: '16px'}}>
-                    <div id={this.state.chardID} className='eChart' style={{width: this.state.width, height: this.state.height}}/>
+                    <div id={this.state.chardID} className='eChart'
+                         style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
             </Card>
         )
@@ -75,13 +94,13 @@ export default class EVolumeChart extends Component {
         // specify chart configuration item and data
         let option = {
             title: {
-                text: 'Year/Year by Month',
+                text: 'Touches (Medium) v Conversions',
                 x: 'center',
                 textStyle: {
                     color: '#fff'
                 },
             },
-            color: this.props.colors,
+            color: this.state.colors,
             textStyle: {
                 color: '#fff'
             },
@@ -100,7 +119,7 @@ export default class EVolumeChart extends Component {
                 textStyle: {
                     color: '#fff'
                 },
-                data: ['Referring', 'Direct', 'Ad-Video', 'Organic', 'Email', 'Offline', 'CPC', "Inquiries", "Admits"]
+                data: this.state.dataLabels
             },
             xAxis: [
                 {
@@ -117,7 +136,7 @@ export default class EVolumeChart extends Component {
             yAxis: [
                 {
                     type: 'value',
-                    name: 'Calls',
+                    name: 'Touches',
                     interval: 25,
                     max: 150,
                     position: 'left',
@@ -127,7 +146,7 @@ export default class EVolumeChart extends Component {
                 },
                 {
                     type: 'value',
-                    name: 'Inquiries/Admits',
+                    name: 'Conversions',
                     interval: 5,
                     max: 30,
                     position: 'right',
@@ -138,69 +157,67 @@ export default class EVolumeChart extends Component {
             ],
             series: [
                 {
-                    name: 'Referring',
-                    // color: '#365CA0',
+                    name: 'Directories',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
-                    name: 'Direct',
-                    // color: '#33C3E9',
+                    name: 'Internal Directories',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
-                    name: 'Ad-Video',
-                    // color: '#33BFBB',
-                    // color: '#1a936f',
+                    name: 'Lead Gen',
                     stack: 1,
                     type: 'bar',
                     data: randata2
                 },
                 {
-                    name: 'Organic',
-                    // color: '#A3D50C',
-                    // color: '#88d498',
+                    name: 'Other',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
-                    name: 'Email',
-                    // color: '#FFD600',
-                    // color: '#e9c46a',
+                    name: 'Placement',
                     stack: 1,
                     type: 'bar',
                     data: randata2
                 },
                 {
-                    name: 'Offline',
-                    // color: '#E53947',
-                    // color: '#e76f51',
+                    name: 'Search',
                     stack: 1,
                     type: 'bar',
                     data: randata
                 },
                 {
-                    name: 'CPC',
-                    // color: '#9E5E8C',
-                    // color: '#f3e9d2',
+                    name: 'Search Engine',
                     stack: 1,
                     type: 'bar',
                     data: randata2
                 },
                 {
-                    name: 'Inquiries',
-                    // color: '#7dd5ff',
-                    type: 'line',
-                    yAxisIndex: 1,
+                    name: 'Sign Up',
+                    stack: 1,
+                    type: 'bar',
+                    data: randata2
+                },
+                {
+                    name: 'Social',
+                    stack: 1,
+                    type: 'bar',
                     data: randata
                 },
                 {
-                    name: 'Admits',
-                    // color: '#80A1C1',
+                    name: 'Sponsorship',
+                    stack: 1,
+                    type: 'bar',
+                    data: randata2
+                },
+                {
+                    name: 'Conversions',
                     type: 'line',
                     lineStyle: {
                         type: 'dashed'
