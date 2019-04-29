@@ -81,12 +81,13 @@ class Facility extends Component {
 
     state = {
         fName: this.props.parentState.SelectedFacility[0] || 'Acadia Facility',
-        fLogo: 'LOGO HERE',
+        fLogo: '',
         fType: 'Inpatient',
         fLoc: 'location',
         fDomain: this.props.parentState.SelectedFacilityDomain || 'domain',
         fAddress: 'Facility Address',
         fPhone: 'Facility Phone',
+        fStyle: '',
         commentHighlights: '',
         commentWebUpdates: '',
         commentBranding: '',
@@ -101,13 +102,22 @@ class Facility extends Component {
         ytdPrevious: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM YYYY'),
     };
 
-    componentDidMount() {
-        // Check if we have a facility then create logo url string to show logo
-        if (this.state.fDomain !== 'domain') {
+    componentWillMount() {
+        // Use default Acadia logo & styles for combined buckets; just update document title
+        if (this.state.fName.includes('All')) {
+            this.setState({
+                fLogo: 'https://s3.amazonaws.com/acadia-yak/facility_logos/Acadia-logo.png',
+                fStyle: 'defaultAcadia',
+            });
+            document.title = "YAK - " + this.state.fName;
+        }
+        // Check for facility then create logo url string to show logo and select style scheme
+        else if (this.state.fDomain !== 'domain') {
             this.setState({
                 fLogo: logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png",
+                // Set facility css rel; stripping out www. and .com
+                fStyle: this.state.fDomain.replace(/(www\.)/, '').replace(/(\.com)/, ''),
             });
-
             document.title = "YAK - " + this.state.fName;
         }
     }
@@ -142,14 +152,9 @@ class Facility extends Component {
 
     render() {
         const {classes} = this.props;
-        // Concatenate logo url together
-        const fLogo = logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png";
-        // Set facility css rel; stripping out www. and .com
-        const facilityStyle = this.state.fDomain.replace(/(www\.)/, '').replace(/(\.com)/, '');
-        console.log(facilityStyle);
 
         return (
-            <div id='captureArea' className='facilityComponent' rel={facilityStyle}>
+            <div id='captureArea' className='facilityComponent' rel={this.state.fStyle}>
 
                 <div className="row" style={{display: 'inline-flex', width: '90%', marginBottom: '10px'}}>
                     <Card className='facilityProfileCard' style={{width: '30%'}}>
@@ -158,7 +163,7 @@ class Facility extends Component {
                             alt="Facility Logo"
                             style={{maxWidth: '60%', margin: 'auto'}}
                             height="auto"
-                            image={fLogo}
+                            image={this.state.fLogo}
                         />
                         <CardContent style={{padding: '8px'}}>
                             <h5><strong>Monthly Report:</strong></h5>
@@ -531,7 +536,7 @@ class Facility extends Component {
                 </Card>
 
                 <hr className="hidePrint" style={{width: '90%'}}/>
-                <FacilityVolume parentState={this.state} logo={fLogo}/>
+                <FacilityVolume parentState={this.state} logo={this.state.fLogo}/>
                 <hr style={{width: '90%'}}/>
 
                 <FacilityFormStepper/>
