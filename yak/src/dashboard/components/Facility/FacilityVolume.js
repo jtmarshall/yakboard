@@ -21,7 +21,7 @@ class FacilityVolume extends Component {
         commentBox: '',
         chartToggle: true,
         graphColorIndex: 1,
-        graphColor: colorPalette.greenBlue,
+        graphColor: colorPalette.graphColors.greenBlue,
     };
 
     handleChange = name => event => {
@@ -36,11 +36,10 @@ class FacilityVolume extends Component {
 
     colorPaletteToggle = event => {
         let newIndex = (this.state.graphColorIndex + 1)%5;
-        let newColor = Object.keys(colorPalette)[newIndex];
-        console.log(newIndex, newColor, colorPalette[newColor]);
+        let newColor = Object.keys(colorPalette.graphColors)[newIndex];
         this.setState({
             graphColorIndex: newIndex,
-            graphColor: colorPalette[newColor],
+            graphColor: colorPalette.graphColors[newColor],
         });
 
         this.setState({

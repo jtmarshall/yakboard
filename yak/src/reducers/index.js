@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 import {UPDATE_USER} from "./actions";
+import moment from 'moment';
 
 
 // generic reducer for similar store functionality updating
@@ -53,6 +54,45 @@ function DateFrameReducer(state = {}, {type, payload}) {
     }
 }
 
+function DateFrameQuickPickReducer(state = {}, {type}) {
+    let tempDateframe = {
+        From: '',
+        To: '',
+        CompareFrom: '',
+        CompareTo: ''
+    };
+
+    // Set values for temp dates based on input
+    switch (type) {
+        case 'today':
+            tempDateframe.To = moment();
+            tempDateframe.From = moment();
+            return tempDateframe;
+        case 'yesterday':
+            tempDateframe.To = moment().subtract(1, 'days');
+            tempDateframe.From = moment().subtract(1, 'days');
+            return tempDateframe;
+        case 'lastWeek':
+            tempDateframe.To = moment().subtract(1, 'weeks').endOf('week');
+            tempDateframe.From = moment().subtract(1, 'weeks').startOf('week');
+            return tempDateframe;
+        case 'lastMonth':
+            tempDateframe.To = moment().subtract(1, 'months').endOf('month');
+            tempDateframe.From = moment().subtract(1, 'months').startOf('month');
+            return tempDateframe;
+        case 'last7':
+            tempDateframe.To = moment();
+            tempDateframe.From = moment().subtract(7, 'days');
+            return tempDateframe;
+        case 'last30':
+            tempDateframe.To = moment();
+            tempDateframe.From = moment().subtract(30, 'days');
+            return tempDateframe;
+        default:
+            return state;
+    }
+}
+
 function FilterReducer(state = {}, {type, payload}) {
     let defaultFilter = {
         conversion: [],
@@ -97,6 +137,7 @@ export default combineReducers({
     SelectedFacility: SelectedFacilityReducer,
     SelectedFacilityDomain: genericReducer,
     DateFrame: DateFrameReducer,
+    DateFrameQuickPick: DateFrameQuickPickReducer,
     Filter: FilterReducer,
     Touch: genericReducer,
     Conversion: genericReducer,

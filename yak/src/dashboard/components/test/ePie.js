@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
-import colorPalette from '../../tools/colorPalette';
+
 
 export default class EPie extends Component {
 
@@ -85,7 +85,7 @@ export default class EPie extends Component {
                 textStyle: {
                     color: '#fff',
                 },
-                data: ['CPC', 'Referring', 'Direct', 'Ad-Video', 'Organic', 'Email', 'Offline']
+                data: ['Referring', 'Direct', 'Ad-Video', 'Organic', 'Email', 'Offline', 'CPC']
             },
             series: [
                 {
@@ -115,13 +115,13 @@ export default class EPie extends Component {
                         }
                     },
                     data: [
-                        {value: 335, name: 'CPC'},
                         {value: 310, name: 'Referring'},
                         {value: 234, name: 'Direct'},
                         {value: 1548, name: 'Organic'},
                         {value: 135, name: 'Ad-Video'},
                         {value: 234, name: 'Email'},
                         {value: 174, name: 'Offline'},
+                        {value: 335, name: 'CPC'},
                     ]
                 },
                 {

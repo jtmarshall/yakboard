@@ -211,7 +211,12 @@ class Dash extends React.Component {
                         <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                         <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                         <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
-                        <Route path="/timeframe" render={() => <Timeframe parentState={this.state} updateDash={this.updateDashTimeframe}/>}/>
+                        <Route exact path="/timeframe" render={(matchProps) => <Timeframe {...matchProps}
+                                                                                          parentState={this.state}
+                                                                                          updateDash={this.updateDashTimeframe}/>}/>
+                        <Route path="/timeframe/:id" render={(matchProps) => <Timeframe {...matchProps}
+                                                                                        parentState={this.state}
+                                                                                        updateDash={this.updateDashTimeframe}/>}/>
                         <Route path="/geo" render={() => <Geo parentState={this.state}/>}/>
                         <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="/facility" render={() => <PrintComponent parentState={this.state}/>}/>

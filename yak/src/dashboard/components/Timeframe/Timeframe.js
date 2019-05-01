@@ -6,6 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import LineChart from './lineChart';
+import ETimeframeChart from './eTimeframeChart';
 
 
 const styles = {
@@ -60,13 +61,24 @@ TabContainer.propTypes = {
 class Timeframe extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
 
-        console.log(props.parentState);
+        this.state = {
+            tabValue: this.props.parentState.Timeframe.tabValue,
+            timeFrame: this.props.match.params.id,
+        };
+
+        console.log("construct: ", this.props.match.params.id);
     }
 
-    state = {
-        tabValue: this.props.parentState.Timeframe.tabValue,
-    };
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (this.state.timeFrame !== this.props.match.params.id) {
+    //         this.setState({
+    //             timeFrame: this.props.match.params.id,
+    //         });
+    //         console.log("update: ", this.props.match.params.id);
+    //     }
+    // }
 
     render() {
         const {classes} = this.props;
@@ -74,6 +86,7 @@ class Timeframe extends Component {
         return (
             <div className="conversionComponent">
                 <h3>Timeframe</h3>
+                <ETimeframeChart id='eTimeframeChart' timeFrame={this.props.match.params.id}/>
 
                 <Card>
                     <CardHeader color="prime">

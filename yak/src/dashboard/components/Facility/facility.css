@@ -88,6 +88,14 @@ h6 {
 }
 
 /* Facility Styles */
+.facilityComponent[rel="defaultAcadia"] {
+    --fPrimary1: #3a599f;
+    --fPrimary2: #092f87;
+    --fSecondary1: #a9de3b;
+    --fSecondary2: #9AB6D3;
+    --fAccent: #33bfbc;
+}
+
 .facilityComponent[rel="acadiamontana"] {
     --fPrimary1: #092F87;
     --fPrimary2: #222222;
@@ -109,6 +117,13 @@ h6 {
     --fPrimary2: #231F20;
     --fSecondary1: #ECEEEF;
     --fAccent: #FDC741;
+}
+
+.facilityComponent[rel="altacareofmontana"] {
+    --fPrimary1: #6989ba;
+    --fPrimary2: #092f87;
+    --fSecondary1: #e9e3de;
+    --fAccent: #ee7600;
 }
 
 .facilityComponent[rel="azureacres"] {
