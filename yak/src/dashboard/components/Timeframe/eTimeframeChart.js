@@ -12,30 +12,15 @@ export default class ETimeframeChart extends Component {
     constructor(props) {
         super(props);
 
-        // Retrieve local store
-        let yakPak = toolbox.retrievePak();
-        let toDate = yakPak == null ? new Date() : new Date(yakPak.DateFrame.To);
-        let startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
-        let endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
-        let numbDays = endDay.diff(startDay, 'days');
-
-        let primaryLabels = [];
-        let temp = moment(toDate);
-
-        // Generate date labels starting with 'toDate' and iterating back through length of data
-        for (let i = -1; i < numbDays; i++) {
-            // parse date for how many days prior
-            primaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
-        }
-
         this.state = {
             title: this.props.title,
+            timeFrame: this.props.timeFrame,
             chardID: this.props.id || 'eVolumeChart',
             height: this.props.height || '420px',
             width: this.props.width || 'auto',
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
-            axisLabels: primaryLabels,
+            axisLabels: this.generateLabels(),
             colors: this.props.colors || colorPalette.graphColors.mutedRainbow,
             dataLabels: [
                 'Directories',
@@ -52,6 +37,41 @@ export default class ETimeframeChart extends Component {
             ],
         };
     }
+
+    generateLabels = () => {
+        let primaryLabels = [];
+        let timeFrame = this.props.timeFrame;
+        let startDay;
+        let endDay;
+        /* Handle timeFrame url params */
+        if (timeFrame !== undefined) {
+            if (timeFrame === 'lastWeek') {
+                // Set new start/end day for previous week with moment
+                startDay = moment().subtract(1, 'weeks').startOf('week');
+                endDay = moment().subtract(1, 'weeks').endOf('week');
+            } else if (timeFrame === 'lastMonth') {
+                // Set new start/end day for previous month with moment
+                startDay = moment().subtract(1, 'months').startOf('month');
+                endDay = moment().subtract(1, 'months').endOf('month');
+            }
+        } else {
+            /* Default use selected dates from DateComponent */
+            // Retrieve local store
+            let yakPak = toolbox.retrievePak();
+            startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
+            endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
+        }
+
+        let numbDays = endDay.diff(startDay, 'days');
+        let temp = moment(endDay);
+        // Generate date labels starting with 'toDate' and iterating back through length of data
+        for (let i = 0; i <= numbDays; i++) {
+            // parse date for how many days prior
+            primaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
+        }
+
+        return primaryLabels;
+    };
 
     // update search metric selection
     handleSelect = event => {
@@ -76,8 +96,15 @@ export default class ETimeframeChart extends Component {
 
     // Handle color toggle
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // Re-run component mount func when component is updated
-        this.componentDidMount();
+        if (this.props.timeFrame !== this.state.timeFrame) {
+            this.setState({
+                timeFrame: this.props.timeFrame,
+                axisLabels: this.generateLabels(),
+            });
+        } else {
+            // Re-run component mount func when component is updated
+            this.componentDidMount();
+        }
     }
 
     componentDidMount() {
@@ -138,7 +165,7 @@ export default class ETimeframeChart extends Component {
                     type: 'value',
                     name: 'Touches',
                     interval: 25,
-                    max: 150,
+                    // max: 175,
                     position: 'left',
                     axisLabel: {
                         formatter: '{value}'
@@ -148,7 +175,7 @@ export default class ETimeframeChart extends Component {
                     type: 'value',
                     name: 'Conversions',
                     interval: 5,
-                    max: 30,
+                    // max: 30,
                     position: 'right',
                     axisLabel: {
                         formatter: '{value}'

@@ -22,6 +22,11 @@ class DatePicker extends React.Component {
         dateDenomination: 'custom',
     };
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(this.state.dateDenomination);
+        this.handleDateDenominationSelect(this.props.denom);
+    }
+
     // Updates the selected facility list
     updateToDate = (val) => {
         let dateFrame = {

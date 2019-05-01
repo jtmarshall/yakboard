@@ -3,7 +3,7 @@ import './App.css';
 import Dash from './dashboard/Dash';
 import Login from './login/Login.js';
 import {connect} from 'react-redux';
-import withRouter from "react-router/es/withRouter";
+import {withRouter} from "react-router";
 
 
 // function onAuthRequired({history}) {
@@ -35,9 +35,6 @@ class App extends Component {
         // migration to typography2
         window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
-        let path = window.location.hash;
-        console.log(path);
-
         if (!this.state.loggedIn) {
             return (
                 <div className="App">
@@ -51,7 +48,6 @@ class App extends Component {
                 </div>
             );
         }
-
     }
 }
 

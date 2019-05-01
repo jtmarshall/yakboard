@@ -61,13 +61,24 @@ TabContainer.propTypes = {
 class Timeframe extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
 
-        console.log(props.parentState);
+        this.state = {
+            tabValue: this.props.parentState.Timeframe.tabValue,
+            timeFrame: this.props.match.params.id,
+        };
+
+        console.log("construct: ", this.props.match.params.id);
     }
 
-    state = {
-        tabValue: this.props.parentState.Timeframe.tabValue,
-    };
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (this.state.timeFrame !== this.props.match.params.id) {
+    //         this.setState({
+    //             timeFrame: this.props.match.params.id,
+    //         });
+    //         console.log("update: ", this.props.match.params.id);
+    //     }
+    // }
 
     render() {
         const {classes} = this.props;
@@ -75,8 +86,7 @@ class Timeframe extends Component {
         return (
             <div className="conversionComponent">
                 <h3>Timeframe</h3>
-
-                <ETimeframeChart id='eTimeframeChart'/>
+                <ETimeframeChart id='eTimeframeChart' timeFrame={this.props.match.params.id}/>
 
                 <Card>
                     <CardHeader color="prime">

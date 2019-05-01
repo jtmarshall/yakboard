@@ -63,10 +63,10 @@ class Sidebar extends React.Component {
                         <Link to="/timeframe">
                             <li>Summary</li>
                         </Link>
-                        <Link to="/timeframe">
+                        <Link to="/timeframe/lastWeek">
                             <li>Last Week</li>
                         </Link>
-                        <Link to="/timeframe">
+                        <Link to="/timeframe/lastMonth">
                             <li>Last Month</li>
                         </Link>
                     </ul>}

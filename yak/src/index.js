@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux';
@@ -86,10 +86,10 @@ console.log(store.getState());
 // store.dispatch(updateUserAction);
 
 ReactDOM.render(
-    <HashRouter>
+    <Router>
         <Provider store={store}>
             <App/>
         </Provider>
-    </HashRouter>,
+    </Router>,
     document.getElementById('root'));
 registerServiceWorker();
