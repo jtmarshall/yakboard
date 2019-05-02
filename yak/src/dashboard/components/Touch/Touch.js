@@ -6,8 +6,10 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
 import TouchChart from './touchChart';
+import EFirstTouch from './eFirstTouch';
+import EMidTouch from './eMidTouch';
+import ELastTouch from './eLastTouch';
 
 
 const styles = {
@@ -34,7 +36,6 @@ const styles = {
         "& small": {
             color: "#777",
             fontSize: "65%",
-            fontWeight: "400",
             lineHeight: "1"
         }
     },
@@ -49,9 +50,9 @@ const styles = {
 
 function TabContainer(props) {
     return (
-        <Typography component="div" style={{padding: 8 * 3}}>
+        <div className="tabContainer" style={{padding: 8 * 3}}>
             {props.children}
-        </Typography>
+        </div>
     );
 }
 
@@ -98,6 +99,7 @@ class Touch extends Component {
                 </Tabs>
 
                 {tabValue === 0 && <TabContainer>
+                    <EFirstTouch/>
                     <Card>
                         <CardHeader color="primary">
                             <h4 className="cardTitleWhite">First Touch v Conversion</h4>
@@ -109,6 +111,7 @@ class Touch extends Component {
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
+                    <EMidTouch/>
                     <Card>
                         <CardHeader color="info">
                             <h4 className="cardTitleWhite">Mid Touch</h4>
@@ -120,6 +123,7 @@ class Touch extends Component {
                 </TabContainer>}
 
                 {tabValue === 2 && <TabContainer>
+                    <ELastTouch/>
                     <Card>
                         <CardHeader color="prime">
                             <h4 className="cardTitleWhite">Last Touch</h4>
