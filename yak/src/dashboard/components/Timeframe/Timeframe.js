@@ -71,15 +71,6 @@ class Timeframe extends Component {
         console.log("construct: ", this.props.match.params.id);
     }
 
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     if (this.state.timeFrame !== this.props.match.params.id) {
-    //         this.setState({
-    //             timeFrame: this.props.match.params.id,
-    //         });
-    //         console.log("update: ", this.props.match.params.id);
-    //     }
-    // }
-
     render() {
         const {classes} = this.props;
 

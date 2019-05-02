@@ -20,7 +20,7 @@ import TestComponent from './components/test/TestComponent';
 // Global state for local storage
 let savedState = [];
 
-class Dash extends React.Component {
+export default class Dash extends React.Component {
 
     constructor(props) {
         super(props);
@@ -94,7 +94,6 @@ class Dash extends React.Component {
         // Set global state so it's not empty
         savedState = this.state;
     }
-
 
     // Check if user was authenticated, return true if so
     isAuthenticated() {
@@ -190,7 +189,6 @@ class Dash extends React.Component {
         window.location.reload();
     };
 
-
     render() {
         // Load dashboard if user is legit
         if (this.isAuthenticated()) {
@@ -231,8 +229,5 @@ class Dash extends React.Component {
                 </div>
             );
         }
-
     }
 }
-
-export default Dash;

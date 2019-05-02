@@ -61,7 +61,7 @@ class Sidebar extends React.Component {
                     </Tooltip>
                     {this.state.subTimeframe && <ul className="sidebarSubNav">
                         <Link to="/timeframe">
-                            <li>Summary</li>
+                            <li>Custom</li>
                         </Link>
                         <Link to="/timeframe/lastWeek">
                             <li>Last Week</li>
