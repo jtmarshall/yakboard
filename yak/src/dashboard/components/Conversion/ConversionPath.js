@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './conversion.css';
 import {Doughnut} from 'react-chartjs-2';
 import Table from '../../tools/table.js';
 import Card from '../../tools/Card/Card';
@@ -8,6 +9,9 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import moment from "moment";
+import ETop from './path/eTop';
+import EBottom from './path/eBottom';
+
 
 const styles = {
     cardCategoryWhite: {
@@ -120,41 +124,39 @@ class ConversionPath extends Component {
         return (
             <div className="conversionComponent">
                 <h3>Conversion Path</h3>
-                <Card>
+                <br/>
+                <Card className="conversionCard">
                     <CardHeader color="mint">
-                        <h4 className="cardTitleWhite">Top 5 Channel Paths - {timeFrameToShow}</h4>
+                        <h4 className="cardTitleWhite">Top Performing Channel Paths - {timeFrameToShow}</h4>
                     </CardHeader>
-                    <CardBody className={classes.cardConversionTable}>
+                    <CardBody className="conversionTable">
                         <Table
                             tableHeaderColor="success"
                             tableHead={[
                                 "",
-                                "First Touch",
-                                "Middle Touch",
-                                "Converting Touch",
-                                "",
+                                "First",
+                                "Middle",
+                                "Converting",
                                 "Conversion Total"
                             ]}
                             tableData={[
-                                ["1st", "Organic - Google", "Direct", "Email", "=", "72"],
-                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "=", "39"],
-                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "25"],
-                                ["4th", "Organic - Pinterest", "Email", "Direct", "=", "16"],
-                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "4"],
+                                ["1st", "Organic - Google", "Direct", "Email", "72"],
+                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "39"],
+                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "25"],
+                                ["4th", "Organic - Pinterest", "Email", "Direct", "16"],
+                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "4"],
                             ]}
                         />
-                        <Doughnut
-                            data={this.state.topPieData}
-                            options={this.state.topPieOptions}
-                        />
+                        <br/>
+                        <ETop/>
                     </CardBody>
                 </Card>
 
-                <Card>
+                <Card className="conversionCard">
                     <CardHeader color="danger">
-                        <h4 className="cardTitleWhite">Bottom 5 Channel Paths - {timeFrameToShow}</h4>
+                        <h4 className="cardTitleWhite">Worst Performing Channel Paths - {timeFrameToShow}</h4>
                     </CardHeader>
-                    <CardBody className={classes.cardConversionTable}>
+                    <CardBody className="conversionTable">
                         <Table
                             tableHeaderColor="danger"
                             tableHead={[
@@ -162,21 +164,18 @@ class ConversionPath extends Component {
                                 "First Touch",
                                 "Middle Touch",
                                 "Converting Touch",
-                                "",
                                 "Conversion Total"
                             ]}
                             tableData={[
-                                ["1st", "Organic - Google", "Direct", "Email", "=", "-72"],
-                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "=", "-39"],
-                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "=", "-25"],
-                                ["4th", "Organic - Pinterest", "Email", "Direct", "=", "-16"],
-                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "=", "-4"],
+                                ["1st", "Organic - Google", "Direct", "Email", "-72"],
+                                ["2nd", "Referring", "Referring - Internal", "Referring - Other", "-39"],
+                                ["3rd", "Paid Advertising", "Organic - Other", "Email - Lead Gen", "-25"],
+                                ["4th", "Organic - Pinterest", "Email", "Direct", "-16"],
+                                ["5th", "Direct", "Organic - Other", "Email - Lead Gen", "-4"],
                             ]}
                         />
-                        <Doughnut
-                            data={this.state.botPieData}
-                            options={this.state.botPieOptions}
-                        />
+                        <br/>
+                        <EBottom/>
                     </CardBody>
                 </Card>
             </div>

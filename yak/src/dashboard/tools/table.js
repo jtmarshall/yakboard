@@ -13,7 +13,7 @@ import tableStyle from "../../assets/css/material-dashboard.css";
 function CustomTable({ ...props }) {
   const { classes, tableHead, tableData, tableHeaderColor } = props;
   return (
-    <div className={classes.tableResponsive}>
+    <div className="toolTable">
       <Table className={classes.table}>
         {tableHead !== undefined ? (
           <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
@@ -23,6 +23,7 @@ function CustomTable({ ...props }) {
                   <TableCell
                     className={classes.tableCell + " " + classes.tableHeadCell}
                     key={key}
+                    align="center"
                   >
                     {prop}
                   </TableCell>
@@ -37,7 +38,10 @@ function CustomTable({ ...props }) {
               <TableRow key={key}>
                 {prop.map((prop, key) => {
                   return (
-                    <TableCell className={classes.tableCell} key={key}>
+                    <TableCell
+                        className={classes.tableCell} key={key}
+                        align="center"
+                    >
                       {prop}
                     </TableCell>
                   );
