@@ -10,7 +10,7 @@ export default class EBottom extends Component {
     state = {
         title: this.props.title,
         chardID: this.props.id || 'eBottom',
-        height: this.props.height || '420px',
+        height: this.props.height || '360px',
         width: this.props.width || 'auto',
         backgroundColor: this.props.backgroundColor || 'none',
         colors: this.props.colors || colorPalette.graphColors.sunburst,
