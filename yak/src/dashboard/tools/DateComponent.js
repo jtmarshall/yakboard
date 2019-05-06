@@ -5,7 +5,6 @@ import MaterialIcon from "material-icons-react";
 import Button from "@material-ui/core/Button/Button";
 import Tooltip from '@material-ui/core/Tooltip';
 import Drawer from '@material-ui/core/Drawer';
-import InputLabel from "@material-ui/core/InputLabel/InputLabel";
 import Select from "@material-ui/core/Select/Select";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 import FormControl from "@material-ui/core/FormControl/FormControl";
@@ -13,7 +12,6 @@ import FormGroup from '@material-ui/core/FormGroup';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
@@ -37,6 +35,9 @@ class DateComponent extends React.Component {
             dateFrame.From = moment(val).subtract(1, 'days').format('YYYY-MM-DD');
         }
 
+        this.setState({
+            dateDenomination: 'custom',
+        });
         // Push update to Dash state
         this.props.onUpdate(dateFrame);
     };
@@ -53,6 +54,9 @@ class DateComponent extends React.Component {
             dateFrame.To = moment(val).add(1, 'days').format('YYYY-MM-DD');
         }
 
+        this.setState({
+            dateDenomination: 'custom',
+        });
         // Push update to Dash state
         this.props.onUpdate(dateFrame);
     };
@@ -191,14 +195,15 @@ class DateComponent extends React.Component {
                     aria-labelledby="form-dialog-title"
                     style={{paddingLeft: '180px', top: '-20%'}}
                 >
-                    <DialogTitle id="form-dialog-title">Date Options</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText></DialogContentText>
+                    <DialogTitle id="form-dialog-title" style={{textAlign: 'center'}}>
+                        Date Options
+                    </DialogTitle>
 
+                    <DialogContent>
                         <FormGroup>
-                            <FormGroup row style={{margin: 'auto', padding: '10px 5px'}}>
-                                <FormControl style={{paddingRight: '20px'}}>
-                                    <InputLabel htmlFor="filterDateDenomination">Presets</InputLabel>
+                            <FormGroup row style={{padding: '10px 5px', display: 'block', textAlign: 'center'}}>
+                                <FormControl style={{marginBottom: '20px'}}>
+                                    <span style={{fontSize: '.8em', color: '#757575'}}>Presets</span>
                                     <Select
                                         className="skuFilterSelect"
                                         value={this.state.dateDenomination}
@@ -217,6 +222,7 @@ class DateComponent extends React.Component {
                                         <MenuItem value={'last30'}>Last 30 Days</MenuItem>
                                     </Select>
                                 </FormControl>
+                                <br/>
 
                                 <Tooltip title="Primary Start Date" placement="bottom">
                                     <TextField
