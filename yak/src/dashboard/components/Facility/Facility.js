@@ -97,7 +97,7 @@ class Facility extends Component {
         commentAdVideo: '',
         cpaCommentBox: '',
         month: moment(this.props.parentState.DateFrame.To).format('MMMM YYYY'),
-        momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') + '/' + moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
+        momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') + ' / ' + moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
         ytd: moment(this.props.parentState.DateFrame.To).format('MMM YYYY'),
         ytdPrevious: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM YYYY'),
     };
@@ -206,7 +206,7 @@ class Facility extends Component {
                                 <TableRow>
                                     <TableCell></TableCell>
                                     <TableCell align="center">MoM {this.state.momLabel}</TableCell>
-                                    <TableCell align="center">YTD {this.state.ytd}</TableCell>
+                                    <TableCell align="center">YTD {this.state.ytd} / {this.state.ytdPrevious}</TableCell>
                                     <TableCell align="center">{this.state.ytd} / {this.state.ytdPrevious}</TableCell>
                                 </TableRow>
                             </TableHead>

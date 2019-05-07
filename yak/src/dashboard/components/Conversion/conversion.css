@@ -1,0 +1,17 @@
+.conversionCard {
+    width: 46% !important;
+    display: inline-block !important;
+    margin: 4px;
+}
+
+.conversionTable tr {
+    height: 50px;
+}
+
+.conversionTable th {
+    padding: 4px 12px;
+}
+
+.conversionTable td {
+    padding: 4px 12px;
+}
