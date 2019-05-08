@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import * as echarts from "echarts";
-import CardBody from "../../../tools/Card/CardBody";
-import Card from "../../../tools/Card/Card";
 import colorPalette from "../../../tools/colorPalette";
 
 
@@ -23,11 +21,6 @@ export default class ETop extends Component {
 
 
     render() {
-        // Parse height of chart
-        let chartHeight = parseInt(this.state.height);
-        // then set card height to 10% increase to ensure card fits
-        let cardHeight = (chartHeight + (chartHeight * .1)) + 'px';
-
         return (
 
         <div id={this.state.chardID} className='eChart' style={{width: this.state.width, height: this.state.height}}/>
