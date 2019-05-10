@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import {Route} from 'react-router-dom';
 import './App.css';
 import Dash from './dashboard/Dash';
 import Login from './login/Login.js';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router";
+import Settings from "./dashboard/components/Settings/Settings";
 
 
 // function onAuthRequired({history}) {
@@ -44,7 +46,7 @@ class App extends Component {
         } else {
             return (
                 <div className="App">
-                    <Dash store={this.props.store}/>
+                    <Route path="/*" render={() => <Dash store={this.props.store}/>}/>
                 </div>
             );
         }
