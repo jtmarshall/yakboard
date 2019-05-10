@@ -5,16 +5,18 @@
     width: 100% !important;
 }
 
-#statsSummary tr {
-    height: 52px;
-}
-
 #statsSummary th {
-    padding: 4px 12px;
+    padding: 0 6px;
+    min-width: 100px;
 }
 
 #statsSummary td {
-    padding: 4px 12px;
+    padding: 0 2px;
+}
+
+.monthlyInput input {
+    width: 50px;
+    text-align: center;
 }
 
 .facilityStatsInput {

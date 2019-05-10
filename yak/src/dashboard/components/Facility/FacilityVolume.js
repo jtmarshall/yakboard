@@ -51,11 +51,11 @@ class FacilityVolume extends Component {
         return (
             <div className="facilityVolumeComponent">
                 <div className="row" style={{display: 'inline-flex', width: '90%', marginBottom: '10px'}}>
-                    <div style={{width: '40%', margin: 'auto'}}>
+                    <div style={{width: '35%', margin: 'auto'}}>
                         <img src={this.props.logo} style={{width: '50%'}} alt="logo"/>
                         <h3><b><em>Volume</em></b></h3>
                     </div>
-                    <div style={{width: '55%', margin: 'auto'}}>
+                    <div style={{width: '100%', margin: 'auto'}}>
                         <TextField
                             id="outlined-multiline-flexible"
                             label="Highlights"
@@ -66,7 +66,7 @@ class FacilityVolume extends Component {
                             onChange={this.handleChange('commentBox')}
                             margin="normal"
                             variant="outlined"
-                            style={{minWidth: '80%', overflowX: 'hidden'}}
+                            style={{minWidth: '90%', overflowX: 'hidden'}}
                         />
                     </div>
                 </div>
