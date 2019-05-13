@@ -20,8 +20,6 @@ import FacilityFormStepper from './facilityForm';
 import moment from 'moment';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import EFacilityAdmitGoal from '../test/eFacilityAdmitGoal';
-import PropTypes from "prop-types";
 // import html2canvas from 'html2canvas';
 // import jsPDF from 'jspdf';
 
@@ -73,7 +71,10 @@ const styles = {
 function GreenGoal(props) {
     // Math for percentage over/under
     let diff = Math.abs(props.goal - props.actual);
-    let percent = ((diff / props.goal) * 100).toFixed(1);
+    let percent = "NA";
+    if (props.goal != 0) {
+        percent = ((diff / props.goal) * 100).toFixed(1);
+    }
     return (
         <span>
             <MaterialIcon icon='trending_up' color='#4caf50'/>
@@ -132,14 +133,14 @@ class Facility extends Component {
         momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') + ' / ' + moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
         ytd: moment(this.props.parentState.DateFrame.To).format('MMM YYYY'),
         ytdPrevious: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM YYYY'),
-        goalSpend: 1,
-        goalTraffic: 1,
-        goalWebforms: 1,
-        goalCalls: 1,
-        goalInquiries: 1,
-        goalAdmits: 1,
-        goalCPA: 1,
-        goalCVR: 1,
+        goalSpend: 0,
+        goalTraffic: 0,
+        goalWebforms: 0,
+        goalCalls: 0,
+        goalInquiries: 0,
+        goalAdmits: 0,
+        goalCPA: 0,
+        goalCVR: 0,
     };
 
     componentWillMount() {
