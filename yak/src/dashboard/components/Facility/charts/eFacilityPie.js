@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import * as echarts from "echarts";
-import CardBody from "../../tools/Card/CardBody";
-import Card from "../../tools/Card/Card";
+import CardBody from "../../../tools/Card/CardBody";
+import Card from "../../../tools/Card/Card";
 
 
-export default class EPie extends Component {
+export default class EFacilityPie extends Component {
 
     state = {
         title: this.props.title,

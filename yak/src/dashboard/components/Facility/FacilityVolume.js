@@ -3,11 +3,11 @@ import Card from '../../tools/Card/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import TextField from '@material-ui/core/TextField';
-import FacilityPie from './facilityPie';
-import FacilityVolumeChart from './facilityVolumeChart';
+import FacilityPie from './charts/facilityPie';
+import FacilityVolumeChart from './charts/facilityVolumeChart';
 import MaterialIcon from 'material-icons-react';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
-import EPie from "../test/ePie";
+import EFacilityPie from './charts/eFacilityPie';
 import EVolumeChart from "../test/eVolumeChart";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -91,7 +91,7 @@ class FacilityVolume extends Component {
                             Toggle Color
                         </Button>
                         <br/>
-                        <EPie id='pieSpend' colors={this.state.graphColor} index={this.state.graphColorIndex}/>
+                        <EFacilityPie id='pieSpend' colors={this.state.graphColor} index={this.state.graphColorIndex}/>
                         <EVolumeChart id='eVolumeChart' colors={this.state.graphColor}/>
                     </span>
                 }
