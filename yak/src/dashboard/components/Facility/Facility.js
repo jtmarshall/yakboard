@@ -131,8 +131,8 @@ class Facility extends Component {
         cpaCommentBox: '',
         month: moment(this.props.parentState.DateFrame.To).format('MMMM YYYY'),
         momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') + ' / ' + moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
-        ytd: moment(this.props.parentState.DateFrame.To).format('MMM YYYY'),
-        ytdPrevious: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM YYYY'),
+        monthCurrent: moment(this.props.parentState.DateFrame.To).format('MMM \'YY'),
+        monthPreviousYear: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM \'YY'),
         goalSpend: 0,
         goalTraffic: 0,
         goalWebforms: 0,
@@ -251,8 +251,8 @@ class Facility extends Component {
                                 <TableRow>
                                     <TableCell></TableCell>
                                     <TableCell align="center">{this.state.momLabel}</TableCell>
-                                    <TableCell align="center">YTD vs. PYTD</TableCell>
-                                    <TableCell align="center">{this.state.ytd} / {this.state.ytdPrevious}</TableCell>
+                                    <TableCell align="center">YTD / PYTD</TableCell>
+                                    <TableCell align="center">{this.state.monthCurrent} / {this.state.monthPreviousYear}</TableCell>
                                     <TableCell align="center">Monthly Goal</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -740,6 +740,7 @@ class Facility extends Component {
                 <FacilityVolume parentState={this.state} logo={this.state.fLogo}/>
                 <hr style={{width: '90%'}}/>
 
+                Sample Form
                 <FacilityFormStepper/>
 
                 <ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>
