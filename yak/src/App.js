@@ -5,7 +5,6 @@ import Dash from './dashboard/Dash';
 import Login from './login/Login.js';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router";
-import Settings from "./dashboard/components/Settings/Settings";
 
 
 // function onAuthRequired({history}) {

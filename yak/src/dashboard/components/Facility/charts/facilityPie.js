@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {ResponsivePie} from 'nivo';
-import CardHeader from "../../tools/Card/CardHeader";
-import CardBody from "../../tools/Card/CardBody";
-import Card from "../../tools/Card/Card";
+import CardHeader from "../../../tools/Card/CardHeader";
+import CardBody from "../../../tools/Card/CardBody";
+import Card from "../../../tools/Card/Card";
 
 export default class FacilityPie extends Component {
     constructor(props) {

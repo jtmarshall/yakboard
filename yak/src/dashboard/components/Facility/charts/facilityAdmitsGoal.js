@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {ResponsivePie} from 'nivo';
-import CardBody from "../../tools/Card/CardBody";
-import Card from "../../tools/Card/Card";
+import CardBody from "../../../tools/Card/CardBody";
+import Card from "../../../tools/Card/Card";
 // Import accent color from css file
-import {fAccent} from './facility.css';
+import {fAccent} from '../facility.css';
 
 export default class FacilityAdmitsGoal extends Component {
 

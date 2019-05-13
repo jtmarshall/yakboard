@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Bar} from 'react-chartjs-2';
-import toolbox from "../../tools/toolbox";
-import moment from 'moment';
+import toolbox from "../../../tools/toolbox";
+import moment from 'moment/moment';
 
 
 export class FacilityVolumeChart extends Component {
