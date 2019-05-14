@@ -179,11 +179,6 @@ class Facility extends Component {
         });
     };
 
-    computeMonthlyGoal = () => {
-
-
-    };
-
     pxToMm = (px) => {
         return Math.floor(px / document.getElementById('captureArea').offsetHeight);
     };
