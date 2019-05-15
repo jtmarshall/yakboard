@@ -179,11 +179,6 @@ class Facility extends Component {
         });
     };
 
-    computeMonthlyGoal = () => {
-
-
-    };
-
     pxToMm = (px) => {
         return Math.floor(px / document.getElementById('captureArea').offsetHeight);
     };
@@ -564,11 +559,11 @@ class Facility extends Component {
                             </TableHead>
                             <TableBody>
                                 <TableRow key='websiteUpdates'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='important_devices' color='#03B5E2'/>
                                         <span className="iconText"> Website Updates</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -585,11 +580,11 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='branding'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='security' color='#03B5E2'/>
                                         <span className="iconText"> Branding</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -606,11 +601,11 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='emailMarketing'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='alternate_email' color='#03B5E2'/>
                                         <span className="iconText"> Email Marketing</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -627,11 +622,11 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='collateral'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='description' color='#03B5E2'/>
                                         <span className="iconText"> Collateral</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -648,11 +643,11 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='globalUpdates'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='cloud_done' color='#03B5E2'/>
                                         <span className="iconText"> Global Updates</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -669,11 +664,11 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='digitalAd'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='play_circle_filled' color='#03B5E2'/>
                                         <span className="iconText"> Digital Ad</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -690,11 +685,11 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='traditionalAd'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='list_alt' color='#03B5E2'/>
                                         <span className="iconText"> Traditional Ad</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -711,11 +706,11 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow key='nonDataPoint'>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" scope="row" className="StatsSummary-NonDataHead">
                                         <MaterialIcon icon='flag' color='#03B5E2'/>
                                         <span className="iconText"> Non-Data Point</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""

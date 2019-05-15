@@ -19,6 +19,14 @@
     text-align: center;
 }
 
+.StatsSummary-NonDataHead {
+    min-width: 150px !important;
+}
+
+.StatsSummary-NonDataCell {
+    width: 80%;
+}
+
 .facilityStatsInput {
     margin: 2px 0 !important;
 }

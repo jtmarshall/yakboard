@@ -24,6 +24,16 @@ class FacilityVolume extends Component {
 
     state = {
         commentBox: '',
+        commentSiteUpdates: '',
+        commentCollateral: '',
+        commentPhotos: '',
+        commentVideo: '',
+        commentRebrand: '',
+        commentOnlineReviews: '',
+        commentMedia: '',
+        commentAdvertisement: '',
+        commentEmail: '',
+        commentSocialMedia: '',
         chartToggle: true,
         graphColorIndex: 1,
         graphColor: colorPalette.graphColors.greenBlue,
@@ -197,20 +207,20 @@ class FacilityVolume extends Component {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                <TableRow key='websiteUpdates'>
+                                <TableRow key='siteUpdates'>
                                     <TableCell component="th" scope="row">
                                         <MaterialIcon icon='update' color='#03B5E2'/>
                                         <span className="iconText"> Site Updates</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.commentWebUpdates}
-                                            onChange={this.handleChange('commentWebUpdates')}
+                                            value={this.state.commentSiteUpdates}
+                                            onChange={this.handleChange('commentSiteUpdates')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -223,49 +233,7 @@ class FacilityVolume extends Component {
                                         <MaterialIcon icon='import_contacts' color='#03B5E2'/>
                                         <span className="iconText"> Collateral</span>
                                     </TableCell>
-                                    <TableCell>
-                                        <TextField
-                                            id="outlined-multiline-flexible"
-                                            label=""
-                                            multiline
-                                            rows="1"
-                                            rowsMax="4"
-                                            value={this.state.commentBranding}
-                                            onChange={this.handleChange('commentBranding')}
-                                            className="facilityStatsInput"
-                                            margin="normal"
-                                            variant="outlined"
-                                            style={{minWidth: '100%'}}
-                                        />
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow key='emailMarketing'>
-                                    <TableCell component="th" scope="row">
-                                        <MaterialIcon icon='alternate_email' color='#03B5E2'/>
-                                        <span className="iconText"> Email Marketing</span>
-                                    </TableCell>
-                                    <TableCell>
-                                        <TextField
-                                            id="outlined-multiline-flexible"
-                                            label=""
-                                            multiline
-                                            rows="1"
-                                            rowsMax="4"
-                                            value={this.state.commentEmail}
-                                            onChange={this.handleChange('commentEmail')}
-                                            className="facilityStatsInput"
-                                            margin="normal"
-                                            variant="outlined"
-                                            style={{minWidth: '100%'}}
-                                        />
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow key='collateral'>
-                                    <TableCell component="th" scope="row">
-                                        <MaterialIcon icon='description' color='#03B5E2'/>
-                                        <span className="iconText"> Collateral</span>
-                                    </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
@@ -281,20 +249,20 @@ class FacilityVolume extends Component {
                                         />
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key='globalUpdates'>
+                                <TableRow key='photos'>
                                     <TableCell component="th" scope="row">
-                                        <MaterialIcon icon='cloud_done' color='#03B5E2'/>
-                                        <span className="iconText"> Global Updates</span>
+                                        <MaterialIcon icon='photo' color='#03B5E2'/>
+                                        <span className="iconText"> Photos</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.commentGlobalUpdates}
-                                            onChange={this.handleChange('commentGlobalUpdates')}
+                                            value={this.state.commentPhotos}
+                                            onChange={this.handleChange('commentPhotos')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -302,20 +270,20 @@ class FacilityVolume extends Component {
                                         />
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key='digitalAd'>
+                                <TableRow key='video'>
                                     <TableCell component="th" scope="row">
-                                        <MaterialIcon icon='play_circle_filled' color='#03B5E2'/>
-                                        <span className="iconText"> Digital Ad</span>
+                                        <MaterialIcon icon='videocam' color='#03B5E2'/>
+                                        <span className="iconText"> Video</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.commentDigitalAd}
-                                            onChange={this.handleChange('commentDigitalAd')}
+                                            value={this.state.commentVideo}
+                                            onChange={this.handleChange('commentVideo')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -323,20 +291,20 @@ class FacilityVolume extends Component {
                                         />
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key='traditionalAd'>
+                                <TableRow key='rebrand'>
                                     <TableCell component="th" scope="row">
-                                        <MaterialIcon icon='list_alt' color='#03B5E2'/>
-                                        <span className="iconText"> Traditional Ad</span>
+                                        <MaterialIcon icon='star_half' color='#03B5E2'/>
+                                        <span className="iconText"> Rebrand</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.commentTraditionalAd}
-                                            onChange={this.handleChange('commentTraditionalAd')}
+                                            value={this.state.commentRebrand}
+                                            onChange={this.handleChange('commentRebrand')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
@@ -344,20 +312,104 @@ class FacilityVolume extends Component {
                                         />
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key='nonDataPoint'>
+                                <TableRow key='onlineReviews'>
                                     <TableCell component="th" scope="row">
-                                        <MaterialIcon icon='flag' color='#03B5E2'/>
-                                        <span className="iconText"> Non-Data Point</span>
+                                        <MaterialIcon icon='mood' color='#03B5E2'/>
+                                        <span className="iconText"> Online Reviews</span>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
                                         <TextField
                                             id="outlined-multiline-flexible"
                                             label=""
                                             multiline
                                             rows="1"
                                             rowsMax="4"
-                                            value={this.state.cpaCommentBox}
-                                            onChange={this.handleChange('cpaCommentBox')}
+                                            value={this.state.commentOnlineReviews}
+                                            onChange={this.handleChange('commentOnlineReviews')}
+                                            className="facilityStatsInput"
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='media'>
+                                    <TableCell component="th" scope="row">
+                                        <MaterialIcon icon='video_library' color='#03B5E2'/>
+                                        <span className="iconText"> Media</span>
+                                    </TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.commentMedia}
+                                            onChange={this.handleChange('commentMedia')}
+                                            className="facilityStatsInput"
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='advertisement'>
+                                    <TableCell component="th" scope="row">
+                                        <MaterialIcon icon='tv' color='#03B5E2'/>
+                                        <span className="iconText"> Advertisement</span>
+                                    </TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.commentAdvertisement}
+                                            onChange={this.handleChange('commentAdvertisement')}
+                                            className="facilityStatsInput"
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='email'>
+                                    <TableCell component="th" scope="row">
+                                        <MaterialIcon icon='email' color='#03B5E2'/>
+                                        <span className="iconText"> Email</span>
+                                    </TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.commentEmail}
+                                            onChange={this.handleChange('commentEmail')}
+                                            className="facilityStatsInput"
+                                            margin="normal"
+                                            variant="outlined"
+                                            style={{minWidth: '100%'}}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='socialMedia'>
+                                    <TableCell component="th" scope="row">
+                                        <MaterialIcon icon='group_add' color='#03B5E2'/>
+                                        <span className="iconText"> Social Media</span>
+                                    </TableCell>
+                                    <TableCell className="StatsSummary-NonDataCell">
+                                        <TextField
+                                            id="outlined-multiline-flexible"
+                                            label=""
+                                            multiline
+                                            rows="1"
+                                            rowsMax="4"
+                                            value={this.state.commentSocialMedia}
+                                            onChange={this.handleChange('commentSocialMedia')}
                                             className="facilityStatsInput"
                                             margin="normal"
                                             variant="outlined"
