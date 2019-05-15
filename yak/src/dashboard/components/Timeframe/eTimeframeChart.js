@@ -6,6 +6,99 @@ import toolbox from "../../tools/toolbox";
 import moment from "moment";
 import colorPalette from "../../tools/colorPalette";
 
+function seriesData(stack, labelsLength, colors) {
+    // Generate random data
+    let randata = [];
+    let randata2 = [];
+
+    for (let i = 0; i < labelsLength; i++) {
+        randata[i] = Math.floor(Math.random() * Math.floor(20));
+        randata2[i] = Math.floor(Math.random() * Math.floor(20));
+    }
+
+    return [
+        {
+            name: 'Directories',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[0]
+        },
+        {
+            name: 'Internal Directories',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[1]
+        },
+        {
+            name: 'Lead Gen',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[2]
+        },
+        {
+            name: 'Other',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[3]
+        },
+        {
+            name: 'Placement',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[4]
+        },
+        {
+            name: 'Search',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[5]
+        },
+        {
+            name: 'Search Engine',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[6]
+        },
+        {
+            name: 'Sign Up',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[7]
+        },
+        {
+            name: 'Social',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[8]
+        },
+        {
+            name: 'Sponsorship',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[9]
+        },
+        {
+            name: 'Conversions',
+            type: 'line',
+            lineStyle: {
+                type: 'dashed'
+            },
+            yAxisIndex: 1,
+            data: randata2,
+            color: colors[10]
+        }
+    ];
+}
 
 export default class ETimeframeChart extends Component {
 
@@ -22,6 +115,7 @@ export default class ETimeframeChart extends Component {
             backgroundColor: this.props.backgroundColor || '#2c343c',
             axisLabels: this.generateLabels(),
             colors: this.props.colors || colorPalette.graphColors.mutedRainbow,
+            secondaryColors: colorPalette.graphColors.sunburst,
             dataLabels: [
                 'Directories',
                 'Internal Directories',
@@ -108,12 +202,10 @@ export default class ETimeframeChart extends Component {
     }
 
     componentDidMount() {
-        let randata = [];
-        let randata2 = [];
-
-        for (let i = 0; i < this.state.axisLabels.length; i++) {
-            randata[i] = Math.floor(Math.random() * Math.floor(20));
-            randata2[i] = Math.floor(Math.random() * Math.floor(20));
+        // Generate the series data
+        let series1 = seriesData(1, this.state.axisLabels.length, this.state.colors);
+        if (this.props.secondaryDateCheck) {
+            let series2 = seriesData(2, this.state.axisLabels.length, this.state.secondaryColors);
         }
 
         let myChart = echarts.init(document.getElementById(this.state.chardID));
@@ -182,77 +274,7 @@ export default class ETimeframeChart extends Component {
                     }
                 }
             ],
-            series: [
-                {
-                    name: 'Directories',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Internal Directories',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Lead Gen',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Other',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Placement',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Search',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Search Engine',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Sign Up',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Social',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Sponsorship',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Conversions',
-                    type: 'line',
-                    lineStyle: {
-                        type: 'dashed'
-                    },
-                    yAxisIndex: 1,
-                    data: randata2
-                }
-            ]
+            series: series1,
         };
 
         // use configuration item and data specified to show chart

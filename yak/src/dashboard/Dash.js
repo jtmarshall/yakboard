@@ -40,6 +40,7 @@ export default class Dash extends React.Component {
                     CompareFrom: '',
                     CompareTo: ''
                 },
+                SecondaryDateCheck: false,
                 Filter: {
                     conversion: [],
                     touch: [],
@@ -184,6 +185,13 @@ export default class Dash extends React.Component {
         });
     };
 
+    // Toggles secondary date checkbox
+    updateSecondaryCheck = (val) => {
+        this.setState({
+            SecondaryDateCheck: val
+        });
+    };
+
     // Reload view
     refreshView = () => {
         window.location.reload();
@@ -200,8 +208,12 @@ export default class Dash extends React.Component {
                     <div className="componentContainer">
                         <FacilityAutoComplete selected={this.state.SelectedFacility}
                                               onUpdate={this.updateSelectedFacility}/>
-                        <DateComponent dateFrame={this.state.DateFrame} onUpdate={this.updateDate}
-                                       refreshView={this.refreshView}/>
+                        <DateComponent dateFrame={this.state.DateFrame}
+                                       secondaryCheckbox={this.state.SecondaryDateCheck}
+                                       onUpdate={this.updateDate}
+                                       refreshView={this.refreshView}
+                                       updateSecondary={this.updateSecondaryCheck}
+                        />
 
                         <Route path="/test" render={() => <TestComponent parentState={this.state}/>}/>
                         <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
