@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
-import toolbox from "../../tools/toolbox";
 import moment from "moment";
 import colorPalette from "../../tools/colorPalette";
 
+
+// To generate the series data arrays for the chart
 function seriesData(stack, labelsLength, colors) {
     // Generate random data
     let randata = [];
@@ -95,7 +96,8 @@ function seriesData(stack, labelsLength, colors) {
             },
             yAxisIndex: 1,
             data: randata2,
-            color: colors[10]
+            stack: stack,
+            color: colors[7]
         }
     ];
 }
@@ -114,8 +116,9 @@ export default class ETimeframeChart extends Component {
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
             axisLabels: this.generateLabels(),
+            secondaryAxisLabels: this.generateSecondaryLabels(),
             colors: this.props.colors || colorPalette.graphColors.mutedRainbow,
-            secondaryColors: colorPalette.graphColors.sunburst,
+            secondaryColors: colorPalette.graphColors.sunburst2,
             dataLabels: [
                 'Directories',
                 'Internal Directories',
@@ -132,6 +135,7 @@ export default class ETimeframeChart extends Component {
         };
     }
 
+    // Labels for primary timeframe
     generateLabels = () => {
         let primaryLabels = [];
         let timeFrame = this.props.timeFrame;
@@ -150,10 +154,8 @@ export default class ETimeframeChart extends Component {
             }
         } else {
             /* Default use selected dates from DateComponent */
-            // Retrieve local store
-            let yakPak = toolbox.retrievePak();
-            startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
-            endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
+            startDay = moment(this.props.date.From);
+            endDay = moment(this.props.date.To);
         }
 
         let numbDays = endDay.diff(startDay, 'days');
@@ -165,6 +167,27 @@ export default class ETimeframeChart extends Component {
         }
 
         return primaryLabels;
+    };
+
+    // Labels for secondary timeframe
+    generateSecondaryLabels = () => {
+        let secondaryLabels = [];
+        if (!this.props.date.CompareFrom || !this.props.date.CompareTo) {
+            return [];
+        }
+
+        let startDay = moment(this.props.date.CompareFrom);
+        let endDay = moment(this.props.date.CompareTo);
+
+        let numbDays = endDay.diff(startDay, 'days');
+        let temp = moment(endDay);
+        // Generate date labels starting with 'toDate' and iterating back through length of data
+        for (let i = 0; i <= numbDays; i++) {
+            // parse date for how many days prior
+            secondaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
+        }
+
+        return secondaryLabels;
     };
 
     // update search metric selection
@@ -205,7 +228,9 @@ export default class ETimeframeChart extends Component {
         // Generate the series data
         let series1 = seriesData(1, this.state.axisLabels.length, this.state.colors);
         if (this.props.secondaryDateCheck) {
-            let series2 = seriesData(2, this.state.axisLabels.length, this.state.secondaryColors);
+            let series2 = seriesData(2, this.state.secondaryAxisLabels.length, this.state.secondaryColors);
+
+            series1 = series1.concat(series2);
         }
 
         let myChart = echarts.init(document.getElementById(this.state.chardID));
@@ -219,12 +244,18 @@ export default class ETimeframeChart extends Component {
                     color: '#fff'
                 },
             },
-            color: this.state.colors,
+            // color: this.state.secondaryColors,
             textStyle: {
                 color: '#fff'
             },
             tooltip: {
-                trigger: 'axis',
+                trigger: 'item',
+                // position: function (pos, params, dom, rect, size) {
+                //     // tooltip will be fixed on right if mouse hovering on the left and on the left if hovering on the right
+                //     let obj = {top: -20};
+                //     obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+                //     return obj;
+                // },
                 axisPointer: {
                     type: 'cross',
                     crossStyle: {
@@ -266,7 +297,7 @@ export default class ETimeframeChart extends Component {
                 {
                     type: 'value',
                     name: 'Conversions',
-                    interval: 5,
+                    // interval: 5,
                     // max: 30,
                     position: 'right',
                     axisLabel: {
