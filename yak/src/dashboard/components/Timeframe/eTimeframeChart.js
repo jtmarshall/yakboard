@@ -37,7 +37,10 @@ function seriesData(stack, labelsLength, colors) {
             stack: stack,
             type: 'bar',
             data: randata2,
-            color: colors[2]
+            color: colors[2],
+            tooltip: {
+                formatter: '{a} {b}: {c}',
+            }
         },
         {
             name: 'Other',
@@ -226,11 +229,18 @@ export default class ETimeframeChart extends Component {
 
     componentDidMount() {
         // Generate the series data
-        let series1 = seriesData(1, this.state.axisLabels.length, this.state.colors);
+        let series = seriesData(1, this.state.axisLabels.length, this.state.colors);
+        let tooltipPosition = '';
         if (this.props.secondaryDateCheck) {
             let series2 = seriesData(2, this.state.secondaryAxisLabels.length, this.state.secondaryColors);
 
-            series1 = series1.concat(series2);
+            series = series.concat(series2);
+            tooltipPosition = function (pos, params, dom, rect, size) {
+                // tooltip will be fixed on right if mouse hovering on the left and on the left if hovering on the right
+                let obj = {top: -20};
+                obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+                return obj;
+            };
         }
 
         let myChart = echarts.init(document.getElementById(this.state.chardID));
@@ -249,13 +259,8 @@ export default class ETimeframeChart extends Component {
                 color: '#fff'
             },
             tooltip: {
-                trigger: 'item',
-                // position: function (pos, params, dom, rect, size) {
-                //     // tooltip will be fixed on right if mouse hovering on the left and on the left if hovering on the right
-                //     let obj = {top: -20};
-                //     obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
-                //     return obj;
-                // },
+                trigger: 'axis',
+                position: tooltipPosition,
                 axisPointer: {
                     type: 'cross',
                     crossStyle: {
@@ -305,7 +310,7 @@ export default class ETimeframeChart extends Component {
                     }
                 }
             ],
-            series: series1,
+            series: series,
         };
 
         // use configuration item and data specified to show chart
