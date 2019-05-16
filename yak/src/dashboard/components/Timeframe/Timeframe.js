@@ -64,6 +64,7 @@ class Timeframe extends Component {
         console.log(props);
 
         this.state = {
+            secondaryDateCheck: this.props.parentState.SecondaryDateCheck,
             tabValue: this.props.parentState.Timeframe.tabValue,
             timeFrame: this.props.match.params.id,
         };
@@ -77,7 +78,10 @@ class Timeframe extends Component {
         return (
             <div className="conversionComponent">
                 <h3>Timeframe</h3>
-                <ETimeframeChart id='eTimeframeChart' timeFrame={this.props.match.params.id}/>
+                <ETimeframeChart id='eTimeframeChart'
+                                 timeFrame={this.props.match.params.id}
+                                 date={this.props.parentState.DateFrame}
+                                 secondaryDateCheck={this.state.secondaryDateCheck}/>
 
                 <Card>
                     <CardHeader color="prime">

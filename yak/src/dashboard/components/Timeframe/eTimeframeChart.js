@@ -2,10 +2,108 @@ import React, {Component} from 'react';
 import * as echarts from "echarts";
 import CardBody from "../../tools/Card/CardBody";
 import Card from "../../tools/Card/Card";
-import toolbox from "../../tools/toolbox";
 import moment from "moment";
 import colorPalette from "../../tools/colorPalette";
 
+
+// To generate the series data arrays for the chart
+function seriesData(stack, labelsLength, colors) {
+    // Generate random data
+    let randata = [];
+    let randata2 = [];
+
+    for (let i = 0; i < labelsLength; i++) {
+        randata[i] = Math.floor(Math.random() * Math.floor(20));
+        randata2[i] = Math.floor(Math.random() * Math.floor(20));
+    }
+
+    return [
+        {
+            name: 'Directories',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[0]
+        },
+        {
+            name: 'Internal Directories',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[1]
+        },
+        {
+            name: 'Lead Gen',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[2],
+            tooltip: {
+                formatter: '{a} {b}: {c}',
+            }
+        },
+        {
+            name: 'Other',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[3]
+        },
+        {
+            name: 'Placement',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[4]
+        },
+        {
+            name: 'Search',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[5]
+        },
+        {
+            name: 'Search Engine',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[6]
+        },
+        {
+            name: 'Sign Up',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[7]
+        },
+        {
+            name: 'Social',
+            stack: stack,
+            type: 'bar',
+            data: randata,
+            color: colors[8]
+        },
+        {
+            name: 'Sponsorship',
+            stack: stack,
+            type: 'bar',
+            data: randata2,
+            color: colors[9]
+        },
+        {
+            name: 'Conversions',
+            type: 'line',
+            lineStyle: {
+                type: 'dashed'
+            },
+            yAxisIndex: 1,
+            data: randata2,
+            stack: stack,
+            color: colors[7]
+        }
+    ];
+}
 
 export default class ETimeframeChart extends Component {
 
@@ -21,7 +119,9 @@ export default class ETimeframeChart extends Component {
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
             axisLabels: this.generateLabels(),
+            secondaryAxisLabels: this.generateSecondaryLabels(),
             colors: this.props.colors || colorPalette.graphColors.mutedRainbow,
+            secondaryColors: colorPalette.graphColors.sunburst2,
             dataLabels: [
                 'Directories',
                 'Internal Directories',
@@ -38,6 +138,7 @@ export default class ETimeframeChart extends Component {
         };
     }
 
+    // Labels for primary timeframe
     generateLabels = () => {
         let primaryLabels = [];
         let timeFrame = this.props.timeFrame;
@@ -56,10 +157,8 @@ export default class ETimeframeChart extends Component {
             }
         } else {
             /* Default use selected dates from DateComponent */
-            // Retrieve local store
-            let yakPak = toolbox.retrievePak();
-            startDay = yakPak == null ? moment().add(-7, 'days') : moment(yakPak.DateFrame.From);
-            endDay = yakPak == null ? moment() : moment(yakPak.DateFrame.To);
+            startDay = moment(this.props.date.From);
+            endDay = moment(this.props.date.To);
         }
 
         let numbDays = endDay.diff(startDay, 'days');
@@ -71,6 +170,27 @@ export default class ETimeframeChart extends Component {
         }
 
         return primaryLabels;
+    };
+
+    // Labels for secondary timeframe
+    generateSecondaryLabels = () => {
+        let secondaryLabels = [];
+        if (!this.props.date.CompareFrom || !this.props.date.CompareTo) {
+            return [];
+        }
+
+        let startDay = moment(this.props.date.CompareFrom);
+        let endDay = moment(this.props.date.CompareTo);
+
+        let numbDays = endDay.diff(startDay, 'days');
+        let temp = moment(endDay);
+        // Generate date labels starting with 'toDate' and iterating back through length of data
+        for (let i = 0; i <= numbDays; i++) {
+            // parse date for how many days prior
+            secondaryLabels.unshift(moment(temp).subtract(i, 'd').format('M/D'));
+        }
+
+        return secondaryLabels;
     };
 
     // update search metric selection
@@ -108,12 +228,19 @@ export default class ETimeframeChart extends Component {
     }
 
     componentDidMount() {
-        let randata = [];
-        let randata2 = [];
+        // Generate the series data
+        let series = seriesData(1, this.state.axisLabels.length, this.state.colors);
+        let tooltipPosition = '';
+        if (this.props.secondaryDateCheck) {
+            let series2 = seriesData(2, this.state.secondaryAxisLabels.length, this.state.secondaryColors);
 
-        for (let i = 0; i < this.state.axisLabels.length; i++) {
-            randata[i] = Math.floor(Math.random() * Math.floor(20));
-            randata2[i] = Math.floor(Math.random() * Math.floor(20));
+            series = series.concat(series2);
+            tooltipPosition = function (pos, params, dom, rect, size) {
+                // tooltip will be fixed on right if mouse hovering on the left and on the left if hovering on the right
+                let obj = {top: -20};
+                obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+                return obj;
+            };
         }
 
         let myChart = echarts.init(document.getElementById(this.state.chardID));
@@ -127,12 +254,13 @@ export default class ETimeframeChart extends Component {
                     color: '#fff'
                 },
             },
-            color: this.state.colors,
+            // color: this.state.secondaryColors,
             textStyle: {
                 color: '#fff'
             },
             tooltip: {
                 trigger: 'axis',
+                position: tooltipPosition,
                 axisPointer: {
                     type: 'cross',
                     crossStyle: {
@@ -174,7 +302,7 @@ export default class ETimeframeChart extends Component {
                 {
                     type: 'value',
                     name: 'Conversions',
-                    interval: 5,
+                    // interval: 5,
                     // max: 30,
                     position: 'right',
                     axisLabel: {
@@ -182,77 +310,7 @@ export default class ETimeframeChart extends Component {
                     }
                 }
             ],
-            series: [
-                {
-                    name: 'Directories',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Internal Directories',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Lead Gen',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Other',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Placement',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Search',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Search Engine',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Sign Up',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Social',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata
-                },
-                {
-                    name: 'Sponsorship',
-                    stack: 1,
-                    type: 'bar',
-                    data: randata2
-                },
-                {
-                    name: 'Conversions',
-                    type: 'line',
-                    lineStyle: {
-                        type: 'dashed'
-                    },
-                    yAxisIndex: 1,
-                    data: randata2
-                }
-            ]
+            series: series,
         };
 
         // use configuration item and data specified to show chart

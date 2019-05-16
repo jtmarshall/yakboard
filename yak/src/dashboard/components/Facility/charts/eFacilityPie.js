@@ -13,6 +13,7 @@ export default class EFacilityPie extends Component {
         width: this.props.width || 'auto',
         headerColor: this.props.headerColor || 'prime',
         backgroundColor: this.props.backgroundColor || '#2c343c',
+        dataset: [310, 234, 1548, 135, 234, 174, 335],
         // colors: this.props.colors || colorPalette.skittles,
     };
 

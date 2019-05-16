@@ -4,7 +4,6 @@ import moment from 'moment';
 import MaterialIcon from "material-icons-react";
 import Button from "@material-ui/core/Button/Button";
 import Tooltip from '@material-ui/core/Tooltip';
-import Drawer from '@material-ui/core/Drawer';
 import Select from "@material-ui/core/Select/Select";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 import FormControl from "@material-ui/core/FormControl/FormControl";
@@ -21,6 +20,10 @@ class DateComponent extends React.Component {
         top: false,
         dateDenomination: 'custom',
         open: false,
+    };
+
+    handleCheckbox = event => {
+        this.props.updateSecondary(event.target.checked);
     };
 
     // Updates the selected facility list
@@ -255,6 +258,7 @@ class DateComponent extends React.Component {
                             </FormGroup>
 
                             <FormGroup row style={{margin: 'auto', paddingTop: '20px'}}>
+                                <input type="checkbox" checked={this.props.secondaryCheckbox} onChange={this.handleCheckbox}/>
                                 <Tooltip title="Secondary Start Date" placement="bottom">
                                     <TextField
                                         required={true}
@@ -302,15 +306,7 @@ class DateComponent extends React.Component {
                     </DialogActions>
                 </Dialog>
 
-                <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
-                    <div
-                        style={{padding: 20, textAlign: 'center'}}
-                        tabIndex={0}
-                        role="button"
-                    >
 
-                    </div>
-                </Drawer>
             </form>
         );
     }
