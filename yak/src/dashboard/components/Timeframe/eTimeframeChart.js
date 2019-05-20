@@ -99,7 +99,7 @@ function seriesData(stack, labelsLength, colors) {
             },
             yAxisIndex: 1,
             data: randata2,
-            stack: stack,
+            // stack: stack,
             color: colors[7]
         }
     ];
@@ -193,6 +193,26 @@ export default class ETimeframeChart extends Component {
         return secondaryLabels;
     };
 
+    // Use comparison labels
+    comparisonLabels = () => {
+        let primaryLabels = this.state.axisLabels;
+        let secondaryLabels = this.state.secondaryAxisLabels;
+        let l = primaryLabels.length;
+        if (secondaryLabels.length > primaryLabels.length) {
+            l = secondaryLabels.length;
+        }
+
+        let concatLabels = [];
+
+        for (let i = 0; i < l; i++) {
+            let primary = this.state.axisLabels[i] || "NA";
+            let secondary = secondaryLabels[i] || "NA";
+            concatLabels[i] = primary + " v " + secondary;
+        }
+
+        return concatLabels;
+    };
+
     // update search metric selection
     handleSelect = event => {
         this.setState({[event.target.name]: event.target.value});
@@ -230,17 +250,19 @@ export default class ETimeframeChart extends Component {
     componentDidMount() {
         // Generate the series data
         let series = seriesData(1, this.state.axisLabels.length, this.state.colors);
-        let tooltipPosition = '';
+        let axisLabels = this.state.axisLabels;
+        // let tooltipPosition = '';
         if (this.props.secondaryDateCheck) {
             let series2 = seriesData(2, this.state.secondaryAxisLabels.length, this.state.secondaryColors);
-
             series = series.concat(series2);
-            tooltipPosition = function (pos, params, dom, rect, size) {
-                // tooltip will be fixed on right if mouse hovering on the left and on the left if hovering on the right
-                let obj = {top: -20};
-                obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
-                return obj;
-            };
+            axisLabels = this.comparisonLabels();
+
+            // tooltipPosition = function (pos, params, dom, rect, size) {
+            //     // tooltip will be fixed on right if mouse hovering on the left and on the left if hovering on the right
+            //     let obj = {top: -20};
+            //     obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+            //     return obj;
+            // };
         }
 
         let myChart = echarts.init(document.getElementById(this.state.chardID));
@@ -259,14 +281,15 @@ export default class ETimeframeChart extends Component {
                 color: '#fff'
             },
             tooltip: {
-                trigger: 'axis',
-                position: tooltipPosition,
+                trigger: 'item',
+                // position: tooltipPosition,
                 axisPointer: {
                     type: 'cross',
                     crossStyle: {
                         color: '#999'
                     }
-                }
+                },
+                formatter: '',
             },
             legend: {
                 x: 'center',
@@ -279,7 +302,7 @@ export default class ETimeframeChart extends Component {
             xAxis: [
                 {
                     type: 'category',
-                    data: this.state.axisLabels,
+                    data: axisLabels,
                     axisPointer: {
                         type: 'shadow'
                     },
@@ -292,7 +315,7 @@ export default class ETimeframeChart extends Component {
                 {
                     type: 'value',
                     name: 'Touches',
-                    interval: 25,
+                    // interval: 25,
                     // max: 175,
                     position: 'left',
                     axisLabel: {
