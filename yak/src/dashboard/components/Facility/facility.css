@@ -926,16 +926,24 @@ h6 {
 @media print {
     body {
         -webkit-print-color-adjust: exact !important;
-        padding-left: 0px !important;
         text-align: center !important;
+    }
+
+    .sidebarComponent {
+        display: none !important;
+    }
+
+    .componentContainer {
+        width: auto !important;
+        margin-left: 0 !important;
     }
 
     .hidePrint {
         display: none !important;
     }
 
-    .facilityPrint {
-
+    .facilityVolumeComponent {
+        page-break-before: always !important;
     }
 
     [class^="Card"] {
@@ -944,13 +952,24 @@ h6 {
         margin: auto !important;
         border: none !important;
         box-shadow: none !important;
-        /*max-height: 600px;*/
     }
 
-    [class^="CardHeader"] {
-        width: 100% !important;
-        display: block !important;
+    .facilityPie {
+        height: auto !important;
+        width: 1080px !important;
+        margin-bottom: 10px !important;
     }
+
+    .facilityBar {
+        height: auto !important;
+        width: 1080px !important;
+        margin: auto !important;
+    }
+
+    /*[class^="CardHeader"] {*/
+    /*    width: 100% !important;*/
+    /*    display: block !important;*/
+    /*}*/
 
     #statsSummary {
         margin-top: 40px !important;
@@ -965,38 +984,37 @@ h6 {
         display: inline-flex !important;
     }
 
-    .nivoCard {
-        display: inline-block !important;
-        width: 26% !important;
-        padding: 4px !important;
-        box-shadow: none !important;
-        background: none !important;
-        margin: unset !important;
-        text-align: center !important;
-    }
+    /*.nivoCard {*/
+    /*    display: inline-block !important;*/
+    /*    width: 26% !important;*/
+    /*    padding: 4px !important;*/
+    /*    box-shadow: none !important;*/
+    /*    background: none !important;*/
+    /*    margin: unset !important;*/
+    /*    text-align: center !important;*/
+    /*}*/
 
-    .nivoCard [class^="CardHeader"] {
-        width: 90% !important;
-        left: 40px;
-    }
+    /*.nivoCard [class^="CardHeader"] {*/
+    /*    width: 90% !important;*/
+    /*    left: 40px;*/
+    /*}*/
 
-    .nivoGraph {
-        height: 365px !important;
-    }
+    /*.nivoGraph {*/
+    /*    height: 365px !important;*/
+    /*}*/
 
-    .facilityBarChart {
-        /*width: 65% !important;*/
-        box-shadow: none !important;
-        border: none !important;
-        background: none !important;
-        margin-top: 40px !important;
-    }
+    /*.facilityBarChart {*/
+    /*    box-shadow: none !important;*/
+    /*    border: none !important;*/
+    /*    background: none !important;*/
+    /*    margin-top: 40px !important;*/
+    /*}*/
 
-    .facilityBarChart [class^="CardBody"] {
-        padding: 10px 0 !important;
-        margin: 30px 0 !important;
-        page-break-after: always;
-    }
+    /*.facilityBarChart [class^="CardBody"] {*/
+    /*    padding: 10px 0 !important;*/
+    /*    margin: 30px 0 !important;*/
+    /*    page-break-after: always;*/
+    /*}*/
 
     .chartjs-render-monitor {
         height: unset !important;

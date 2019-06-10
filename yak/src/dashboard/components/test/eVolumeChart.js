@@ -47,7 +47,7 @@ export default class EVolumeChart extends Component {
         let cardHeight = (chartHeight + (chartHeight * .1)) + 'px';
 
         return (
-            <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}}>
+            <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}} className="facilityBar">
                 <CardBody style={{padding: '16px'}}>
                     <div id={this.state.chardID} className='eChart' style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
