@@ -88,6 +88,7 @@ class FacilityVolume extends Component {
 
                 <br/>
                 <FormControlLabel
+                    className="hidePrint"
                     control={
                         <Switch
                             checked={this.state.chartToggle}
@@ -102,7 +103,13 @@ class FacilityVolume extends Component {
 
                 {this.state.chartToggle &&
                     <span>
-                        <Button variant="contained" color="primary" style={{color: '#fff'}} onClick={this.colorPaletteToggle}>
+                        <Button
+                            className="hidePrint"
+                            variant="contained"
+                            color="primary"
+                            style={{color: '#fff'}}
+                            onClick={this.colorPaletteToggle}
+                        >
                             Toggle Color
                         </Button>
                         <br/>

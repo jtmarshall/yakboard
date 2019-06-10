@@ -30,10 +30,7 @@ export default class EFacilityPie extends Component {
         let cardHeight = (chartHeight + (chartHeight * .1)) + 'px';
 
         return (
-            <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}}>
-                {/*<CardHeader className="facilityCardHeader" color={this.state.headerColor}>*/}
-                {/*    <h4 className="cardTitleWhite">{this.state.title}</h4>*/}
-                {/*</CardHeader>*/}
+            <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}} className="facilityPie">
                 <CardBody style={{padding: '16px'}}>
                     <div id={this.state.chardID} className='eChart' style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
