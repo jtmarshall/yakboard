@@ -948,7 +948,7 @@ h6 {
 
     [class^="Card"] {
         display: block !important;
-        width: auto !important;
+        width: 100% !important;
         margin: auto !important;
         border: none !important;
         box-shadow: none !important;
@@ -977,6 +977,7 @@ h6 {
 
     #statsSummary [class^="CardBody"] {
         display: inline-flex !important;
+        padding: 0 !important;
     }
 
     .facilityPieRow {
