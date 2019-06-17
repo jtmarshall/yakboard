@@ -27,7 +27,7 @@ export default class EVolumeChart extends Component {
             title: this.props.title,
             chardID: this.props.id || 'eVolumeChart',
             height: this.props.height || '420px',
-            width: this.props.width || 'auto',
+            width: this.props.width || '100%',
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
             axisLabels: primaryLabels,

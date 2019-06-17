@@ -31,8 +31,13 @@ export default class EFacilityPie extends Component {
 
         return (
             <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}} className="facilityPie">
+                {/*<h4>*/}
+                {/*    <span style={{color: '#fff', float: 'left'}}>Spend</span>*/}
+                {/*    <span style={{color: '#fff'}}>Traffic</span>*/}
+                {/*    <span style={{color: '#fff', float: 'right'}}>Calls</span>*/}
+                {/*</h4>*/}
                 <CardBody style={{padding: '16px'}}>
-                    <div id={this.state.chardID} className='eChart' style={{width: this.state.width, height: this.state.height}}/>
+                    <div id={this.state.chardID} className='eChart' style={{width: this.state.width, height: this.state.height, margin: 'auto'}}/>
                 </CardBody>
             </Card>
         )
@@ -52,7 +57,7 @@ export default class EFacilityPie extends Component {
             title: [
                 {
                     text: 'Spend',
-                    x: 'left',
+                    left: '12.5%',
                     textStyle: {
                         color: '#fff'
                     },
@@ -65,9 +70,10 @@ export default class EFacilityPie extends Component {
                     },
                 }, {
                     text: 'Calls',
-                    x: 'right',
+                    right: '15%',
                     textStyle: {
-                        color: '#fff'
+                        color: '#fff',
+                        marginLeft: '-200px',
                     },
                 }
             ],
@@ -89,7 +95,7 @@ export default class EFacilityPie extends Component {
                 {
                     name: 'Spend',
                     type: 'pie',
-                    radius: ['35%', '65%'],
+                    radius: ['30%', '60%'],
                     center: ['15%', '50%'],
                     // color: ['#365CA0', '#33C3E9', '#33BFBB', '#A3D50C', '#FFD600', '#E53947', '#9E5E8C'],
                     color: this.props.colors,
@@ -126,7 +132,7 @@ export default class EFacilityPie extends Component {
                     name: 'Traffic',
                     type: 'pie',
                     // radius: ['35%', '65%'],
-                    radius: '65%',
+                    radius: '60%',
                     center: ['50%', '50%'],
                     label: {
                         normal: {
@@ -162,7 +168,7 @@ export default class EFacilityPie extends Component {
                     type: 'pie',
                     radius: '60%',
                     // radius: ['35%', '65%'],
-                    center: ['85%', '50%'],
+                    center: ['82.5%', '50%'],
                     avoidLabelOverlap: true,
                     label: {
                         color: '#fff',
