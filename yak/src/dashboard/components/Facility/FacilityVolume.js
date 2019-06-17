@@ -138,7 +138,7 @@ class FacilityVolume extends Component {
                     </span>
                 }
 
-                <Card>
+                <Card className="facilityMiscellaneous">
                     <CardHeader className="facilityCardHeader" color="info">
                         <h4 className="cardTitleWhite">Miscellaneous</h4>
                     </CardHeader>
