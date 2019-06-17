@@ -206,14 +206,16 @@ export default class Dash extends React.Component {
                              rightDrawer={this.state.rightDrawer}/>
 
                     <div className="componentContainer">
-                        <FacilityAutoComplete selected={this.state.SelectedFacility}
-                                              onUpdate={this.updateSelectedFacility}/>
-                        <DateComponent dateFrame={this.state.DateFrame}
-                                       secondaryCheckbox={this.state.SecondaryDateCheck}
-                                       onUpdate={this.updateDate}
-                                       refreshView={this.refreshView}
-                                       updateSecondary={this.updateSecondaryCheck}
-                        />
+                        <div className="header">
+                            <FacilityAutoComplete selected={this.state.SelectedFacility}
+                                                  onUpdate={this.updateSelectedFacility}/>
+                            <DateComponent dateFrame={this.state.DateFrame}
+                                           secondaryCheckbox={this.state.SecondaryDateCheck}
+                                           onUpdate={this.updateDate}
+                                           refreshView={this.refreshView}
+                                           updateSecondary={this.updateSecondaryCheck}
+                            />
+                        </div>
 
                         <Route path="/test" render={() => <TestComponent parentState={this.state}/>}/>
                         <Route path="/touch" render={() => <Touch parentState={this.state} updateDash={this.updateDashStoryboard}/>}/>
