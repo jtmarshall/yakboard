@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Card from '../../tools/Card/Card';
+// import Card from '@material-ui/core/Card';
 import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import TextField from '@material-ui/core/TextField';
@@ -236,7 +237,7 @@ class Facility extends Component {
                     </div>
                 </div>
 
-                <Card id="statsSummary">
+                <Card id="statsSummary" className="customCard">
                     <CardHeader className="facilityCardHeader" color="prime">
                         <h4 className="cardTitleWhite">Stats Summary</h4>
                     </CardHeader>

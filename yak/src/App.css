@@ -6,6 +6,16 @@ body {
     font-family: sans-serif;
 }
 
+.customCard {
+    width: 90%;
+    margin: auto;
+}
+
+.MuiCardMedia-media {
+    width: 100%;
+    object-fit: unset !important;
+}
+
 .sidebarComponent {
     /* Original Background */
     /*background-color: #222;*/
@@ -66,8 +76,8 @@ body {
 }
 
 .componentContainer {
-    width: calc(100vw - calc(100vw - 100%) - 180px);
-    margin-left: 180px;
+    width: calc(100vw - calc(100vw - 100%) - 200px);
+    margin-left: 200px;
 }
 
 /* Raised Buttons */
