@@ -95,7 +95,7 @@ function seriesData(stack, labelsLength, colors) {
             name: 'Conversions',
             type: 'line',
             lineStyle: {
-                type: 'dashed'
+                type: 'solid'
             },
             yAxisIndex: 1,
             data: randata2,

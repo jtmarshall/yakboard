@@ -73,7 +73,7 @@ function GreenGoal(props) {
     // Math for percentage over/under
     let diff = Math.abs(props.goal - props.actual);
     let percent = "NA";
-    if (props.goal != 0) {
+    if (props.goal !== 0) {
         percent = ((diff / props.goal) * 100).toFixed(1);
     }
     return (
