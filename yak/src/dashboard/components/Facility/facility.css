@@ -5,9 +5,14 @@
     width: 100% !important;
 }
 
+.facilityStatsInput {
+    /*height: 40px;*/
+}
+
 #statsSummary th {
     padding: 0 6px;
     min-width: 100px;
+    height: 40px;
 }
 
 #statsSummary td {
@@ -32,7 +37,7 @@
 }
 
 .facilityStatsInput > div {
-    padding: 10px 8px !important;
+    padding: 8px 8px !important;
 }
 
 .tableRowHeader {
@@ -955,8 +960,9 @@ h6 {
     }
 
     .facilityPie {
-        height: auto !important;
+        /*height: auto !important;*/
         width: 1080px !important;
+        margin: auto !important;
         margin-bottom: 10px !important;
     }
 
@@ -984,10 +990,10 @@ h6 {
         padding: 0 !important;
     }
 
-    .facilityPieRow {
-        margin-left: -40px !important;
-        display: inline-flex !important;
-    }
+    /*.facilityPieRow {*/
+    /*    margin-left: -40px !important;*/
+    /*    display: inline-flex !important;*/
+    /*}*/
 
     /*.nivoCard {*/
     /*    display: inline-block !important;*/
@@ -1038,7 +1044,7 @@ h6 {
 
     .iconText {
         font-size: 0.8125rem;
-        display: block;
+        /*display: block;*/
     }
 
     /* Fix for comments label getting cutoff */
