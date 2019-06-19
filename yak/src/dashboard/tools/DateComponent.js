@@ -261,7 +261,7 @@ class DateComponent extends React.Component {
                                 <input type="checkbox" checked={this.props.secondaryCheckbox} onChange={this.handleCheckbox}/>
                                 <Tooltip title="Secondary Start Date" placement="bottom">
                                     <TextField
-                                        required={true}
+                                        disabled={!this.props.secondaryCheckbox}
                                         id="dateCompareFrom"
                                         label="SEC From"
                                         type="date"
@@ -275,7 +275,7 @@ class DateComponent extends React.Component {
                                 </Tooltip>
                                 <Tooltip title="Secondary End Date" placement="bottom">
                                     <TextField
-                                        required={true}
+                                        disabled={!this.props.secondaryCheckbox}
                                         id="dateCompareTo"
                                         label="SEC To"
                                         type="date"

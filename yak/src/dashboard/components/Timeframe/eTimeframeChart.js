@@ -121,7 +121,7 @@ export default class ETimeframeChart extends Component {
             axisLabels: this.generateLabels(),
             secondaryAxisLabels: this.generateSecondaryLabels(),
             colors: this.props.colors || colorPalette.graphColors.mutedRainbow,
-            secondaryColors: colorPalette.graphColors.sunburst2,
+            secondaryColors: colorPalette.graphColors.greenBlue,
             dataLabels: [
                 'Directories',
                 'Internal Directories',
