@@ -19,6 +19,7 @@ class DateComponent extends React.Component {
     state = {
         top: false,
         dateDenomination: 'custom',
+        dateUnit: 'day',
         open: false,
     };
 
@@ -160,6 +161,12 @@ class DateComponent extends React.Component {
         this.props.onUpdate(dateFrame);
     };
 
+    handleDateUnit = name => event => {
+        this.setState({
+            dateUnit: event.target.value,
+        });
+    };
+
     // Remove comparison date range
     clearDates = () => {
         let dateFrame = {
@@ -205,26 +212,44 @@ class DateComponent extends React.Component {
                     <DialogContent>
                         <FormGroup>
                             <FormGroup row style={{padding: '10px 5px', display: 'block', textAlign: 'center'}}>
-                                <FormControl style={{marginBottom: '20px'}}>
-                                    <span style={{fontSize: '.8em', color: '#757575'}}>Presets</span>
-                                    <Select
-                                        className="skuFilterSelect"
-                                        value={this.state.dateDenomination}
-                                        onChange={this.handleDateDenominationSelect('dateDenomination')}
-                                        inputProps={{
-                                            name: 'dateDenomination',
-                                            id: 'filterDateDenomination',
-                                        }}
-                                    >
-                                        <MenuItem value={'custom'}>Custom</MenuItem>
-                                        <MenuItem value={'today'}>Today</MenuItem>
-                                        <MenuItem value={'yesterday'}>Yesterday</MenuItem>
-                                        <MenuItem value={'lastWeek'}>Last Week</MenuItem>
-                                        <MenuItem value={'lastMonth'}>Last Month</MenuItem>
-                                        <MenuItem value={'last7'}>Last 7 Days</MenuItem>
-                                        <MenuItem value={'last30'}>Last 30 Days</MenuItem>
-                                    </Select>
-                                </FormControl>
+                                <div>
+                                    <FormControl style={{marginBottom: '20px'}}>
+                                        <span style={{fontSize: '.8em', color: '#757575'}}>Presets</span>
+                                        <Select
+                                            className="skuFilterSelect"
+                                            value={this.state.dateDenomination}
+                                            onChange={this.handleDateDenominationSelect('dateDenomination')}
+                                            inputProps={{
+                                                name: 'dateDenomination',
+                                                id: 'filterDateDenomination',
+                                            }}
+                                        >
+                                            <MenuItem value={'custom'}>Custom</MenuItem>
+                                            <MenuItem value={'today'}>Today</MenuItem>
+                                            <MenuItem value={'yesterday'}>Yesterday</MenuItem>
+                                            <MenuItem value={'lastWeek'}>Last Week</MenuItem>
+                                            <MenuItem value={'lastMonth'}>Last Month</MenuItem>
+                                            <MenuItem value={'last7'}>Last 7 Days</MenuItem>
+                                            <MenuItem value={'last30'}>Last 30 Days</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                    <FormControl style={{marginBottom: '20px'}}>
+                                        <span style={{fontSize: '.8em', color: '#757575'}}>Date Unit</span>
+                                        <Select
+                                            className="skuFilterSelect"
+                                            value={this.state.dateUnit}
+                                            onChange={this.handleDateUnit('dateUnit')}
+                                            inputProps={{
+                                                name: 'dateUnit',
+                                                id: 'filterDateUnit',
+                                            }}
+                                        >
+                                            <MenuItem value={'day'}>Day</MenuItem>
+                                            <MenuItem value={'week'}>Week</MenuItem>
+                                            <MenuItem value={'month'}>Month</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </div>
                                 <br/>
 
                                 <Tooltip title="Primary Start Date" placement="bottom">
@@ -258,7 +283,8 @@ class DateComponent extends React.Component {
                             </FormGroup>
 
                             <FormGroup row style={{margin: 'auto', paddingTop: '20px'}}>
-                                <input type="checkbox" checked={this.props.secondaryCheckbox} onChange={this.handleCheckbox}/>
+                                <input type="checkbox" checked={this.props.secondaryCheckbox}
+                                       onChange={this.handleCheckbox}/>
                                 <Tooltip title="Secondary Start Date" placement="bottom">
                                     <TextField
                                         disabled={!this.props.secondaryCheckbox}
