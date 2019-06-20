@@ -205,15 +205,15 @@ class DateComponent extends React.Component {
                     aria-labelledby="form-dialog-title"
                     style={{paddingLeft: '180px', top: '-20%'}}
                 >
-                    <DialogTitle id="form-dialog-title" style={{textAlign: 'center'}}>
+                    <DialogTitle id="form-dialog-title" style={{background: "#EEE", textAlign: 'center'}}>
                         Date Options
                     </DialogTitle>
 
                     <DialogContent>
                         <FormGroup>
                             <FormGroup row style={{padding: '10px 5px', display: 'block', textAlign: 'center'}}>
-                                <div>
-                                    <FormControl style={{marginBottom: '20px'}}>
+                                <div style={{display: "inline-flex", width: "100%", marginBottom: "20px"}}>
+                                    <FormControl style={{margin: 'auto'}}>
                                         <span style={{fontSize: '.8em', color: '#757575'}}>Presets</span>
                                         <Select
                                             className="skuFilterSelect"
@@ -233,7 +233,7 @@ class DateComponent extends React.Component {
                                             <MenuItem value={'last30'}>Last 30 Days</MenuItem>
                                         </Select>
                                     </FormControl>
-                                    <FormControl style={{marginBottom: '20px'}}>
+                                    <FormControl style={{margin: 'auto'}}>
                                         <span style={{fontSize: '.8em', color: '#757575'}}>Date Unit</span>
                                         <Select
                                             className="skuFilterSelect"
@@ -282,9 +282,14 @@ class DateComponent extends React.Component {
                                 </Tooltip>
                             </FormGroup>
 
-                            <FormGroup row style={{margin: 'auto', paddingTop: '20px'}}>
-                                <input type="checkbox" checked={this.props.secondaryCheckbox}
-                                       onChange={this.handleCheckbox}/>
+                            <span style={{margin: "auto", display: "inline-flex", fontSize: "13px", paddingTop: '20px'}}>
+                                <input type="checkbox"
+                                       style={{margin: "auto"}}
+                                       checked={this.props.secondaryCheckbox}
+                                       onChange={this.handleCheckbox}/> Use Secondary Date
+                            </span>
+                            <FormGroup row style={{margin: 'auto'}}>
+
                                 <Tooltip title="Secondary Start Date" placement="bottom">
                                     <TextField
                                         disabled={!this.props.secondaryCheckbox}
