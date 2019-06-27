@@ -73,7 +73,7 @@ function GreenGoal(props) {
     // Math for percentage over/under
     let diff = Math.abs(props.goal - props.actual);
     let percent = "NA";
-    if (props.goal != 0) {
+    if (props.goal !== 0) {
         percent = ((diff / props.goal) * 100).toFixed(1);
     }
     return (
@@ -205,7 +205,7 @@ class Facility extends Component {
                         <CardMedia
                             component="img"
                             alt="Facility Logo"
-                            style={{maxWidth: '60%', margin: 'auto'}}
+                            style={{width: "75%", margin: 'auto'}}
                             height="auto"
                             image={this.state.fLogo}
                         />
@@ -215,9 +215,11 @@ class Facility extends Component {
                                 <strong>{this.state.month}</strong>
                             </span>
                             <h6>Facility:</h6>
-                            <span id='facilityNameText'>
-                                {this.props.parentState.SelectedFacility[0]}
-                            </span>
+                            <a href={"https://" + this.props.parentState.SelectedFacilityDomain} target="_blank" style={{textDecoration: "none"}}>
+                                <span id='facilityNameText'>
+                                    {this.props.parentState.SelectedFacility[0]}
+                                </span>
+                            </a>
                         </CardContent>
                     </Card>
 
@@ -248,7 +250,8 @@ class Facility extends Component {
                                     <TableCell></TableCell>
                                     <TableCell align="center">{this.state.momLabel}</TableCell>
                                     <TableCell align="center">YTD / PYTD</TableCell>
-                                    <TableCell align="center">{this.state.monthCurrent} / {this.state.monthPreviousYear}</TableCell>
+                                    <TableCell
+                                        align="center">{this.state.monthCurrent} / {this.state.monthPreviousYear}</TableCell>
                                     <TableCell align="center">Monthly Goal</TableCell>
                                 </TableRow>
                             </TableHead>
