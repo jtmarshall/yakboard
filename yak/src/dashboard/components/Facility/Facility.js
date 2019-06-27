@@ -205,7 +205,7 @@ class Facility extends Component {
                         <CardMedia
                             component="img"
                             alt="Facility Logo"
-                            style={{width: "80%", margin: 'auto'}}
+                            style={{width: "75%", margin: 'auto'}}
                             height="auto"
                             image={this.state.fLogo}
                         />
