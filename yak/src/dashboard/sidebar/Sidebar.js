@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import logo from '../../assets/logo/yak-logo-fullbody.svg';
 import MaterialIcon from 'material-icons-react';
-import SKUFilter from '../tools/skuFilter';
+import DataFilter from '../tools/dataFilter';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 
@@ -130,8 +130,8 @@ class Sidebar extends React.Component {
 
                 <div className="sidebarBottom">
                     <hr/>
-                    <SKUFilter selected={this.props.selected} onUpdate={this.props.onUpdate}
-                               rightDrawer={this.props.rightDrawer}/>
+                    <DataFilter selected={this.props.selected} onUpdate={this.props.onUpdate}
+                                rightDrawer={this.props.rightDrawer}/>
                 </div>
             </div>
         );
