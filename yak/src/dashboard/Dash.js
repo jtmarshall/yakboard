@@ -131,7 +131,7 @@ export default class Dash extends React.Component {
         });
     };
 
-    // Update SKUFilter state; pass back from skufilter component
+    // Update DataFilter state; pass back from skufilter component
     updateSKUFilter = (val) => {
         this.setState({
             Filter: val

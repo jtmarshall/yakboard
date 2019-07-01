@@ -7,9 +7,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
+import skuCodes from './skucodes';
 
 
-class SKUFilter extends React.Component {
+class DataFilter extends React.Component {
 
     currentFilter = this.props.selected;
     rightDrawer = this.props.rightDrawer;
@@ -343,7 +344,14 @@ class SKUFilter extends React.Component {
                                 </Select>
                             </FormControl>
 
-                            <h5 style={{marginBottom: 0, color: '#ff9800'}}>SKU</h5>
+                            <br/>
+                            <h5 style={{
+                                marginTop: '20px',
+                                marginBottom: 0,
+                                color: '#ff9800'
+                            }}>
+                                SKU
+                            </h5>
 
                             <FormControl className="">
                                 <InputLabel htmlFor="filterNetwork">Network</InputLabel>
@@ -357,12 +365,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterNetwork',
                                     }}
                                 >
-                                    <MenuItem value={'a0'}>All</MenuItem>
-                                    <MenuItem value={'a1'}>Search</MenuItem>
-                                    <MenuItem value={'a2'}>Display</MenuItem>
-                                    <MenuItem value={'a3'}>Social</MenuItem>
-                                    <MenuItem value={'a4'}>Email</MenuItem>
-                                    <MenuItem value={'a5'}>Ad_Video</MenuItem>
+                                    {Object.keys(skuCodes.Network).sort().map( key =>
+                                        <MenuItem value={skuCodes.Network[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -377,28 +382,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterTargeting',
                                     }}
                                 >
-                                    <MenuItem value={'b0'}>All</MenuItem>
-                                    <MenuItem value={'b1'}>KWD</MenuItem>
-                                    <MenuItem value={'b2'}>MP</MenuItem>
-                                    <MenuItem value={'b3'}>MP - KWD</MenuItem>
-                                    <MenuItem value={'b4'}>Topic</MenuItem>
-                                    <MenuItem value={'b5'}>Topic - KWD</MenuItem>
-                                    <MenuItem value={'b6'}>Connection</MenuItem>
-                                    <MenuItem value={'b7'}>Behavior</MenuItem>
-                                    <MenuItem value={'b8'}>Demographic</MenuItem>
-                                    <MenuItem value={'b9'}>Interest</MenuItem>
-                                    <MenuItem value={'b10'}>Lookalike</MenuItem>
-                                    <MenuItem value={'b11'}>Remarketing</MenuItem>
-                                    <MenuItem value={'b12'}>Newsletter - About</MenuItem>
-                                    <MenuItem value={'b13'}>Newsletter - Programs</MenuItem>
-                                    <MenuItem value={'b14'}>Newsletter - Addiction</MenuItem>
-                                    <MenuItem value={'b15'}>Newsletter - PTSD</MenuItem>
-                                    <MenuItem value={'b16'}>Newsletter - MH</MenuItem>
-                                    <MenuItem value={'b17'}>Run of Site</MenuItem>
-                                    <MenuItem value={'b18'}>Geographic</MenuItem>
-                                    <MenuItem value={'b19'}>Conversion</MenuItem>
-                                    <MenuItem value={'b20'}>Newsletter - Mood</MenuItem>
-                                    <MenuItem value={'b21'}>Custom Segments</MenuItem>
+                                    {Object.keys(skuCodes.TargetingMethod).sort().map( key =>
+                                        <MenuItem value={skuCodes.TargetingMethod[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl>
@@ -413,28 +399,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterFormat',
                                     }}
                                 >
-                                    <MenuItem value={'c0'}>All</MenuItem>
-                                    <MenuItem value={'c1'}>CanvasAd</MenuItem>
-                                    <MenuItem value={'c2'}>2 Headline</MenuItem>
-                                    <MenuItem value={'c3'}>GIF</MenuItem>
-                                    <MenuItem value={'c4'}>GmailAd</MenuItem>
-                                    <MenuItem value={'c5'}>HTML</MenuItem>
-                                    <MenuItem value={'c6'}>Image Carousel</MenuItem>
-                                    <MenuItem value={'c7'}>Lightbox</MenuItem>
-                                    <MenuItem value={'c8'}>Link Post</MenuItem>
-                                    <MenuItem value={'c9'}>Photo Post</MenuItem>
-                                    <MenuItem value={'c10'}>Responsive</MenuItem>
-                                    <MenuItem value={'c11'}>Static Image</MenuItem>
-                                    <MenuItem value={'c12'}>Video</MenuItem>
-                                    <MenuItem value={'c13'}>Video Carousel</MenuItem>
-                                    <MenuItem value={'c14'}>Long Content - No Image</MenuItem>
-                                    <MenuItem value={'c15'}>Long Content - Image</MenuItem>
-                                    <MenuItem value={'c16'}>Short Content - No Image</MenuItem>
-                                    <MenuItem value={'c17'}>Short Content - Image</MenuItem>
-                                    <MenuItem value={'c18'}>Banner</MenuItem>
-                                    <MenuItem value={'c19'}>Profile</MenuItem>
-                                    <MenuItem value={'c20'}>Text Ad</MenuItem>
-                                    <MenuItem value={'c20'}>3 Headline</MenuItem>
+                                    {Object.keys(skuCodes.Format).sort().map( key =>
+                                        <MenuItem value={skuCodes.Format[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl>
@@ -449,28 +416,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterMessage',
                                     }}
                                 >
-                                    <MenuItem value={'d0'}>All</MenuItem>
-                                    <MenuItem value={'d1'}>About - General</MenuItem>
-                                    <MenuItem value={'d2'}>About - Other</MenuItem>
-                                    <MenuItem value={'d3'}>About - Self</MenuItem>
-                                    <MenuItem value={'d4'}>Benefits - General</MenuItem>
-                                    <MenuItem value={'d5'}>Benefits - Other</MenuItem>
-                                    <MenuItem value={'d6'}>Benefits - Self</MenuItem>
-                                    <MenuItem value={'d7'}>Emotion - General</MenuItem>
-                                    <MenuItem value={'d8'}>Emotion - Other</MenuItem>
-                                    <MenuItem value={'d9'}>Emotion - Self</MenuItem>
-                                    <MenuItem value={'d10'}>Leading - General</MenuItem>
-                                    <MenuItem value={'d11'}>Leading - Other</MenuItem>
-                                    <MenuItem value={'d12'}>Leading - Self</MenuItem>
-                                    <MenuItem value={'d13'}>Scare - General</MenuItem>
-                                    <MenuItem value={'d14'}>Scare - Other</MenuItem>
-                                    <MenuItem value={'d15'}>Scare - Self</MenuItem>
-                                    <MenuItem value={'d16'}>Stats - General</MenuItem>
-                                    <MenuItem value={'d17'}>Stats - Other</MenuItem>
-                                    <MenuItem value={'d18'}>Stats - Self</MenuItem>
-                                    <MenuItem value={'d19'}>Urgent - General</MenuItem>
-                                    <MenuItem value={'d20'}>Urgent - Other</MenuItem>
-                                    <MenuItem value={'d21'}>Urgent - Self</MenuItem>
+                                    {Object.keys(skuCodes.Message).sort().map( key =>
+                                        <MenuItem value={skuCodes.Message[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -485,16 +433,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterAgeRange',
                                     }}
                                 >
-                                    <MenuItem value={'e1'}>18 - 24</MenuItem>
-                                    <MenuItem value={'e2'}>25 - 34</MenuItem>
-                                    <MenuItem value={'e3'}>35 - 44</MenuItem>
-                                    <MenuItem value={'e4'}>35 - 49</MenuItem>
-                                    <MenuItem value={'e5'}>45 - 54</MenuItem>
-                                    <MenuItem value={'e6'}>50 - 64</MenuItem>
-                                    <MenuItem value={'e7'}>55 - 64</MenuItem>
-                                    <MenuItem value={'e8'}>65+</MenuItem>
-                                    <MenuItem value={'e9'}>All</MenuItem>
-                                    <MenuItem value={'e10'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.AgeRange).sort().map( key =>
+                                        <MenuItem value={skuCodes.AgeRange[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -509,15 +450,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterEthnicity',
                                     }}
                                 >
-                                    <MenuItem value={'f9'}>All</MenuItem>
-                                    <MenuItem value={'f1'}>African American</MenuItem>
-                                    <MenuItem value={'f2'}>Asian</MenuItem>
-                                    <MenuItem value={'f3'}>Hispanic</MenuItem>
-                                    <MenuItem value={'f4'}>Native American</MenuItem>
-                                    <MenuItem value={'f5'}>Pacific Islander</MenuItem>
-                                    <MenuItem value={'f6'}>Two or more</MenuItem>
-                                    <MenuItem value={'f7'}>White</MenuItem>
-                                    <MenuItem value={'f8'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Ethnicity).sort().map( key =>
+                                        <MenuItem value={skuCodes.Ethnicity[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -532,19 +467,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterFamilyRole',
                                     }}
                                 >
-                                    <MenuItem value={'g13'}>All</MenuItem>
-                                    <MenuItem value={'g1'}>Brother</MenuItem>
-                                    <MenuItem value={'g2'}>Daughter</MenuItem>
-                                    <MenuItem value={'g3'}>Husband</MenuItem>
-                                    <MenuItem value={'g4'}>Parent - Expecting</MenuItem>
-                                    <MenuItem value={'g5'}>Parent - 0-12 Month</MenuItem>
-                                    <MenuItem value={'g6'}>Parent - Pre-Teen</MenuItem>
-                                    <MenuItem value={'g7'}>Parent - Teen</MenuItem>
-                                    <MenuItem value={'g8'}>Parent - Adult Child</MenuItem>
-                                    <MenuItem value={'g9'}>Sister</MenuItem>
-                                    <MenuItem value={'g10'}>Son</MenuItem>
-                                    <MenuItem value={'g11'}>Wife</MenuItem>
-                                    <MenuItem value={'g12'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.FamilyRole).sort().map( key =>
+                                        <MenuItem value={skuCodes.FamilyRole[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -559,10 +484,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterGender',
                                     }}
                                 >
-                                    <MenuItem value={'h4'}>All</MenuItem>
-                                    <MenuItem value={'h1'}>Female</MenuItem>
-                                    <MenuItem value={'h2'}>Male</MenuItem>
-                                    <MenuItem value={'h3'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Gender).sort().map( key =>
+                                        <MenuItem value={skuCodes.Gender[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -577,18 +501,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterIncome',
                                     }}
                                 >
-                                    <MenuItem value={'i12'}>All</MenuItem>
-                                    <MenuItem value={'i1'}>39k or less</MenuItem>
-                                    <MenuItem value={'i2'}>40k - 49k</MenuItem>
-                                    <MenuItem value={'i3'}>50k - 74k</MenuItem>
-                                    <MenuItem value={'i4'}>75k - 99k</MenuItem>
-                                    <MenuItem value={'i5'}>100k - 124k</MenuItem>
-                                    <MenuItem value={'i6'}>125k - 149k</MenuItem>
-                                    <MenuItem value={'i7'}>150k - 249k</MenuItem>
-                                    <MenuItem value={'i8'}>250k - 349k</MenuItem>
-                                    <MenuItem value={'i9'}>350k - 499k</MenuItem>
-                                    <MenuItem value={'i10'}>500k or more</MenuItem>
-                                    <MenuItem value={'i11'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Income).sort().map( key =>
+                                        <MenuItem value={skuCodes.Income[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -603,27 +518,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterInterestsBehaviors',
                                     }}
                                 >
-                                    <MenuItem value={'j21'}>All</MenuItem>
-                                    <MenuItem value={'j1'}>Away from Family</MenuItem>
-                                    <MenuItem value={'j2'}>Away from Home</MenuItem>
-                                    <MenuItem value={'j3'}>Business and Industry</MenuItem>
-                                    <MenuItem value={'j4'}>Chronic Relapser</MenuItem>
-                                    <MenuItem value={'j5'}>Democrat</MenuItem>
-                                    <MenuItem value={'j6'}>Detox Seeker</MenuItem>
-                                    <MenuItem value={'j7'}>Entertainment</MenuItem>
-                                    <MenuItem value={'j8'}>Fitness and Wellness</MenuItem>
-                                    <MenuItem value={'j9'}>Food and Drink</MenuItem>
-                                    <MenuItem value={'j10'}>Friends of Alumni</MenuItem>
-                                    <MenuItem value={'j11'}>LGBT Population</MenuItem>
-                                    <MenuItem value={'j12'}>Outdoors</MenuItem>
-                                    <MenuItem value={'j13'}>Politics</MenuItem>
-                                    <MenuItem value={'j14'}>Previous Patient of Competitor</MenuItem>
-                                    <MenuItem value={'j15'}>Republican</MenuItem>
-                                    <MenuItem value={'j16'}>Shopping and Fashion</MenuItem>
-                                    <MenuItem value={'j17'}>Sports</MenuItem>
-                                    <MenuItem value={'j18'}>Technology</MenuItem>
-                                    <MenuItem value={'j19'}>Travel</MenuItem>
-                                    <MenuItem value={'j20'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.InterestsBehaviors).sort().map( key =>
+                                        <MenuItem value={skuCodes.InterestsBehaviors[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -638,11 +535,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterLanguage',
                                     }}
                                 >
-                                    <MenuItem value={'k5'}>All</MenuItem>
-                                    <MenuItem value={'k1'}>English</MenuItem>
-                                    <MenuItem value={'k2'}>Spanish</MenuItem>
-                                    <MenuItem value={'k3'}>Bilingual</MenuItem>
-                                    <MenuItem value={'k4'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Language).sort().map( key =>
+                                        <MenuItem value={skuCodes.Language[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -657,17 +552,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterEducation',
                                     }}
                                 >
-                                    <MenuItem value={'l11'}>All</MenuItem>
-                                    <MenuItem value={'l1'}>Some High School</MenuItem>
-                                    <MenuItem value={'l2'}>High School Grad</MenuItem>
-                                    <MenuItem value={'l3'}>Associate Degree</MenuItem>
-                                    <MenuItem value={'l4'}>Some College</MenuItem>
-                                    <MenuItem value={'l5'}>College Grad</MenuItem>
-                                    <MenuItem value={'l6'}>Professional Degree</MenuItem>
-                                    <MenuItem value={'l7'}>Some Grad School</MenuItem>
-                                    <MenuItem value={'l8'}>Masters Degree</MenuItem>
-                                    <MenuItem value={'l9'}>Doctorate Degree</MenuItem>
-                                    <MenuItem value={'l10'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Education).sort().map( key =>
+                                        <MenuItem value={skuCodes.Education[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -682,23 +569,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterOccupation',
                                     }}
                                 >
-                                    <MenuItem value={'m17'}>All</MenuItem>
-                                    <MenuItem value={'m1'}>Admin</MenuItem>
-                                    <MenuItem value={'m2'}>Arts</MenuItem>
-                                    <MenuItem value={'m3'}>Business/Finance</MenuItem>
-                                    <MenuItem value={'m4'}>Executive</MenuItem>
-                                    <MenuItem value={'m5'}>Government</MenuItem>
-                                    <MenuItem value={'m6'}>Healthcare</MenuItem>
-                                    <MenuItem value={'m7'}>IT</MenuItem>
-                                    <MenuItem value={'m8'}>Legal</MenuItem>
-                                    <MenuItem value={'m9'}>Manufacturing</MenuItem>
-                                    <MenuItem value={'m10'}>Sales</MenuItem>
-                                    <MenuItem value={'m11'}>Service</MenuItem>
-                                    <MenuItem value={'m12'}>Student - College</MenuItem>
-                                    <MenuItem value={'m13'}>Student - Grad School</MenuItem>
-                                    <MenuItem value={'m14'}>Student - High School</MenuItem>
-                                    <MenuItem value={'m15'}>Unemployed</MenuItem>
-                                    <MenuItem value={'m16'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Occupation).sort().map( key =>
+                                        <MenuItem value={skuCodes.Occupation[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="">
@@ -713,12 +586,9 @@ class SKUFilter extends React.Component {
                                         id: 'filterRelationship',
                                     }}
                                 >
-                                    <MenuItem value={'n6'}>All</MenuItem>
-                                    <MenuItem value={'n1'}>Divorced</MenuItem>
-                                    <MenuItem value={'n2'}>Married</MenuItem>
-                                    <MenuItem value={'n3'}>Separated</MenuItem>
-                                    <MenuItem value={'n4'}>Single</MenuItem>
-                                    <MenuItem value={'n5'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Relationship).sort().map( key =>
+                                        <MenuItem value={skuCodes.Relationship[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl>
@@ -733,28 +603,17 @@ class SKUFilter extends React.Component {
                                         id: 'filterReligion',
                                     }}
                                 >
-                                    <MenuItem value={'o11'}>All</MenuItem>
-                                    <MenuItem value={'o1'}>Agnosticism</MenuItem>
-                                    <MenuItem value={'o2'}>Atheism</MenuItem>
-                                    <MenuItem value={'o3'}>Buddhism</MenuItem>
-                                    <MenuItem value={'o4'}>Christianity</MenuItem>
-                                    <MenuItem value={'o5'}>Hindu</MenuItem>
-                                    <MenuItem value={'o6'}>Islam</MenuItem>
-                                    <MenuItem value={'o7'}>Judaism</MenuItem>
-                                    <MenuItem value={'o8'}>Mormonism</MenuItem>
-                                    <MenuItem value={'o9'}>Sikhism</MenuItem>
-                                    <MenuItem value={'o10'}>Undetermined</MenuItem>
+                                    {Object.keys(skuCodes.Religion).sort().map( key =>
+                                        <MenuItem value={skuCodes.Religion[key]}>{key}</MenuItem>
+                                    )}
                                 </Select>
                             </FormControl>
                         </form>
                     </div>
                 </Drawer>
             </div>
-
-            //     </ExpansionPanelDetails>
-            // </ExpansionPanel>
         );
     }
 }
 
-export default SKUFilter;
+export default DataFilter;

@@ -537,7 +537,7 @@ fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-prime.active {
 
 .skuFilter > * {
     min-width: 90% !important;
-    padding: 4px !important;
+    padding: 2px !important;
 }
 
 .skuFilterSelect {
