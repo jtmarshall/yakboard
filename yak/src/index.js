@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router } from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux';
@@ -73,6 +73,7 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+console.log("STORE");
 console.log(store.getState());
 
 // // redux test user action
@@ -86,10 +87,10 @@ console.log(store.getState());
 // store.dispatch(updateUserAction);
 
 ReactDOM.render(
-    <Router>
-        <Provider store={store}>
+    <Provider store={store}>
+        <Router>
             <App/>
-        </Provider>
-    </Router>,
+        </Router>
+    </Provider>,
     document.getElementById('root'));
 registerServiceWorker();

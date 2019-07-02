@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
 import {UPDATE_USER} from "./actions";
 import moment from 'moment';
+import { UPDATE_FILTER, CLEAR_FILTER } from "./actions/types";
 
 
 // generic reducer for similar store functionality updating
@@ -93,7 +94,7 @@ function DateFrameQuickPickReducer(state = {}, {type}) {
     }
 }
 
-function FilterReducer(state = {}, {type, payload}) {
+function FilterReducer(state = {}, action) {
     let defaultFilter = {
         conversion: [],
         touch: [],
@@ -121,11 +122,11 @@ function FilterReducer(state = {}, {type, payload}) {
         religion: []
     };
 
-    switch (type) {
-        case "clearFilter":
+    switch (action.type) {
+        case CLEAR_FILTER:
             return defaultFilter;
-        case "updateFilter":
-            return payload;
+        case UPDATE_FILTER:
+            return action.payload;
         default:
             return state;
     }

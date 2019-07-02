@@ -215,7 +215,12 @@ class Facility extends Component {
                                 <strong>{this.state.month}</strong>
                             </span>
                             <h6>Facility:</h6>
-                            <a href={"https://" + this.props.parentState.SelectedFacilityDomain} target="_blank" style={{textDecoration: "none"}}>
+                            <a
+                                href={"https://" + this.props.parentState.SelectedFacilityDomain}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{textDecoration: "none"}}
+                            >
                                 <span id='facilityNameText'>
                                     {this.props.parentState.SelectedFacility[0]}
                                 </span>

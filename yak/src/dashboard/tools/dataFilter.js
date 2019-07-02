@@ -366,7 +366,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Network).sort().map( key =>
-                                        <MenuItem value={skuCodes.Network[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Network[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -383,7 +383,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.TargetingMethod).sort().map( key =>
-                                        <MenuItem value={skuCodes.TargetingMethod[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.TargetingMethod[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -400,7 +400,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Format).sort().map( key =>
-                                        <MenuItem value={skuCodes.Format[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Format[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -417,7 +417,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Message).sort().map( key =>
-                                        <MenuItem value={skuCodes.Message[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Message[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -434,7 +434,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.AgeRange).sort().map( key =>
-                                        <MenuItem value={skuCodes.AgeRange[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.AgeRange[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -451,7 +451,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Ethnicity).sort().map( key =>
-                                        <MenuItem value={skuCodes.Ethnicity[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Ethnicity[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -468,7 +468,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.FamilyRole).sort().map( key =>
-                                        <MenuItem value={skuCodes.FamilyRole[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.FamilyRole[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -485,7 +485,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Gender).sort().map( key =>
-                                        <MenuItem value={skuCodes.Gender[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Gender[key]}  key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -502,7 +502,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Income).sort().map( key =>
-                                        <MenuItem value={skuCodes.Income[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Income[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -519,7 +519,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.InterestsBehaviors).sort().map( key =>
-                                        <MenuItem value={skuCodes.InterestsBehaviors[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.InterestsBehaviors[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -536,7 +536,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Language).sort().map( key =>
-                                        <MenuItem value={skuCodes.Language[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Language[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -553,7 +553,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Education).sort().map( key =>
-                                        <MenuItem value={skuCodes.Education[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Education[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -570,7 +570,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Occupation).sort().map( key =>
-                                        <MenuItem value={skuCodes.Occupation[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Occupation[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -587,7 +587,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Relationship).sort().map( key =>
-                                        <MenuItem value={skuCodes.Relationship[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Relationship[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
@@ -604,7 +604,7 @@ class DataFilter extends React.Component {
                                     }}
                                 >
                                     {Object.keys(skuCodes.Religion).sort().map( key =>
-                                        <MenuItem value={skuCodes.Religion[key]}>{key}</MenuItem>
+                                        <MenuItem value={skuCodes.Religion[key]} key={key}>{key}</MenuItem>
                                     )}
                                 </Select>
                             </FormControl>
