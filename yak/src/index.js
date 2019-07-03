@@ -10,8 +10,10 @@ import moment from 'moment';
 
 
 const defaultState = {
-    SelectedFacility: [],
-    SelectedFacilityDomain: '',
+    SelectedFacility: {
+        Facility: ['Acadia'],
+        Domain: '',
+    },
     DateFrame: {
         From: moment().add(-7, 'days').format('YYYY-MM-DD'),
         To: moment().format('YYYY-MM-DD'),

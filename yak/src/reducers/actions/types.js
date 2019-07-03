@@ -1,2 +1,3 @@
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
+export const UPDATE_FACILITY = 'UPDATE_FACILITY';

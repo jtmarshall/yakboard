@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import {UPDATE_USER} from "./actions";
 import moment from 'moment';
-import { UPDATE_FILTER, CLEAR_FILTER } from "./actions/types";
+import { UPDATE_FILTER, CLEAR_FILTER, UPDATE_FACILITY } from "./actions/types";
 
 
 // generic reducer for similar store functionality updating
@@ -28,10 +28,13 @@ function userReducer(state = {}, {type, payload}) {
     }
 }
 
-function SelectedFacilityReducer(state = {}, {type, payload}) {
-    switch (type) {
-        case "updateFacilityList":
-            return payload;
+function SelectedFacilityReducer(state = {}, action) {
+    switch (action.type) {
+        case UPDATE_FACILITY:
+            return Object.assign({}, state, {
+                Facility: action.payload.SelectedFacility,
+                Domain: action.payload.SelectedFacilityDomain,
+            });
         default:
             return state;
     }
@@ -136,7 +139,6 @@ function FilterReducer(state = {}, action) {
 export default combineReducers({
     user: userReducer,
     SelectedFacility: SelectedFacilityReducer,
-    SelectedFacilityDomain: genericReducer,
     DateFrame: DateFrameReducer,
     DateFrameQuickPick: DateFrameQuickPickReducer,
     Filter: FilterReducer,
