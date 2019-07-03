@@ -15,12 +15,27 @@ import Timeframe from "./components/Timeframe/Timeframe";
 import Geo from "./components/Geo/Geo";
 import PrintComponent from './components/Facility/PrintComponent';
 import TestComponent from './components/test/TestComponent';
+import MORComponent from './components/MOR/MORComponent';
+import { updateFacility } from '../reducers/actions';
+import {connect} from "react-redux";
 
 
 // Global state for local storage
 let savedState = [];
 
-export default class Dash extends React.Component {
+const mapStateToProps = state => {
+    return {
+        state: state
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateFacility: (facilityObj) => dispatch(updateFacility(facilityObj)),
+    };
+};
+
+class Dash extends React.Component {
 
     constructor(props) {
         super(props);
@@ -126,7 +141,12 @@ export default class Dash extends React.Component {
             SelectedFacilityDomain: domain,
         }, () => {
             if (this.state.SelectedFacility.length > 0) {
-                this.refreshView();
+                let facilityObj = {
+                    facility: name,
+                    domain: domain
+                };
+                this.props.updateFacility(facilityObj);
+                // this.refreshView();
             }
         });
     };
@@ -232,6 +252,7 @@ export default class Dash extends React.Component {
                         <Route path="/geo" render={() => <Geo parentState={this.state}/>}/>
                         <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="/facility" render={() => <PrintComponent parentState={this.state}/>}/>
+                        <Route path="/mor" render={() => <MORComponent/>}/>
                         {/*<Route path="/facility" render={() => <Facility parentState={this.state}/>}/>*/}
                     </div>
                 </div>
@@ -245,3 +266,5 @@ export default class Dash extends React.Component {
         }
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dash);
