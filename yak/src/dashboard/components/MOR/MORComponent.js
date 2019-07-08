@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -21,6 +21,11 @@ import Tab from "@material-ui/core/Tab";
 
 
 const styles = {
+    morCard: {
+        maxWidth: '600px',
+        background: 'none !important',
+        boxShadow: 'none !important',
+    },
     cardCategoryWhite: {
         "&,& a,& a:hover,& a:focus": {
             color: "rgba(255,255,255,.62)",
@@ -157,7 +162,7 @@ class MORComponent extends Component {
         // Check for facility then create logo url string to show logo and select style scheme
         else if (this.state.fDomain !== 'domain') {
             this.setState({
-                fLogo: logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png",
+                fLogo: logoURL + this.props.SelectedFacilityDomain + "-logo.png",
                 // Set facility css rel; stripping out www. and .com
                 fStyle: this.state.fDomain.replace(/(www\.)/, '').replace(/(\.com)/, ''),
             });
@@ -194,32 +199,37 @@ class MORComponent extends Component {
                     <Tab label="Year to Date"/>
                 </Tabs>
 
-                <div className="row" style={{display: 'inline-flex', width: '90%', marginBottom: '10px'}}>
-                    <Card className='facilityProfileCard' style={{width: '30%'}}>
+                <div className="row" style={{marginBottom: '10px'}}>
+                    <Card className={classes.morCard} style={{display: 'flex', margin: 'auto'}}>
                         <CardMedia
                             component="img"
                             alt="Facility Logo"
-                            style={{width: "75%", margin: 'auto'}}
+                            style={{width: "300px", margin: 'auto'}}
                             height="auto"
                             image={this.state.fLogo}
                         />
-                        <CardContent style={{padding: '8px'}}>
-                            <h5><strong>Monthly Report:</strong></h5>
-                            <span id='monthText'>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}>
+                            <CardContent style={{padding: '8px'}}>
+                                <h5><strong>Monthly Report:</strong></h5>
+                                <span id='monthText'>
                                 <strong>{this.state.month}</strong>
                             </span>
-                            <h6>Facility:</h6>
-                            <a
-                                href={"https://" + this.props.SelectedFacilityDomain}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{textDecoration: "none"}}
-                            >
+                                <h6>Facility:</h6>
+                                <a
+                                    href={"https://" + this.props.SelectedFacilityDomain}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{textDecoration: "none"}}
+                                >
                                 <span id='facilityNameText'>
                                     {this.props.SelectedFacility[0]}
                                 </span>
-                            </a>
-                        </CardContent>
+                                </a>
+                            </CardContent>
+                        </div>
                     </Card>
                 </div>
 
@@ -228,8 +238,8 @@ class MORComponent extends Component {
                         <CardHeader className="facilityCardHeader" color="prime">
                             <h4 className="cardTitleWhite">Stats Summary</h4>
                         </CardHeader>
-                        <CardContent style={{display: 'inline-flex'}}>
-                            <Table className={classes.table} style={{width: '60%'}}>
+                        <CardContent>
+                            <Table className={classes.table}>
                                 <TableHead>
                                     <TableRow>
                                         <TableCell></TableCell>

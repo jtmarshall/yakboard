@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import MaterialIcon from 'material-icons-react';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -12,7 +13,7 @@ import skuCodes from './skucodes';
 
 class DataFilter extends React.Component {
 
-    currentFilter = this.props.selected;
+    currentFilter = this.props.Filter;
     rightDrawer = this.props.rightDrawer;
 
     state = {
@@ -616,4 +617,15 @@ class DataFilter extends React.Component {
     }
 }
 
-export default DataFilter;
+const mapStateToProps = state => {
+    return {
+        DateFrame: state.DateFrame,
+        Filter: state.Filter,
+        SelectedFacility: state.SelectedFacility.Facility,
+        SelectedFacilityDomain: state.SelectedFacility.Domain,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+)(DataFilter);

@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import Downshift from 'downshift';
@@ -126,7 +127,7 @@ class FacilityAutoComplete extends React.Component {
 
     state = {
         inputValue: '',
-        selectedItem: this.savedFacilities //this.savedFacilities.length > 0 ? this.savedFacilities.split(',') : [],
+        selectedItem: this.props.SelectedFacility || '',
     };
 
     handleKeyDown = event => {
@@ -139,7 +140,6 @@ class FacilityAutoComplete extends React.Component {
 
             // Pass updated selected facilities back to parent component
             this.props.onUpdate(selectedItem);
-            // localStorage.setItem("selectedFacilities", selectedItem);
         }
     };
 
@@ -166,7 +166,6 @@ class FacilityAutoComplete extends React.Component {
 
         // Pass updated selected facilities back to parent component
         this.props.onUpdate(selectedItem, obj.url);
-        //localStorage.setItem("selectedFacilities", selectedItem);
     };
 
     handleDelete = item => () => {
@@ -177,7 +176,6 @@ class FacilityAutoComplete extends React.Component {
 
         // Pass updated selected facilities back to parent component
         this.props.onUpdate(selectedItem);
-        //localStorage.setItem("selectedFacilities", selectedItem);
     };
 
     render() {
@@ -234,4 +232,15 @@ class FacilityAutoComplete extends React.Component {
     }
 }
 
-export default FacilityAutoComplete;
+const mapStateToProps = state => {
+    return {
+        DateFrame: state.DateFrame,
+        Filter: state.Filter,
+        SelectedFacility: state.SelectedFacility.Facility,
+        SelectedFacilityDomain: state.SelectedFacility.Domain,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+)(FacilityAutoComplete);

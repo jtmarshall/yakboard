@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -107,17 +108,17 @@ class Facility extends Component {
     constructor(props) {
         super(props);
 
-        if (this.props.parentState.SelectedFacility.length > 1) {
+        if (this.props.SelectedFacility.length > 1) {
             alert('This page can show only one facility report at a time. \n Remove the extras and reload the page.');
         }
     }
 
     state = {
-        fName: this.props.parentState.SelectedFacility[0] || 'Acadia Facility',
+        fName: this.props.SelectedFacility[0] || 'Acadia Facility',
         fLogo: '',
         fType: 'Inpatient',
         fLoc: 'location',
-        fDomain: this.props.parentState.SelectedFacilityDomain || 'domain',
+        fDomain: this.props.SelectedFacilityDomain || 'domain',
         fAddress: 'Facility Address',
         fPhone: 'Facility Phone',
         fStyle: '',
@@ -130,10 +131,10 @@ class Facility extends Component {
         commentDigitalAd: '',
         commentTraditionalAd: '',
         cpaCommentBox: '',
-        month: moment(this.props.parentState.DateFrame.To).format('MMMM YYYY'),
-        momLabel: moment(this.props.parentState.DateFrame.To).format('MMM \'YY') + ' / ' + moment(this.props.parentState.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
-        monthCurrent: moment(this.props.parentState.DateFrame.To).format('MMM \'YY'),
-        monthPreviousYear: moment(this.props.parentState.DateFrame.To).add(-1, 'y').format('MMM \'YY'),
+        month: moment(this.props.DateFrame.To).format('MMMM YYYY'),
+        momLabel: moment(this.props.DateFrame.To).format('MMM \'YY') + ' / ' + moment(this.props.DateFrame.To).add(-1, 'M').format('MMM \'YY'),
+        monthCurrent: moment(this.props.DateFrame.To).format('MMM \'YY'),
+        monthPreviousYear: moment(this.props.DateFrame.To).add(-1, 'y').format('MMM \'YY'),
         goalSpend: 0,
         goalTraffic: 0,
         goalWebforms: 0,
@@ -156,7 +157,7 @@ class Facility extends Component {
         // Check for facility then create logo url string to show logo and select style scheme
         else if (this.state.fDomain !== 'domain') {
             this.setState({
-                fLogo: logoURL + this.props.parentState.SelectedFacilityDomain + "-logo.png",
+                fLogo: logoURL + this.props.SelectedFacilityDomain + "-logo.png",
                 // Set facility css rel; stripping out www. and .com
                 fStyle: this.state.fDomain.replace(/(www\.)/, '').replace(/(\.com)/, ''),
             });
@@ -216,13 +217,13 @@ class Facility extends Component {
                             </span>
                             <h6>Facility:</h6>
                             <a
-                                href={"https://" + this.props.parentState.SelectedFacilityDomain}
+                                href={"https://" + this.props.SelectedFacilityDomain}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 style={{textDecoration: "none"}}
                             >
                                 <span id='facilityNameText'>
-                                    {this.props.parentState.SelectedFacility[0]}
+                                    {this.props.SelectedFacility[0]}
                                 </span>
                             </a>
                         </CardContent>
@@ -760,4 +761,15 @@ class Facility extends Component {
     }
 }
 
-export default withStyles(styles)(Facility);
+const mapStateToProps = state => {
+    return {
+        DateFrame: state.DateFrame,
+        Filter: state.Filter,
+        SelectedFacility: state.SelectedFacility.Facility,
+        SelectedFacilityDomain: state.SelectedFacility.Domain,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+)(withStyles(styles)(Facility));
