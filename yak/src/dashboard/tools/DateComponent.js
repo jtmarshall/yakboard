@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import moment from 'moment';
 import MaterialIcon from "material-icons-react";
@@ -17,6 +18,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 class DateComponent extends React.Component {
 
     state = {
+        DateFrame: this.props.DateFrame,
         top: false,
         dateDenomination: 'custom',
         dateUnit: 'day',
@@ -30,12 +32,12 @@ class DateComponent extends React.Component {
     // Updates the selected facility list
     updateToDate = (val) => {
         let dateFrame = {
-            From: this.props.dateFrame.From,
+            From: this.props.DateFrame.From,
             To: val
         };
 
         // Check if input To date is before current From date; adjust From date (-1) if so
-        if (val < this.props.dateFrame.From) {
+        if (val < this.props.DateFrame.From) {
             dateFrame.From = moment(val).subtract(1, 'days').format('YYYY-MM-DD');
         }
 
@@ -50,11 +52,11 @@ class DateComponent extends React.Component {
     updateFromDate = (val) => {
         let dateFrame = {
             From: val,
-            To: this.props.dateFrame.To
+            To: this.props.DateFrame.To
         };
 
         // Check if input From date is after current To date; adjust To date (+1) if so
-        if (val > this.props.dateFrame.To) {
+        if (val > this.props.DateFrame.To) {
             dateFrame.To = moment(val).add(1, 'days').format('YYYY-MM-DD');
         }
 
@@ -68,14 +70,14 @@ class DateComponent extends React.Component {
     // Compare dates update for when month over month, w/w, etc. is selected
     updateCompareToDate = (val) => {
         let dateFrame = {
-            From: this.props.dateFrame.From,
-            To: this.props.dateFrame.To,
-            CompareFrom: this.props.dateFrame.CompareFrom,
+            From: this.props.DateFrame.From,
+            To: this.props.DateFrame.To,
+            CompareFrom: this.props.DateFrame.CompareFrom,
             CompareTo: val
         };
 
         // Check if input To date is before current From date; adjust From date (-1) if so
-        if (val < this.props.dateFrame.CompareFrom) {
+        if (val < this.props.DateFrame.CompareFrom) {
             dateFrame.CompareFrom = moment(val).subtract(1, 'days').format('YYYY-MM-DD');
         }
 
@@ -85,14 +87,14 @@ class DateComponent extends React.Component {
 
     updateCompareFromDate = (val) => {
         let dateFrame = {
-            From: this.props.dateFrame.From,
-            To: this.props.dateFrame.To,
+            From: this.props.DateFrame.From,
+            To: this.props.DateFrame.To,
             CompareFrom: val,
-            CompareTo: this.props.dateFrame.CompareTo
+            CompareTo: this.props.DateFrame.CompareTo
         };
 
         // Check if input From date is after current To date; adjust To date (+1) if so
-        if (val > this.props.dateFrame.CompareTo) {
+        if (val > this.props.DateFrame.CompareTo) {
             dateFrame.CompareTo = moment(val).add(1, 'days').format('YYYY-MM-DD');
         }
 
@@ -145,16 +147,16 @@ class DateComponent extends React.Component {
                 tempFrom = moment().subtract(30, 'days');
                 break;
             default:
-                tempTo = moment(this.props.dateFrame.To);
-                tempFrom = moment(this.props.dateFrame.From);
+                tempTo = moment(this.props.DateFrame.To);
+                tempFrom = moment(this.props.DateFrame.From);
 
         }
 
         let dateFrame = {
             From: tempFrom.format('YYYY-MM-DD'),
             To: tempTo.format('YYYY-MM-DD'),
-            CompareFrom: this.props.dateFrame.CompareFrom,
-            CompareTo: this.props.dateFrame.CompareTo
+            CompareFrom: this.props.DateFrame.CompareFrom,
+            CompareTo: this.props.DateFrame.CompareTo
         };
 
         // Push update to Dash state
@@ -170,8 +172,8 @@ class DateComponent extends React.Component {
     // Remove comparison date range
     clearDates = () => {
         let dateFrame = {
-            From: this.props.dateFrame.From,
-            To: this.props.dateFrame.To,
+            From: this.props.DateFrame.From,
+            To: this.props.DateFrame.To,
             CompareFrom: '',
             CompareTo: ''
         };
@@ -195,7 +197,8 @@ class DateComponent extends React.Component {
                 <Tooltip title="Select Dates" placement="bottom">
                     <Button onClick={this.handleClickOpen} style={{top: '5px'}}>
                         <MaterialIcon icon='date_range' size={26} color=''/>
-                        {moment(this.props.dateFrame.From).format('l')} - {moment(this.props.dateFrame.To).format('l')}
+
+                        {moment(this.props.DateFrame.From).format('l')} - {moment(this.props.DateFrame.To).format('l')}
                     </Button>
                 </Tooltip>
 
@@ -258,7 +261,7 @@ class DateComponent extends React.Component {
                                         id="dateFrom"
                                         label="From"
                                         type="date"
-                                        value={this.props.dateFrame.From}
+                                        value={this.props.DateFrame.From}
                                         onChange={(e) => this.updateFromDate(e.target.value)}
                                         className="datePicker-textField"
                                         InputLabelProps={{
@@ -272,7 +275,7 @@ class DateComponent extends React.Component {
                                         id="dateTo"
                                         label="To"
                                         type="date"
-                                        value={this.props.dateFrame.To}
+                                        value={this.props.DateFrame.To}
                                         onChange={(e) => this.updateToDate(e.target.value)}
                                         className="datePicker-textField"
                                         InputLabelProps={{
@@ -296,7 +299,7 @@ class DateComponent extends React.Component {
                                         id="dateCompareFrom"
                                         label="SEC From"
                                         type="date"
-                                        value={this.props.dateFrame.CompareFrom}
+                                        value={this.props.DateFrame.CompareFrom}
                                         onChange={(e) => this.updateCompareFromDate(e.target.value)}
                                         className="datePicker-textField"
                                         InputLabelProps={{
@@ -310,7 +313,7 @@ class DateComponent extends React.Component {
                                         id="dateCompareTo"
                                         label="SEC To"
                                         type="date"
-                                        value={this.props.dateFrame.CompareTo}
+                                        value={this.props.DateFrame.CompareTo}
                                         onChange={(e) => this.updateCompareToDate(e.target.value)}
                                         className="datePicker-textField"
                                         InputLabelProps={{
@@ -343,4 +346,15 @@ class DateComponent extends React.Component {
     }
 }
 
-export default DateComponent;
+const mapStateToProps = state => {
+    return {
+        DateFrame: state.DateFrame,
+        Filter: state.Filter,
+        SelectedFacility: state.SelectedFacility.Facility,
+        SelectedFacilityDomain: state.SelectedFacility.Domain,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+)(DateComponent);

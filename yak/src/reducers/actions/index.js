@@ -1,4 +1,4 @@
-import { UPDATE_FILTER, UPDATE_FACILITY } from "./types";
+import {UPDATE_FILTER, UPDATE_FACILITY, UPDATE_DATEFRAME} from "./types";
 
 export const UPDATE_USER = 'users:updateUser';
 
@@ -18,12 +18,20 @@ export const updateFilter = ({ filterObj }) => ({
     }
 });
 
-export const updateFacility = (facilityObj) => (
-    console.log(facilityObj),
-    {
+export const updateFacility = (facilityObj) => ({
     type: UPDATE_FACILITY,
     payload: {
-        SelectedFacility: facilityObj.facility,
-        SelectedFacilityDomain: facilityObj.domain,
+        SelectedFacility: facilityObj.Facility,
+        SelectedFacilityDomain: facilityObj.Domain,
     }
+});
+
+export const updateDateFrame = (dateObj) => ({
+    type: UPDATE_DATEFRAME,
+    payload: {
+        From: dateObj.From,
+        To: dateObj.To,
+        CompareFrom: dateObj.CompareFrom,
+        CompareTo: dateObj.CompareTo
+    },
 });

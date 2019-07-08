@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import {UPDATE_USER} from "./actions";
 import moment from 'moment';
-import { UPDATE_FILTER, CLEAR_FILTER, UPDATE_FACILITY } from "./actions/types";
+import { UPDATE_FILTER, CLEAR_FILTER, UPDATE_FACILITY, UPDATE_DATEFRAME } from "./actions/types";
 
 
 // generic reducer for similar store functionality updating
@@ -40,7 +40,7 @@ function SelectedFacilityReducer(state = {}, action) {
     }
 }
 
-function DateFrameReducer(state = {}, {type, payload}) {
+function DateFrameReducer(state = {}, action) {
     let defaultDateframe = {
         From: '',
         To: '',
@@ -48,11 +48,11 @@ function DateFrameReducer(state = {}, {type, payload}) {
         CompareTo: ''
     };
 
-    switch (type) {
+    switch (action.type) {
         case "clearDateFrame":
             return defaultDateframe;
-        case "updateDateFrame":
-            return payload;
+        case UPDATE_DATEFRAME:
+            return action.payload;
         default:
             return state;
     }

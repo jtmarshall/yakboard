@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import moment from 'moment';
 import toolbox from './tools/toolbox';
 import FacilityAutoComplete from './tools/facilityAutoComplete';
 import Sidebar from './sidebar/Sidebar';
@@ -16,7 +15,7 @@ import Geo from "./components/Geo/Geo";
 import PrintComponent from './components/Facility/PrintComponent';
 import TestComponent from './components/test/TestComponent';
 import MORComponent from './components/MOR/MORComponent';
-import { updateFacility } from '../reducers/actions';
+import {updateFacility, updateDateFrame} from '../reducers/actions';
 import {connect} from "react-redux";
 
 
@@ -32,80 +31,81 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         updateFacility: (facilityObj) => dispatch(updateFacility(facilityObj)),
+        updateDateFrame: (dateObj) => dispatch(updateDateFrame(dateObj)),
     };
 };
 
 class Dash extends React.Component {
+    // Map state to props from redux
+    state = this.props.state;
 
     constructor(props) {
         super(props);
 
-        // Retrieve local store
-        let yakPak = toolbox.retrievePak();
-        console.log("Saved PAK: ", JSON.stringify(yakPak));
-
-        // If local store not found, initialize base state
-        if (yakPak == null) {
-            this.state = {
-                SelectedFacility: [],
-                SelectedFacilityDomain: '',
-                DateFrame: {
-                    From: moment().add(-7, 'days').format('YYYY-MM-DD'),
-                    To: moment().format('YYYY-MM-DD'),
-                    CompareFrom: '',
-                    CompareTo: ''
-                },
-                SecondaryDateCheck: false,
-                Filter: {
-                    conversion: [],
-                    touch: [],
-                    rollup: [],
-                    channel: [],
-                    source: [],
-                    campaign: [],
-                    tier: [],
-                    medium: [],
-                    disorder: [],
-                    network: [],
-                    targetingMethod: [],
-                    format: [],
-                    message: [],
-                    ageRange: [],
-                    ethnicity: [],
-                    familyRole: [],
-                    gender: [],
-                    income: [],
-                    interestsBehaviors: [],
-                    language: [],
-                    education: [],
-                    occupation: [],
-                    relationship: [],
-                    religion: []
-                },
-                Touch: {
-                    tabValue: 0
-                },
-                Conversion: {
-                    tabValue: 0
-                },
-                Explorer: {
-                    tabValue: 0
-                },
-                Storyboard: {
-                    tabValue: 0,
-                    searchMetric: 'ip',
-                    storyPivot: 'session'
-                },
-                Builder: {
-                    Columns: [],
-                },
-                Timeframe: {
-                    tabValue: 0
-                },
-            };
-        } else {
-            this.state = toolbox.retrievePak();
-        }
+        // // If local store not found, initialize base state
+        // if (yakPak == null) {
+        //     this.state = {
+        //         SelectedFacility: {
+        //             Facility: '',
+        //             Domain: '',
+        //         },
+        //         DateFrame: {
+        //             From: moment().add(-7, 'days').format('YYYY-MM-DD'),
+        //             To: moment().format('YYYY-MM-DD'),
+        //             CompareFrom: '',
+        //             CompareTo: ''
+        //         },
+        //         SecondaryDateCheck: false,
+        //         Filter: {
+        //             conversion: [],
+        //             touch: [],
+        //             rollup: [],
+        //             channel: [],
+        //             source: [],
+        //             campaign: [],
+        //             tier: [],
+        //             medium: [],
+        //             disorder: [],
+        //             network: [],
+        //             targetingMethod: [],
+        //             format: [],
+        //             message: [],
+        //             ageRange: [],
+        //             ethnicity: [],
+        //             familyRole: [],
+        //             gender: [],
+        //             income: [],
+        //             interestsBehaviors: [],
+        //             language: [],
+        //             education: [],
+        //             occupation: [],
+        //             relationship: [],
+        //             religion: []
+        //         },
+        //         Touch: {
+        //             tabValue: 0
+        //         },
+        //         Conversion: {
+        //             tabValue: 0
+        //         },
+        //         Explorer: {
+        //             tabValue: 0
+        //         },
+        //         Storyboard: {
+        //             tabValue: 0,
+        //             searchMetric: 'ip',
+        //             storyPivot: 'session'
+        //         },
+        //         Builder: {
+        //             Columns: [],
+        //         },
+        //         Timeframe: {
+        //             tabValue: 0
+        //         },
+        //     };
+        // } else {
+        //     this.state = toolbox.retrievePak();
+        // }
 
         // Set global state so it's not empty
         savedState = this.state;
@@ -137,16 +137,18 @@ class Dash extends React.Component {
     // Update SelectedFacility state; pass back from facility auto complete component
     updateSelectedFacility = (name, domain) => {
         this.setState({
-            SelectedFacility: name,
-            SelectedFacilityDomain: domain,
+            SelectedFacility: {
+                Facility: name,
+                Domain: domain,
+            },
         }, () => {
-            if (this.state.SelectedFacility.length > 0) {
+            if (this.state.SelectedFacility.Facility.length > 0) {
                 let facilityObj = {
                     facility: name,
                     domain: domain
                 };
                 this.props.updateFacility(facilityObj);
-                // this.refreshView();
+                this.refreshView();
             }
         });
     };
@@ -164,11 +166,7 @@ class Dash extends React.Component {
         this.setState({
             DateFrame: val
         });
-        console.log(val);
-        localStorage.setItem("fromDate", val.From);
-        localStorage.setItem("toDate", val.To);
-        localStorage.setItem("compareFromDate", val.CompareFrom);
-        localStorage.setItem("compareToDate", val.CompareTo);
+        this.props.updateDateFrame(val);
     };
 
     // For child elements to update dash state
@@ -229,8 +227,7 @@ class Dash extends React.Component {
                         <div className="header">
                             <FacilityAutoComplete selected={this.state.SelectedFacility}
                                                   onUpdate={this.updateSelectedFacility}/>
-                            <DateComponent dateFrame={this.state.DateFrame}
-                                           secondaryCheckbox={this.state.SecondaryDateCheck}
+                            <DateComponent secondaryCheckbox={this.state.SecondaryDateCheck}
                                            onUpdate={this.updateDate}
                                            refreshView={this.refreshView}
                                            updateSecondary={this.updateSecondaryCheck}
@@ -251,7 +248,7 @@ class Dash extends React.Component {
                                                                                         updateDash={this.updateDashTimeframe}/>}/>
                         <Route path="/geo" render={() => <Geo parentState={this.state}/>}/>
                         <Route path="/settings" render={() => <Settings/>}/>
-                        <Route path="/facility" render={() => <PrintComponent parentState={this.state}/>}/>
+                        <Route path="/facility" render={() => <PrintComponent/>}/>
                         <Route path="/mor" render={() => <MORComponent/>}/>
                         {/*<Route path="/facility" render={() => <Facility parentState={this.state}/>}/>*/}
                     </div>
