@@ -88,6 +88,7 @@ class DataFilter extends React.Component {
                 <Tooltip title="Show Filters" placement="bottom">
                     <Button onClick={this.toggleDrawer('right')} style={{top: '5px'}}>
                         <MaterialIcon icon='filter_list' size={24} color='#ff9800'/>
+                        <span style={{color: '#ff9800'}}>Filter</span>
                     </Button>
                 </Tooltip>
 
