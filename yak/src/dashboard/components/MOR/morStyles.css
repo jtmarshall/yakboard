@@ -1,0 +1,12 @@
+.childRow {
+    opacity: .7;
+    display: block;
+}
+
+.childRow th {
+    text-align: center;
+}
+
+.childRow td {
+    color: rgb(255, 152, 0) !important;
+}

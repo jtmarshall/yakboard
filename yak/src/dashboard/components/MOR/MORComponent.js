@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import './morStyles.css';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -18,6 +19,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Paper from '@material-ui/core/Paper';
 
 
 const styles = {
@@ -67,6 +69,73 @@ const styles = {
         color: '#f44336',
     },
 };
+
+const headers = ["Actual", "Budget", "Bud Var", "Bud Var%", "Prior Year", "PY Var", "PY Var%"];
+function createData(name, actual, budget, budVar, budVarPercent, priorYear, pyVar, pyVarPercent) {
+    return { name, actual, budget, budVar, budVarPercent, priorYear, pyVar, pyVarPercent };
+}
+
+// const rows = [
+//     {
+//         name: 'Revenues & Adjustments',
+//         data: createData('Revenues & Adjustments', 545638585, 551843118, 6204534, 1.1, 472159953, 73478632, 15.6),
+//         parentID: 0,
+//     },
+//     {
+//         name: 'IP Gross Revenue',
+//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+//         childID: 0,
+//     },
+//     {
+//         name: 'IP Contractual Deductions',
+//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+//         childID: 0,
+//     },
+//     {
+//         name: 'IP Rev Deducts - Admin',
+//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+//         childID: 0,
+//     },
+//     {
+//         name: 'IP Rev Deducts - Charity',
+//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+//         childID: 0,
+//     },
+//     {
+//         name: 'IP Rev Deducts - Denials',
+//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+//         childID: 0,
+//     }
+// ];
+
+const rows = [
+    {
+        name: 'Revenues & Adjustments',
+        data: createData('Revenues & Adjustments', 545638585, 551843118, 6204534, 1.1, 472159953, 73478632, 15.6),
+        subData: [
+            {
+                name: 'IP Gross Revenue',
+                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+            },
+            {
+                name: 'IP Contractual Deductions',
+                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+            },
+            {
+                name: 'IP Rev Deducts - Admin',
+                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+            },
+            {
+                name: 'IP Rev Deducts - Charity',
+                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+            },
+            {
+                name: 'IP Rev Deducts - Denials',
+                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+            }
+        ],
+    },
+];
 
 // Return positive goal
 function GreenGoal(props) {
@@ -118,7 +187,7 @@ const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
 class MORComponent extends Component {
 
     state = {
-        tabValue: 0,
+        tabValue: 1,
         fName: this.props.SelectedFacility[0] || 'Acadia Facility',
         fLogo: '',
         fType: 'Inpatient',
@@ -180,6 +249,10 @@ class MORComponent extends Component {
         this.setState({tabValue});
     };
 
+    toggleChildRows = () => {
+
+    };
+
     render() {
         const {classes} = this.props;
         const {tabValue} = this.state;
@@ -208,10 +281,7 @@ class MORComponent extends Component {
                             height="auto"
                             image={this.state.fLogo}
                         />
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                        }}>
+                        <div style={{display: 'flex', margin: 'auto'}}>
                             <CardContent style={{padding: '8px'}}>
                                 <h5><strong>Monthly Report:</strong></h5>
                                 <span id='monthText'>
@@ -552,7 +622,68 @@ class MORComponent extends Component {
                     </Card>
                 </TabContainer>}
 
-
+                {tabValue === 1 && <TabContainer>
+                    <Paper className={classes.paper}>
+                        <Table className={classes.table} size="small">
+                        <TableHead>
+                            <TableRow>
+                            <TableCell>#</TableCell>
+                            {headers.map(header => (
+                                <TableCell align="right">{header}</TableCell>
+                                ))}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {/* {rows.map(row => (
+                            <TableRow key={row.name} className={(row.childID >= 0 ? "childRow" : "")} value={row.childID}>
+                                <TableCell component="th" scope="row">
+                                {row.parentID >= 0 ?
+                                    <span onClick={this.toggleChildRows(row.parentID)}>
+                                        {row.name}
+                                    </span>
+                                    : <span>{row.name}</span>
+                                }
+                                </TableCell>
+                                <TableCell align="right">{row.data.actual}</TableCell>
+                                <TableCell align="right">{row.data.budget}</TableCell>
+                                <TableCell align="right">{row.data.budVar}</TableCell>
+                                <TableCell align="right">{row.data.budVarPercent}</TableCell>
+                                <TableCell align="right">{row.data.priorYear}</TableCell>
+                                <TableCell align="right">{row.data.pyVar}</TableCell>
+                                <TableCell align="right">{row.data.pyVarPercent}</TableCell>
+                            </TableRow>
+                            ))} */}
+                            {rows.map(row => [(
+                            <TableRow key={row.name} className={(row.childID >= 0 ? "childRow" : "")}>
+                                <TableCell component="th" scope="row">
+                                    <span onClick={this.toggleChildRows(row.name)}>{row.name}</span>
+                                </TableCell>
+                                <TableCell align="right">{row.data.actual}</TableCell>
+                                <TableCell align="right">{row.data.budget}</TableCell>
+                                <TableCell align="right">{row.data.budVar}</TableCell>
+                                <TableCell align="right">{row.data.budVarPercent}</TableCell>
+                                <TableCell align="right">{row.data.priorYear}</TableCell>
+                                <TableCell align="right">{row.data.pyVar}</TableCell>
+                                <TableCell align="right">{row.data.pyVarPercent}</TableCell>
+                            </TableRow>
+                            ), (row.subData.map(subRow => (
+                                <TableRow key={subRow.name} className={"childRow"} value={row.name}>
+                                    <TableCell component="th" scope="row">
+                                    {subRow.name}
+                                    </TableCell>
+                                    <TableCell align="right">{subRow.data.actual}</TableCell>
+                                    <TableCell align="right">{subRow.data.budget}</TableCell>
+                                    <TableCell align="right">{subRow.data.budVar}</TableCell>
+                                    <TableCell align="right">{subRow.data.budVarPercent}</TableCell>
+                                    <TableCell align="right">{subRow.data.priorYear}</TableCell>
+                                    <TableCell align="right">{subRow.data.pyVar}</TableCell>
+                                    <TableCell align="right">{subRow.data.pyVarPercent}</TableCell>
+                                </TableRow>)))
+                            ])}
+                        </TableBody>
+                        </Table>
+                    </Paper>
+                </TabContainer>}                                
             </div>
         )
     }
