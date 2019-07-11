@@ -112,6 +112,7 @@ const rows = [
     {
         name: 'Revenues & Adjustments',
         data: createData('Revenues & Adjustments', 545638585, 551843118, 6204534, 1.1, 472159953, 73478632, 15.6),
+        toggleID: 'RevenuesAdjustments',
         subData: [
             {
                 name: 'IP Gross Revenue',
@@ -249,8 +250,18 @@ class MORComponent extends Component {
         this.setState({tabValue});
     };
 
-    toggleChildRows = () => {
-
+    // Show/hide child rows
+    toggleChildRows = (name) => {
+        let x = document.getElementsByClassName(name);
+        if (x[0].style.display === 'none') {
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = 'table-row';
+            }
+        } else {
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+        }
     };
 
     render() {
@@ -654,9 +665,9 @@ class MORComponent extends Component {
                             </TableRow>
                             ))} */}
                             {rows.map(row => [(
-                            <TableRow key={row.name} className={(row.childID >= 0 ? "childRow" : "")}>
+                            <TableRow key={row.name} className="parentRow" onClick={() => this.toggleChildRows(row.toggleID)}>
                                 <TableCell component="th" scope="row">
-                                    <span onClick={this.toggleChildRows(row.name)}>{row.name}</span>
+                                    <span >{row.name}</span>
                                 </TableCell>
                                 <TableCell align="right">{row.data.actual}</TableCell>
                                 <TableCell align="right">{row.data.budget}</TableCell>
@@ -667,7 +678,8 @@ class MORComponent extends Component {
                                 <TableCell align="right">{row.data.pyVarPercent}</TableCell>
                             </TableRow>
                             ), (row.subData.map(subRow => (
-                                <TableRow key={subRow.name} className={"childRow"} value={row.name}>
+                                
+                                <TableRow key={subRow.name} className={"childRow " + row.toggleID} value={row.name}>
                                     <TableCell component="th" scope="row">
                                     {subRow.name}
                                     </TableCell>

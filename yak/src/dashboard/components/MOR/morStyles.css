@@ -1,3 +1,7 @@
+.parentRow {
+    cursor: pointer;
+}
+
 .childRow {
     opacity: .7;
     display: block;
@@ -9,4 +13,8 @@
 
 .childRow td {
     color: rgb(255, 152, 0) !important;
+}
+
+.showChild {
+    display: block;
 }
