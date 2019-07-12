@@ -112,6 +112,7 @@ const rows = [
     {
         name: 'Revenues & Adjustments',
         data: createData('Revenues & Adjustments', 545638585, 551843118, 6204534, 1.1, 472159953, 73478632, 15.6),
+        toggleID: 'RevenuesAdjustments',
         subData: [
             {
                 name: 'IP Gross Revenue',
@@ -119,22 +120,49 @@ const rows = [
             },
             {
                 name: 'IP Contractual Deductions',
-                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: createData('IP Contractual Deductions', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
             },
             {
                 name: 'IP Rev Deducts - Admin',
-                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: createData('IP Rev Deducts - Admin', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
             },
             {
                 name: 'IP Rev Deducts - Charity',
-                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: createData('IP Rev Deducts - Charity', 1565470, 1165281, 400190, 34.3, 1653456, 87985, 5.3),
             },
             {
                 name: 'IP Rev Deducts - Denials',
-                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: createData('IP Rev Deducts - Denials', 2562362, 2741441, 179080, 6.5, 3826140, 1263778, 33.0),
             }
         ],
     },
+    {
+        name: 'IP Net Revenue',
+        data: createData('IP Net Revenue', 247004827, 250890098, 3885271, 1.5, 236129281, 10875546, 4.6),
+        toggleID: 'IPNetRevenue',
+        subData: [
+            {
+                name: 'OP Gross Revenue',
+                data: createData('OP Gross Revenue', 49908364, 43305935, 6602429, 15.2, 46829627, 3078737, 6.6),
+            },
+            {
+                name: 'OP Contractual Deductions',
+                data: createData('OP Contractual Deductions', 49908364, 43305935, 6602429, 15.2, 46829627, 3078737, 6.6),
+            },
+            {
+                name: 'OP Rev Deducts - Admin',
+                data: createData('OP Rev Deducts - Admin', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+            },
+            {
+                name: 'OP Rev Deducts - Charity',
+                data: createData('OP Rev Deducts - Charity', 1565470, 1165281, 400190, 34.3, 1653456, 87985, 5.3),
+            },
+            {
+                name: 'OP Rev Deducts - Denials',
+                data: createData('OP Rev Deducts - Denials', 2562362, 2741441, 179080, 6.5, 3826140, 1263778, 33.0),
+            }
+        ],
+    }
 ];
 
 // Return positive goal
@@ -249,8 +277,18 @@ class MORComponent extends Component {
         this.setState({tabValue});
     };
 
-    toggleChildRows = () => {
-
+    // Show/hide child rows
+    toggleChildRows = (name) => {
+        let x = document.getElementsByClassName(name);
+        if (x[0].style.display === 'none') {
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = 'table-row';
+            }
+        } else {
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+        }
     };
 
     render() {
@@ -283,7 +321,7 @@ class MORComponent extends Component {
                         />
                         <div style={{display: 'flex', margin: 'auto'}}>
                             <CardContent style={{padding: '8px'}}>
-                                <h5><strong>Monthly Report:</strong></h5>
+                                <h5><strong>MOR:</strong></h5>
                                 <span id='monthText'>
                                 <strong>{this.state.month}</strong>
                             </span>
@@ -627,6 +665,10 @@ class MORComponent extends Component {
                         <Table className={classes.table} size="small">
                         <TableHead>
                             <TableRow>
+                            <TableCell colSpan={Math.floor(headers.length/2)} style={{textAlign: 'center'}}>Periodic</TableCell>
+                            <TableCell colSpan={Math.floor(headers.length/2)} style={{textAlign: 'center'}}>Year to Date</TableCell>
+                            </TableRow>
+                            <TableRow>
                             <TableCell>#</TableCell>
                             {headers.map(header => (
                                 <TableCell align="right">{header}</TableCell>
@@ -654,10 +696,12 @@ class MORComponent extends Component {
                             </TableRow>
                             ))} */}
                             {rows.map(row => [(
-                            <TableRow key={row.name} className={(row.childID >= 0 ? "childRow" : "")}>
-                                <TableCell component="th" scope="row">
-                                    <span onClick={this.toggleChildRows(row.name)}>{row.name}</span>
-                                </TableCell>
+                            <TableRow
+                                key={row.name}
+                                className={(row.subData ? "parentRow" : '')}
+                                onClick={(row.subData ? () => this.toggleChildRows(row.toggleID) : '')}
+                            >
+                                <TableCell component="th" scope="row">{row.name}</TableCell>
                                 <TableCell align="right">{row.data.actual}</TableCell>
                                 <TableCell align="right">{row.data.budget}</TableCell>
                                 <TableCell align="right">{row.data.budVar}</TableCell>
@@ -666,11 +710,10 @@ class MORComponent extends Component {
                                 <TableCell align="right">{row.data.pyVar}</TableCell>
                                 <TableCell align="right">{row.data.pyVarPercent}</TableCell>
                             </TableRow>
-                            ), (row.subData.map(subRow => (
-                                <TableRow key={subRow.name} className={"childRow"} value={row.name}>
-                                    <TableCell component="th" scope="row">
-                                    {subRow.name}
-                                    </TableCell>
+                            ), (row.subData ? row.subData.map(subRow => (
+                                
+                                <TableRow key={subRow.name} className={"childRow " + row.toggleID}>
+                                    <TableCell component="th" scope="row">{subRow.name}</TableCell>
                                     <TableCell align="right">{subRow.data.actual}</TableCell>
                                     <TableCell align="right">{subRow.data.budget}</TableCell>
                                     <TableCell align="right">{subRow.data.budVar}</TableCell>
@@ -678,7 +721,8 @@ class MORComponent extends Component {
                                     <TableCell align="right">{subRow.data.priorYear}</TableCell>
                                     <TableCell align="right">{subRow.data.pyVar}</TableCell>
                                     <TableCell align="right">{subRow.data.pyVarPercent}</TableCell>
-                                </TableRow>)))
+                                </TableRow>))
+                                : '')
                             ])}
                         </TableBody>
                         </Table>
