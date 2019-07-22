@@ -595,7 +595,7 @@ class MORComponent extends Component {
                                 <TableCell className='tableDataCell'>{row.data.pyVarPercent}</TableCell>
                             </TableRow>
                             ), (row.subData ? row.subData.map(subRow => (
-                                <TableRow key={subRow.name} className={"childRow " + row.toggleID}>
+                                <TableRow key={subRow.name} className={"childRow " + row.toggleID} style={{display: 'none'}}>
                                     <TableCell className='tableDataCell'>{subRow.data.actual}</TableCell>
                                     <TableCell className='tableDataCell'>{subRow.data.budget}</TableCell>
                                     <TableCell className='tableDataCell'>{subRow.data.budVar}</TableCell>
