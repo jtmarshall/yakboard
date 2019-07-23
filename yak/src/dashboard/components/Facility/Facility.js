@@ -136,6 +136,9 @@ class Facility extends Component {
         monthCurrent: moment(this.props.DateFrame.To).format('MMM \'YY'),
         monthPreviousYear: moment(this.props.DateFrame.To).add(-1, 'y').format('MMM \'YY'),
         goalSpend: 0,
+        goalSpendSub1: 0,
+        goalSpendSub2: 0,
+        goalSpendSub3: 0,
         goalTraffic: 0,
         goalWebforms: 0,
         goalCalls: 0,
@@ -195,6 +198,20 @@ class Facility extends Component {
         });
     };
 
+    // Show/hide child rows
+    toggleChildRows = (name) => {
+        let x = document.getElementsByClassName(name);
+        if (x[0].style.display === 'none') {
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = 'table-row';
+            }
+        } else {
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+        }
+    };
+
     render() {
         const {classes} = this.props;
 
@@ -249,42 +266,39 @@ class Facility extends Component {
                     <CardHeader className="facilityCardHeader" color="prime">
                         <h4 className="cardTitleWhite">Stats Summary</h4>
                     </CardHeader>
-                    <CardBody style={{display: 'inline-flex'}}>
-                        <Table className={classes.table} style={{width: '60%'}}>
+                    <CardBody>
+                        <Table className={classes.table}>
                             <TableHead>
-                                <TableRow>
+                                <TableRow className='tableColHeadRow'>
                                     <TableCell></TableCell>
-                                    <TableCell align="center">{this.state.momLabel}</TableCell>
-                                    <TableCell align="center">YTD / PYTD</TableCell>
-                                    <TableCell
-                                        align="center">{this.state.monthCurrent} / {this.state.monthPreviousYear}</TableCell>
-                                    <TableCell align="center">Monthly Goal</TableCell>
+                                    <TableCell>{this.state.momLabel}</TableCell>
+                                    <TableCell>YTD / PYTD</TableCell>
+                                    <TableCell>{this.state.monthCurrent} / {this.state.monthPreviousYear}</TableCell>
+                                    <TableCell>Monthly Goal</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                <TableRow key='spend'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Spend
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='spend' className='tableDataRow parentRow' onClick={() => this.toggleChildRows('spend')}>
+                                    <TableCell component="th" className="tableRowHeader">Spend</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalSpend"
                                             placeholder="goal"
@@ -298,99 +312,130 @@ class Facility extends Component {
                                         }
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key='sub-spend'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Organic & Referring
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='sub-spend1' className='tableDataRow subRow spend' style={{display: 'none'}}>
+                                    <TableCell component="th" className="tableRowHeader">Organic & Referring</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (62)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (62)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
+                                            <span className={classes.greenText}> 6%</span> (62)
                                         </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="goalSpend"
+                                            placeholder="goal"
+                                            className="monthlyInput"
+                                            margin="none"
+                                            onChange={this.handleChange('goalSpendSub1')}
+                                        />
+                                        {this.state.goalSpendSub1 <= 62 ?
+                                            <GreenGoal goal={this.state.goalSpendSub1} actual={62}/>
+                                            : <RedGoal goal={this.state.goalSpendSub1} actual={62}/>
+                                        }
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key='sub-spend'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Digital Advertising (Online)
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='sub-spend2' className='tableDataRow subRow spend' style={{display: 'none'}}>
+                                    <TableCell component="th" className="tableRowHeader">Digital Advertising</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (61)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (61)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
+                                            <span className={classes.greenText}> 6%</span> (61)
                                         </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="goalSpend"
+                                            placeholder="goal"
+                                            className="monthlyInput"
+                                            margin="none"
+                                            onChange={this.handleChange('goalSpendSub2')}
+                                        />
+                                        {this.state.goalSpendSub2 <= 61 ?
+                                            <GreenGoal goal={this.state.goalSpendSub2} actual={61}/>
+                                            : <RedGoal goal={this.state.goalSpendSub2} actual={61}/>
+                                        }
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key='sub-spend'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Traditional Advertising (Offline)
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='sub-spend3' className='tableDataRow subRow spend' style={{display: 'none'}}>
+                                    <TableCell component="th" className="tableRowHeader">Traditional Advertising</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (61)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
+                                            <span className={classes.redText}> -6%</span> (61)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
+                                            <span className={classes.greenText}> 6%</span> (61)
                                         </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="goalSpend"
+                                            placeholder="goal"
+                                            className="monthlyInput"
+                                            margin="none"
+                                            onChange={this.handleChange('goalSpendSub3')}
+                                        />
+                                        {this.state.goalSpendSub3 <= 61 ?
+                                            <GreenGoal goal={this.state.goalSpendSub3} actual={61}/>
+                                            : <RedGoal goal={this.state.goalSpendSub3} actual={61}/>
+                                        }
                                     </TableCell>
                                 </TableRow>
 
-                                <TableRow key='traffic'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Traffic
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='traffic' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader">Traffic</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalTraffic"
                                             placeholder="goal"
@@ -405,29 +450,27 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
 
-                                <TableRow key='webforms'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Webforms
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='webforms' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader">Webforms</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalWebforms"
                                             placeholder="goal"
@@ -442,29 +485,27 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
 
-                                <TableRow key='calls'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Calls
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='calls' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader">Calls</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalCalls"
                                             placeholder="goal"
@@ -479,29 +520,27 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
 
-                                <TableRow key='inquiries'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Inquiries
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='inquiries' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader">Inquiries</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalInquiries"
                                             placeholder="goal"
@@ -516,29 +555,27 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
 
-                                <TableRow key='admits'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        Admits
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='admits' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader">Admits</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalAdmits"
                                             placeholder="goal"
@@ -553,29 +590,27 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
 
-                                <TableRow key='cpa'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        CPA - Admits
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='cpa' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader">CPA - Admits</TableCell>
+                                    <TableCell >
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalCPA"
                                             placeholder="goal"
@@ -590,29 +625,27 @@ class Facility extends Component {
                                     </TableCell>
                                 </TableRow>
 
-                                <TableRow key='cvr'>
-                                    <TableCell component="th" scope="row" className="tableRowHeader">
-                                        CVR - Admits
-                                    </TableCell>
-                                    <TableCell align="center">
+                                <TableRow key='cvr' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader">CVR - Admits</TableCell>
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
                                             <span className={classes.greenText}> 6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
                                             <span className={classes.redText}> -6%</span> (184)
                                         </span>
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell>
                                         <TextField
                                             id="goalCVR"
                                             placeholder="goal"
@@ -629,11 +662,11 @@ class Facility extends Component {
                             </TableBody>
                         </Table>
 
-                        <Table className={classes.table} style={{width: '40%', borderLeft: '2px solid #222'}}>
+                        <Table className={classes.table} style={{marginTop: '40px'}}>
                             <TableHead>
-                                <TableRow>
-                                    <TableCell align="center">Non-Data Highlights</TableCell>
-                                    <TableCell align="center">Comments</TableCell>
+                                <TableRow className='tableColHeadRow'>
+                                    <TableCell>Non-Data Highlights</TableCell>
+                                    <TableCell>Comments</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>

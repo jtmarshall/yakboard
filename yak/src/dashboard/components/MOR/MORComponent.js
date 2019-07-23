@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './morStyles.css';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import TextField from "@material-ui/core/TextField";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
@@ -15,8 +13,6 @@ import MaterialIcon from "material-icons-react";
 import moment from 'moment';
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Paper from '@material-ui/core/Paper';
 
 
@@ -73,7 +69,7 @@ function createData(name) {
     let sampleSet = [49908364, 43305935, 6602429, 4.7, 46829627, 3078737, 6.6];
     // randomize sample set
     sampleSet = sampleSet.map((element) => {
-        return (element + (element * Math.floor(Math.random() * 5))).toFixed(1);
+        return ((element * Math.floor(Math.random() * 5)) - element).toFixed(1);
     });
 
     let data = {
@@ -418,18 +414,6 @@ function RedGoal(props) {
     );
 }
 
-function TabContainer(props) {
-    return (
-        <div className="tabContainer" style={{padding: 8 * 3}}>
-            {props.children}
-        </div>
-    );
-}
-
-TabContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-};
-
 const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
 
 class MORComponent extends Component {
@@ -516,7 +500,6 @@ class MORComponent extends Component {
 
     render() {
         const {classes} = this.props;
-        const {tabValue} = this.state;
 
         return (
             <div id='captureArea' className='facilityComponent' rel={this.state.fStyle}>
@@ -552,20 +535,20 @@ class MORComponent extends Component {
                         </div>
                     </Card>
                 </div>
-                <TabContainer>
+                <div style={{padding: '18px'}}>
                     <Paper className={classes.paper}>
                         <Table className={classes.table} size="small">
                         <TableHead>
                             <TableRow className="facilityCardHeader">
                                 <TableCell colSpan={Math.floor(headers.length)} style={{textAlign: 'center', color: '#fff'}}>Periodic</TableCell>
-                                <TableCell></TableCell>
+                                <TableCell> </TableCell>
                                 <TableCell colSpan={Math.floor(headers.length)} style={{textAlign: 'center', color: '#fff'}}>Year to Date</TableCell>
                             </TableRow>
                             <TableRow>
                                 {headers.map(header => (
                                     <TableCell key={header} className='colHead' style={{textAlign: 'center'}}>{header}</TableCell>
                                 ))}
-                                <TableCell className='colHead'></TableCell>
+                                <TableCell> </TableCell>
                                 {headers.map(header => (
                                     <TableCell key={header} className='colHead' style={{textAlign: 'center'}}>{header}</TableCell>
                                     ))}
@@ -576,7 +559,7 @@ class MORComponent extends Component {
                             <TableRow
                                 key={row.name}
                                 className={(row.subData ? "parentRow" : '')}
-                                onClick={(row.subData ? () => this.toggleChildRows(row.toggleID) : '')}
+                                onClick={(row.subData ? () => this.toggleChildRows(row.toggleID) : () => {return null})}
                             >
                                 <TableCell className='tableDataCell'>{row.data.actual}</TableCell>
                                 <TableCell className='tableDataCell'>{row.data.budget}</TableCell>
@@ -617,7 +600,7 @@ class MORComponent extends Component {
                         </TableBody>
                         </Table>
                     </Paper>
-                </TabContainer>
+                </div>
             </div>
         )
     }

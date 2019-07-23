@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
-import Card from '../../tools/Card/Card';
-import CardHeader from "../../tools/Card/CardHeader";
-import CardBody from '../../tools/Card/CardBody';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
-import TouchChart from './touchChart';
 import EFirstTouch from './eFirstTouch';
 import EMidTouch from './eMidTouch';
 import ELastTouch from './eLastTouch';
@@ -79,7 +75,6 @@ class Touch extends Component {
     };
 
     render() {
-        const {classes} = this.props;
         const {tabValue} = this.state;
 
         return (
@@ -100,38 +95,14 @@ class Touch extends Component {
 
                 {tabValue === 0 && <TabContainer>
                     <EFirstTouch/>
-                    <Card>
-                        <CardHeader color="primary">
-                            <h4 className="cardTitleWhite">First Touch v Conversion</h4>
-                        </CardHeader>
-                        <CardBody className={classes.cardConversionTable}>
-                            <TouchChart/>
-                        </CardBody>
-                    </Card>
                 </TabContainer>}
 
                 {tabValue === 1 && <TabContainer>
                     <EMidTouch/>
-                    <Card>
-                        <CardHeader color="info">
-                            <h4 className="cardTitleWhite">Mid Touch</h4>
-                        </CardHeader>
-                        <CardBody className={classes.cardConversionTable}>
-
-                        </CardBody>
-                    </Card>
                 </TabContainer>}
 
                 {tabValue === 2 && <TabContainer>
                     <ELastTouch/>
-                    <Card>
-                        <CardHeader color="prime">
-                            <h4 className="cardTitleWhite">Last Touch</h4>
-                        </CardHeader>
-                        <CardBody className={classes.cardConversionTable}>
-
-                        </CardBody>
-                    </Card>
                 </TabContainer>}
 
             </div>

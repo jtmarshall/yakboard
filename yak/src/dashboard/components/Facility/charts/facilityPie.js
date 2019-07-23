@@ -5,8 +5,7 @@ import CardBody from "../../../tools/Card/CardBody";
 import Card from "../../../tools/Card/Card";
 
 export default class FacilityPie extends Component {
-    constructor(props) {
-        super(props);
+    componentWillMount() {
         this.loadData();
     }
 
@@ -118,7 +117,10 @@ export default class FacilityPie extends Component {
         }
 
         // Set state directly since not mounted when func called
-        this.state.chartData = tempChartData;
+        this.setState({
+            chartData: tempChartData,
+        });
+        // this.state.chartData = tempChartData;
     };
 
     render() {

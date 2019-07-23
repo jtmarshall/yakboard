@@ -226,7 +226,7 @@ export default class ETimeframeChart extends Component {
 
         return (
             <Card style={{height: cardHeight, backgroundColor: this.state.backgroundColor}}>
-                <CardBody style={{padding: '16px'}}>
+                <CardBody style={{padding: '12px'}}>
                     <div id={this.state.chardID} className='eChart'
                          style={{width: this.state.width, height: this.state.height}}/>
                 </CardBody>
