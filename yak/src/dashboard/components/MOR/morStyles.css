@@ -4,17 +4,32 @@
 
 .childRow {
     opacity: .7;
-    display: block;
 }
 
 .childRow th {
     text-align: center;
+    padding: 8px !important;
 }
 
 .childRow td {
     color: rgb(255, 152, 0) !important;
+
 }
 
 .showChild {
     display: block;
+}
+
+.tableDataCell {
+    text-align: right !important;
+    padding: 10px !important;
+}
+
+.tableColumnHeader {
+    text-align: right;
+}
+
+.colHead {
+    padding: 6px !important;
+    font-weight: bold !important;
 }

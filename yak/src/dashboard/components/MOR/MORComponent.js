@@ -5,8 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import TextField from "@material-ui/core/TextField";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
@@ -71,8 +69,24 @@ const styles = {
 };
 
 const headers = ["Actual", "Budget", "Bud Var", "Bud Var%", "Prior Year", "PY Var", "PY Var%"];
-function createData(name, actual, budget, budVar, budVarPercent, priorYear, pyVar, pyVarPercent) {
-    return { name, actual, budget, budVar, budVarPercent, priorYear, pyVar, pyVarPercent };
+function createData(name) {
+    let sampleSet = [49908364, 43305935, 6602429, 4.7, 46829627, 3078737, 6.6];
+    // randomize sample set
+    sampleSet = sampleSet.map((element) => {
+        return (element + (element * Math.floor(Math.random() * 5))).toFixed(1);
+    });
+
+    let data = {
+        name: name,
+        actual: sampleSet[0],
+        budget: sampleSet[1],
+        budVar: sampleSet[2],
+        budVarPercent: sampleSet[3],
+        priorYear: sampleSet[4],
+        pyVar: sampleSet[5],
+        pyVarPercent: sampleSet[6],
+    };
+    return data;
 }
 
 // const rows = [
@@ -108,62 +122,268 @@ function createData(name, actual, budget, budVar, budVarPercent, priorYear, pyVa
 //     }
 // ];
 
-const rows = [
+let rows = [
     {
         name: 'Revenues & Adjustments',
-        data: createData('Revenues & Adjustments', 545638585, 551843118, 6204534, 1.1, 472159953, 73478632, 15.6),
+        data: [],
         toggleID: 'RevenuesAdjustments',
         subData: [
             {
                 name: 'IP Gross Revenue',
-                data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: [],
             },
             {
                 name: 'IP Contractual Deductions',
-                data: createData('IP Contractual Deductions', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: [],
             },
             {
                 name: 'IP Rev Deducts - Admin',
-                data: createData('IP Rev Deducts - Admin', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: [],
             },
             {
                 name: 'IP Rev Deducts - Charity',
-                data: createData('IP Rev Deducts - Charity', 1565470, 1165281, 400190, 34.3, 1653456, 87985, 5.3),
+                data: [],
             },
             {
                 name: 'IP Rev Deducts - Denials',
-                data: createData('IP Rev Deducts - Denials', 2562362, 2741441, 179080, 6.5, 3826140, 1263778, 33.0),
+                data: [],
             }
         ],
     },
     {
         name: 'IP Net Revenue',
-        data: createData('IP Net Revenue', 247004827, 250890098, 3885271, 1.5, 236129281, 10875546, 4.6),
+        data: [],
         toggleID: 'IPNetRevenue',
         subData: [
             {
                 name: 'OP Gross Revenue',
-                data: createData('OP Gross Revenue', 49908364, 43305935, 6602429, 15.2, 46829627, 3078737, 6.6),
+                data: [],
             },
             {
                 name: 'OP Contractual Deductions',
-                data: createData('OP Contractual Deductions', 49908364, 43305935, 6602429, 15.2, 46829627, 3078737, 6.6),
+                data: [],
             },
             {
                 name: 'OP Rev Deducts - Admin',
-                data: createData('OP Rev Deducts - Admin', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
+                data: [],
             },
             {
                 name: 'OP Rev Deducts - Charity',
-                data: createData('OP Rev Deducts - Charity', 1565470, 1165281, 400190, 34.3, 1653456, 87985, 5.3),
+                data: [],
             },
             {
                 name: 'OP Rev Deducts - Denials',
-                data: createData('OP Rev Deducts - Denials', 2562362, 2741441, 179080, 6.5, 3826140, 1263778, 33.0),
+                data: [],
             }
         ],
-    }
+    },
+    {
+        name: 'OP Net Revenue',
+        data: [],
+        toggleID: 'OPNetRevenue',
+        subData: [
+            {
+                name: 'EAP Revenue',
+                data: [],
+            },
+            {
+                name: 'Management Contract Revenue',
+                data: [],
+            },
+            {
+                name: 'Non Operating Revenue',
+                data: [],
+            }
+        ],
+    },
+    {
+        name: 'Net Revenue before Bad Debt Provision',
+        data: [],
+        toggleID: 'NetRevenuebeforeBadDebtProvision',
+        subData: [
+            {
+                name: 'Bad Debt Expense',
+                data: [],
+            }
+        ],
+    },
+    {
+        name: 'Net Revenue',
+        data: [],
+    },
+    {
+        name: 'Operating Expenses',
+        data: [],
+        toggleID: 'OperatingExpenses',
+        subData: [
+            {
+                name: 'Salary Expense less Incentive Comp',
+                data: [],
+            },
+            {
+                name: 'Incentive Comp',
+                data: [],
+            },
+            {
+                name: 'Total Benefits Expense',
+                data: [],
+            },
+            {
+                name: 'Contract Labor',
+                data: [],
+            },
+            {
+                name: 'Purchase Svcs',
+                data: [],
+            },
+            {
+                name: 'Professional Fees',
+                data: [],
+            },
+            {
+                name: 'Supplies',
+                data: [],
+            },
+            {
+                name: 'Utilities',
+                data: [],
+            },
+            {
+                name: 'Repairs and Maintenance',
+                data: [],
+            },
+            {
+                name: 'Rent/Lease Exp less Interco Rent',
+                data: [],
+            },
+            {
+                name: 'Insurance Expense',
+                data: [],
+            },
+            {
+                name: 'Marketing Exp',
+                data: [],
+            },
+            {
+                name: 'Enterprise Growth',
+                data: [],
+            },
+            {
+                name: 'Total Outside Provider Expense',
+                data: [],
+            },
+            {
+                name: 'Other Operating Expense',
+                data: [],
+            },
+        ],
+    },
+    {
+        name: 'Total Operating Expenses',
+        data: [],
+    },
+    {
+        name: 'EBITDA',
+        data: [],
+    },
+    {
+        name: 'EBITDA % of Net Revenue Non-Operating Expenses',
+        data: [],
+        toggleID: 'EBITDA%ofNetRevenueNon-OperatingExpenses',
+        subData: [
+            {
+                name: 'Depreciation and Amortization',
+                data: [],
+            },
+            {
+                name: 'Interest Exp less Interco Interest',
+                data: [],
+            },
+            {
+                name: 'Intercompany Interest',
+                data: [],
+            },
+            {
+                name: 'Mgmt Fees',
+                data: [],
+            },
+            {
+                name: 'Non Operating Other Exp',
+                data: [],
+            }
+        ],
+    },
+    {
+        name: 'Total Non Operating Expenses',
+        data: [],
+    },
+    {
+        name: 'Pretax Income',
+        data: [],
+    },
+    {
+        name: 'Net Income from Operations',
+        data: [],
+    },
+    {
+        name: 'Net Income',
+        data: [],
+    },
+    {
+        name: 'Net Income Attributable to Acadia',
+        data: [],
+    },
+    {
+        name: 'Avg Net Revenue per Patient Day',
+        data: [],
+        toggleID: 'AvgNetRevenueperPatientDay',
+        subData: [
+            {
+                name: 'Inpatient Net Revenue per Patient Day',
+                data: [],
+            },
+            {
+                name: 'Net Revenue per Patient Day',
+                data: [],
+            },
+            {
+                name: 'Net Rev per Equiv Patient Day',
+                data: [],
+            },
+            {
+                name: 'Total Expense per Patient Day',
+                data: [],
+            },
+            {
+                name: 'Oper Exp per Equiv Patient Day',
+                data: [],
+            }
+        ],
+    },
+    {
+        name: 'Cash Collections',
+        data: [],
+    },
+    {
+        name: 'Collections % of Revenue After Bad Debt',
+        data: [],
+    },
 ];
+
+// Fills table row data
+let fillData = (rows) => {
+    console.log(rows.length);
+    for (let row in rows) {
+        rows[row].data = createData(rows[row].name);
+
+        // Fill sub-row data if exists
+        if (rows[row].subData) {
+            for (let subRow in rows[row].subData) {
+                rows[row].subData[subRow].data = createData(rows[row].subData[subRow].name);
+            }
+        }
+    }
+};
 
 // Return positive goal
 function GreenGoal(props) {
@@ -248,6 +468,9 @@ class MORComponent extends Component {
     };
 
     componentWillMount() {
+        // Load table rows Data
+        fillData(rows);
+
         // Use default Acadia logo & styles for combined buckets; just update document title
         if (this.state.fName.includes('All')) {
             this.setState({
@@ -299,23 +522,12 @@ class MORComponent extends Component {
             <div id='captureArea' className='facilityComponent' rel={this.state.fStyle}>
                 <h3>MOR</h3>
 
-                <Tabs
-                    value={this.state.tabValue}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    onChange={this.handleTabChange}
-                    style={{display: 'inline-block'}}
-                >
-                    <Tab label="Periodic"/>
-                    <Tab label="Year to Date"/>
-                </Tabs>
-
-                <div className="row" style={{marginBottom: '10px'}}>
+                <div className="row">
                     <Card className={classes.morCard} style={{display: 'flex', margin: 'auto'}}>
                         <CardMedia
                             component="img"
                             alt="Facility Logo"
-                            style={{width: "300px", margin: 'auto'}}
+                            style={{maxWidth: "240px", margin: 'auto'}}
                             height="auto"
                             image={this.state.fLogo}
                         />
@@ -340,394 +552,72 @@ class MORComponent extends Component {
                         </div>
                     </Card>
                 </div>
-
-                {tabValue === 0 && <TabContainer>
-                    <Card id="statsSummary" className="customCard">
-                        <CardHeader className="facilityCardHeader" color="prime">
-                            <h4 className="cardTitleWhite">Stats Summary</h4>
-                        </CardHeader>
-                        <CardContent>
-                            <Table className={classes.table}>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell></TableCell>
-                                        <TableCell align="center">{this.state.momLabel}</TableCell>
-                                        <TableCell align="center">YTD / PYTD</TableCell>
-                                        <TableCell
-                                            align="center">{this.state.monthCurrent} / {this.state.monthPreviousYear}</TableCell>
-                                        <TableCell align="center">Monthly Goal</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    <TableRow key='spend'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            Spend
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalSpend"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalSpend')}
-                                            />
-                                            {this.state.goalSpend <= 184 ?
-                                                <GreenGoal goal={this.state.goalSpend} actual={184}/>
-                                                : <RedGoal goal={this.state.goalSpend} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-
-                                    <TableRow key='traffic'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            Traffic
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalTraffic"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalTraffic')}
-                                            />
-                                            {this.state.goalTraffic <= 184 ?
-                                                <GreenGoal goal={this.state.goalTraffic} actual={184}/>
-                                                : <RedGoal goal={this.state.goalTraffic} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-
-                                    <TableRow key='webforms'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            Webforms
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalWebforms"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalWebforms')}
-                                            />
-                                            {this.state.goalWebforms <= 184 ?
-                                                <GreenGoal goal={this.state.goalWebforms} actual={184}/>
-                                                : <RedGoal goal={this.state.goalWebforms} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-
-                                    <TableRow key='calls'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            Calls
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalCalls"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalCalls')}
-                                            />
-                                            {this.state.goalCalls <= 184 ?
-                                                <GreenGoal goal={this.state.goalCalls} actual={184}/>
-                                                : <RedGoal goal={this.state.goalCalls} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-
-                                    <TableRow key='inquiries'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            Inquiries
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalInquiries"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalInquiries')}
-                                            />
-                                            {this.state.goalInquiries <= 184 ?
-                                                <GreenGoal goal={this.state.goalInquiries} actual={184}/>
-                                                : <RedGoal goal={this.state.goalInquiries} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-
-                                    <TableRow key='admits'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            Admits
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalAdmits"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalAdmits')}
-                                            />
-                                            {this.state.goalAdmits <= 184 ?
-                                                <GreenGoal goal={this.state.goalAdmits} actual={184}/>
-                                                : <RedGoal goal={this.state.goalAdmits} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-
-                                    <TableRow key='cpa'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            CPA - Admits
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalCPA"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalCPA')}
-                                            />
-                                            {this.state.goalCPA <= 184 ?
-                                                <GreenGoal goal={this.state.goalCPA} actual={184}/>
-                                                : <RedGoal goal={this.state.goalCPA} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-
-                                    <TableRow key='cvr'>
-                                        <TableCell component="th" scope="row" className="tableRowHeader">
-                                            CVR - Admits
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                                            <span className="iconText">
-                                            <span className={classes.greenText}> 6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <MaterialIcon icon='trending_down' color='#f44336'/>
-                                            <span className="iconText">
-                                            <span className={classes.redText}> -6%</span> (184)
-                                        </span>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <TextField
-                                                id="goalCVR"
-                                                placeholder="goal"
-                                                className="monthlyInput"
-                                                margin="none"
-                                                onChange={this.handleChange('goalCVR')}
-                                            />
-                                            {this.state.goalCVR <= 184 ?
-                                                <GreenGoal goal={this.state.goalCVR} actual={184}/>
-                                                : <RedGoal goal={this.state.goalCVR} actual={184}/>
-                                            }
-                                        </TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                        </CardContent>
-                    </Card>
-                </TabContainer>}
-
-                {tabValue === 1 && <TabContainer>
+                <TabContainer>
                     <Paper className={classes.paper}>
                         <Table className={classes.table} size="small">
                         <TableHead>
-                            <TableRow>
-                            <TableCell colSpan={Math.floor(headers.length/2)} style={{textAlign: 'center'}}>Periodic</TableCell>
-                            <TableCell colSpan={Math.floor(headers.length/2)} style={{textAlign: 'center'}}>Year to Date</TableCell>
+                            <TableRow className="facilityCardHeader">
+                                <TableCell colSpan={Math.floor(headers.length)} style={{textAlign: 'center', color: '#fff'}}>Periodic</TableCell>
+                                <TableCell></TableCell>
+                                <TableCell colSpan={Math.floor(headers.length)} style={{textAlign: 'center', color: '#fff'}}>Year to Date</TableCell>
                             </TableRow>
                             <TableRow>
-                            <TableCell>#</TableCell>
-                            {headers.map(header => (
-                                <TableCell align="right">{header}</TableCell>
+                                {headers.map(header => (
+                                    <TableCell key={header} className='colHead' style={{textAlign: 'center'}}>{header}</TableCell>
                                 ))}
+                                <TableCell className='colHead'></TableCell>
+                                {headers.map(header => (
+                                    <TableCell key={header} className='colHead' style={{textAlign: 'center'}}>{header}</TableCell>
+                                    ))}
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {/* {rows.map(row => (
-                            <TableRow key={row.name} className={(row.childID >= 0 ? "childRow" : "")} value={row.childID}>
-                                <TableCell component="th" scope="row">
-                                {row.parentID >= 0 ?
-                                    <span onClick={this.toggleChildRows(row.parentID)}>
-                                        {row.name}
-                                    </span>
-                                    : <span>{row.name}</span>
-                                }
-                                </TableCell>
-                                <TableCell align="right">{row.data.actual}</TableCell>
-                                <TableCell align="right">{row.data.budget}</TableCell>
-                                <TableCell align="right">{row.data.budVar}</TableCell>
-                                <TableCell align="right">{row.data.budVarPercent}</TableCell>
-                                <TableCell align="right">{row.data.priorYear}</TableCell>
-                                <TableCell align="right">{row.data.pyVar}</TableCell>
-                                <TableCell align="right">{row.data.pyVarPercent}</TableCell>
-                            </TableRow>
-                            ))} */}
                             {rows.map(row => [(
                             <TableRow
                                 key={row.name}
                                 className={(row.subData ? "parentRow" : '')}
                                 onClick={(row.subData ? () => this.toggleChildRows(row.toggleID) : '')}
                             >
-                                <TableCell component="th" scope="row">{row.name}</TableCell>
-                                <TableCell align="right">{row.data.actual}</TableCell>
-                                <TableCell align="right">{row.data.budget}</TableCell>
-                                <TableCell align="right">{row.data.budVar}</TableCell>
-                                <TableCell align="right">{row.data.budVarPercent}</TableCell>
-                                <TableCell align="right">{row.data.priorYear}</TableCell>
-                                <TableCell align="right">{row.data.pyVar}</TableCell>
-                                <TableCell align="right">{row.data.pyVarPercent}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.actual}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.budget}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.budVar}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.budVarPercent}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.priorYear}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.pyVar}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.pyVarPercent}</TableCell>
+                                <TableCell component="th" className='colHead' style={{textAlign: 'center'}}>{row.name}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.actual}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.budget}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.budVar}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.budVarPercent}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.priorYear}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.pyVar}</TableCell>
+                                <TableCell className='tableDataCell'>{row.data.pyVarPercent}</TableCell>
                             </TableRow>
                             ), (row.subData ? row.subData.map(subRow => (
-                                
-                                <TableRow key={subRow.name} className={"childRow " + row.toggleID}>
-                                    <TableCell component="th" scope="row">{subRow.name}</TableCell>
-                                    <TableCell align="right">{subRow.data.actual}</TableCell>
-                                    <TableCell align="right">{subRow.data.budget}</TableCell>
-                                    <TableCell align="right">{subRow.data.budVar}</TableCell>
-                                    <TableCell align="right">{subRow.data.budVarPercent}</TableCell>
-                                    <TableCell align="right">{subRow.data.priorYear}</TableCell>
-                                    <TableCell align="right">{subRow.data.pyVar}</TableCell>
-                                    <TableCell align="right">{subRow.data.pyVarPercent}</TableCell>
+                                <TableRow key={subRow.name} className={"childRow " + row.toggleID} style={{display: 'none'}}>
+                                    <TableCell className='tableDataCell'>{subRow.data.actual}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.budget}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.budVar}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.budVarPercent}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.priorYear}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.pyVar}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.pyVarPercent}</TableCell>
+                                    <TableCell component="th" className='colHead' style={{textAlign: 'center'}}>{subRow.name}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.actual}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.budget}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.budVar}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.budVarPercent}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.priorYear}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.pyVar}</TableCell>
+                                    <TableCell className='tableDataCell'>{subRow.data.pyVarPercent}</TableCell>
                                 </TableRow>))
                                 : '')
                             ])}
                         </TableBody>
                         </Table>
                     </Paper>
-                </TabContainer>}                                
+                </TabContainer>
             </div>
         )
     }

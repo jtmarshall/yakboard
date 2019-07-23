@@ -298,6 +298,75 @@ class Facility extends Component {
                                         }
                                     </TableCell>
                                 </TableRow>
+                                <TableRow key='sub-spend'>
+                                    <TableCell component="th" scope="row" className="tableRowHeader">
+                                        Organic & Referring
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='sub-spend'>
+                                    <TableCell component="th" scope="row" className="tableRowHeader">
+                                        Digital Advertising (Online)
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='sub-spend'>
+                                    <TableCell component="th" scope="row" className="tableRowHeader">
+                                        Traditional Advertising (Offline)
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (184)
+                                        </span>
+                                    </TableCell>
+                                </TableRow>
 
                                 <TableRow key='traffic'>
                                     <TableCell component="th" scope="row" className="tableRowHeader">
