@@ -66,10 +66,10 @@ const styles = {
 
 const headers = ["Actual", "Budget", "Bud Var", "Bud Var%", "Prior Year", "PY Var", "PY Var%"];
 function createData(name) {
-    let sampleSet = [49908364, 43305935, 6602429, 4.7, 46829627, 3078737, 6.6];
+    let sampleSet = [4990836, 4330593, 660429, 4.7, 4682967, 307877, 6.6];
     // randomize sample set
     sampleSet = sampleSet.map((element) => {
-        return ((element * Math.floor(Math.random() * 5)) - element).toFixed(1);
+        return (element + ((element/5) * Math.floor(Math.random() * 3))).toFixed(1);
     });
 
     let data = {
@@ -561,20 +561,20 @@ class MORComponent extends Component {
                                 className={(row.subData ? "parentRow" : '')}
                                 onClick={(row.subData ? () => this.toggleChildRows(row.toggleID) : () => {return null})}
                             >
-                                <TableCell className='tableDataCell'>{row.data.actual}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.budget}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.budVar}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' + row.data.actual}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.budget}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.budVar}</TableCell>
                                 <TableCell className='tableDataCell'>{row.data.budVarPercent}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.priorYear}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.pyVar}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.priorYear}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.pyVar}</TableCell>
                                 <TableCell className='tableDataCell'>{row.data.pyVarPercent}</TableCell>
                                 <TableCell component="th" className='colHead' style={{textAlign: 'center'}}>{row.name}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.actual}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.budget}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.budVar}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.actual}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.budget}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.budVar}</TableCell>
                                 <TableCell className='tableDataCell'>{row.data.budVarPercent}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.priorYear}</TableCell>
-                                <TableCell className='tableDataCell'>{row.data.pyVar}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.priorYear}</TableCell>
+                                <TableCell className='tableDataCell'>{'$' +row.data.pyVar}</TableCell>
                                 <TableCell className='tableDataCell'>{row.data.pyVarPercent}</TableCell>
                             </TableRow>
                             ), (row.subData ? row.subData.map(subRow => (

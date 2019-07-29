@@ -114,7 +114,7 @@ export default class ETimeframeChart extends Component {
             title: this.props.title,
             timeFrame: this.props.timeFrame,
             chardID: this.props.id || 'eVolumeChart',
-            height: this.props.height || '420px',
+            height: this.props.height || '540px',
             width: this.props.width || 'auto',
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',

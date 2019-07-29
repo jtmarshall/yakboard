@@ -365,10 +365,10 @@ class Geo extends Component {
                                                 <ListItemText primary={"Calls: " + data.call}/>
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary={"Conversions: " + data.conversion}/>
+                                                <ListItemText primary={"Inquiries: " + data.inquiries}/>
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary={"Inquiries: " + data.inquiries}/>
+                                                <ListItemText primary={"Total: " + (data.conversion + data.admits)}/>
                                             </ListItem>
                                         </List>
                                     </CardBody>
