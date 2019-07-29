@@ -58,6 +58,12 @@ class Geo extends Component {
         geoView: 'state',
         mapDatatype: 'call',
         currentState: '',
+        stateData: {
+            admits: '',
+            call: '',
+            conversion: '',
+            inquiries: '',
+        },
         customConfig: '',
     };
 
@@ -66,9 +72,17 @@ class Geo extends Component {
         const geoMapElement = document.querySelector(".us-state-map");
         geoMapElement.addEventListener("mouseover", event => {
             // this.state.currentState = event.target.dataset.name;
-            this.setState({
-                currentState: event.target.dataset.name
-            });
+            if (event.target.dataset.name !== undefined) {
+                this.setState({
+                    currentState: event.target.dataset.name,
+                    stateData: {
+                        admits: Math.floor(Math.random() * Math.floor(80)),
+                        call: Math.floor(Math.random() * Math.floor(80)),
+                        conversion: Math.floor(Math.random() * Math.floor(80)),
+                        inquiries: Math.floor(Math.random() * Math.floor(80)),
+                    },
+                });
+            }
         });
 
         this.statesCustomConfig();
@@ -261,6 +275,8 @@ class Geo extends Component {
     render() {
         const {classes} = this.props;
         const c = this.state.currentState;
+        let data = this.state.stateData;
+        const colors = ['#004c6d', '#3c6480', '#627e93', '#8798a7', '#abb3bb', '#cfcfcf'];
 
         return (
             <div className="geoComponent">
@@ -288,7 +304,7 @@ class Geo extends Component {
                                 </Select>
                             </FormControl>
                             <FormControl style={{width: '180px', textAlign: 'center', padding: '6px'}}>
-                                <InputLabel htmlFor="filterMapDatatype">Map Datatype</InputLabel>
+                                <InputLabel htmlFor="filterMapDatatype">Map Color Root</InputLabel>
                                 <Select
                                     className="skuFilterSelect"
                                     value={this.state.mapDatatype}
@@ -305,27 +321,27 @@ class Geo extends Component {
                             </FormControl>
                             <ul className="geoLegend">
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#58A4BD'}}></div>
+                                    <div className="color-box" style={{backgroundColor: colors[5]}}></div>
                                     0 - 9
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#54BB97'}}></div>
+                                    <div className="color-box" style={{backgroundColor: colors[4]}}></div>
                                     10 - 19
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#50B956'}}></div>
+                                    <div className="color-box" style={{backgroundColor: colors[3]}}></div>
                                     20 - 29
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#87B74D'}}></div>
+                                    <div className="color-box" style={{backgroundColor: colors[2]}}></div>
                                     30 - 49
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#B14268'}}></div>
+                                    <div className="color-box" style={{backgroundColor: colors[1]}}></div>
                                     50 - 74
                                 </li>
                                 <li>
-                                    <div className="color-box" style={{backgroundColor: '#AF3FA8'}}></div>
+                                    <div className="color-box" style={{backgroundColor: colors[0]}}></div>
                                     75+
                                 </li>
                             </ul>
@@ -336,14 +352,23 @@ class Geo extends Component {
                             <div className="col-lg-4" style={{minWidth: '240px', padding: '12px'}}>
                                 <Card>
                                     <CardBody>
-                                        <h3>Info</h3>
+                                        <h3 style={{margin: '4px'}}>Info</h3>
                                         <Divider/>
                                         <List style={{float: 'left'}}>
                                             <ListItem>
                                                 <ListItemText primary={"State: " + c}/>
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary={"Conversions: "}/>
+                                                <ListItemText primary={"Admits: " + data.admits}/>
+                                            </ListItem>
+                                            <ListItem>
+                                                <ListItemText primary={"Calls: " + data.call}/>
+                                            </ListItem>
+                                            <ListItem>
+                                                <ListItemText primary={"Inquiries: " + data.inquiries}/>
+                                            </ListItem>
+                                            <ListItem>
+                                                <ListItemText primary={"Total: " + (data.conversion + data.admits)}/>
                                             </ListItem>
                                         </List>
                                     </CardBody>

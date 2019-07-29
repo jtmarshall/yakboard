@@ -17,7 +17,7 @@ export default class EFirstTouch extends Component {
             title: this.props.title,
             timeFrame: this.props.timeFrame,
             chardID: this.props.id || 'eFirstTouch',
-            height: this.props.height || '420px',
+            height: this.props.height || '540px',
             width: this.props.width || 'auto',
             headerColor: this.props.headerColor || 'prime',
             backgroundColor: this.props.backgroundColor || '#2c343c',
@@ -209,7 +209,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Directories',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[0],
+                    // color: colorPalette.graphColors.sunburst2[0],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata2
@@ -217,7 +217,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Internal Directories',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[1],
+                    // color: colorPalette.graphColors.sunburst2[1],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata2
@@ -225,7 +225,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Lead Gen',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[2],
+                    // color: colorPalette.graphColors.sunburst2[2],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata
@@ -233,7 +233,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Other',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[3],
+                    // color: colorPalette.graphColors.sunburst2[3],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata2
@@ -241,7 +241,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Placement',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[4],
+                    // color: colorPalette.graphColors.sunburst2[4],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata
@@ -249,7 +249,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Search',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[5],
+                    // color: colorPalette.graphColors.sunburst2[5],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata2
@@ -257,7 +257,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Search Engine',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[6],
+                    // color: colorPalette.graphColors.sunburst2[6],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata
@@ -265,7 +265,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Sign Up',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[7],
+                    // color: colorPalette.graphColors.sunburst2[7],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata2
@@ -273,7 +273,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Social',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[8],
+                    // color: colorPalette.graphColors.sunburst2[8],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata
@@ -281,7 +281,7 @@ export default class EFirstTouch extends Component {
                 {
                     name: 'Sponsorship',
                     stack: 2,
-                    color: colorPalette.graphColors.sunburst2[9],
+                    // color: colorPalette.graphColors.sunburst2[9],
                     type: 'bar',
                     yAxisIndex: 1,
                     data: randata2,

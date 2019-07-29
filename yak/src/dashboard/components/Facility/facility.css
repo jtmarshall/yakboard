@@ -40,9 +40,30 @@
     padding: 8px 8px !important;
 }
 
+.tableColHeadRow th {
+    text-align: center;
+}
+
 .tableRowHeader {
     font-size: 1rem !important;
     width: 10%;
+}
+
+.subRow {
+    opacity: .8;
+}
+
+.subRow th {
+    padding-left: 20px !important;
+    font-size: 1em !important;
+}
+
+.subRow td {
+
+}
+
+.tableDataRow td {
+    text-align: center;
 }
 
 i {

@@ -3,7 +3,8 @@
 }
 
 .childRow {
-    opacity: .7;
+    opacity: .9;
+    background: #EEE;
 }
 
 .childRow th {
@@ -12,8 +13,7 @@
 }
 
 .childRow td {
-    color: rgb(255, 152, 0) !important;
-
+    color: var(--fAccent) !important;
 }
 
 .showChild {
@@ -31,5 +31,8 @@
 
 .colHead {
     padding: 6px !important;
+}
+
+.parentRow .colHead {
     font-weight: bold !important;
 }
