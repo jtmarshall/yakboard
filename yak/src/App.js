@@ -12,30 +12,22 @@ import {withRouter} from "react-router";
 // }
 
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-        this.onUpdateUser = this.onUpdateUser.bind(this);
-    }
-
     state = {
         loggedIn: true
     };
 
+    // login request/logic goes here
     verifyLogin = () => {
         this.setState({
             loggedIn: true
         })
     };
 
-    onUpdateUser() {
-        this.props.onUpdateUser('sammy');
-    }
-
     render() {
         // migration to typography2
         window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
+        // return 2 different apps depending on if user is logged in
         if (!this.state.loggedIn) {
             return (
                 <div className="App">
@@ -55,14 +47,5 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return { items: state.items };
 };
-
-// const mapActionsToProps = {
-//     onUpdateUser: updateUser,
-//     onApiRequest: getFacilityList
-// };
-
-// const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
-//     return {};
-// };
 
 export default withRouter(connect(mapStateToProps)(App));

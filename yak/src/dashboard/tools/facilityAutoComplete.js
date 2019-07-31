@@ -226,7 +226,6 @@ class FacilityAutoComplete extends React.Component {
 
                     </div>
                 )}
-
             </Downshift>
         );
     }
@@ -241,6 +240,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-)(FacilityAutoComplete);
+export default connect(mapStateToProps)(FacilityAutoComplete);

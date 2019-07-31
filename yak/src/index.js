@@ -94,20 +94,6 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-console.log("STORE");
-console.log(store.getState());
-
-
-// // redux test user action
-// const updateUserAction = {
-//     type: 'updateUser',
-//     payload: {
-//         user: 'john'
-//     }
-// };
-//
-// store.dispatch(updateUserAction);
-
 try {
     ReactDOM.render(
         <Provider store={store}>

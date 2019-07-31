@@ -110,7 +110,6 @@ class DataFilter extends React.Component {
                         <Button variant="contained" style={{margin: '5px'}}
                                 onClick={() => {
                                     this.clearFilters();
-                                    //window.location.reload();
                                 }}>
                             Clear
                         </Button>

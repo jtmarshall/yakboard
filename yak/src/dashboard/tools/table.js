@@ -23,7 +23,7 @@ function CustomTable({ ...props }) {
                   <TableCell
                     className={classes.tableCell + " " + classes.tableHeadCell}
                     key={key}
-                    align="center"
+                    style={{textAlign: 'center'}}
                   >
                     {prop}
                   </TableCell>
@@ -40,7 +40,7 @@ function CustomTable({ ...props }) {
                   return (
                     <TableCell
                         className={classes.tableCell} key={key}
-                        align="center"
+                        style={{textAlign: 'center'}}
                     >
                       {prop}
                     </TableCell>

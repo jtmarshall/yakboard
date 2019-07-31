@@ -8,13 +8,10 @@ import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 class Sidebar extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            subConversion: false,
-            subTimeframe: false,
-        };
-    }
+    state = {
+        subConversion: false,
+        subTimeframe: false,
+    };
 
     toggleHidden = name => event => {
         // console.log(name, !this.state[name]);

@@ -19,7 +19,7 @@ import {updateFacility, updateDateFrame} from '../reducers/actions';
 import {connect} from "react-redux";
 
 
-// Global state for local storage
+// Global state for browser local storage
 let savedState = [];
 
 const mapStateToProps = state => {
@@ -42,71 +42,6 @@ class Dash extends React.Component {
     constructor(props) {
         super(props);
 
-        // // If local store not found, initialize base state
-        // if (yakPak == null) {
-        //     this.state = {
-        //         SelectedFacility: {
-        //             Facility: '',
-        //             Domain: '',
-        //         },
-        //         DateFrame: {
-        //             From: moment().add(-7, 'days').format('YYYY-MM-DD'),
-        //             To: moment().format('YYYY-MM-DD'),
-        //             CompareFrom: '',
-        //             CompareTo: ''
-        //         },
-        //         SecondaryDateCheck: false,
-        //         Filter: {
-        //             conversion: [],
-        //             touch: [],
-        //             rollup: [],
-        //             channel: [],
-        //             source: [],
-        //             campaign: [],
-        //             tier: [],
-        //             medium: [],
-        //             disorder: [],
-        //             network: [],
-        //             targetingMethod: [],
-        //             format: [],
-        //             message: [],
-        //             ageRange: [],
-        //             ethnicity: [],
-        //             familyRole: [],
-        //             gender: [],
-        //             income: [],
-        //             interestsBehaviors: [],
-        //             language: [],
-        //             education: [],
-        //             occupation: [],
-        //             relationship: [],
-        //             religion: []
-        //         },
-        //         Touch: {
-        //             tabValue: 0
-        //         },
-        //         Conversion: {
-        //             tabValue: 0
-        //         },
-        //         Explorer: {
-        //             tabValue: 0
-        //         },
-        //         Storyboard: {
-        //             tabValue: 0,
-        //             searchMetric: 'ip',
-        //             storyPivot: 'session'
-        //         },
-        //         Builder: {
-        //             Columns: [],
-        //         },
-        //         Timeframe: {
-        //             tabValue: 0
-        //         },
-        //     };
-        // } else {
-        //     this.state = toolbox.retrievePak();
-        // }
-
         // Set global state so it's not empty
         savedState = this.state;
     }
@@ -124,7 +59,7 @@ class Dash extends React.Component {
 
     // Set offload func to save to local store just once on unload
     componentDidMount() {
-        window.onbeforeunload = function () {
+        window.onbeforeunload = () => {
             toolbox.storePak(savedState);
         }
     }
@@ -250,7 +185,6 @@ class Dash extends React.Component {
                         <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="/facility" render={() => <PrintComponent/>}/>
                         <Route path="/mor" render={() => <MORComponent/>}/>
-                        {/*<Route path="/facility" render={() => <Facility parentState={this.state}/>}/>*/}
                     </div>
                 </div>
             );
