@@ -251,18 +251,10 @@ export default class ETimeframeChart extends Component {
         // Generate the series data
         let series = seriesData(1, this.state.axisLabels.length, this.state.colors);
         let axisLabels = this.state.axisLabels;
-        // let tooltipPosition = '';
         if (this.props.secondaryDateCheck) {
             let series2 = seriesData(2, this.state.secondaryAxisLabels.length, this.state.secondaryColors);
             series = series.concat(series2);
             axisLabels = this.comparisonLabels();
-
-            // tooltipPosition = function (pos, params, dom, rect, size) {
-            //     // tooltip will be fixed on right if mouse hovering on the left and on the left if hovering on the right
-            //     let obj = {top: -20};
-            //     obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
-            //     return obj;
-            // };
         }
 
         let myChart = echarts.init(document.getElementById(this.state.chardID));
