@@ -1,3 +1,10 @@
+.greenText {
+    color: #4caf50
+}
+.redText {
+    color: #f44336
+}
+
 .eChart canvas {
     width: 100% !important;
 }

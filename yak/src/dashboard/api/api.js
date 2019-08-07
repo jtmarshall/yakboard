@@ -1,21 +1,10 @@
 import axios from "axios";  // request library
 
 // url for monitor status info endpoint
-let statusURL = "http://monitoring-env.qj3cticwqw.us-east-1.elasticbeanstalk.com/api/monitorstatus";
-let monthlyStatusURL = "http://monitoring-env.qj3cticwqw.us-east-1.elasticbeanstalk.com/api/monthlymonitorstatus";
-let fofURL = "http://monitoring-env.qj3cticwqw.us-east-1.elasticbeanstalk.com/api/404list";
 let facilityListURL = "http://monitoring-env.qj3cticwqw.us-east-1.elasticbeanstalk.com/api/getFacilities";
 let authURL = "";
 let updateURL = "/updatePak";
 let csvEndpoint = document.location.origin + "/api/csv";
-
-// Check if we need to convert to relative url because basic auth
-if (document.location.host === "monitor.acadiadevelopment.com") {
-    statusURL = "http://" + document.location.host + "/api/monitorstatus";
-    monthlyStatusURL = "http://" + document.location.host + "/api/monthlymonitorstatus";
-    fofURL = "http://" + document.location.host + "/api/404list";
-}
-
 
 export default {
     downloadFile: {
@@ -51,16 +40,6 @@ export default {
                 })
         }
     },
-    fof: {
-        get404List: () => {
-            return axios.get(fofURL).then((resp) => {
-                return resp.data;
-            })
-                .catch((err) => {
-                    console.log("GET 404 ERR: ", err);
-                })
-        }
-    },
     security: {
         authenticateLogin: (user, pass) => {
             // Set user creds in from data
@@ -87,24 +66,6 @@ export default {
                 })
                 .catch((err) => {
                     console.log("Pak store ERR: ", err)
-                })
-        }
-    },
-    status: {
-        getStatusInfo: () => {
-            return axios.get(statusURL).then((resp) => {
-                return resp.data;
-            })
-                .catch((err) => {
-                    console.log("GET Status ERR: ", err);
-                })
-        },
-        getMonthlyStatusInfo: () => {
-            return axios.get(monthlyStatusURL).then((resp) => {
-                return resp.data;
-            })
-                .catch((err) => {
-                    console.log("GET MonthlyStatus ERR: ", err);
                 })
         }
     },
