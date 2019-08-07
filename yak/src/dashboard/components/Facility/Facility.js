@@ -140,6 +140,9 @@ class Facility extends Component {
         goalSpendSub2: 0,
         goalSpendSub3: 0,
         goalTraffic: 0,
+        goalSubTraffic1: 0,
+        goalSubTraffic2: 0,
+        goalSubTraffic3: 0,
         goalWebforms: 0,
         goalCalls: 0,
         goalInquiries: 0,
@@ -278,8 +281,8 @@ class Facility extends Component {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                <TableRow key='spend' className='tableDataRow parentRow' onClick={() => this.toggleChildRows('spend')}>
-                                    <TableCell component="th" className="tableRowHeader">Spend</TableCell>
+                                <TableRow key='spend' className='tableDataRow'>
+                                    <TableCell component="th" className="tableRowHeader parentRow" onClick={() => this.toggleChildRows('spend')}>Spend</TableCell>
                                     <TableCell>
                                         <MaterialIcon icon='trending_down' color='#f44336'/>
                                         <span className="iconText">
@@ -416,7 +419,7 @@ class Facility extends Component {
                                 </TableRow>
 
                                 <TableRow key='traffic' className='tableDataRow'>
-                                    <TableCell component="th" className="tableRowHeader">Traffic</TableCell>
+                                    <TableCell component="th" className="tableRowHeader parentRow" onClick={() => this.toggleChildRows('traffic')}>Traffic</TableCell>
                                     <TableCell>
                                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                                         <span className="iconText">
@@ -446,6 +449,108 @@ class Facility extends Component {
                                         {this.state.goalTraffic <= 184 ?
                                             <GreenGoal goal={this.state.goalTraffic} actual={184}/>
                                             : <RedGoal goal={this.state.goalTraffic} actual={184}/>
+                                        }
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='sub-traffic1' className='tableDataRow subRow traffic' style={{display: 'none'}}>
+                                    <TableCell component="th" className="tableRowHeader">Organic & Referring</TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (62)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (62)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (62)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="goalTraffic"
+                                            placeholder="goal"
+                                            className="monthlyInput"
+                                            margin="none"
+                                            onChange={this.handleChange('goalSubTraffic1')}
+                                        />
+                                        {this.state.goalSubTraffic1 <= 62 ?
+                                            <GreenGoal goal={this.state.goalSubTraffic1} actual={62}/>
+                                            : <RedGoal goal={this.state.goalSubTraffic1} actual={62}/>
+                                        }
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='sub-traffic2' className='tableDataRow subRow traffic' style={{display: 'none'}}>
+                                    <TableCell component="th" className="tableRowHeader">Digital Advertising</TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (61)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (61)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (61)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="goalTraffic"
+                                            placeholder="goal"
+                                            className="monthlyInput"
+                                            margin="none"
+                                            onChange={this.handleChange('goalSubTraffic2')}
+                                        />
+                                        {this.state.goalSubTraffic2 <= 61 ?
+                                            <GreenGoal goal={this.state.goalSubTraffic2} actual={61}/>
+                                            : <RedGoal goal={this.state.goalSubTraffic2} actual={61}/>
+                                        }
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key='sub-traffic3' className='tableDataRow subRow traffic' style={{display: 'none'}}>
+                                    <TableCell component="th" className="tableRowHeader">Traditional Advertising</TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (61)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_down' color='#f44336'/>
+                                        <span className="iconText">
+                                            <span className={classes.redText}> -6%</span> (61)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <MaterialIcon icon='trending_up' color='#4caf50'/>
+                                        <span className="iconText">
+                                            <span className={classes.greenText}> 6%</span> (61)
+                                        </span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TextField
+                                            id="goalTraffic"
+                                            placeholder="goal"
+                                            className="monthlyInput"
+                                            margin="none"
+                                            onChange={this.handleChange('goalSubTraffic3')}
+                                        />
+                                        {this.state.goalSubTraffic3 <= 61 ?
+                                            <GreenGoal goal={this.state.goalSubTraffic3} actual={61}/>
+                                            : <RedGoal goal={this.state.goalSubTraffic3} actual={61}/>
                                         }
                                     </TableCell>
                                 </TableRow>
