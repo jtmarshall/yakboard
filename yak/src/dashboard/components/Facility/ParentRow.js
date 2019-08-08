@@ -15,9 +15,9 @@ const GreenGoal = props => {
     }
     return (
         <span>
-      <MaterialIcon icon='trending_up' color='#4caf50' />
+      <MaterialIcon icon='trending_up' color='#4caf50'/>
       <span className='iconText'>
-        <span style={{ color: '#4caf50' }}> {percent}%</span> ({props.actual})
+        <span style={{color: '#4caf50'}}> {percent}%</span> ({props.actual})
       </span>
     </span>
     );
@@ -30,9 +30,9 @@ const RedGoal = props => {
     let percent = ((diff / props.goal) * 100).toFixed(1);
     return (
         <span>
-      <MaterialIcon icon='trending_down' color='#f44336' />
+      <MaterialIcon icon='trending_down' color='#f44336'/>
       <span className='iconText'>
-        <span style={{ color: '#f44336' }}> -{percent}%</span> ({props.actual})
+        <span style={{color: '#f44336'}}> -{percent}%</span> ({props.actual})
       </span>
     </span>
     );
@@ -87,19 +87,19 @@ export default class ParentRow extends React.Component {
                         {this.props.fieldName}
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (184)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (184)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_up' color='#4caf50' />
+                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                         <span className='iconText'>
               <span className='greenText'> 6%</span> (184)
             </span>
@@ -113,9 +113,9 @@ export default class ParentRow extends React.Component {
                             onChange={this.handleChange('inputGoal')}
                         />
                         {this.state.inputGoal <= 184 ? (
-                            <GreenGoal goal={this.state.inputGoal} actual={184} />
+                            <GreenGoal goal={this.state.inputGoal} actual={184}/>
                         ) : (
-                            <RedGoal goal={this.state.inputGoal} actual={184} />
+                            <RedGoal goal={this.state.inputGoal} actual={184}/>
                         )}
                     </TableCell>
                 </TableRow>
@@ -123,25 +123,25 @@ export default class ParentRow extends React.Component {
                 <TableRow
                     key={goalSub1}
                     className={'tableDataRow subRow ' + this.props.fieldName}
-                    style={{ display: 'none' }}
+                    style={{display: 'none'}}
                 >
                     <TableCell component='th' className='tableRowHeader'>
                         Organic & Referring
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (62)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (62)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_up' color='#4caf50' />
+                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                         <span className='iconText'>
               <span className='greenText'> 6%</span> (62)
             </span>
@@ -155,9 +155,9 @@ export default class ParentRow extends React.Component {
                             onChange={this.handleChange('inputGoalSub1')}
                         />
                         {this.state.inputGoalSub1 <= 62 ? (
-                            <GreenGoal goal={this.state.inputGoalSub1} actual={62} />
+                            <GreenGoal goal={this.state.inputGoalSub1} actual={62}/>
                         ) : (
-                            <RedGoal goal={this.state.inputGoalSub1} actual={62} />
+                            <RedGoal goal={this.state.inputGoalSub1} actual={62}/>
                         )}
                     </TableCell>
                 </TableRow>
@@ -165,25 +165,25 @@ export default class ParentRow extends React.Component {
                 <TableRow
                     key={goalSub2}
                     className={'tableDataRow subRow ' + this.props.fieldName}
-                    style={{ display: 'none' }}
+                    style={{display: 'none'}}
                 >
                     <TableCell component='th' className='tableRowHeader'>
                         Digital Advertising
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (61)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (61)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_up' color='#4caf50' />
+                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                         <span className='iconText'>
               <span className='greenText'> 6%</span> (61)
             </span>
@@ -197,9 +197,9 @@ export default class ParentRow extends React.Component {
                             onChange={this.handleChange('inputGoalSub2')}
                         />
                         {this.state.inputGoalSub2 <= 61 ? (
-                            <GreenGoal goal={this.state.inputGoalSub2} actual={61} />
+                            <GreenGoal goal={this.state.inputGoalSub2} actual={61}/>
                         ) : (
-                            <RedGoal goal={this.state.inputGoalSub2} actual={61} />
+                            <RedGoal goal={this.state.inputGoalSub2} actual={61}/>
                         )}
                     </TableCell>
                 </TableRow>
@@ -207,25 +207,25 @@ export default class ParentRow extends React.Component {
                 <TableRow
                     key={goalSub3}
                     className={'tableDataRow subRow ' + this.props.fieldName}
-                    style={{ display: 'none' }}
+                    style={{display: 'none'}}
                 >
                     <TableCell component='th' className='tableRowHeader'>
                         Traditional Advertising
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (61)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_down' color='#f44336' />
+                        <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
               <span className='redText'> -6%</span> (61)
             </span>
                     </TableCell>
                     <TableCell>
-                        <MaterialIcon icon='trending_up' color='#4caf50' />
+                        <MaterialIcon icon='trending_up' color='#4caf50'/>
                         <span className='iconText'>
               <span className='greenText'> 6%</span> (61)
             </span>
@@ -239,9 +239,9 @@ export default class ParentRow extends React.Component {
                             onChange={this.handleChange('inputGoalSub3')}
                         />
                         {this.state.inputGoalSub3 <= 61 ? (
-                            <GreenGoal goal={this.state.inputGoalSub3} actual={61} />
+                            <GreenGoal goal={this.state.inputGoalSub3} actual={61}/>
                         ) : (
-                            <RedGoal goal={this.state.inputGoalSub3} actual={61} />
+                            <RedGoal goal={this.state.inputGoalSub3} actual={61}/>
                         )}
                     </TableCell>
                 </TableRow>

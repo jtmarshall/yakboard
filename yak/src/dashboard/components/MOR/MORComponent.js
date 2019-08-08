@@ -9,10 +9,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
-import MaterialIcon from "material-icons-react";
 import moment from 'moment';
 import withStyles from "@material-ui/core/styles/withStyles";
-import PropTypes from "prop-types";
 import Paper from '@material-ui/core/Paper';
 
 
@@ -380,39 +378,6 @@ let fillData = (rows) => {
         }
     }
 };
-
-// Return positive goal
-function GreenGoal(props) {
-    // Math for percentage over/under
-    let diff = Math.abs(props.goal - props.actual);
-    let percent = "NA";
-    if (props.goal !== 0) {
-        percent = ((diff / props.goal) * 100).toFixed(1);
-    }
-    return (
-        <span>
-            <MaterialIcon icon='trending_up' color='#4caf50'/>
-                <span className="iconText">
-                    <span style={{color: '#4caf50'}}> {percent}%</span> ({props.actual})
-                </span>
-        </span>
-    );
-}
-
-// Return negative goal
-function RedGoal(props) {
-    // Math for percentage over/under
-    let diff = Math.abs(props.goal - props.actual);
-    let percent = ((diff / props.goal) * 100).toFixed(1);
-    return (
-        <span>
-            <MaterialIcon icon='trending_down' color='#f44336'/>
-                <span className="iconText">
-                    <span style={{color: '#f44336'}}> -{percent}%</span> ({props.actual})
-                </span>
-        </span>
-    );
-}
 
 const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
 

@@ -256,11 +256,11 @@ class Facility extends Component {
                                     <TableCell>Monthly Goal</TableCell>
                                 </TableRow>
                             </TableHead>
-                            <ParentRow fieldName='Spend' />
-                            <ParentRow fieldName='Traffic' />
-                            <ParentRow fieldName='Calls' />
-                            <ParentRow fieldName='Inquiries' />
-                            <ParentRow fieldName='Admits' />
+                            <ParentRow fieldName='Spend' data='' />
+                            <ParentRow fieldName='Traffic' data='' />
+                            <ParentRow fieldName='Calls' data='' />
+                            <ParentRow fieldName='Inquiries' data='' />
+                            <ParentRow fieldName='Admits' data='' />
                             <TableBody>
                                 <TableRow key='webforms' className='tableDataRow'>
                                     <TableCell component="th" className="tableRowHeader">Webforms</TableCell>
