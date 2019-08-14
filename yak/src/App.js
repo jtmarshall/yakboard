@@ -44,6 +44,7 @@ class App extends Component {
     }
 }
 
+// for redux
 const mapStateToProps = (state) => {
     return { items: state.items };
 };

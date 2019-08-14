@@ -6,6 +6,10 @@ import './facility.css';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 
+/**
+ * Failed attempt at providing a way to print selectable sub-components, rather than just the whole app.
+ * Right now it just holds the Facility Report component.
+ */
 class PrintComponent extends React.Component {
     render() {
         return (

@@ -9,6 +9,9 @@ import ETop from './path/eTop';
 import EBottom from './path/eBottom';
 
 
+/**
+ * Another view concept for Conversion paths.
+ */
 class ConversionPath extends Component {
     constructor(props) {
         super(props);

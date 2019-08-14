@@ -11,20 +11,20 @@ import CardHeader from "../../tools/Card/CardHeader";
 import CardBody from '../../tools/Card/CardBody';
 import TextField from '@material-ui/core/TextField';
 import withStyles from "@material-ui/core/styles/withStyles";
-import Typography from '@material-ui/core/Typography';
 import MaterialIcon from 'material-icons-react';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import Typography from '@material-ui/core/Typography';
+// import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+// import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+// import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import FacilityFormStepper from './facilityForm';
 import FacilityVolume from './FacilityVolume';
-import FacilityFormStepper from './facilityForm';
 import moment from 'moment';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import ParentRow from "./ParentRow";
 // import html2canvas from 'html2canvas';
 // import jsPDF from 'jspdf';
-import ParentRow from "./ParentRow";
 
 
 const styles = {
@@ -105,6 +105,11 @@ function RedGoal(props) {
 
 const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
 
+/**
+ * The main 'Facility Report' component;
+ * data for all the stats will be aggregated into an object here (probably in state),
+ * and then passed down into each 'ParentRow' component as props.
+ */
 class Facility extends Component {
     constructor(props) {
         super(props);
@@ -552,19 +557,19 @@ class Facility extends Component {
 
                 <hr className="hidePrint" style={{width: '90%'}}/>
                 <FacilityVolume parentState={this.state} logo={this.state.fLogo}/>
-                <hr style={{width: '90%'}}/>
 
-                Sample Form
-                <FacilityFormStepper/>
+                {/*<hr style={{width: '90%'}}/>*/}
+                {/*Sample Form*/}
+                {/*<FacilityFormStepper/>*/}
 
-                <ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>
-                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                        <Typography>Supporting Data</Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                        Dis is data.
-                    </ExpansionPanelDetails>
-                </ExpansionPanel>
+                {/*<ExpansionPanel style={{width: '90%', display: 'inline-block', background: 'none', boxShadow: 'none'}}>*/}
+                {/*    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>*/}
+                {/*        <Typography>Supporting Data</Typography>*/}
+                {/*    </ExpansionPanelSummary>*/}
+                {/*    <ExpansionPanelDetails>*/}
+                {/*        Dis is data.*/}
+                {/*    </ExpansionPanelDetails>*/}
+                {/*</ExpansionPanel>*/}
             </div>
         )
     }

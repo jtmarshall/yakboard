@@ -57,6 +57,9 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
+/**
+ * Concept component to house flexible views where user's could build their own reports.
+ */
 class Explorer extends Component {
     constructor(props) {
         super(props);

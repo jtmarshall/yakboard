@@ -20,6 +20,11 @@ import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
 
 
+/**
+ * Volume component for the Facility Report.
+ * We separate out the graphs and api calls here from the rest of the report.
+ * Format data into objects that can be passed into the graph components.
+ */
 class FacilityVolume extends Component {
 
     state = {
@@ -34,7 +39,6 @@ class FacilityVolume extends Component {
         commentAdvertisement: '',
         commentEmail: '',
         commentSocialMedia: '',
-        chartToggle: true,
         graphColorIndex: 1,
         graphColor: colorPalette.graphColors.greenBlue,
     };
@@ -45,10 +49,7 @@ class FacilityVolume extends Component {
         });
     };
 
-    handleToggle = name => event => {
-        this.setState({ [name]: event.target.checked });
-    };
-
+    // Color toggle for charts
     colorPaletteToggle = event => {
         let newIndex = (this.state.graphColorIndex + 1)%5;
         let newColor = Object.keys(colorPalette.graphColors)[newIndex];
@@ -86,57 +87,20 @@ class FacilityVolume extends Component {
                     </div>
                 </div>
 
-                <br/>
-                <FormControlLabel
-                    className="hidePrint"
-                    control={
-                        <Switch
-                            checked={this.state.chartToggle}
-                            onChange={this.handleToggle('chartToggle')}
-                            value="chartToggle"
-                            color="primary"
-                        />
-                    }
-                    label="Show New Charts"
-                />
-                <br/>
-
-                {this.state.chartToggle &&
-                    <span>
-                        <Button
-                            className="hidePrint"
-                            variant="contained"
-                            color="primary"
-                            style={{color: '#fff'}}
-                            onClick={this.colorPaletteToggle}
-                        >
-                            Toggle Color
-                        </Button>
-                        <br/>
-                        <EFacilityPie id='pieSpend' colors={this.state.graphColor} index={this.state.graphColorIndex}/>
-                        <EVolumeChart id='eVolumeChart' colors={this.state.graphColor}/>
-                    </span>
-                }
-
-                {!this.state.chartToggle &&
-                    <span>
-                        <div className='facilityPieRow'>
-                            <FacilityPie color={"info"} title={"Spend"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                            <FacilityPie color={"info"} title={"Traffic"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                            <FacilityPie color={"info"} title={"Calls"} chartCallData={[11, 14, 13, 8, 10, 12]}/>
-                        </div>
-
-
-                        <Card className='facilityBarChart' style={{marginTop: '20px'}}>
-                            <CardHeader className="facilityCardHeader" color="info">
-                                <h4 className="cardTitleWhite">Year/Year by Month</h4>
-                            </CardHeader>
-                            <CardBody>
-                                <FacilityVolumeChart/>
-                            </CardBody>
-                        </Card>
-                    </span>
-                }
+                <span>
+                    <Button
+                        className="hidePrint"
+                        variant="contained"
+                        color="primary"
+                        style={{color: '#fff'}}
+                        onClick={this.colorPaletteToggle}
+                    >
+                        Toggle Color
+                    </Button>
+                    <br/>
+                    <EFacilityPie id='pieSpend' colors={this.state.graphColor} index={this.state.graphColorIndex}/>
+                    <EVolumeChart id='eVolumeChart' colors={this.state.graphColor}/>
+                </span>
 
                 <Card className="facilityMiscellaneous">
                     <CardHeader className="facilityCardHeader" color="info">
@@ -146,71 +110,51 @@ class FacilityVolume extends Component {
                         <div className="row" style={{display: 'block', width: '90%'}}>
                              <ul className='ulFacility'>
                                 <Tooltip title="Website Updates" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='update' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='update' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Collateral" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='import_contacts' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='import_contacts' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Photos" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='photo' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='photo' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Video" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='videocam' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='videocam' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Rebrand" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='star_half' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='star_half' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Online Reviews" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='mood' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='mood' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Media" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='video_library' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='video_library' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Advertisement" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='tv' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='tv' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Email" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='email' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='email' color=''/> 1337</li>
                                 </Tooltip>
 
                                 <Tooltip title="Social Media" placement="bottom">
-                                    <li>
-                                        <MaterialIcon icon='group_add' color=''/> 1337
-                                    </li>
+                                    <li><MaterialIcon icon='group_add' color=''/> 1337</li>
                                 </Tooltip>
                             </ul>
                         </div>
                         <Table style={{width: '100%'}}>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell align="center">Non-Data Highlights</TableCell>
-                                    <TableCell align="center">Comments</TableCell>
+                                    <TableCell style={{textAlign: 'center'}}>Non-Data Highlights</TableCell>
+                                    <TableCell style={{textAlign: 'center'}}>Comments</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>

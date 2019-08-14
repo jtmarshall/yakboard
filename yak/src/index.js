@@ -94,15 +94,12 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-try {
-    ReactDOM.render(
-        <Provider store={store}>
-            <Router>
-                <App/>
-            </Router>
-        </Provider>,
-        document.getElementById('root'));
-    registerServiceWorker();
-} catch (e) {
-    console.log("ERR: ", e);
-}
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Router>
+            <App/>
+        </Router>
+    </Provider>,
+    document.getElementById('root'));
+registerServiceWorker();

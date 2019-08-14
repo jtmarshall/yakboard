@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+/**
+ * Placeholder component for user settings once we allow for user accounts.
+ */
 export default class Settings extends Component {
 
     render() {

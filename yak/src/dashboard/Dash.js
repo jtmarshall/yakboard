@@ -28,6 +28,7 @@ const mapStateToProps = state => {
     };
 };
 
+// dispatch facility or dateframe update to redux
 const mapDispatchToProps = (dispatch) => {
     return {
         updateFacility: (facilityObj) => dispatch(updateFacility(facilityObj)),
@@ -35,6 +36,10 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
+/**
+ * Parent Dash Component to hold all other's after authentication is handled.
+ * Some top level update funcs are housed here before redux was implemented.
+ */
 class Dash extends React.Component {
     // Map state to props from redux
     state = this.props.state;
@@ -161,7 +166,8 @@ class Dash extends React.Component {
                     <div className="componentContainer">
                         <div className="header">
                             <FacilityAutoComplete selected={this.state.SelectedFacility}
-                                                  onUpdate={this.updateSelectedFacility}/>
+                                                  onUpdate={this.updateSelectedFacility}
+                            />
                             <DateComponent secondaryCheckbox={this.state.SecondaryDateCheck}
                                            onUpdate={this.updateDate}
                                            refreshView={this.refreshView}
@@ -175,7 +181,7 @@ class Dash extends React.Component {
                         <Route path="/conversion/path" render={() => <ConversionPath parentState={this.state} updateDash={this.updateDashConversion}/>}/>
                         <Route path="/explorer/" render={() => <Explorer parentState={this.state} updateDash={this.updateDashExplorer}/>}/>
                         <Route path="/export" render={() => <Export selected={this.state.SelectedFacility}/>}/>
-                        <Route exact path="/timeframe" render={(matchProps) => <Timeframe {...matchProps}
+                        <Route exact path="/timeframe"render={(matchProps) => <Timeframe {...matchProps}
                                                                                           parentState={this.state}
                                                                                           updateDash={this.updateDashTimeframe}/>}/>
                         <Route path="/timeframe/:id" render={(matchProps) => <Timeframe {...matchProps}
