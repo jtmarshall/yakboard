@@ -56,17 +56,18 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
+/**
+ * Holds first, mid, & last Touch graphs.
+ * Data objects can be fed in from props or generated inside sub-components.
+ */
 class Touch extends Component {
     constructor(props) {
         super(props);
 
-        console.log(props.parentState);
+        this.state = {
+            tabValue: this.props.parentState.Touch.tabValue,
+        };
     }
-
-    state = {
-        tabValue: this.props.parentState.Touch.tabValue,
-
-    };
 
     handleTabChange = (event, tabValue) => {
         this.setState({tabValue});

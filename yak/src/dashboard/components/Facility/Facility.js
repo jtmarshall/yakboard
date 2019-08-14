@@ -105,6 +105,11 @@ function RedGoal(props) {
 
 const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
 
+/**
+ * The main 'Facility Report' component;
+ * data for all the stats will be aggregated into an object here (probably in state),
+ * and then passed down into each 'ParentRow' component as props.
+ */
 class Facility extends Component {
     constructor(props) {
         super(props);

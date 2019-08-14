@@ -38,6 +38,10 @@ const RedGoal = props => {
     );
 };
 
+/**
+ * Houses small sub-tables so we can show sub-row expansion on Facility Report 'Stats Summary'.
+ * Data object will be fed in from props
+ */
 export default class ParentRow extends React.Component {
     constructor(props) {
         super(props);
@@ -173,20 +177,20 @@ export default class ParentRow extends React.Component {
                     <TableCell>
                         <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
-              <span className='redText'> -6%</span> (61)
-            </span>
+                          <span className='redText'> -6%</span> (61)
+                        </span>
                     </TableCell>
                     <TableCell>
                         <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
-              <span className='redText'> -6%</span> (61)
-            </span>
+                          <span className='redText'> -6%</span> (61)
+                        </span>
                     </TableCell>
                     <TableCell>
                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                         <span className='iconText'>
-              <span className='greenText'> 6%</span> (61)
-            </span>
+                          <span className='greenText'> 6%</span> (61)
+                        </span>
                     </TableCell>
                     <TableCell>
                         <TextField
@@ -215,20 +219,20 @@ export default class ParentRow extends React.Component {
                     <TableCell>
                         <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
-              <span className='redText'> -6%</span> (61)
-            </span>
+                          <span className='redText'> -6%</span> (61)
+                        </span>
                     </TableCell>
                     <TableCell>
                         <MaterialIcon icon='trending_down' color='#f44336'/>
                         <span className='iconText'>
-              <span className='redText'> -6%</span> (61)
-            </span>
+                          <span className='redText'> -6%</span> (61)
+                        </span>
                     </TableCell>
                     <TableCell>
                         <MaterialIcon icon='trending_up' color='#4caf50'/>
                         <span className='iconText'>
-              <span className='greenText'> 6%</span> (61)
-            </span>
+                          <span className='greenText'> 6%</span> (61)
+                        </span>
                     </TableCell>
                     <TableCell>
                         <TextField

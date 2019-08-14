@@ -6,6 +6,10 @@ import DataFilter from '../tools/dataFilter';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 
 
+/**
+ * Controls our sidebar nav AND houses our DataFilter component.
+ * We map our links to the routes we specified in Dash.
+ */
 class Sidebar extends React.Component {
 
     state = {
@@ -13,8 +17,8 @@ class Sidebar extends React.Component {
         subTimeframe: false,
     };
 
+    // Show/hide sub-navs
     toggleHidden = name => event => {
-        // console.log(name, !this.state[name]);
         this.setState({
             [name]: !this.state[name]
         });

@@ -56,6 +56,10 @@ const styles = {
     }
 };
 
+/**
+ * Export Component for exporting.
+ * Fell out of favor as the point of YAK is to discourage exporting.
+ */
 class Export extends Component {
 
     state = {

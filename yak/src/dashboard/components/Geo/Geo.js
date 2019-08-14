@@ -52,6 +52,11 @@ const styles = {
     },
 };
 
+/**
+ * Geo Component shows heat map for metrics.
+ * Plan is to grab the desired data, pass it to 'statesCustomConfig', and match it to a color range for each state.
+ * Hover over area to update the info box; also has dummy click handler for state.
+ */
 class Geo extends Component {
 
     state = {

@@ -5,6 +5,9 @@ import EVolumeChart from './eVolumeChart';
 import EFacilityAdmitGoal from './eFacilityAdmitGoal';
 
 
+/**
+ * Testing area to mash components together.
+ */
 export default class TestComponent extends Component {
 
     state = {};

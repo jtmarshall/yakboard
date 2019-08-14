@@ -11,8 +11,12 @@ import Tooltip from '@material-ui/core/Tooltip';
 import skuCodes from './skucodes';
 
 
+/**
+ * All data filters are set and saved here.
+ */
 class DataFilter extends React.Component {
 
+    // Pull in props from parent component
     currentFilter = this.props.Filter;
     rightDrawer = this.props.rightDrawer;
 
@@ -21,6 +25,7 @@ class DataFilter extends React.Component {
         right: this.rightDrawer
     };
 
+    // Show/hide the filter drawer
     toggleDrawer = (side) => () => {
         this.setState({
             [side]: !this.state.right,
@@ -29,7 +34,6 @@ class DataFilter extends React.Component {
 
     // update sku filter state
     handleSelect = name => event => {
-        // console.log(event.target.name, event.target.value);
         // dummy object so we don't clear other filter values
         let dummyObj = this.state.Filter;
         dummyObj[name] = event.target.value;
@@ -37,12 +41,11 @@ class DataFilter extends React.Component {
         this.setState({
             Filter: dummyObj
         });
-        // console.log(this.state.Filter);
 
         // re-assign dummyObj
         dummyObj = this.state.Filter;
 
-        // send update to main state
+        // send update to Dash state
         this.props.onUpdate(dummyObj);
     };
 
@@ -626,6 +629,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-)(DataFilter);
+export default connect(mapStateToProps)(DataFilter);

@@ -83,39 +83,6 @@ function createData(name) {
     return data;
 }
 
-// const rows = [
-//     {
-//         name: 'Revenues & Adjustments',
-//         data: createData('Revenues & Adjustments', 545638585, 551843118, 6204534, 1.1, 472159953, 73478632, 15.6),
-//         parentID: 0,
-//     },
-//     {
-//         name: 'IP Gross Revenue',
-//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
-//         childID: 0,
-//     },
-//     {
-//         name: 'IP Contractual Deductions',
-//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
-//         childID: 0,
-//     },
-//     {
-//         name: 'IP Rev Deducts - Admin',
-//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
-//         childID: 0,
-//     },
-//     {
-//         name: 'IP Rev Deducts - Charity',
-//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
-//         childID: 0,
-//     },
-//     {
-//         name: 'IP Rev Deducts - Denials',
-//         data: createData('IP Gross Revenue', 291402343, 293788837, 2386494, 0.8, 227084744, 64317599, 28.3),
-//         childID: 0,
-//     }
-// ];
-
 let rows = [
     {
         name: 'Revenues & Adjustments',
@@ -381,6 +348,12 @@ let fillData = (rows) => {
 
 const logoURL = "https://s3.amazonaws.com/acadia-yak/facility_logos/";
 
+/**
+ * MOR Component is the re-imagining of the MOR report that only shows necessary top level rows,
+ * and displaying less important sub-rows after clicking on parent rows.
+ * Rows data is held in a giant object which already holds the name of each row and it's sub-rows,
+ * can then map each data row in the component without having to hard code it all out.
+ */
 class MORComponent extends Component {
 
     state = {
@@ -438,16 +411,6 @@ class MORComponent extends Component {
             document.title = "YAK - " + this.state.fName;
         }
     }
-
-    handleChange = name => event => {
-        this.setState({
-            [name]: event.target.value,
-        });
-    };
-
-    handleTabChange = (event, tabValue) => {
-        this.setState({tabValue});
-    };
 
     // Show/hide child rows
     toggleChildRows = (name) => {
@@ -560,7 +523,7 @@ class MORComponent extends Component {
                                     <TableCell className='tableDataCell'>{subRow.data.pyVar}</TableCell>
                                     <TableCell className='tableDataCell'>{subRow.data.pyVarPercent}</TableCell>
                                 </TableRow>))
-                                : '')
+                                : null)
                             ])}
                         </TableBody>
                         </Table>

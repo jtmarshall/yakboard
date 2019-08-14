@@ -9,8 +9,6 @@ import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import NivoPie from "./nivoPie";
-//import moment from "moment/moment";
-//import MaterialIcon from 'material-icons-react';
 import LineChart from './lineChart';
 
 
@@ -63,6 +61,10 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
+/**
+ * Component to show conversion summaries, tables, graphs, & paths.
+ * Was never quite fleshed out with management, and was put in the back of the queue.
+ */
 class Conversion extends Component {
     constructor(props) {
         super(props);
